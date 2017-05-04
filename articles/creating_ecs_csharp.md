@@ -25,6 +25,6 @@ class RootComponent<T> : Component {
     => obj.FirstOrDefault(o => o is U && pred(o as U)) as U;
     
   public bool Contains<U>() where U : class, T
-    => obj.FirstOrDefault(o => o is U) != null;
+    => this.Get<U>(o => true) != null;
 }
 ```
