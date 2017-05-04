@@ -1,5 +1,5 @@
 ## Welcome here!
-I'm a C++ and C# developer. This is my GitHub dev blog.
+I'm a C++ and C# developer, and this is my GitHub dev blog!
 
 
 ## Articles
