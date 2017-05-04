@@ -22,7 +22,7 @@ class RootComponent<T> : Component {
     => this.obj.Add(val);
     
   public U Get<U>(UnaryPred<U> pred) where U : class, T
-    => obj.FirstOrDefault(o => this.Contains<U>() && pred(o as U)) as U;
+    => obj.FirstOrDefault(o => os i U) && pred(o as U)) as U;
     
   public bool Contains<U>() where U : class, T
     => obj.FirstOrDefault(o => o is U) != null;
