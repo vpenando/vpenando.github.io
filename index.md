@@ -15,7 +15,7 @@ var articles = [];
 
 function addArticle(title, link){
   articles.push({"title": title, "link": link});
-  document.getElementById('articlesList').innerHTML += "<li>[" + title + "](" + link + ")</li>";
+  document.getElementById('articlesList').innerHTML += '<li><a href="' + link + '">' + title + '</a></li>';
 }
 </script>
 
