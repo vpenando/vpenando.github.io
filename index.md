@@ -1,4 +1,4 @@
-## Welcome here!
+## Welcome here! | [My GitHub projects](about.md) | [About me](about.md)
 I'm a C++ and C# developer, and this is my GitHub dev blog!
 
 ![Applauding.gif](https://media.giphy.com/media/aUynIHr7m1YOY/giphy.gif "")
