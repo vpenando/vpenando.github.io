@@ -4,5 +4,5 @@ This is my GitHub dev blog.
 
 ## Articles
 ---
-*Here are my articles list.*
+*Here is -or will be- my articles list.*
 *(coming soon!)*
