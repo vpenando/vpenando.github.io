@@ -7,5 +7,3 @@ I'm a C++ and C# developer, and this is my GitHub dev blog!
 *Here is -or will be- my articles list.*
 
 *(coming soon!)*
-
-[C# - Let's create an ECS!](articles/creating_ecs_csharp.md)
