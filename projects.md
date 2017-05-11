@@ -24,7 +24,7 @@ while (loop) {
 ---
 
 ### [MatMath](https://github.com/tyr-sl3/MatMath) [![Build Status](https://travis-ci.org/tyr-sl3/MatMath.svg)](https://travis-ci.org/tyr-sl3/MatMath)
-A free, open source, header-only C++ API for mathematic operations on matrices. Provites two types of matrix:
+A free, open source, header-only C++ API for mathematic operations on matrices. Provides two types of matrix:
 - Allocated on the stack
 - Allocated on the heap
 
