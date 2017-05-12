@@ -7,8 +7,8 @@ public:
   DynamicArray(unsigned size, T const& val = T{});
   ~DynamicArray();
   unsigned size() const noexcept;
-  T& operator[](unsigned i);
-  T  operator[](unsigned i) const;
+  T& operator[](unsigned i);       // Setter
+  T  operator[](unsigned i) const; // Getter
 private:
   T *array_;
   unsigned size_;
@@ -17,28 +17,46 @@ private:
 
 Implémentation :
 ```cpp
+//! @brief Constructeur
+//! @param size Taille du tableau
+//! @param val  (Optionnel) Valeur par défaut des éléments du tableau
+//! @pre   size doit être supérieur à 0
 template<class T>
-DynamicArray<T>::DynamicArray(unsigned size, T const& val) : array_(new T[size]), size_(size) {
+DynamicArray<T>::DynamicArray(unsigned size, T const& val)
+  : array_(new T[size]),
+    size_(size)
+{
   assert(size > 0 && "Invalid size");
   std::fill(array_, array_ + size, val);
 }
 
+//! @brief Destructeur
 template<class T>
 DynamicArray<T>::~DynamicArray() {
   delete[] array_;
 }
 
+//! @brief   Getter vers size_
+//! @returns La taille du tableau
 template<class T>
 unsigned DynamicArray<T>::size() const noexcept {
   return size_;
 }
 
+//! @brief   Setter
+//! @param   i Index
+//! @returns Une référence vers le i-nième élément du tableau
+//! @pre     i ne doit pas être en dehors de [0; size_ - 1]
 template<class T>
 T& DynamicArray<T>::operator[](unsigned i) {
   assert(i < size_ && "Out of bounds");
   return array_[i];
 }
 
+//! @brief   Getter
+//! @param   i Index
+//! @returns Le i-nième élément du tableau
+//! @pre     i ne doit pas être en dehors de [0; size_ - 1]
 template<class T>
 T DynamicArray<T>::operator[](unsigned i) const {
   assert(i < size_ && "Out of bounds");
