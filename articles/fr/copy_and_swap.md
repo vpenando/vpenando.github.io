@@ -7,8 +7,8 @@ public:
   DynamicArray(unsigned size, T const& val = T{});
   ~DynamicArray();
   unsigned size() const noexcept;
-  T& operator[](unsigned i);       // Setter
-  T  operator[](unsigned i) const; // Getter
+  T& operator[](unsigned idx);       // Setter
+  T  operator[](unsigned idx) const; // Getter
 private:
   T *array_;
   unsigned size_;
@@ -43,24 +43,24 @@ unsigned DynamicArray<T>::size() const noexcept {
   return size_;
 }
 
-//! @brief   Setter
-//! @param   i Index
+//! @brief   Setter vers le i-ième élément du tableau
+//! @param   idx Index
 //! @returns Une référence vers le i-nième élément du tableau
-//! @pre     i ne doit pas être en dehors de [0; size_ - 1]
+//! @pre     idx ne doit pas être en dehors de la plage [0; size_ - 1]
 template<class T>
-T& DynamicArray<T>::operator[](unsigned i) {
-  assert(i < size_ && "Out of bounds");
-  return array_[i];
+T& DynamicArray<T>::operator[](unsigned idx) {
+  assert(idx < size_ && "Out of bounds");
+  return array_[idx];
 }
 
-//! @brief   Getter
-//! @param   i Index
+//! @brief   Getter vers le i-ième élément du tableau
+//! @param   idx Index
 //! @returns Le i-nième élément du tableau
-//! @pre     i ne doit pas être en dehors de [0; size_ - 1]
+//! @pre     idx ne doit pas être en dehors de la plage [0; size_ - 1]
 template<class T>
-T DynamicArray<T>::operator[](unsigned i) const {
-  assert(i < size_ && "Out of bounds");
-  return array_[i];
+T DynamicArray<T>::operator[](unsigned idx) const {
+  assert(idx < size_ && "Out of bounds");
+  return array_[idx];
 }
 ```
 
