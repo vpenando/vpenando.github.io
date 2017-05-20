@@ -94,7 +94,7 @@ void foo(DynamicArray<int> const& arr) {
 } // Ici, copy.array_ est libéré
 
 int main() {
-  DynamicArray<int> arr{10}; // Création d'une tableau de 10 éléments
+  DynamicArray<int> arr{10}; // Création d'un tableau de 10 éléments
   foo(arr);
   // A ce stade, arr.array_ est libéré
 } // Arrivé ici, arr.array_ est de nouveau libéré
