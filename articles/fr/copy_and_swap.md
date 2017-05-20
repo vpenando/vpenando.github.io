@@ -1,4 +1,5 @@
 
+## Introduction
 Définition de la classe :
 ```cpp
 template<class T>
@@ -64,6 +65,7 @@ T DynamicArray<T>::operator[](unsigned idx) const {
 }
 ```
 
+## Le problème
 Cette classe ne redéfinissant pas de constructeur de copie et d'opérateur d'affectation, la compilation provoquera le message suivant avec un compilateur bien réglé :
 ```
 main.cpp: In instantiation of 'class DynamicArray<int>':
@@ -112,3 +114,5 @@ L'erreur suivante arrivera au runtime (ou tout du moins, une erreur similaire) :
 ======= Memory map: ========
 0bash: line 7:   724 Aborted                 (core dumped) ./a.out
 ```
+
+## Solution
