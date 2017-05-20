@@ -79,7 +79,6 @@ main.cpp:5:7: error:   or 'operator=(const DynamicArray<int>&)' [-Werror=effc++]
 
 Et pour cause :
 ```cpp
-void foo(
 DynamicArray<T> copy(42, 10);
 copy = arr; // ???
 ```
