@@ -77,9 +77,38 @@ main.cpp:5:7: error:   or 'operator=(const DynamicArray<int>&)' [-Werror=effc++]
 
 Et pour cause :
 ```cpp
+void foo(
 DynamicArray<T> copy(42, 10);
 copy = arr; // ???
 ```
 Que se passera-t-il dans ce cas ? Que devient `copy.array_` lors de l'affectation ? Ou plutôt, à quel moment ce pointeur est-il libéré ?
 
 La réponse est simple : la mémoire allouée n'est tout simplement pas libérée.
+
+De plus, un autre problème se pose. Imaginons le code suivant :
+```cpp
+void foo(DynamicArray<int> const& arr) {
+  auto cpy = arr; // cpy.array_ = arr.array_ => copie de pointeur
+  // ...
+} // Ici, copy.array_ est libéré
+
+int main() {
+  DynamicArray<int> arr{10}; // Création d'une tableau de 10 éléments
+  foo(arr);
+  // A ce stade, arr.array_ est libéré
+} // Arrivé ici, arr.array_ est de nouveau libéré
+```
+L'erreur suivante arrivera au runtime (ou tout du moins, une erreur similaire) :
+```
+*** Error in `./a.out': double free or corruption (fasttop): 0x0000000000db8c20 ***
+======= Backtrace: =========
+/lib/x86_64-linux-gnu/libc.so.6(+0x777e5)[0x7f7a475737e5]
+/lib/x86_64-linux-gnu/libc.so.6(+0x7fe0a)[0x7f7a4757be0a]
+/lib/x86_64-linux-gnu/libc.so.6(cfree+0x4c)[0x7f7a4757f98c]
+./a.out[0x400a8d]
+./a.out[0x4009bf]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0xf0)[0x7f7a4751c830]
+./a.out[0x400859]
+======= Memory map: ========
+0bash: line 7:   724 Aborted                 (core dumped) ./a.out
+```
