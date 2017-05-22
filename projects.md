@@ -22,6 +22,7 @@ while (loop) {
 }
 ```
 Useful links:
+- [Doc & Examples](https://github.com/tyr-sl3/sdl-cpp/blob/master/README.md)
 - [Ideas](https://github.com/tyr-sl3/sdl-cpp/wiki/Ideas)
 - [Todo list](https://github.com/tyr-sl3/sdl-cpp/wiki/Todo-list)
 
