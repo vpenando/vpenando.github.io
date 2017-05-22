@@ -22,8 +22,8 @@ while (loop) {
 }
 ```
 Useful links:
-* [Ideas](https://github.com/tyr-sl3/sdl-cpp/wiki/Ideas)
-* [Todo list](https://github.com/tyr-sl3/sdl-cpp/wiki/Todo-list)
+- [Ideas](https://github.com/tyr-sl3/sdl-cpp/wiki/Ideas): Some random ideas
+- [Todo list](https://github.com/tyr-sl3/sdl-cpp/wiki/Todo-list): What's next?
 ---
 
 ### [MatMath](https://github.com/tyr-sl3/MatMath) [![Build Status](https://travis-ci.org/tyr-sl3/MatMath.svg)](https://travis-ci.org/tyr-sl3/MatMath)
