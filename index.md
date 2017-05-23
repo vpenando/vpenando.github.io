@@ -1,4 +1,6 @@
 ## Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
+
+## Who am I?
 I'm a C++ and C# developer, and this is my GitHub dev blog!
 
 <img src="assets/cat-clap.gif" alt="hi" class="inline"/>
