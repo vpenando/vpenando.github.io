@@ -5,11 +5,11 @@ Avant :
 template<unsigned N>
 struct Factorial {
   static_assert(N <= 10, "Invalid value for N (max value: 10)");
-  constexpr static unsigned value = N * Factorial<N - 1>::value;
+  constexpr static unsigned value = N * Factorial<N - 1u>::value;
 };
 
 struct default_fac {
-  constexpr static unsigned value = 1;
+  constexpr static unsigned value = 1u;
 };
 
 template<> struct Factorial<1u> : default_fac {};
@@ -17,7 +17,7 @@ template<> struct Factorial<0u> : default_fac {};
 
 template<int N, unsigned P>
 struct Pow {
-  constexpr static int value = N * Pow<N, P - 1>::value;
+  constexpr static int value = N * Pow<N, P - 1u>::value;
 };
 
 template<int N>
@@ -39,7 +39,7 @@ template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 
 template<int N, unsigned P>
-struct Pow : std::integral_constant<decltype(N), N * Pow<N, P - 1>::value> {};
+struct Pow : std::integral_constant<decltype(N), N * Pow<N, P - 1u>::value> {};
 
 template<int N>
 struct Pow<N, 1u> : std::integral_constant<decltype(N), N> {};
