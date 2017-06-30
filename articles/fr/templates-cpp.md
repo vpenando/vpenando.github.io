@@ -31,11 +31,9 @@ struct Factorial {
   constexpr static unsigned value = N * Factorial<N - 1u>::value;
 };
 
-struct default_fac {
+template<> struct Factorial<0u> {
   constexpr static unsigned value = 1u;
 };
-
-template<> struct Factorial<0u> : default_fac {};
 ```
 
 **1.2 - La factorielle** - Version 2, avec `std::integral_constant`
@@ -45,9 +43,7 @@ struct Factorial : std::integral_constant<decltype(N), N * Factorial<N - 1u>::va
   static_assert(N <= 10, "Invalid value for N (max value: 10)");
 };
 
-using default_fac = std::integral_constant<unsigned, 1u>;
-
-template<> struct Factorial<0u> : default_fac {};
+template<> struct Factorial<0u> : std::integral_constant<unsigned, 1u>; {};
 ```
 **Note -** `decltype(N)` renvoie le type de `N`, ici `unsigned`. C'est utile de l'utiliser pour minimiser le refactoring en cas de changement de type.
 
@@ -68,11 +64,6 @@ struct Pow {
 };
 
 template<int N>
-struct Pow<N, 1u> {
-  constexpr static int value = N;
-};
-
-template<int N>
 struct Pow<N, 0u> {
   constexpr static int value = 1;
 };
@@ -84,10 +75,7 @@ template<int N, unsigned P>
 struct Pow : std::integral_constant<decltype(N), N * Pow<N, P - 1u>::value> {};
 
 template<int N>
-struct Pow<N, 1u> : std::integral_constant<decltype(N), N> {};
-
-template<int N>
-struct Pow<N, 0u> : std::integral_constant<decltype(N), 1u> {};
+struct Pow<N, 0u> : std::integral_constant<decltype(N), 1> {};
 ```
 
 **2.3 - Utilisation**
