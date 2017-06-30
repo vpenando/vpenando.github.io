@@ -7,7 +7,7 @@ Qu'est-ce que `std::integral_constant` ?
 ```cpp
 namespace std {
 
-template<class T, T v>
+  template<class T, T v>
   struct integral_constant {
     static constexpr T value = v;
     typedef T value_type;
