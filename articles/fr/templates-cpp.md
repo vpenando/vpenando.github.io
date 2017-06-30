@@ -45,7 +45,7 @@ template<int N>
 struct Pow<N, 1u> : std::integral_constant<decltype(N), N> {};
 
 template<int N>
-struct Pow<N, 0u> : std::integral_constant<decltype(1u), 1u> {};
+struct Pow<N, 0u> : std::integral_constant<decltype(N), 1u> {};
 ```
 
 `std::integral_constant`:
