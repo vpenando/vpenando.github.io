@@ -1,4 +1,8 @@
-## Avant-propos - Templates, récusivité et `std::integral_constant`
+## Templates, récusivité et `std::integral_constant`
+Calculs par récursivité
+
+## Avant-propos
+Nous allons utiliser la classe `std::integral_constant` pour la suite. Commençons donc par la présenter.
 Qu'est-ce que `std::integral_constant` ?
 ```cpp
 namespace std {
@@ -14,8 +18,11 @@ template<class T, T v>
   
 } // namespace std
 ```
+Très simplement : une classe qui prend en paramètre template un type `T` et une instance de ce type `v`, accessible par sa variable membre statique `value`.
+Exemple : `std::integral_constant<int, 12>::value` renverra 12. Cela n'a l'air de rien, mais c'est vraiment puissant. Vous ne me croyez pas ? La suite vous montrera pourquoi.
 
 ## Le cas simple : le calcul récursif
+### I - La factorielle
 **1.1 - La factorielle**, sans `std::integral_constant`
 ```cpp
 template<unsigned N>
@@ -44,6 +51,7 @@ using default_fac = std::integral_constant<unsigned, 1u>;
 template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 ```
+**Note -** `decltype(N)` renvoie le type de `N`, ici `unsigned`. C'est utile de l'utiliser pour minimiser le refactoring en cas de changement de type.
 
 **1.3 - Utilisation**
 ```cpp
@@ -53,6 +61,7 @@ int main() {
 }
 ```
 
+### II - La puissance
 **2.1 - La puissance**, sans `std::integral_constant`
 ```cpp
 template<int N, unsigned P>
