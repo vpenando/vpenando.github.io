@@ -29,7 +29,7 @@ struct Pow<N, 1u> {
 Après :
 ```cpp
 template<unsigned N>
-struct Factorial : std::integral_constant<unsigned, N * Factorial<N - 1>::value> {
+struct Factorial : std::integral_constant<decltype(N), N * Factorial<N - 1u>::value> {
   static_assert(N <= 10, "Invalid value for N (max value: 10)");
 };
 
@@ -39,10 +39,13 @@ template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 
 template<int N, unsigned P>
-struct Pow : std::integral_constant<unsigned, N * Pow<N, P - 1>::value> {};
+struct Pow : std::integral_constant<decltype(N), N * Pow<N, P - 1>::value> {};
 
 template<int N>
-struct Pow<N, 1u> : std::integral_constant<unsigned, N> {};
+struct Pow<N, 1u> : std::integral_constant<decltype(N), N> {};
+
+template<int N>
+struct Pow<N, 0u> : std::integral_constant<decltype(1u), 1u> {};
 ```
 
 `std::integral_constant`:
