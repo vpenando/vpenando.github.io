@@ -111,9 +111,16 @@ int main(int argc, char **argv) {
 ```
 
 ```cpp
+template<class T>
+struct is_number : std::is_arithmetic<T> {};
+
 template<class ...Args>
 void foo(std::tuple<Args...> const& tuple) {
   constexpr auto contains_only_nums = Check<is_number, Args...>();
   static_assert(contains_only_nums, "Invalid tuple");
+}
+
+int main(int argc, char **argv) {
+  foo(std::tuple<int, int, char*>{});
 }
 ```
