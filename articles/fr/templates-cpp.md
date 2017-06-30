@@ -55,6 +55,11 @@ template<int N>
 struct Pow<N, 1u> {
   constexpr static int value = N;
 };
+
+template<int N>
+struct Pow<N, 0u> {
+  constexpr static int value = 1;
+};
 ```
 
 **2.2 - La puissance**, avec `std::integral_constant`
