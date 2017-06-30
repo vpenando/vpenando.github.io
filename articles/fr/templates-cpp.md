@@ -112,7 +112,7 @@ Exemples :
 template<class T>
 struct is_number : std::is_arithmetic<T> {};
 
-int main(int argc, char **argv) {
+int main() {
   std::cout << std::boolalpha;
   std::cout << "Valid check? " << Check<is_number, int, double, float>::value << std::endl; // true
   std::cout << "Valid check? " << Check<is_number, int, double, char*>::value << std::endl; // false
