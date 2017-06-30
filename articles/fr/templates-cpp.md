@@ -31,6 +31,7 @@ struct default_fac {
 template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 ```
+
 **1.2 - La factorielle** - Version 2, avec `std::integral_constant`
 ```cpp
 template<unsigned N>
@@ -42,6 +43,14 @@ using default_fac = std::integral_constant<unsigned, 1u>;
 
 template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
+```
+
+**1.3 - Utilisation**
+```cpp
+int main() {
+  constexpr auto fac10 = Factorial<10>::value; // Ou Factorial<10>()
+  std::cout << fac10; // 3628800
+}
 ```
 
 **2.1 - La puissance**, sans `std::integral_constant`
@@ -72,6 +81,14 @@ struct Pow<N, 1u> : std::integral_constant<decltype(N), N> {};
 
 template<int N>
 struct Pow<N, 0u> : std::integral_constant<decltype(N), 1u> {};
+```
+
+**2.3 - Utilisation**
+```cpp
+int main() {
+  constexpr auto pow2_3 = Pow<2, 3>::value; // Ou Pow<2, 3>()
+  std::cout << pow2_3; // 8
+}
 ```
 
 ## Usages "avancés"
@@ -120,7 +137,7 @@ void foo(std::tuple<Args...> const& tuple) {
   static_assert(contains_only_nums, "Invalid tuple");
 }
 
-int main(int argc, char **argv) {
+int main() {
   foo(std::tuple<int, int, char*>{});
 }
 ```
