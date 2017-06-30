@@ -35,7 +35,6 @@ struct default_fac {
   constexpr static unsigned value = 1u;
 };
 
-template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 ```
 
@@ -48,7 +47,6 @@ struct Factorial : std::integral_constant<decltype(N), N * Factorial<N - 1u>::va
 
 using default_fac = std::integral_constant<unsigned, 1u>;
 
-template<> struct Factorial<1u> : default_fac {};
 template<> struct Factorial<0u> : default_fac {};
 ```
 **Note -** `decltype(N)` renvoie le type de `N`, ici `unsigned`. C'est utile de l'utiliser pour minimiser le refactoring en cas de changement de type.
