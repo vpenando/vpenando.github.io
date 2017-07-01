@@ -43,7 +43,7 @@ struct Factorial : std::integral_constant<decltype(N), N * Factorial<N - 1u>::va
   static_assert(N <= 10, "Invalid value for N (max value: 10)");
 };
 
-template<> struct Factorial<0u> : std::integral_constant<unsigned, 1u>; {};
+template<> struct Factorial<0u> : std::integral_constant<unsigned, 1u> {};
 ```
 **Note -** `decltype(N)` renvoie le type de `N`, ici `unsigned`. C'est utile de l'utiliser pour minimiser le refactoring en cas de changement de type.
 
