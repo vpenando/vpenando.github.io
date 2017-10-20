@@ -2,7 +2,11 @@
 
 [FR] Projet - Présentation d'un wrapper C++14 pour la SDL2
 ---
-[![Build Status](https://travis-ci.org/tyr-sl3/sdl-cpp.svg)](https://travis-ci.org/tyr-sl3/sdl-cpp)
+Version | Statut
+-----------|-------------
+`0.1.0` | [![Build Status](https://travis-ci.org/tyr-sl3/sdl-cpp.svg)](https://travis-ci.org/tyr-sl3/sdl-cpp)
+
+
 
 ### 1. Création d'une fenêtre
 En SDL classique, la création d'une fenêtre suit quatre étapes :
