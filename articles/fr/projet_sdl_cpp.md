@@ -83,6 +83,6 @@ while (loop) {
   const auto mouse_coords = mouse_state.coords();
   std::cout << "Mouse: (" << mouse_coords.x << ", " << mouse_coords.y << ")" << std::endl;
   // Update
-  handler.update(); // Will also update mouse_handler
+  handler.update(); // Met à jour les handlers pour le clavier et la souris
   window.update();
 }
