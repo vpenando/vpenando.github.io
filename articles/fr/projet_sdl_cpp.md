@@ -71,7 +71,7 @@ bool loop = true; // Indique si la main loop tourne
 handler.on_quit([&loop)() -> void { loop = false; }); // Met loop à false si on ferme la fenêtre
 // Gestion des touches du clavier
 handler.on_press(
-  sdl::KeyCode::A,                                          // Touche concernée
+  sdl::KeyCode::A,         // Touche concernée
   [] -> void { /* ... */ } // Action à effectuer
 );
 // Exemple concret :
