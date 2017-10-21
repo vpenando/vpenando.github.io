@@ -66,17 +66,25 @@ window.blit(
 ### 3. Gestion des événements
 La gestion des événements est centralisée par la classe `sdl::EventHandler handler;`, qui simplifie grandement le travail :
 ```cpp
-sdl::EventHandler handler{};
-bool loop = true; // Indique si la main loop tourne
-handler.on_quit([&loop)() -> void { loop = false; }); // Met loop à false si on ferme la fenêtre
+sdl::EventHandler handler;
+
+// Action à faire à la fermeture de l'application
+handler.on_quit([] -> void { /* ... */ });
+
 // Gestion des touches du clavier
 handler.on_press(
   sdl::KeyCode::A,         // Touche concernée
   [] -> void { /* ... */ } // Action à effectuer
 );
-// Exemple concret :
+```
+
+Exemple concret :
+```cpp
+sdl::EventHandler handler;
+bool loop = true; // Indique si la main loop tourne
+handler.on_quit([&loop)() -> void { loop = false; });
 handler.on_press(sdl::KeyCode::Esc, [&loop] -> void { loop = false; });
-auto& mouse_handler = handler.get<MouseStateHandler>();
+auto& mouse_handler = handler.get<sdl::MouseStateHandler>();
 while (loop) {
   const auto mouse_state  = mouse_handler.state();
   const auto left_click   = mouse_state.clicked(sdl::ClickCode::Left);
@@ -86,3 +94,13 @@ while (loop) {
   handler.update(); // Met à jour les handlers pour le clavier et la souris
   window.update();
 }
+```
+Récupération d'inputs multiples :
+```cpp
+sdl::EventHandler handler;
+auto& keyboard_handler = handler.get<sdl::KeyboardStateHandler>();
+const auto state = keyboard_handler.state();
+const auto abc = state[sdl::Key::A].pressed
+  && state[sdl::Key::B].pressed
+  && state[sdl::Key::C].pressed;
+```
