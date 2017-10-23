@@ -4,7 +4,7 @@ Here are my main projects.
 ---
 
 
-### [SDL Wrapper](https://github.com/tyr-sl3/sdl-cpp) [![Build Status](https://travis-ci.org/tyr-sl3/sdl-cpp.svg)](https://travis-ci.org/tyr-sl3/sdl-cpp)
+### [SDL Wrapper](https://github.com/vpenando/sdl-cpp) [![Build Status](https://travis-ci.org/vpenando/sdl-cpp.svg)](https://travis-ci.org/vpenando/sdl-cpp)
 A free, open source and RAII-conform SDL wrapper written in C++14. Its goal is to make easier and safier to develop SDL programs with C++.
 
 Short example:
@@ -22,13 +22,13 @@ while (loop) {
 }
 ```
 Useful links:
-- [Doc & Examples](https://github.com/tyr-sl3/sdl-cpp/blob/master/README.md)
-- [Ideas](https://github.com/tyr-sl3/sdl-cpp/wiki/Ideas)
-- [Todo list](https://github.com/tyr-sl3/sdl-cpp/wiki/Todo-list)
+- [Doc & Examples](https://github.com/vpenando/sdl-cpp/blob/master/README.md)
+- [Ideas](https://github.com/vpenando/sdl-cpp/wiki/Ideas)
+- [Todo list](https://github.com/vpenando/sdl-cpp/wiki/Todo-list)
 
 ---
 
-### [MatMath](https://github.com/tyr-sl3/MatMath) [![Build Status](https://travis-ci.org/tyr-sl3/MatMath.svg)](https://travis-ci.org/tyr-sl3/MatMath)
+### [MatMath](https://github.com/tyr-sl3/MatMath) [![Build Status](https://travis-ci.org/vpenando/MatMath.svg)](https://travis-ci.org/vpenando/MatMath)
 A free, open source, header-only C++ API for mathematic operations on matrices. Provides two types of matrix:
 - Allocated on the stack
 - Allocated on the heap
