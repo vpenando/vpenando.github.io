@@ -4,7 +4,7 @@
 ---
 Version | Statut
 -----------|-------------
-`0.1.0` | [![Build Status](https://travis-ci.org/tyr-sl3/sdl-cpp.svg)](https://travis-ci.org/tyr-sl3/sdl-cpp)
+`0.1.0` | [![Build Status](https://travis-ci.org/vpenando/sdl-cpp.svg)](https://travis-ci.org/vpenando/sdl-cpp)
 
 
 
