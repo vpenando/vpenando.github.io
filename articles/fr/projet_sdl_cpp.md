@@ -76,18 +76,40 @@ handler.on_press(
   sdl::KeyCode::A,         // Touche concernée
   [] -> void { /* ... */ } // Action à effectuer
 );
-```
 
+// Gestion des clics de la souris
+handler.on_click(
+  sdl::ClickCode::Left,    // Touche concernée
+  [] -> void { /* ... */ } // Action à effectuer
+);
+```
 Exemple concret :
 ```cpp
 sdl::EventHandler handler;
 bool loop = true; // Indique si la main loop tourne
 handler.on_quit([&loop)() -> void { loop = false; });
 handler.on_press(sdl::KeyCode::Esc, [&loop] -> void { loop = false; });
-auto& mouse_handler = handler.get<sdl::MouseStateHandler>();
 while (loop) {
+  // ...
+  // Update
+  handler.update(); // Met à jour les handlers pour le clavier et la souris
+  window.update();
+}
+```
+
+Il est bien entendu possible de récupérer soi-même les inputs :
+```cpp
+sdl::EventHandler handler;
+auto& keyboard_handler = handler.get<sdl::KeyboardStateHandler>();
+auto& mouse_handler    = handler.get<sdl::MouseStateHandler>();
+bool loop = true; // Indique si la main loop tourne
+while (loop) {
+  const auto keyboard_state = keyboard_handler.state();
+  const auto key_a_pressed  = keyboard_state[sdl::KeyCode::A].pressed;
+  if (key_a_pressed) {
+    std::cout << "Key A pressed!" << std::endl;
+  }
   const auto mouse_state  = mouse_handler.state();
-  const auto left_click   = mouse_state.clicked(sdl::ClickCode::Left);
   const auto mouse_coords = mouse_state.coords();
   std::cout << "Mouse: (" << mouse_coords.x << ", " << mouse_coords.y << ")" << std::endl;
   // Update
@@ -95,12 +117,13 @@ while (loop) {
   window.update();
 }
 ```
-Récupération d'inputs multiples :
+
+Cela est certes plus compliqué, mais permet la récupération d'inputs multiples :
 ```cpp
 sdl::EventHandler handler;
 auto& keyboard_handler = handler.get<sdl::KeyboardStateHandler>();
 const auto state = keyboard_handler.state();
 const auto abc = state[sdl::Key::A].pressed
-  && state[sdl::Key::B].pressed
-  && state[sdl::Key::C].pressed;
+              && state[sdl::Key::B].pressed
+              && state[sdl::Key::C].pressed;
 ```
