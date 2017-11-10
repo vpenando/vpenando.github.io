@@ -78,6 +78,7 @@ namespace fun{ // "fun" pour "functional"
   
 } // namespace fun
 ```
+
 A l'usage, à quoi cela ressemble-t-il ?
 ```cpp
 const auto add  = [](int x, int y) -> int { return x + y; };
