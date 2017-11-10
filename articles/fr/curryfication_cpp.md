@@ -54,6 +54,7 @@ Quid donc de définir une fonction similaire sans cette contrainte ? Pour cela, 
 * Les variadic templates
 * Les lambdas
 * La récursivité
+
 ```cpp
 namespace fun{ // "fun" pour "functional"
 
@@ -78,7 +79,6 @@ namespace fun{ // "fun" pour "functional"
   
 } // namespace fun
 ```
-
 A l'usage, à quoi cela ressemble-t-il ?
 ```cpp
 const auto add  = [](int x, int y) -> int { return x + y; };
