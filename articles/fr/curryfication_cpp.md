@@ -3,7 +3,9 @@
 ### [FR] Réflexion - Application partielle de fonction en C++
 
 ###### Note importante
-> Cet article est une réflexion personnelle concernant une feature n'existant pas en C++. Il ne s'agit pas d'un article structuré visant à apprendre ou détailler des points du langage. Par ailleurs, je compile en C++14, aussi je vous recommande d'utiliser un compilateur supportant cette norme si vous souhaitez reproduire ces exemples.
+> Cet article est une réflexion personnelle. Il ne s'agit pas d'un article structuré visant à apprendre ou détailler des points du langage. Par ailleurs, je compile en C++14, aussi je vous recommande d'utiliser un compilateur supportant cette norme si vous souhaitez reproduire ces exemples (VS2015/2017 ou un GCC/Clang récent).
+
+---
 
 Dans certains langages, et notamment en programmation fonctionnelle, il est possible de profiter d'un mécanisme appelé *application partielle*. Cela consiste à appeler une fonction avec seulement une partie de ses arguments afin de générer une nouvelle fonction.
 
@@ -82,8 +84,9 @@ const auto add  = [](int x, int y) -> int { return x + y; };
 const auto add2 = fun::apply(add, 2); // Pas besoin de placeholder !
 const auto five = add2(3);
 ```
-Maintenant, une dernière question (et pas des moindres !) : **cette implémentation est-elle viable ?** <br />
-Et à cette question, la réponse est **non**. Non, car cette fonction, ainsi que celles qu'elle peut générer, a un coût en performances. Là où une lambda effectue directement l'appel à la fonction concernée, `fun::apply` effectue des appels récursifs. En effet, la fonction générée n'est pas "vraiment" une application partielle ; il s'agit de plusieurs fonctions s'appelant à la suite. A titre d'exemple, voici un programme complet ainsi que sa sortie :
+Cette fonction, ainsi que celles qu'elle peut générer, a un coût en performances. Là où une lambda effectue directement l'appel à la fonction concernée, `fun::apply` effectue des appels récursifs. En effet, la fonction générée n'est pas "vraiment" une application partielle ; il s'agit de plusieurs fonctions s'appelant à la suite. La partie "logique" (la fonction en elle-même) n'est quant à elle appelée qu'une et une seule fois.
+
+A titre d'exemple, voici un programme complet ainsi que sa sortie (disponible sur [coliru](http://coliru.stacked-crooked.com/a/29eeec0fb8b2b70f)):
 ```cpp
 #include <iostream> // std::cout
 
@@ -135,3 +138,8 @@ Sortie :
 3
 4
 ```
+On remarque donc que derrière un seul appel se dissimulent en fait... **quatre** appels ! C'est-à-dire qu'une nouvelle "sous-fonction" est générée pour chaque paramètre spécifié à `fun::apply`. Autant donc rester raisonnable sur le nombre de paramètres spécifiés à l'avance !
+
+---
+#### Conclusion
+Suite à un post récent sur un forum, je m'étais demandé s'il était possible de coder une fonction d'application partielle en C++14. Il s'est avéré que non seulement c'était possible, mais qu'il était surtout possible de faire ça *simplement*. En effet, deux fonctions suffisent pour cela !
