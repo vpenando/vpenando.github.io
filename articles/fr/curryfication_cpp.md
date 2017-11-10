@@ -2,14 +2,14 @@
 ```cpp
 template<class Fn, class T>
 auto curry(Fn&& fn, T const& val) {
-  return [fn, &val](auto&& ...a) {
+  return [=](auto&& ...a) {
     return std::bind(fn, val, a...)();
   };
 }
 
 template<class Fn, class T, class ...Args>
 auto curry(Fn&& fn, T const& val, Args&& ...args) {
-  return curry([fn, &val](auto&& ...a) {
+  return curry([=](auto&& ...a) {
     return std::bind(fn, val, a...)();
   }, args...);
 }
@@ -22,8 +22,8 @@ void print_args(int a, int b, int c, int d) {
 }
 
 int main() {
-  auto curryed = curry(print_args, 1, 2, 3);
-  curryed(4);
+  auto curryed = curry(print_args, 1, 2);
+  curryed(3, 4);
   std::cin.get();
 }
 ```
