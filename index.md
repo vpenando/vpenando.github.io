@@ -2,7 +2,5 @@
 
 <img src="assets/cat-clap.gif" alt="hi" class="inline"/>
 
-## Articles
-*Here is -or will be- my articles list.*
-
-*(coming soon!)*
+### Recent posts:
+- `11/11/2017`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/curryfication_cpp.md)
