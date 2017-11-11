@@ -43,7 +43,6 @@ A présent, essayons de créer notre mécanisme d'application partielle. Nous al
 const auto add = [](int x, int y) -> int { return x + y; };
 
 namespace ph = std::placeholders;
-
 const auto add2 = std::bind(add, 2, ph::_1); // add2 est bien une fonction !
 // Cela équivaut à la version de add2 présentée plus haut.
 ```
