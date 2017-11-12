@@ -52,7 +52,6 @@ Quid donc de définir une fonction similaire sans cette contrainte ? Pour cela, 
 * Les templates
 * Les variadic templates
 * Les lambdas
-* La récursivité
 
 ```cpp
 namespace fun{ // "fun" pour "functional"
@@ -67,13 +66,11 @@ namespace fun{ // "fun" pour "functional"
   }
 
   // Application partielle en spécifiant plusieurs arguments
-  // Note - Cette fonction est récursive
-  template<class Fn, class T, class ...Args>
-  auto apply(Fn const& fn, T const& val, Args&& ...args){
-    // On applique un à un tous ses arguments
-    return apply([=](auto&& ...a){
-      return fn(val, a...);
-    }, args...);
+  template<class Fn, class ...Args>
+  auto apply(Fn const& fn, Args&& ...args){
+    return [=](auto&& ...a){
+      return fn(args..., a...);
+    };
   }
   
 } // namespace fun
@@ -84,13 +81,11 @@ const auto add  = [](int x, int y) -> int { return x + y; };
 const auto add2 = fun::apply(add, 2); // Pas besoin de placeholder !
 const auto five = add2(3);
 ```
-Cette fonction, ainsi que celles qu'elle peut générer, a un coût en performances. Là où une lambda effectue directement l'appel à la fonction concernée, `fun::apply` effectue des appels récursifs. En effet, la fonction générée n'est pas "vraiment" une application partielle ; il s'agit de plusieurs fonctions s'appelant à la suite. La partie "logique" (la fonction en elle-même) n'est quant à elle appelée qu'une et une seule fois.
 
-A titre d'exemple, voici un programme complet ainsi que sa sortie (disponible sur [coliru](http://coliru.stacked-crooked.com/a/29eeec0fb8b2b70f)):
+A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible sur [coliru](http://coliru.stacked-crooked.com/a/d2465c850d1f72cc) :
 ```cpp
 #include <iostream> // std::cout
 
-// Nous définissons un compteur d'appels
 auto count = 1u;
 
 namespace fun{
@@ -98,47 +93,38 @@ namespace fun{
   template<class Fn, class T>
   auto apply(Fn const& fn, T const& val){
     return [=](auto&& ...a){
-      // Nouvel appel : incrémentation du compteur
-      std::cout << "** Appel n°" << (count++) << std::endl;
       return fn(val, a...);
     };
   }
 
-  template<class Fn, class T, class ...Args>
-  auto apply(Fn const& fn, T const& val, Args&& ...args){
-    return apply([=](auto&& ...a){
-      // Nouvel appel : incrémentation du compteur
-      std::cout << "** Appel n°" << (count++) << std::endl;
-      return fn(val, a...);
-    }, args...);
+  template<class Fn, class ...Args>
+  auto apply(Fn const& fn, Args&& ...args){
+    return [=](auto&& ...a){
+      return fn(args..., a...);
+    };
   }
   
 } // namespace fun
 
-void print_args(int a, int b, int c, int d){
+void print_args(int a, int b, int c, int d) {
   std::cout << a << std::endl;
   std::cout << b << std::endl;
   std::cout << c << std::endl;
   std::cout << d << std::endl;
 }
 
-int main(){
-  const auto test = fun::apply(print_args, 1, 2, 3, 4);
-  test();
+int main() {
+  const auto test = fun::apply(print_args, 1, 2);
+  test(3, 4);
 }
 ```
 Sortie :
-```
-** Appel n°1
-** Appel n°2
-** Appel n°3
-** Appel n°4
+```cpp
 1
 2
 3
 4
 ```
-On remarque donc que derrière un seul appel se dissimulent en fait... **quatre** appels ! C'est-à-dire qu'une nouvelle "sous-fonction" est générée pour chaque paramètre spécifié à `fun::apply`. Autant donc rester raisonnable sur le nombre de paramètres spécifiés à l'avance !
 
 ---
 #### Conclusion
