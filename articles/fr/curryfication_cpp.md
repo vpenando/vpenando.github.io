@@ -106,14 +106,14 @@ namespace fun{
   
 } // namespace fun
 
-void print_args(int a, int b, int c, int d) {
+void print_args(int a, int b, int c, int d){
   std::cout << a << std::endl;
   std::cout << b << std::endl;
   std::cout << c << std::endl;
   std::cout << d << std::endl;
 }
 
-int main() {
+int main(){
   const auto test = fun::apply(print_args, 1, 2);
   test(3, 4);
 }
