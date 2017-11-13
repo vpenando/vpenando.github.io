@@ -87,7 +87,7 @@ const auto add2 = fun::apply(add, 2); // Pas besoin de placeholder !
 const auto five = add2(3);
 ```
 
-A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible sur [coliru](http://coliru.stacked-crooked.com/a/8f27197a2f8bf861) :
+A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible sur [coliru](http://coliru.stacked-crooked.com/a/52bf27fed21e1cda) :
 
 ```cpp
 #include <iostream> // std::cout
