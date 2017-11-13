@@ -86,8 +86,6 @@ A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible su
 ```cpp
 #include <iostream> // std::cout
 
-auto count = 1u;
-
 namespace fun{
 
   template<class Fn, class T>
