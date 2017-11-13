@@ -10,6 +10,7 @@
 Dans certains langages, et notamment en programmation fonctionnelle, il est possible de profiter d'un mécanisme appelé *application partielle*. Cela consiste à appeler une fonction avec seulement une partie de ses arguments afin de générer une nouvelle fonction.
 
 Et, parce qu'un exemple est toujours plus parlant (ici en Caml) :
+###### Code - Caml
 ```ocaml
 (* Fonction addition basique *)
 let add = fun x y -> x + y;; (* int -> int -> int *)
@@ -18,6 +19,7 @@ let add = fun x y -> x + y;; (* int -> int -> int *)
 let add2 = add 2;; (* int -> int *)
 ```
 Dans ce code, nous définissons deux fonctions : `add`, qui renvoie la somme de deux nombres `x` et `y`, et `add2`, application partielle de `add`, qui ajoute 2 à un nombre `x`. Essayons d'appliquer ce mécanisme au C++.
+###### Code - C++
 ```cpp
 // Fonction addition basique
 const auto add = [](int x, int y) -> int { return x + y; };
@@ -32,12 +34,14 @@ note: candidate function not viable: requires 2 arguments, but 1 was provided
                     ^
 ```
 En clair, le compilateur nous informe que nous essayons d'appeler une fonction attendant deux arguments en n'en fournissant qu'un seul. Ne comprend-il pas que nous essayons de créer une nouvelle fonction ? Alors bien sûr, il y a une solution viable, bien que ce ne soit pas ce que nous essayons de faire :
+###### Code - C++
 ```cpp
 const auto add2 = [](int x) -> int { return add(2, x); };
 ```
 Nous définissons explicitement une lambda `add2` qui appelle `add` avec 2 et `x`.
 
 A présent, essayons de créer notre mécanisme d'application partielle. Nous allons définir une fonction similaire à `std::bind`. Pour ceux qui ne connaissent pas, `std::bind` permet de faire ce genre de chose :
+###### Code - C++
 ```cpp
 // Reprenons notre fonction add
 const auto add = [](int x, int y) -> int { return x + y; };
@@ -52,7 +56,7 @@ Quid donc de définir une fonction similaire sans cette contrainte ? Pour cela, 
 * Les templates
 * Les variadic templates
 * Les lambdas
-
+###### Code - C++
 ```cpp
 namespace fun{ // "fun" pour "functional"
 
@@ -76,6 +80,7 @@ namespace fun{ // "fun" pour "functional"
 } // namespace fun
 ```
 A l'usage, à quoi cela ressemble-t-il ?
+###### Code - C++
 ```cpp
 const auto add  = [](int x, int y) -> int { return x + y; };
 const auto add2 = fun::apply(add, 2); // Pas besoin de placeholder !
@@ -83,6 +88,7 @@ const auto five = add2(3);
 ```
 
 A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible sur [coliru](http://coliru.stacked-crooked.com/a/d2465c850d1f72cc) :
+###### Code - C++
 ```cpp
 #include <iostream> // std::cout
 
