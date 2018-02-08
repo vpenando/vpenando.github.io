@@ -3,12 +3,12 @@
 ### [FR] POO - Classe ou structure ? Une histoire de sémantique
 
 ###### Note importante
-> Cet article est une réflexion personnelle. En tant que telle, elle n'énonce pas une vérité absolue, mais plutôt ma manière de penser, et par extension d'écrire du code.
+> Cet article est une réflexion personnelle. En tant que telle, il n'énonce pas une vérité absolue, mais plutôt ma manière de penser, et par extension d'écrire du code.
 
 ---
 
-En programmation orientée objet, nous avons bien souvent le choix entre deux types d'entités lorsque nous voulons créer de nouveaux types : les **classes** et les **structure**.
-Au delà de différences de visibilité -que je vais énoncer dans la partie suivante-, elles permettent d'apporter une sémantique supplémentaires à nos objet.
+En programmation orientée objet, nous avons bien souvent le choix entre deux types d'entités lorsque nous voulons créer de nouveaux types : les **classes** et les **structures**.
+Au delà de différences de visibilité -que je vais énoncer dans la partie suivante-, elles permettent d'apporter une sémantique supplémentaire à nos objets.
 
 ### 1. Différences fondamentales
 Les structures et les classes présentent deux différences majeures en termes de visibilité : là où par défaut tout est public dans une structure, tout est privé dans une classe. Exemple :
@@ -64,4 +64,20 @@ Il en va de même avec l'héritage ; si l'héritage est par défaut public avec 
 Ces différences de visibilité posent les bases d'une divergence sémantique majeure entre ces deux types d'entité.
 
 ### 2. Différences sémantiques - Entité ou valeur ?
-En programmation orientée objet, il existe différents piliers permettant d'assurer une minimum de cohérence conceptuelle, comme par exemple les principes [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) ou encore la [loi de Déméter](https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter).
+En programmation orientée objet, il existe différents piliers permettant d'assurer un minimum de cohérence conceptuelle, comme par exemple les principes [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) ou encore la [loi de Déméter](https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter).
+
+Parallèlement à ces principes, il existe les notions de classes à **sémantique de valeur** et classes à **sémantique d'entité**. Cette différence est conditionnée par la réponse à la question suivante :
+> Fait-il sens, à tout instant *t*, d'avoir deux instances identiques de cette classe ou structure ?
+A titre d'exemple, pour la structure `Point` présentée plus haut, il est tout à fait sensé d'avoir deux instances identiques.
+A contrario, l'utilisation d'une classe représentant une entité unique (un ID, un compte bancaire, un individu, ...) ne tend pas à créer deux instances identiques.
+
+Une classe comme `Point` est ce que l'on appelle une classe à sémantique de valeur.
+
+Une classe telle que `std::unique_ptr`, par exemple, serait ce que l'on appelle une classe à sémantique d'entité. En tant que telle, elle n'est pas copiable.
+
+**Note** - *Il est relativement rare qu'une classe à sémantique de valeur soit à la base d'une relation d'héritage.*
+
+**Note** - *D'une manière générale, une classe telle qu'un aggrégat de données aura sémantique de valeur. Exemples : `Point`, `Color`, `Square`, `Rectangle`...*
+
+Et c'est là qu'entrent en jeu les classes et les structures. Lorsque je crée une classe à sémantique de valeur, j'utilise par défaut le mot-clé `struct`. Dans le cas d'une classe à sémantique d'entité, alors j'utiliserai le mot-clé `class`. Cela permet de savoir d'office à quel type d'entité nous avons affaire.
+Bien entendu, cela n'est en rien une vérité absolue
