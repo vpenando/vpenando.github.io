@@ -9,9 +9,9 @@ aa
 
 ##### a. La somme d'une liste
 ```cpp
-int sum(std::vector<int> const& vec){
+int sum(std::vector<int> const& vec) {
   int result = 0;
-  for(auto it = vec.begin(); it != vec.end(); ++it){
+  for (auto it = vec.begin(); it != vec.end(); ++it) {
     result += *it;
   }
   return result;
@@ -41,7 +41,7 @@ Soit une fonction qui attend un argument (ici une liste), et la compare à deux 
 ##### b. Le cas de la fonction puissance
 ```cpp
 // Via une boucle :
-int pow(int n, int p){
+int pow(int n, int p) {
   if (p == 0)
     return 1;
   int res = 1;
@@ -51,7 +51,7 @@ int pow(int n, int p){
 }
 
 // Version récursive :
-int pow(int n, int p){
+int pow(int n, int p) {
   if (p == 0)
     return 1;
   return n * pow(n, p-1);
