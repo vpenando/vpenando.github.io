@@ -3,7 +3,7 @@
 ### [FR] Amusons-nous avec la récursivité (F#)
 
 ##### Introduction
-Cet article est une réflexion personnelle. Il ne s'agit pas d'un article structuré visant à apprendre ou détailler des points du langage. Par ailleurs, je compile en C++14, aussi je vous recommande d'utiliser un compilateur supportant cette norme si vous souhaitez reproduire ces exemples (VS2015/2017 ou un GCC/Clang récent).
+aa
 
 #### 1. Récursivité VS boucles
 
