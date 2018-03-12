@@ -9,9 +9,9 @@ aa
 
 ##### a. La somme d'une liste
 ```cpp
-int sum(std::vector<int> const& vec) {
+int sum(std::vector<int> const& vec){
   int result = 0;
-  for (auto it = vec.begin(); it != vec.end(); ++it) {
+  for(auto it = vec.begin(); it != vec.end(); ++it){
     result += *it;
   }
   return result;
@@ -38,26 +38,28 @@ Soit une fonction qui attend un argument (ici une liste), et la compare à deux 
 * Si la liste est vide, on renvoie 0 ;
 * Sinon, on prend son premier élément (ici `x`) et on l'additionne au résultat de `sum` sur le reste de la liste (ici `xs`).
 
-##### b. Le cas de la fonction puissance
+##### b. Le cas de la fonction puissance  (volontairement simpliste)
 ```cpp
+using uint = unsigned;
+
 // Via une boucle :
-int pow(int n, int p) {
-  if (p == 0)
+int pow(int n, uint p){
+  if(p == 0){
     return 1;
-  int res = 1;
-  for (int i = 0; i < p; i++)
+  }
+  auto res = 1;
+  for(auto i = 0u; i < p; i++){
     res *= n;
+  }
   return res;
 }
 
 // Version récursive :
-int pow(int n, int p) {
-  if (p == 0)
-    return 1;
-  return n * pow(n, p-1);
+int pow(int n, uint p){
+  return (p != 0) ? n * pow(n, p-1) : 1;
 }
 ```
-La seconde version est un peu plus concise que la première. Néanmoins, peut-on faire encore plus court ? (et plus élégant)
+La seconde version est bien plus concise que la première. L'équivalent en F# serait le suivant :
 ```fs
 let rec pow n p =
   match p with
