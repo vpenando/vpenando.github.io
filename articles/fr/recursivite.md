@@ -22,8 +22,8 @@ int sum(std::vector<int> const& vec){
 ```fs
 let rec sum list =
   match list with
-    | []    -> 0
-    | x::xs -> x + (sum xs)
+  | []    -> 0
+  | x::xs -> x + (sum xs)
 ```
 ***Note*** - *L'expression `x::xs` correspond à la liste décomposée en `x` (son premier élément) et `xs` (le reste de la liste).*
 Ou plus simplement :
@@ -63,8 +63,8 @@ La seconde version est bien plus concise que la première. L'équivalent en F# s
 ```fs
 let rec pow n p =
   match p with
-    | 0 -> 1
-    | _ -> n * (pow n (p-1))
+  | 0 -> 1
+  | _ -> n * (pow n (p-1))
 ```
 
 
