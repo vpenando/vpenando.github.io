@@ -29,8 +29,7 @@ let rec sum list =
   | []    -> 0
   | x::xs -> x + (sum xs)
 ```
-***Note*** - *Lorsque l'on déclare une fonction récursive, il est impératif d'utiliser le mot-clé `rec`.*
-
+***Note*** - *Lorsque l'on déclare une fonction récursive en F#, il est impératif d'utiliser le mot-clé `rec`.* <br />
 ***Note*** - *L'expression `x::xs` correspond à la liste décomposée en `x` (son premier élément) et `xs` (le reste de la liste).*
 
 Ou plus simplement :
