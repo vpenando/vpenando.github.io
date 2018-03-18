@@ -3,15 +3,14 @@
 ### [FR] Amusons-nous avec la récursivité (F#)
 
 ##### Introduction
-En tant que développeur C++, je ne m'étais jusqu'alors jamais vraiment intéressé à des langages fonctionnels. Je me suis récemment (re)mis au F#, qui est un dérivé d'OCaml adapté à la plateforme .NET, tout comme le C#. Il s'agit d'un langage très intéressant, qui diffère de la plupart des langages que l'on a l'habitude de rencontrer.
+> En tant que développeur C++, je ne m'étais jusqu'alors jamais vraiment intéressé à des langages fonctionnels. Je me suis récemment (re)mis au F#, qui est un dérivé d'OCaml adapté à la plateforme .NET, tout comme le C#. Il s'agit d'un langage très intéressant, qui diffère de la plupart des langages que l'on a l'habitude de rencontrer.
 
-En F#, la récursivité est une chose très utilisée, qui permet notamment, selon moi, de plus facilement comprendre et débugger du code, en plus d'être très élégante.
-
-
-#### 1. Récursivité VS boucles
-> En C++, beaucoup de problématiques peuvent être résolues par des boucles. Itérer sur une liste, effectuer une action `N` fois, ... Dans cet article, je vais présenter certaines de ces problématiques avec leur résolution via une boucle, ainsi qu'un équivalent en utilisant la récursivité.
+> En F#, la récursivité est une chose très utilisée, qui permet notamment, selon moi, de plus facilement comprendre et débugger du code, en plus d'être très élégante.
 
 ---
+
+#### 1. Récursivité VS boucles
+En C++, beaucoup de problématiques peuvent être résolues par des boucles. Itérer sur une liste, effectuer une action `N` fois, ... Dans cet article, je vais présenter certaines de ces problématiques avec leur résolution via une boucle, ainsi qu'un équivalent en utilisant la récursivité.
 
 ##### a. La somme d'une liste
 Pour faire la somme d'une liste, une solution simple consiste à itérer sur ladite liste, et d'additionner la valeur de chaque élément à une valeur de base.
@@ -32,6 +31,8 @@ let rec sum list =
   | []    -> 0
   | x::xs -> x + (sum xs)
 ```
+***Note*** - *Lorsque l'on déclare une fonction récursive, il est impératif d'utiliser le mot-clé `rec`.*
+
 ***Note*** - *L'expression `x::xs` correspond à la liste décomposée en `x` (son premier élément) et `xs` (le reste de la liste).*
 
 Ou plus simplement :
@@ -45,6 +46,8 @@ let rec sum = function
 Soit une fonction qui attend un argument (ici une liste), et teste deux cas :
 * Si la liste est vide, on renvoie 0 ;
 * Sinon, on prend son premier élément (ici `x`) et on l'additionne au résultat de `sum` sur le reste de la liste (ici `xs`). Si `xs` est vide, on tombe alors sur le premier cas : fin de la récursion.
+
+Il s'agit d'un cas très simple.
 
 ##### b. Le cas de la fonction puissance  (volontairement simpliste)
 ```cpp
