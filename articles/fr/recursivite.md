@@ -51,7 +51,7 @@ Il s'agit d'un cas très simple.
 using uint = unsigned;
 
 // Via une boucle :
-int pow(int n, uint p){
+int pow(int n, uint p) noexcept{
   if(p == 0){
     return 1;
   }
@@ -63,7 +63,7 @@ int pow(int n, uint p){
 }
 
 // Version récursive :
-int pow(int n, uint p){
+int pow(int n, uint p) noexcept{
   return (p != 0) ? n * pow(n, p-1) : 1;
 }
 ```
