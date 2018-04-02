@@ -38,7 +38,7 @@ let rec sum = function
   | []    -> 0
   | x::xs -> x + (sum xs)
 ```
-***Note*** - *Cette syntaxe ne s'applique que dans le cas d'une fonction n'attendant qu'un argument. Le compilateur "comprend" qu'un argument est attendu, bien qu'il ne soit pas spécifié explicitement.*
+***Note*** - *Le compilateur "comprend" qu'un argument est attendu, bien qu'il ne soit pas spécifié explicitement.*
 
 Soit une fonction qui attend un argument (ici une liste), et teste deux cas :
 * Si la liste est vide, on renvoie 0 ;
