@@ -7,8 +7,7 @@
 
 ---
 
-#### 1. Récursivité VS boucles
-En C++, beaucoup de problématiques peuvent être résolues par des boucles. Itérer sur une liste, effectuer une action `N` fois, ... Dans cet article, je vais présenter certaines de ces problématiques avec leur résolution via une boucle, ainsi qu'un équivalent en utilisant la récursivité.
+En C++, beaucoup de problématiques peuvent être résolues par des boucles. Itérer sur une liste, effectuer une action `N` fois... Dans cet article, je vais présenter certaines de ces problématiques avec leur résolution via une boucle, ainsi qu'un équivalent en utilisant la récursivité.
 
 ##### a. La somme d'une liste
 Pour faire la somme d'une liste, une solution simple consiste à itérer sur ladite liste, et d'additionner la valeur de chaque élément à une valeur de base.
@@ -75,4 +74,18 @@ let rec pow n p =
   | _ -> n * (pow n (p-1))
 ```
 
+##### c. Recodons `List.map` !
+En OCaml / F#, il existe la fonction `List.map`, qui prend en entrée une fonction et une liste, et applique ladite fonction à chaque élément de la liste. Exemple :
+```fs
+let ls = [1; 2; 3; 4; 5]
+let ls2 = List.map (fun x -> x*2) ls
+printfn "%A" ls2 // [2; 4; 6; 8; 10]
+```
 
+Si l'on voulait la recoder, on pourrait écrire une version proche de :
+```fs
+let rec map fn ls =
+  match ls with
+  | []    -> []
+  | x::xs -> (fn x) :: (map fn xs)
+```
