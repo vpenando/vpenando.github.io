@@ -22,7 +22,7 @@ int sum(std::vector<int> const& vec){
 ```
 
 ###### Possible implémentation :
-```fs
+```ml
 let rec sum list =
   match list with
   | []    -> 0
@@ -32,7 +32,7 @@ let rec sum list =
 ***Note*** - *L'expression `x::xs` correspond à la liste décomposée en `x` (son premier élément) et `xs` (le reste de la liste).*
 
 Ou plus simplement :
-```fs
+```ml
 let rec sum = function
   | []    -> 0
   | x::xs -> x + (sum xs)
@@ -68,7 +68,7 @@ int pow(int n, uint p) noexcept{
 }
 ```
 La seconde version est bien plus concise que la première. Un équivalent en F# serait le suivant :
-```fs
+```ml
 let rec pow n p =
   match p with
   | 0 -> 1
@@ -77,14 +77,14 @@ let rec pow n p =
 
 ##### c. Recodons `List.map` !
 En OCaml / F#, il existe la fonction `List.map`, qui prend en entrée une fonction et une liste, et renvoie une nouvelle liste correspondant à la première où la fonction a été appliquée à chaque élément. Exemple :
-```fs
+```ml
 let ls = [1; 2; 3; 4; 5]
 let ls2 = List.map (fun x -> x*2) ls
 printfn "%A" ls2 // [2; 4; 6; 8; 10]
 ```
 
 Si l'on voulait la recoder, on pourrait écrire une version proche de :
-```fs
+```ml
 let rec map fn ls =
   match ls with
   | []    -> []
