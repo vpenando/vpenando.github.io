@@ -46,6 +46,7 @@ Soit une fonction qui attend un argument (ici une liste), et teste deux cas :
 Il s'agit d'un cas très simple.
 
 ##### b. Le cas de la fonction puissance  (volontairement simpliste)
+La fonction "puissance" pourrait s'écrire ainsi en C++ :
 ```cpp
 using uint = unsigned;
 
@@ -66,7 +67,7 @@ int pow(int n, uint p) noexcept{
   return (p != 0) ? n * pow(n, p-1) : 1;
 }
 ```
-La seconde version est bien plus concise que la première. L'équivalent en F# serait le suivant :
+La seconde version est bien plus concise que la première. Un équivalent en F# serait le suivant :
 ```fs
 let rec pow n p =
   match p with
@@ -89,3 +90,9 @@ let rec map fn ls =
   | []    -> []
   | x::xs -> (fn x) :: (map fn xs)
 ```
+C'est donc relativement simple et concis.
+
+---
+#### Conclusion
+En somme, la récursivité est un outil extrêmement puissant qui permet de rendre un code plus concis et simple à débugger. En plus de cela, c'est très élégant !
+Je ferai certainement d'autres articles sur le thème fonctionnel, et quelques projets en F# que je partagerai à l'avenir.
