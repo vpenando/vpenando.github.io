@@ -75,7 +75,7 @@ let rec pow n p =
 ```
 
 ##### c. Recodons `List.map` !
-En OCaml / F#, il existe la fonction `List.map`, qui prend en entrée une fonction et une liste, et applique ladite fonction à chaque élément de la liste. Exemple :
+En OCaml / F#, il existe la fonction `List.map`, qui prend en entrée une fonction et une liste, et renvoie une nouvelle liste correspondant à la première où la fonction a été appliquée à chaque élément. Exemple :
 ```fs
 let ls = [1; 2; 3; 4; 5]
 let ls2 = List.map (fun x -> x*2) ls
