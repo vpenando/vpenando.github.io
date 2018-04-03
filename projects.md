@@ -5,6 +5,8 @@ Here are my main projects.
 
 
 ### [SDL Wrapper](https://github.com/vpenando/sdl-cpp) [![Build Status](https://travis-ci.org/vpenando/sdl-cpp.svg)](https://travis-ci.org/vpenando/sdl-cpp)
+`c++` `c++14` `sdl`
+
 A free, open source and RAII-conform SDL wrapper written in C++14. Its goal is to make easier and safier to develop SDL programs with C++.
 
 Short example:
