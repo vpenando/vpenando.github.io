@@ -44,7 +44,7 @@ const mat::Matrix<int, 3, 3> mat1 = {
   4, 5, 6,
   7, 8, 9
 };
-mat::Dynamic<int> mat2(3, 3);
+mat::DynamicMatrix<int> mat2(3, 3);
 mat2 = {
   3, 2, 1,
   6, 5, 4,
