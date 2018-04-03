@@ -86,13 +86,13 @@ printfn "%A" ls2 // [2; 4; 6; 8; 10]
 
 Si l'on voulait la recoder, on pourrait écrire une version proche de :
 ```ml
-let rec map fn ls =
-  match ls with
+let rec map f list =
+  match list with
   | []    -> []
-  | x::xs -> (fn x) :: (map fn xs)
+  | x::xs -> (f x) :: (map f xs)
 ```
 
-Cela correspond grossièrement à `(fn 1) :: ((fn 2) :: ((fn 3) :: ((fn 4) :: ((fn 5) :: []))))`.
+Cela correspond grossièrement à `(f 1) :: ((f 2) :: ((f 3) :: ((f 4) :: ((f 5) :: []))))`.
 
 ---
 #### Conclusion
