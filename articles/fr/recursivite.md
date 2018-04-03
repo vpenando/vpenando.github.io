@@ -93,7 +93,6 @@ let rec map fn ls =
 ```
 
 Cela correspond grossièrement à `(fn 1) :: ((fn 2) :: ((fn 3) :: ((fn 4) :: ((fn 5) :: []))))`.
-C'est relativement simple et concis.
 
 ---
 #### Conclusion
