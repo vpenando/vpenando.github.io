@@ -11,6 +11,7 @@ En C++, beaucoup de problématiques peuvent être résolues par des boucles. It�
 
 ##### a. La somme d'une liste
 Pour faire la somme d'une liste, une solution simple consiste à itérer sur ladite liste, et d'additionner la valeur de chaque élément à une valeur de base.
+Un exemple équivalent en C++ pourrait être :
 ```cpp
 int sum(std::vector<int> const& vec){
   auto result = 0;
@@ -20,7 +21,7 @@ int sum(std::vector<int> const& vec){
   return result;
 }
 ```
-
+De manière récursive, ce code est plus concis et bien plus élégant.
 ###### Possible implémentation :
 ```ml
 let rec sum list =
