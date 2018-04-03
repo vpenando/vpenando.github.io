@@ -5,7 +5,7 @@ Here are my main projects.
 
 
 ### [SDL Wrapper](https://github.com/vpenando/sdl-cpp) [![Build Status](https://travis-ci.org/vpenando/sdl-cpp.svg)](https://travis-ci.org/vpenando/sdl-cpp)
-##### `c++` `c++14` `sdl`
+`c++` `c++14` `sdl`
 
 A free, open source and RAII-conform SDL wrapper written in C++14. Its goal is to make easier and safier to develop SDL programs with C++.
 
@@ -31,6 +31,8 @@ Useful links:
 ---
 
 ### [MatMath](https://github.com/tyr-sl3/MatMath) [![Build Status](https://travis-ci.org/vpenando/MatMath.svg)](https://travis-ci.org/vpenando/MatMath)
+`c++` `c++14` `maths`
+
 A free, open source, header-only C++ API for mathematic operations on matrices. Provides two types of matrix:
 - Allocated on the stack
 - Allocated on the heap
