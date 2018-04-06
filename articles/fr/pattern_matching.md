@@ -8,14 +8,14 @@ type Operand =
   | Mod
   ;;
 
-type Expression =
-  | Literal of int
-  | Operation of Expression * Operand * Expression
+type Expression<'a> =
+  | Literal of 'a
+  | Operation of Expression<'a> * Operand * Expression<'a>
   ;;
 
-type Statement =
-  | Assignment of string * Expression
-  | Sequence of Statement * Statement
+type Statement<'a> =
+  | Assignment of string * Expression<'a>
+  | Sequence of Statement<'a> * Statement<'a>
   ;;
 
 let rec evalExpr = function
