@@ -68,6 +68,7 @@ En programmation orientée objet, il existe différents piliers permettant d'ass
 
 Parallèlement à ces principes, il existe les notions de classes à **sémantique de valeur** et classes à **sémantique d'entité**. Cette différence est conditionnée par la réponse à la question suivante :
 > Fait-il sens, à tout instant *t*, d'avoir deux instances identiques de cette classe ou structure ?
+
 A titre d'exemple, pour la structure `Point` présentée plus haut, il est tout à fait sensé d'avoir deux instances identiques.
 A contrario, l'utilisation d'une classe représentant une entité unique (un ID, un compte bancaire, un individu, ...) ne tend pas à créer deux instances identiques.
 
