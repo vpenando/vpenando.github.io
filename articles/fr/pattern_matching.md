@@ -37,7 +37,7 @@ let evalIntExpression expr =
     | Operation(e1,Mul,e2)    -> (eval e1) * (eval e2)
     | Operation(e1,Div,e2)    -> (eval e1) / (eval e2)
     | Operation(e1,Mod,e2)    -> (eval e1) % (eval e2)
-    | _ (*Should not happen*) -> failwith "Operator not supported for type 'int'"
+    | _ -> failwith "Operator not supported for type 'int'"
   in
   match expr with
     | Literal _
@@ -56,7 +56,7 @@ let rec evalFloatExpression expr =
     | Operation(e1,Sub,e2)    -> (eval e1) - (eval e2)
     | Operation(e1,Mul,e2)    -> (eval e1) * (eval e2)
     | Operation(e1,Div,e2)    -> (eval e1) / (eval e2)
-    | _ (*Should not happen*) -> failwith "Operator not supported for type 'float'"
+    | _  -> failwith "Operator not supported for type 'float'"
   in
   match expr with
   | Literal _
@@ -72,7 +72,7 @@ let evalBoolExpression expr =
     | Literal literalValue    -> literalValue
     | Operation(e1,And,e2)    -> (eval e1) && (eval e2)
     | Operation(e1,Or,e2)     -> (eval e1) || (eval e2)
-    | _ (*Should not happen*) -> failwith "Operator not supported for type 'bool'"
+    | _  -> failwith "Operator not supported for type 'bool'"
   in
   match expr with
   | Literal _
@@ -83,19 +83,19 @@ let evalBoolExpression expr =
 
 let assignment =
   Assignment("result", Operation(Literal 42, Add, Literal 1));;
-
-let bres = evalBoolExpression (Operation(Literal true, Or, Literal false))
+  
+let bres = evalBoolExpression (Operation(Literal true, Or, Literal false));;
 match bres with
-| Just res -> printfn "%A" res
-| Nothing  -> printfn "Nothing"
+| Just res -> Printf.printfn "%A" res
+| Nothing  -> Printf.printfn "Nothing";;
 
-let ires = evalIntExpression (Operation(Literal 42, Add, Literal 1))
+let ires = evalIntExpression (Operation(Literal 42, Add, Literal 1));;
 match ires with
-| Just res -> printfn "%d" res
-| Nothing  -> printfn "Nothing"
+| Just res -> Printf.printfn "%d" res
+| Nothing  -> Printf.printfn "Nothing";;
 
-let fres = evalFloatExpression (Operation(Literal 42.0, Add, Literal 1.0))
+let fres = evalFloatExpression (Operation(Literal 42.0, Add, Literal 1.0));;
 match fres with
-| Just res -> printfn "%f" res
-| Nothing  -> printfn "Nothing"
+| Just res -> Printf.printfn "%f" res
+| Nothing  -> Printf.printfn "Nothing";;
 ```
