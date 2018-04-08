@@ -1,6 +1,6 @@
 
 ```ml
-type Operand =
+type operand =
   | Add
   | Sub
   | Mul
@@ -10,59 +10,92 @@ type Operand =
   | Or
   ;;
 
-type Expression<'a> =
+type 'a expression =
   | Literal of 'a
-  | Operation of Expression<'a> * Operand * Expression<'a>
+  | Operation of 'a expression * operand * 'a expression
   ;;
 
-type Statement<'a> =
-  | Assignment of string * Expression<'a>
-  | Sequence of Statement<'a> * Statement<'a>
+type 'a statement =
+  | Assignment of string * 'a expression
+  | Sequence of 'a statement * 'a statement
   ;;
 
-type Maybe<'a> =
+type 'a maybe =
   | Just of 'a
   | Nothing
   ;;
 
 let rec evalExpr expr realEval = realEval expr;;
   
-exception OperatorNotSupported of string;;
+exception InvalidOperatorException of string;;
 
-let rec evalIntOperation (expr: Expression<int>) =
+let evalIntExpression expr =
+  let rec eval = function
+    | Literal literalValue    -> literalValue
+    | Operation(e1,Add,e2)    -> (eval e1) + (eval e2)
+    | Operation(e1,Sub,e2)    -> (eval e1) - (eval e2)
+    | Operation(e1,Mul,e2)    -> (eval e1) * (eval e2)
+    | Operation(e1,Div,e2)    -> (eval e1) / (eval e2)
+    | Operation(e1,Mod,e2)    -> (eval e1) % (eval e2)
+    | _ (*Should not happen*) -> failwith "Operator not supported for type 'int'"
+  in
   match expr with
-  | Literal literalValue -> literalValue
-  | Operation(e1,Add,e2) -> (evalIntOperation e1) + (evalIntOperation e2)
-  | Operation(e1,Sub,e2) -> (evalIntOperation e1) - (evalIntOperation e2)
-  | Operation(e1,Mul,e2) -> (evalIntOperation e1) * (evalIntOperation e2)
-  | Operation(e1,Div,e2) -> (evalIntOperation e1) / (evalIntOperation e2)
-  | Operation(e1,Mod,e2) -> (evalIntOperation e1) % (evalIntOperation e2)
-  | Operation(_,_,_)     -> raise (OperatorNotSupported "Operator not supported for type 'int'")
+    | Literal _
+    | Operation(_,Add,_)
+    | Operation(_,Sub,_)
+    | Operation(_,Mul,_)
+    | Operation(_,Div,_)
+    | Operation(_,Mod,_) -> Just (eval expr)
+    | _                  -> Nothing
   ;;
 
-let rec evalFloatOperation (expr: Expression<float>) =
+let rec evalFloatExpression expr =
+  let rec eval = function
+    | Literal literalValue    -> literalValue
+    | Operation(e1,Add,e2)    -> (eval e1) + (eval e2)
+    | Operation(e1,Sub,e2)    -> (eval e1) - (eval e2)
+    | Operation(e1,Mul,e2)    -> (eval e1) * (eval e2)
+    | Operation(e1,Div,e2)    -> (eval e1) / (eval e2)
+    | _ (*Should not happen*) -> failwith "Operator not supported for type 'float'"
+  in
   match expr with
-  | Literal literalValue -> literalValue
-  | Operation(e1,Add,e2) -> (evalFloatOperation e1) + (evalFloatOperation e2)
-  | Operation(e1,Sub,e2) -> (evalFloatOperation e1) - (evalFloatOperation e2)
-  | Operation(e1,Mul,e2) -> (evalFloatOperation e1) * (evalFloatOperation e2)
-  | Operation(e1,Div,e2) -> (evalFloatOperation e1) / (evalFloatOperation e2)
-  | Operation(_,_,_)     -> raise (OperatorNotSupported "Operator not supported for type 'float'")
+  | Literal _
+  | Operation(_,Add,_)
+  | Operation(_,Sub,_)
+  | Operation(_,Mul,_)
+  | Operation(_,Div,_) -> Just (eval expr)
+  | _                  -> Nothing
   ;;
 
-let rec evalBoolOperation (expr: Expression<bool>) =
+let evalBoolExpression expr =
+  let rec eval = function
+    | Literal literalValue    -> literalValue
+    | Operation(e1,And,e2)    -> (eval e1) && (eval e2)
+    | Operation(e1,Or,e2)     -> (eval e1) || (eval e2)
+    | _ (*Should not happen*) -> failwith "Operator not supported for type 'bool'"
+  in
   match expr with
-  | Literal literalValue -> literalValue
-  | Operation(e1,And,e2) -> (evalBoolOperation e1) && (evalBoolOperation e2)
-  | Operation(e1,Or,e2)  -> (evalBoolOperation e1) || (evalBoolOperation e2)
-  | Operation(_,_,_)     -> raise (OperatorNotSupported "Operator not supported for type 'bool'")
+  | Literal _
+  | Operation(_,And,_)
+  | Operation(_,Or,_) -> Just(eval expr)
+  | _                 -> Nothing
   ;;
 
 let assignment =
   Assignment("result", Operation(Literal 42, Add, Literal 1));;
 
-printfn "%A" (evalBoolOperation (Operation(Literal true, Or, Literal false)));;
-printfn "%d" (evalIntOperation (Operation(Literal 42, Add, Literal 1)));;
-printfn "%f" (evalFloatOperation (Operation(Literal 42.0, Add, Literal 1.0)));;
-ignore (System.Console.Read())
+let bres = evalBoolExpression (Operation(Literal true, Or, Literal false))
+match bres with
+| Just res -> printfn "%A" res
+| Nothing  -> printfn "Nothing"
+
+let ires = evalIntExpression (Operation(Literal 42, Add, Literal 1))
+match ires with
+| Just res -> printfn "%d" res
+| Nothing  -> printfn "Nothing"
+
+let fres = evalFloatExpression (Operation(Literal 42.0, Add, Literal 1.0))
+match fres with
+| Just res -> printfn "%f" res
+| Nothing  -> printfn "Nothing"
 ```
