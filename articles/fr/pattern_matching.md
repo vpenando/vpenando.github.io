@@ -26,13 +26,13 @@ type 'a maybe =
   ;;
 
 let evalIntExpression expr =
-  let rec eval = function
+  let rec evalExpr = function
     | Literal literalValue -> literalValue
-    | Operation(e1,Add,e2) -> (eval e1) + (eval e2)
-    | Operation(e1,Sub,e2) -> (eval e1) - (eval e2)
-    | Operation(e1,Mul,e2) -> (eval e1) * (eval e2)
-    | Operation(e1,Div,e2) -> (eval e1) / (eval e2)
-    | Operation(e1,Mod,e2) -> (eval e1) % (eval e2)
+    | Operation(e1,Add,e2) -> (evalExpr e1) + (evalExpr e2)
+    | Operation(e1,Sub,e2) -> (evalExpr e1) - (evalExpr e2)
+    | Operation(e1,Mul,e2) -> (evalExpr e1) * (evalExpr e2)
+    | Operation(e1,Div,e2) -> (evalExpr e1) / (evalExpr e2)
+    | Operation(e1,Mod,e2) -> (evalExpr e1) % (evalExpr e2)
     | _ -> failwith "Operator not supported for type 'int'"
   in
   match expr with
@@ -41,17 +41,17 @@ let evalIntExpression expr =
   | Operation(_,Sub,_)
   | Operation(_,Mul,_)
   | Operation(_,Div,_)
-  | Operation(_,Mod,_) -> Just (eval expr)
+  | Operation(_,Mod,_) -> Just (evalExpr expr)
   | _                  -> Nothing
   ;;
 
 let rec evalFloatExpression expr =
-  let rec eval = function
+  let rec evalExpr = function
     | Literal literalValue -> literalValue
-    | Operation(e1,Add,e2) -> (eval e1) + (eval e2)
-    | Operation(e1,Sub,e2) -> (eval e1) - (eval e2)
-    | Operation(e1,Mul,e2) -> (eval e1) * (eval e2)
-    | Operation(e1,Div,e2) -> (eval e1) / (eval e2)
+    | Operation(e1,Add,e2) -> (evalExpr e1) + (evalExpr e2)
+    | Operation(e1,Sub,e2) -> (evalExpr e1) - (evalExpr e2)
+    | Operation(e1,Mul,e2) -> (evalExpr e1) * (evalExpr e2)
+    | Operation(e1,Div,e2) -> (evalExpr e1) / (evalExpr e2)
     | _  -> failwith "Operator not supported for type 'float'"
   in
   match expr with
@@ -59,21 +59,21 @@ let rec evalFloatExpression expr =
   | Operation(_,Add,_)
   | Operation(_,Sub,_)
   | Operation(_,Mul,_)
-  | Operation(_,Div,_) -> Just (eval expr)
+  | Operation(_,Div,_) -> Just (evalExpr expr)
   | _                  -> Nothing
   ;;
 
 let evalBoolExpression expr =
-  let rec eval = function
+  let rec evalExpr = function
     | Literal literalValue -> literalValue
-    | Operation(e1,And,e2) -> (eval e1) && (eval e2)
-    | Operation(e1,Or,e2)  -> (eval e1) || (eval e2)
+    | Operation(e1,And,e2) -> (evalExpr e1) && (evalExpr e2)
+    | Operation(e1,Or,e2)  -> (evalExpr e1) || (evalExpr e2)
     | _  -> failwith "Operator not supported for type 'bool'"
   in
   match expr with
   | Literal _
   | Operation(_,And,_)
-  | Operation(_,Or,_) -> Just(eval expr)
+  | Operation(_,Or,_) -> Just(evalExpr expr)
   | _                 -> Nothing
   ;;
 
