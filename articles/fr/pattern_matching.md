@@ -25,7 +25,6 @@ type 'a maybe =
   | Nothing
   ;;
 
-(* Expression<int> -> Maybe<int> *)
 let evalIntExpression expr =
   let rec eval = function
     | Literal literalValue -> literalValue
@@ -37,13 +36,13 @@ let evalIntExpression expr =
     | _ -> failwith "Operator not supported for type 'int'"
   in
   match expr with
-    | Literal _
-    | Operation(_,Add,_)
-    | Operation(_,Sub,_)
-    | Operation(_,Mul,_)
-    | Operation(_,Div,_)
-    | Operation(_,Mod,_) -> Just (eval expr)
-    | _                  -> Nothing
+  | Literal _
+  | Operation(_,Add,_)
+  | Operation(_,Sub,_)
+  | Operation(_,Mul,_)
+  | Operation(_,Div,_)
+  | Operation(_,Mod,_) -> Just (eval expr)
+  | _                  -> Nothing
   ;;
 
 let rec evalFloatExpression expr =
