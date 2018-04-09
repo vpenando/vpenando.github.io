@@ -12,6 +12,7 @@ type operand =
 
 type 'a expression =
   | Literal of 'a
+  | Variable of string
   | Operation of 'a expression * operand * 'a expression
   ;;
 
@@ -94,4 +95,16 @@ let fres = evalFloatExpression (Operation(Literal 42.0, Add, Literal 1.0));;
 match fres with
 | Just res -> Printf.printfn "%f" res
 | Nothing  -> Printf.printfn "Nothing";;
+
+open System.Linq
+open System.Text.RegularExpressions
+let intRgx   = new Regex("[0-9]+",        RegexOptions.Compiled)
+let floatRgx = new Regex("[0-9]+.[0-9]*", RegexOptions.Compiled)
+let boolRgx  = new Regex("(true|false)",  RegexOptions.Compiled)
+
+let isEmpty = System.String.IsNullOrWhiteSpace
+let splitString str tok = Regex.Split(str, "(\\s|=)").Where(fun s -> not (isEmpty s)).ToList()
+let splitted = splitString "let   a=42" ""
+
+System.Console.WriteLine(splitted)
 ```
