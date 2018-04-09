@@ -25,10 +25,7 @@ type 'a maybe =
   | Nothing
   ;;
 
-let rec evalExpr expr realEval = realEval expr;;
-  
-exception InvalidOperatorException of string;;
-
+(* Expression<int> -> Maybe<int> *)
 let evalIntExpression expr =
   let rec eval = function
     | Literal literalValue -> literalValue
