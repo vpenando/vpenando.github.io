@@ -142,15 +142,23 @@ let addVariable n v t =
 let emptyErrs: (int * string) list = List.Empty;;
 let errs = ref emptyErrs;;
 
-let evalLetStatement vars ls = vars;;
-  
-let evalVarStatement vars ls = vars;;
-
-let evalAssignment (vars: (VariableType * string) list) (ls: string list) =
+let evalLetStatement vars name ls =
   match ls with
-  | "let"::xs -> Just (evalLetStatement vars xs)
-  | "var"::xs -> Just (evalVarStatement vars xs)
-  | _         -> Nothing
+  | "="::xs -> Just vars
+  | _       -> Nothing
+  ;;
+    
+let evalVarStatement vars name ls =
+  match ls with
+  | "="::xs -> Just vars
+  | _       -> Nothing
+  ;;
+
+let evalAssignment vars ls =
+  match ls with
+  | "let"::n::xs -> evalLetStatement vars n xs
+  | "var"::n::xs -> evalVarStatement vars n xs
+  | _            -> Nothing
   ;;
 
 type VarsList = (VariableType * string) list;;
