@@ -62,17 +62,17 @@ namespace fun{ // "fun" pour "functional"
 
   // Application partielle en ne spécifiant qu'un argument
   template<class Fn, class T>
-  auto apply(Fn const& fn, T const& val){
+  auto apply(Fn const& fn, T const& val) {
     // On renvoie simplement une lambda prenant des arguments variadiques
-    return [=](auto&& ...a){
+    return [=](auto&& ...a) {
       return fn(val, a...); // Appel de fn avec tous ses arguments
     };
   }
 
   // Application partielle en spécifiant plusieurs arguments
   template<class Fn, class ...Args>
-  auto apply(Fn const& fn, Args&& ...args){
-    return [=](auto&& ...a){
+  auto apply(Fn const& fn, Args&& ...args) {
+    return [=](auto&& ...a) {
       return fn(args..., a...);
     };
   }
@@ -95,29 +95,29 @@ A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible su
 namespace fun{
 
   template<class Fn, class T>
-  auto apply(Fn const& fn, T const& val){
-    return [=](auto&& ...a){
+  auto apply(Fn const& fn, T const& val) {
+    return [=](auto&& ...a) {
       return fn(val, a...);
     };
   }
 
   template<class Fn, class ...Args>
-  auto apply(Fn const& fn, Args&& ...args){
-    return [=](auto&& ...a){
+  auto apply(Fn const& fn, Args&& ...args) {
+    return [=](auto&& ...a) {
       return fn(args..., a...);
     };
   }
   
 } // namespace fun
 
-void print_args(int a, int b, int c, int d){
+void print_args(int a, int b, int c, int d) {
   std::cout << a << std::endl;
   std::cout << b << std::endl;
   std::cout << c << std::endl;
   std::cout << d << std::endl;
 }
 
-int main(){
+int main() {
   const auto test = fun::apply(print_args, 1, 2);
   test(3, 4);
 }
