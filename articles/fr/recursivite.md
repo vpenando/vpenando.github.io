@@ -13,9 +13,9 @@ En C++, beaucoup de problématiques peuvent être résolues par des boucles. It�
 Pour faire la somme d'une liste, une solution simple consiste à itérer sur ladite liste, et d'additionner la valeur de chaque élément à une valeur de base.
 Un exemple équivalent en C++ pourrait être :
 ```cpp
-int sum(std::vector<int> const& vec){
+int sum(std::vector<int> const& vec) {
   auto result = 0;
-  for(auto it = vec.begin(); it != vec.end(); ++it){
+  for (auto it = vec.begin(); it != vec.end(); ++it) {
     result += *it;
   }
   return result;
@@ -52,19 +52,19 @@ La fonction "puissance" pourrait s'écrire ainsi en C++ :
 using uint = unsigned;
 
 // Via une boucle :
-int pow(int n, uint p) noexcept{
-  if(p == 0){
+int pow(int n, uint p) noexcept {
+  if (p == 0) {
     return 1;
   }
   auto res = 1;
-  for(auto i = 0u; i < p; ++i){
+  for (auto i = 0u; i < p; ++i) {
     res *= n;
   }
   return res;
 }
 
 // Version récursive :
-int pow(int n, uint p) noexcept{
+int pow(int n, uint p) noexcept {
   return (p != 0) ? n * pow(n, p-1) : 1;
 }
 ```
