@@ -34,8 +34,8 @@ Useful links:
 `#c++` `#c++14` `#maths`
 
 A free, open source, header-only C++ API for mathematic operations on matrices. Provides two types of matrix:
-- Allocated on the stack
-- Allocated on the heap
+- `mat::Matrix`, allocated on the stack
+- `mat::DynamicMatrix`, allocated on the heap
 
 Short example:
 ```cpp
