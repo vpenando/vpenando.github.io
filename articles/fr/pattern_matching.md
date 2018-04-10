@@ -126,17 +126,30 @@ let parseInt (str: string) = System.Convert.ToInt32 str
 let parseFloat (str: string) = System.Convert.ToDouble str
 let parseBool (str: string) = System.Convert.ToBoolean str
 
+let typeOf str =
+  if intRgx.IsMatch str then
+    Just Int
+  elif floatRgx.IsMatch str then
+    Just Float
+  elif boolRgx.IsMatch str then
+    Just Bool
+  else
+    Nothing
+   ;;
 
-let addVariable n v t =
-  if List.exists (fun (_,name) -> name = n) !variables then
+let addVariable name value vars =
+  if List.exists (fun (_,n) -> n = name) vars then
     Nothing
   else
+  let t = typeOf value in
+  let assignInt   v = intVariables := (name, (parseInt v)) :: !intVariables in
+  let assignFloat v = floatVariables := (name, (parseFloat v)) :: !floatVariables in
+  let assignBool  v = boolVariables := (name, (parseBool v))  :: !boolVariables in
   match t with
-  | Int   -> intVariables   := (n, (parseInt   v)) :: !intVariables
-  | Float -> floatVariables := (n, (parseFloat v)) :: !floatVariables
-  | Bool  -> boolVariables  := (n, (parseBool  v)) :: !boolVariables
-  variables := (t, n) :: !variables
-  Just variables
+  | Just Int   -> assignInt value;   Just ((Int, name) :: vars)
+  | Just Float -> assignFloat value; Just ((Float, name) :: vars)
+  | Just Bool  -> assignBool value;  Just ((Bool, name) :: vars)
+  | _ -> Nothing
   ;;
 
 let emptyErrs: (int * string) list = List.Empty;;
