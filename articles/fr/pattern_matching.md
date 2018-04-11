@@ -1,5 +1,7 @@
 
 ```ml
+module Core
+
 type operand =
   | Add
   | Sub
@@ -157,7 +159,10 @@ let errs = ref emptyErrs;;
 
 let evalLetStatement vars name ls =
   match ls with
-  | "="::xs -> Just vars
+  | "="::xs ->
+    match xs with
+    | hd::[] -> addVariable name hd vars
+    | _ -> Nothing
   | _       -> Nothing
   ;;
     
@@ -179,15 +184,21 @@ type VarsList = (VariableType * string) list;;
 type 'a Evaluator = (VariableType * string) list -> 'a list -> (VariableType * string) list maybe;;
 
 type Reader = System.IO.StreamReader
+
+let readLine line fn idx =
+  if not (System.String.IsNullOrWhiteSpace !line) then
+      let vars = fn !variables (splitString !line)
+      if vars = Nothing then
+        errs := (!idx, "Error") :: !errs
+
 let readAllLines (path: string) (fn: string Evaluator) =
   use reader = new Reader(path) in
   let line = ref "" in
   let idx = ref 1 in
-  while !line <> null do
+  while !line <> null do 
     line := reader.ReadLine()
-    let vars = fn !variables (splitString !line)
-    if vars = Nothing then
-      errs := (!idx, "Error") :: !errs
+    printfn "%d %s" !idx !line
+    readLine line fn idx
     idx := !idx + 1
   done
   ;;
@@ -196,4 +207,5 @@ let eval path =
   readAllLines path evalAssignment;;
 
 System.Console.WriteLine(splitted)
+ignore(System.Console.Read())
 ```
