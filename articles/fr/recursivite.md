@@ -81,7 +81,7 @@ En OCaml / F#, il existe la fonction `List.map`, qui prend en entrée une foncti
 ```ml
 let ls = [1; 2; 3; 4; 5]
 let ls2 = List.map (fun x -> x*2) ls
-printfn "%A" ls2 // [2; 4; 6; 8; 10]
+printfn "%A" ls2  (* [2; 4; 6; 8; 10] *)
 ```
 
 Si l'on voulait la recoder, on pourrait écrire une version proche de :
