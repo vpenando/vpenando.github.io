@@ -53,9 +53,6 @@ using uint = unsigned;
 
 // Via une boucle :
 int pow(int n, uint p) noexcept {
-  if (p == 0) {
-    return 1;
-  }
   auto res = 1;
   for (auto i = 0u; i < p; ++i) {
     res *= n;
