@@ -152,7 +152,8 @@ Si une classe `XmlFileReader` implémente `IFileReader`, elle devra faire ces v�
 Le design pattern NVI résout tous ces problèmes en centralisant les vérifications.
 Voici l'équivalent de `IFileReader` en respectant le DP NVI :
 ```cs
-abstract class BaseFileReader : IFileReader {
+// Cette classe a le même rôle que 'IFileReader'
+abstract class BaseFileReader {
   #region Public properties
   public string Content { get { return GetContent(); } }
   public bool IsOpen { get; private set; } = false;
@@ -163,6 +164,7 @@ abstract class BaseFileReader : IFileReader {
   #endregion
 
   #region Public methods
+  // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
   public void Open(string filename) {
     Debug.Assert(!string.IsNullOrEmpty(filename), "(BaseFileReader.Open) Precondition failed: Invalid file name");
     Debug.Assert(File.Exists(filename), $"(BaseFileReader.Open) Precondition failed: Unexisting file {filename}");
@@ -173,6 +175,7 @@ abstract class BaseFileReader : IFileReader {
     this.IsOpen = true;
   }
 
+  // Effectue les vérifications relatives à l'état interne de l'instance courante, puis appelle 'Close_Impl'
   public void Close() {
     Debug.Assert(this.IsOpen, "(BaseFileReader.Close) Precondition failed: No file open");
     this.Close_Impl();
@@ -181,12 +184,14 @@ abstract class BaseFileReader : IFileReader {
   #endregion
 
   #region Protected methods
+  // Pourra être appelé dans 'Open_Impl'
   protected void SetContent(string content) {
     this.content = content;
   }
   #endregion
 
   #region Private methods
+  // Effectue les relatives à l'état interne de l'instance courante, puis renvoie 'content'
   private string GetContent() {
     Debug.Assert(this.IsOpen, "(BaseFileReader.GetContent) Precondition failed: No file open");
     return this.content;
