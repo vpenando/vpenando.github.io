@@ -108,9 +108,9 @@ Foo(reader);
 ---
 
 #### Contrats
-En **programmation par contrat**, il existe plusieurs notions, telles que les **invariants**, les **préconditions**, et les **postconditions**. Afin d'aborder la suite de cet article de la meilleure manière possivle, présentons brièvement ces différents points.
+En **programmation par contrat**, il existe plusieurs notions, telles que les **invariants**, les **préconditions**, et les **postconditions**. Afin d'aborder la suite de cet article de la meilleure manière possible, présentons brièvement ces différents points.
 
-Un **invariant** est une condition qui peut être vérifiée à tout instant *t*. Nous ne nous intéresserons ici qu'aux invariant de classe. Un invariant de classe est une propriété qui doit être vraie à tout instant. Par exemple, pour un objet de type `Rectangle`, la longueur et la largeur doivent toutes deux être positives. Pour un objet de type `Date`, le jour doit être compris entre 1 et 31 (variable selon les mois), et le mois doit être compris entre 1 et 12.
+Un **invariant** est une condition qui peut être vérifiée à tout instant *t*. Nous ne nous intéresserons ici qu'aux invariants de classe. Un invariant de classe est une propriété qui doit être vraie à tout instant. Par exemple, pour un objet de type `Rectangle`, la longueur et la largeur doivent toutes deux être positives. Pour un objet de type `Date`, le jour doit être compris entre 1 et 31 (variable selon les mois), et le mois doit être compris entre 1 et 12.
 
 Une **précondition** est une condition qui doit être vérifiée au début d'une opération donnée. Par exemple, dans le cas d'une fonction `division`, le dénominateur doit être différent de zéro. Cette condition primordiale au bon déroulement de l'opération est une précondition. 
 
@@ -167,8 +167,10 @@ abstract class BaseFileReader {
   #region Public methods
   // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
   public void Open(string filename) {
-    Debug.Assert(!string.IsNullOrEmpty(filename), "(BaseFileReader.Open) Precondition failed: Invalid file name");
-    Debug.Assert(File.Exists(filename), $"(BaseFileReader.Open) Precondition failed: Unexisting file {filename}");
+    Debug.Assert(!string.IsNullOrEmpty(filename),
+      "(BaseFileReader.Open) Precondition failed: Invalid file name");
+    Debug.Assert(File.Exists(filename),
+      $"(BaseFileReader.Open) Precondition failed: Unexisting file {filename}");
     if (this.IsOpen) {
       this.Close();
     }
@@ -176,7 +178,8 @@ abstract class BaseFileReader {
     this.IsOpen = true;
   }
 
-  // Effectue les vérifications relatives à l'état interne de l'instance courante, puis appelle 'Close_Impl'
+  // Effectue les vérifications relatives à l'état interne de l'instance courante,
+  // puis appelle 'Close_Impl'
   public void Close() {
     Debug.Assert(this.IsOpen, "(BaseFileReader.Close) Precondition failed: No file open");
     this.Close_Impl();
@@ -205,6 +208,8 @@ abstract class BaseFileReader {
   #endregion
 }
 ```
+
+**Note** - *Je ne suis habituellement pas partisan des getters et setters, ces derniers ayant comme défaut principal de briser l'encapsulation. Dans le cas présent, la visibilité de `GetContent` et `SetContent` ne permettent pas à une entité tierce de modifier l'état d'une instance d'une classe héritant de `BaseFileReader`. Ainsi, leur utilisation dans le cas présent est valide.*
 
 Seules les méthodes `Open_Impl` et `Close_Impl` devront être implémentées ; ainsi, la logique des classes filles pourra se passer des vérifications tierces relatives à leur bon fonctionnement. Ce qui induit qu'une classe `XmlFileReader` pourrait être implémentée ainsi :
 
