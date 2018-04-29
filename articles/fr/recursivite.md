@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-### [FR] Amusons-nous avec la récursivité (F#)
+### (FR) Amusons-nous avec la récursivité (F#)
 
 ##### Introduction
 > En tant que développeur C++, je ne m'étais jusqu'alors jamais vraiment intéressé à des langages fonctionnels. Je me suis récemment (re)mis au F#, qui est un dérivé d'OCaml adapté à la plateforme .NET, tout comme le C#. Il s'agit d'un langage très intéressant, qui diffère de la plupart des langages que l'on a l'habitude de rencontrer. En F#, la récursivité est une chose très utilisée, qui permet notamment, selon moi, de plus facilement comprendre et débugger du code, en plus d'être très élégante.
