@@ -115,14 +115,13 @@ Une **précondition** est une condition qui doit être vérifiée au début d'un
 
 Enfin, une **postcondition** est une condition qui doit être vérifiée à la fin d'une opération donnée. Les postconditions aident bien souvent à détecter des erreurs de programmation (postcondition non vérifiée == erreur dans l'opération), aussi ai-je l'habitude de les vérifier avec des assertions, par opposition aux préconditions, que je traite avec des exceptions.
 
-Todo:
-Invariants
+**Note** - *Ces notions sont primordiales à assimiler afin d'appréhender la suite de cet article.*
 
-Préconditions
+En programmation orientée objet, une interface n'est en réalité rien de plus qu'un contrat. Il s'agit d'un contrat passé avec une classe, qui induit le fait suivant : *toute classe implémentant cette interface devra implémenter les méthodes déclarées dans l'interface*.
 
-Postconditions
+Conformément au LSP (**L**iskov **S**ubstitution **P**rinciple), tout objet `a` de type `T1`, où `T1` hérite de `T2`, doit avoir le même comportement qu'un objet `b` de type `T2`. En d'autres termes, les préconditions, postconditions et invariants de `b` doivent être vérifiés pour `a`.
 
-LSP
+---
 
 #### <a name="nvi">NVI - Introduction et exemples</a>
 
