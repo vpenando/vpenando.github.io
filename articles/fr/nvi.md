@@ -171,7 +171,7 @@ abstract class BaseFileReader {
     if (this.IsOpen) {
       this.Close();
     }
-    this.Open_Impl();
+    this.Open_Impl(filename);
     this.IsOpen = true;
   }
 
@@ -199,10 +199,30 @@ abstract class BaseFileReader {
   #endregion
 
   #region Unimplemented methods
-  protected abstract void Open_Impl();
+  protected abstract void Open_Impl(string filename);
   protected abstract void Close_Impl();
   #endregion
 }
 ```
 
-Seules les méthodes `Open_Impl` et `Close_Impl` devront être implémentées ; ainsi, la logique des classes filles pourra se passer des vérifications tierces relatives à leur bon fonctionnement.
+Seules les méthodes `Open_Impl` et `Close_Impl` devront être implémentées ; ainsi, la logique des classes filles pourra se passer des vérifications tierces relatives à leur bon fonctionnement. Ce qui induit qu'une classe `XmlFileReader` pourrait être implémentée ainsi :
+
+```cs
+class XmlFileReader : BaseFileReader {
+  public XmlFileReader(string filename) : base() {
+    this.Open(filename);
+  }
+
+  protected override void Open_Impl(string filename) {
+    // Lecture du fichier
+    // Eventuelles vérifications sur le contenu du fichier
+  }
+
+  protected override void Close_Impl() {
+    // Fermeture du fichier
+  }
+}
+```
+
+Et la logique est la même pour toute autre classe implémentant `BaseFileReader` !
+En somme, tout invariant d'une classe abstraite est vérifié sans besoin d'adapter la classe concrète qui en dérive. Il en va de même pour les préconditions et les postconditions.
