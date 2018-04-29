@@ -17,7 +17,7 @@
 
 #### Introduction
 Dans beaucoup de langages de programmation, il est possible de créer des classes, qui serviront ensuite à la création d'instances. Il existe également une notion de hiérarchie, où une classe `Child` peut dériver d'une classe `Parent`.
-Ce mécanisme permet à `Child` d'hériter de certaines propriétés de `Parent` en fonction de leur visibilité.
+Ce mécanisme permet à `Child` d'hériter des propriétés de `Parent`.
 
 Exemple en C# :
 ```cs
@@ -26,7 +26,7 @@ class Parent {
     // ...
   }
   
-  void Foo() {
+  public void Foo() {
     // ...
   }
 }
@@ -54,7 +54,7 @@ Exemple :
 ```cs
 interface IFileReader {
   #region Properties
-  string Content { get; protected set; }
+  string Content { get; }
   bool IsOpen { get; private set; }
   #endregion
   
@@ -66,6 +66,7 @@ interface IFileReader {
 ```
 
 Ainsi, toute classe implémentant l'interface `IFileReader` se doit d'implémenter ses méthodes.
+
 **Note** - *Ces méthodes seront par défaut publiques. Nous allons expliquer pourquoi dans la partie suivante.*
 
 Il sera alors possible d'avoir un code similaire à :
@@ -117,7 +118,7 @@ Enfin, une **postcondition** est une condition qui doit être vérifiée à la f
 
 **Note** - *Ces notions sont primordiales à assimiler afin d'appréhender la suite de cet article.*
 
-En programmation orientée objet, une interface n'est en réalité rien de plus qu'un contrat. Il s'agit d'un contrat passé avec une classe, qui induit le fait suivant : *toute classe implémentant cette interface devra implémenter les méthodes déclarées dans l'interface*. Soit "*si j'instancie un objet de type `T1`, où `T1` implémente l'interface `I1`, je dois pouvoir appeler la méthode `M1` de `T1` héritée de `I1`*".
+En programmation orientée objet, une interface n'est en réalité rien de plus qu'un contrat. Il s'agit d'un contrat passé avec une classe, qui induit le fait suivant : *toute classe implémentant cette interface devra implémenter les méthodes déclarées dans l'interface*. Soit "*si j'instancie un objet de type `T1`, où `T1` implémente l'interface `I1`, je dois pouvoir appeler la méthode `M1` de `T1` héritée de `I1`*". Voilà pourquoi tout est public dans une interface.
 
 De plus, conformément au LSP (**L**iskov **S**ubstitution **P**rinciple), pour tout objet `a` de type `T1`, où `T1` hérite de `T2`, les préconditions, postconditions et invariants de toute instance de `T2` doivent être vérifiés pour `a`.
 
@@ -132,7 +133,7 @@ Reprenons l'exemple de l'interface `IFileReader` :
 ```cs
 interface IFileReader {
   #region Properties
-  string Content { get; protected set; }
+  string Content { get; }
   bool IsOpen { get; private set; }
   #endregion
   
