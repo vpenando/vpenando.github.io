@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-### [FR] Réflexion - Application partielle de fonction en C++
+### (FR) Réflexion - Application partielle de fonction en C++
 
 ###### Note importante
 > Cet article est une réflexion personnelle. Il ne s'agit pas d'un article structuré visant à apprendre ou détailler des points du langage. Par ailleurs, je compile en C++14, aussi je vous recommande d'utiliser un compilateur supportant cette norme si vous souhaitez reproduire ces exemples (VS2015/2017 ou un GCC/Clang récent).
