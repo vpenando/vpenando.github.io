@@ -58,7 +58,7 @@ Quid donc de définir une fonction similaire sans cette contrainte ? Pour cela, 
 * Les lambdas
 
 ```cpp
-namespace fun{ // "fun" pour "functional"
+namespace fun { // "fun" pour "functional"
 
   // Application partielle en ne spécifiant qu'un argument
   template<class Fn, class T>
@@ -92,7 +92,7 @@ A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible su
 ```cpp
 #include <iostream> // std::cout
 
-namespace fun{
+namespace fun {
 
   template<class Fn, class T>
   auto apply(Fn const& fn, T const& val) {
