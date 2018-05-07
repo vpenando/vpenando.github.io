@@ -148,7 +148,7 @@ Cette interface induit intrinsèquement certaines vérifications triviales à ef
 * A l'appel de `Close`, le fichier doit être ouvert ;
 * Lorsque l'on accède à `Content`, le fichier doit être ouvert.
 
-Si une classe `XmlFileReader` implémente `IFileReader`, elle devra faire ces vérifications. Elle pourra ensuite vérifier le formattage du fichier afin de s'assurer qu'il s'agit bien d'un fichier XML. Puis, si une classe `JsonFileReader` implémente à son tour `IFileReader`, il faudra à nouveau faire ces vérifications. Il en va de même pour une classe `IniFileReader`.
+Si une classe `XmlFileReader` implémente `IFileReader`, elle devra faire ces vérifications. Elle pourra ensuite vérifier le formattage du fichier afin de s'assurer qu'il s'agit bien d'un fichier XML. Puis, si une classe `JsonFileReader` implémente à son tour `IFileReader`, il faudra à nouveau faire ces vérifications. Il en va de même pour une classe `IniFileReader` ou tout autre format.
 
 Le design pattern NVI résout tous ces problèmes en centralisant les vérifications.
 Voici l'équivalent de `IFileReader` en respectant le DP NVI :
