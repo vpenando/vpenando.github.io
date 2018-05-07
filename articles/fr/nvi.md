@@ -118,7 +118,7 @@ Enfin, une **postcondition** est une condition qui doit être vérifiée à la f
 
 **Note** - *Ces notions sont primordiales à assimiler afin d'appréhender la suite de cet article.*
 
-En programmation orientée objet, une interface n'est en réalité rien de plus qu'un contrat. Il s'agit d'un contrat passé avec une classe, qui induit le fait suivant : *toute classe implémentant cette interface devra implémenter les méthodes déclarées dans l'interface*. Soit "*si j'instancie un objet de type `T1`, où `T1` implémente l'interface `I1`, je dois pouvoir appeler la méthode `M1` de `T1` héritée de `I1`*". Voilà pourquoi tout est public dans une interface.
+En programmation orientée objet, une interface n'est en réalité rien de plus qu'un contrat. Il s'agit d'un contrat passé avec une classe, qui induit le fait suivant : *toute classe implémentant cette interface devra implémenter toutes ses méthodes*. Soit "*si j'instancie un objet de type `T1`, où `T1` implémente l'interface `I1`, je dois pouvoir appeler la méthode `M1` de `T1` héritée de `I1`*". Voilà pourquoi tout est public dans une interface.
 
 De plus, conformément au LSP (**L**iskov **S**ubstitution **P**rinciple), pour tout objet `a` de type `T1`, où `T1` hérite de `T2`, les préconditions, postconditions et invariants de toute instance de `T2` doivent être vérifiés pour `a`.
 
