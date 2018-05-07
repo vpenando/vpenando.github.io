@@ -125,7 +125,7 @@ De plus, conformément au LSP (**L**iskov **S**ubstitution **P**rinciple), pour 
 ---
 
 #### <a name="nvi">NVI - Introduction et exemples</a>
-Le design pattern NVI (**N**on **V**irtual **I**nterface) permet de vérifier la validité d'invariants, de préconditions et de postcondition de manière automatique de manière à ce que l'utilisateur de nos entités puisse se passer de les écrire. La notion d'interface "non virtuelle" peut en dérouter certains (à juste titre !), laissez-moi donc vous présenter l'idée résidant derrière ce terme farfelu.
+Le design pattern NVI (**N**on **V**irtual **I**nterface) permet de vérifier la validité d'invariants, de préconditions et de postconditions automatiquement de manière à ce que l'utilisateur de nos entités puisse se passer de les écrire. La notion d'interface "non virtuelle" peut en dérouter certains (à juste titre !), laissez-moi donc vous présenter l'idée résidant derrière ce terme farfelu.
 
 Pour ce faire, il convient d'utiliser des classes dites abstraites, c'est-à-dire dont on ne peut pas créer d'instances. Ces classes seront à la base de nos relations d'héritages (en lieu et place des interfaces), et effectueront les vérifications relatives aux invariants, préconditions et postconditions.
 
