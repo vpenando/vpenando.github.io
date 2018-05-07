@@ -110,7 +110,7 @@ Foo(reader);
 #### Contrats
 En **programmation par contrat**, il existe plusieurs notions, telles que les **invariants**, les **préconditions**, et les **postconditions**. Afin d'aborder la suite de cet article de la meilleure manière possible, présentons brièvement ces différents points.
 
-Un **invariant** est une condition qui peut être vérifiée à tout instant *t*. Nous ne nous intéresserons ici qu'aux invariants de classe. Un invariant de classe est une propriété qui doit être vraie à tout instant. Par exemple, pour un objet de type `Rectangle`, la longueur et la largeur doivent toutes deux être positives. Pour un objet de type `Date`, le jour doit être compris entre 1 et 31 (variable selon les mois), et le mois doit être compris entre 1 et 12.
+Un **invariant** est une condition qui peut être vérifiée à tout instant *t*. Nous ne nous intéresserons ici qu'aux invariants de classe. Un invariant de classe est une propriété qui doit être vraie pour tout objet à tout instant après sa construction. Par exemple, pour un objet de type `Rectangle`, la longueur et la largeur doivent toutes deux être positives. Pour un objet de type `Date`, le jour doit être compris entre 1 et 31 (variable selon les mois), et le mois doit être compris entre 1 et 12.
 
 Une **précondition** est une condition qui doit être vérifiée au début d'une opération donnée. Par exemple, dans le cas d'une fonction `division`, le dénominateur doit être différent de zéro. Cette condition primordiale au bon déroulement de l'opération est une précondition. 
 
