@@ -20,6 +20,8 @@ void testMyVariable(int variable) {
 
 Pattern matching is a simple and powerful way to test a sequence of tokens. It becomes easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion.
 
+---
+
 #### 2. Examples
 ##### a. The sum of a list
 With OCaml / F#:
