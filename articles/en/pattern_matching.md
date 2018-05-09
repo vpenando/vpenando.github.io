@@ -5,7 +5,7 @@
 #### 1. What is pattern matching?
 In languages like C++, C, C#, we have the `switch` structure that allows us to test a variable:
 ```cs
-void testMyVariable(int variable) {
+void TestMyVariable(int variable) {
   switch (variable) {
   case 0:
     // ...
