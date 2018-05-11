@@ -18,8 +18,16 @@ void TestMyVariable(int variable) {
 }
 ```
 
-Pattern matching is a simple and powerful way to test a sequence of tokens. It becomes easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion.
+Pattern matching is a simple and powerful way to test a sequence of tokens. It becomes easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion. It's similar to the `switch` structure:
 
+```ml
+let testMyVariable variable =
+  match variable with
+  | 0 -> (* ... *)
+  | 1 -> (* ... *)
+  | _ -> (* Default case *)
+  ;;
+```
 ---
 
 #### 2. Examples
