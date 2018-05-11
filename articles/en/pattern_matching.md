@@ -56,3 +56,25 @@ let rec count = function
 In this function, we have to cases to test:
 1. The list is empty: its count is `0`.
 2. The list is NOT empty: we return `1` + the count of the rest of the list.
+
+
+#### c. Other uses of pattern matching?
+
+Pow:
+```ml
+let rec pow n p =
+  if p < 0 then failwith "Expected a positive number"
+  match p with
+  | 0 -> 1
+  | _ -> n * (pow n (p-1))
+  ;;
+```
+Factorial:
+```ml
+let rec fac n =
+  if n < 0 then failwith "Expected a positive number"
+  match n with
+  | 0 -> 1
+  | _ -> n * (fac (n-1))
+  ;;
+```
