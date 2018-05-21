@@ -20,10 +20,15 @@ Au delà de différences de visibilité -que je vais énoncer dans la partie sui
 Les structures et les classes présentent deux différences majeures en termes de visibilité : là où par défaut tout est public dans une structure, tout est privé dans une classe. Exemple :
 ```cpp
 struct Point {
-  Point(int p_x, int p_y);
+  Point(int px, int py);
   int x;
   int y;
 };
+
+Point::Point(int px, int py)
+  : x(px), y(py)
+{
+}
 ```
 Dans cette structure, absolument **tout** est public. Si bien qu'il est possible de faire :
 ```cpp
@@ -37,31 +42,30 @@ pt: (10, 12)
 Compiler un tel code n'est cependant pas possible avec une classe :
 ```cpp
 class Point {
-  Point(int p_x, int p_y);
+  Point(int px, int py);
   int x;
   int y;
 };
 ```
 ```
-main.cpp:10:9: error: calling a private constructor of class 'Point'
-  Point pt{10, 12};
-        ^
+main.cpp:15:11: error: calling a private constructor of class 'Point'
+    Point pt{10, 12};
+          ^
 main.cpp:4:3: note: implicitly declared private here
   Point(int p_x, int p_y);
   ^
-main.cpp:11:30: error: 'x' is a private member of 'Point'
-  std::cout << "pt: (" << pt.x << ", " << pt.y << ")";
-                             ^
+main.cpp:16:28: error: 'x' is a private member of 'Point'
+std::cout << "pt: (" << pt.x << ", " << pt.y << ")";
+                           ^
 main.cpp:5:7: note: implicitly declared private here
   int x;
       ^
-main.cpp:11:46: error: 'y' is a private member of 'Point'
-  std::cout << "pt: (" << pt.x << ", " << pt.y << ")";
-                                             ^
+main.cpp:16:44: error: 'y' is a private member of 'Point'
+std::cout << "pt: (" << pt.x << ", " << pt.y << ")";
+                                           ^
 main.cpp:6:7: note: implicitly declared private here
   int y;
       ^
-3 errors generated.
 ```
 Il en va de même avec l'héritage ; si l'héritage est par défaut public avec une structure, il devient privé en utilisant une classe.
 
