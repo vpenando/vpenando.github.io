@@ -28,7 +28,7 @@ Et le résultat sera bien entendu :
 ```
 pt: (10, 12)
 ```
-Un tel code n'est possible avec une classe :
+Compiler un tel code n'est cependant pas possible avec une classe :
 ```cpp
 class Point {
   Point(int p_x, int p_y);
@@ -72,9 +72,9 @@ Parallèlement à ces principes, il existe les notions de classes à **sémantiq
 A titre d'exemple, pour la structure `Point` présentée plus haut, il est tout à fait sensé d'avoir deux instances identiques.
 A contrario, l'utilisation d'une classe représentant une entité unique (un ID, un compte bancaire, un individu, ...) ne tend pas à créer deux instances identiques.
 
-Une classe comme `Point` est ce que l'on appelle une classe à sémantique de valeur.
+Une classe comme `Point` est ce que l'on appelle une classe à sémantique de ***valeur**.
 
-Une classe telle que `std::unique_ptr`, par exemple, serait ce que l'on appelle une classe à sémantique d'entité. En tant que telle, elle n'est pas copiable.
+Une classe telle que `std::unique_ptr`, par exemple, serait ce que l'on appelle une classe à sémantique d'**entité**. En tant que telle, elle n'est pas copiable.
 
 **Note** - *Il est relativement rare qu'une classe à sémantique de valeur soit à la base d'une relation d'héritage.*
 
