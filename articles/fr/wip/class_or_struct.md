@@ -72,7 +72,7 @@ Parallèlement à ces principes, il existe les notions de classes à **sémantiq
 A titre d'exemple, pour la structure `Point` présentée plus haut, il est tout à fait sensé d'avoir deux instances identiques.
 A contrario, l'utilisation d'une classe représentant une entité unique (un ID, un compte bancaire, un individu, ...) ne tend pas à créer deux instances identiques.
 
-Une classe comme `Point` est ce que l'on appelle une classe à sémantique de ***valeur**.
+Une classe comme `Point` est ce que l'on appelle une classe à sémantique de **valeur**.
 
 Une classe telle que `std::unique_ptr`, par exemple, serait ce que l'on appelle une classe à sémantique d'**entité**. En tant que telle, elle n'est pas copiable.
 
