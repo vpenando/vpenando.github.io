@@ -7,10 +7,16 @@
 
 ---
 
+### Sommaire
+* [1. Différences fondamentales](#differences)
+* [2. Différences sémantiques - Entité ou valeur ?](#semantics)
+
+---
+
 En programmation orientée objet, nous avons bien souvent le choix entre deux types d'entités lorsque nous voulons créer de nouveaux types : les **classes** et les **structures**.
 Au delà de différences de visibilité -que je vais énoncer dans la partie suivante-, elles permettent d'apporter une sémantique supplémentaire à nos objets.
 
-### 1. Différences fondamentales
+### <a name="differences">1. Différences fondamentales</a>
 Les structures et les classes présentent deux différences majeures en termes de visibilité : là où par défaut tout est public dans une structure, tout est privé dans une classe. Exemple :
 ```cpp
 struct Point {
@@ -63,7 +69,7 @@ Il en va de même avec l'héritage ; si l'héritage est par défaut public avec 
 
 Ces différences de visibilité posent les bases d'une divergence sémantique majeure entre ces deux types d'entité.
 
-### 2. Différences sémantiques - Entité ou valeur ?
+### <a name="semantics">2. Différences sémantiques - Entité ou valeur ?</a>
 En programmation orientée objet, il existe différents piliers permettant d'assurer un minimum de cohérence conceptuelle, comme par exemple les principes [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)) ou encore la [loi de Déméter](https://fr.wikipedia.org/wiki/Loi_de_D%C3%A9m%C3%A9ter).
 
 Parallèlement à ces principes, il existe les notions de classes à **sémantique de valeur** et classes à **sémantique d'entité**. Cette différence est conditionnée par la réponse à la question suivante :
