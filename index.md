@@ -4,8 +4,8 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Recent posts:
+- `2018/06/25`: [(FR) Du manager à l'entropie](articles/fr/manager.md)
 - `2018/04/29`: [(FR) Présentation du design pattern NVI](articles/fr/nvi.md)
 - `2018/04/02`: [(FR) Amusons-nous avec la récursivité (F#)](articles/fr/recursivite.md)
-- `2017/11/11`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/curryfication_cpp.md)
 
 [More...](articles.md)
