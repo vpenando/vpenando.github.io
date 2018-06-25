@@ -109,7 +109,7 @@ Deux solutions s'offrent à nous :
 
 > *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
 
-Le tout est une histoire de sémantique ; là où l'action de créer ou supprimer un fichier n'est *-a priori-* à faire qu'une fois, il est tout à fait possible que l'on doive écrire plusieurs fois dans un même fichier (exemple : un fichier le log). Plutôt que d'appeler plusieurs fois une fonction `write` (qui ouvre/ferme le stream vers le fichier plusieurs fois), il fait tout à fait sens de créer une entité qui est responsable de l'écriture vers ce stream. En ce qui concerne la lecture, le principe est exactement le même ; on peut vouloir le lire plusieurs fois, là où il ne fait aucunement sens de vouloir supprimer un même fichier plusieurs fois consécutives.
+Le tout est une histoire de sémantique ; là où l'action de créer ou supprimer un fichier n'est *-a priori-* à faire qu'une fois, il est tout à fait possible que l'on doive écrire plusieurs fois dans un même fichier (exemple : un fichier le log). Plutôt que d'appeler plusieurs fois une fonction `write` (qui ouvre/ferme le stream vers le fichier plusieurs fois), il fait tout à fait sens (notamment du point de vue du [**RAII**](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization)) de créer une entité qui est responsable de l'écriture vers ce stream. En ce qui concerne la lecture, le principe est exactement le même ; on peut vouloir le lire plusieurs fois, là où il ne fait aucunement sens de vouloir supprimer un même fichier plusieurs fois consécutives.
 
 ---
 
