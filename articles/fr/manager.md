@@ -77,7 +77,7 @@ En effet, une classe devant "gérer des choses" peut tout à fait être appelée
 Avant tout, présentons *en quoi* créer un `XXXManager` est une mauvaise idée. En POO, il convient de respecter a minima les [**principes SOLID**](https://en.wikipedia.org/wiki/SOLID). Dans notre cas, nous allons surtout nous intéresser au premier d'entre eux, à savoir le [**SRP**](https://en.wikipedia.org/wiki/Single_responsibility_principle), qui énonce la chose suivante :
 > Toute fonction, classe, ou module, doit avoir une et une seule responsabilité. Cette entité doit rendre **un** service, et **bien** le rendre.
 
-Autant donc dire que nous sommes bien mal partis avec une classe qui endosse -pour le moment-, plusieurs responsabilités :
+Autant donc dire que nous sommes bien mal partis avec une classe qui endosse plusieurs responsabilités :
 * Créer un fichier ;
 * Ecrire dans un fichier ;
 * Lire le contenu d'un fichier ;
