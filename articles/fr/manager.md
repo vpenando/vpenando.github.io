@@ -15,6 +15,7 @@
 ### Introduction
 En programmation orientée objet, on est souvent tenté de créer des "managers", ces fameuses classes qui "gèrent des choses".
 Par exemple, une classe devant "gérer" un fichier texte pourrait être exprimée ainsi :
+###### Code - C#
 ```cs
 public class FileManager {
   public FileManager(string path) {
@@ -40,6 +41,7 @@ public class FileManager {
 ```
 
 Ou, pire encore :
+###### Code - C#
 ```cs
 public class FileManager {
   public FileManager() {
