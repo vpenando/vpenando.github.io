@@ -102,6 +102,7 @@ Si nous ne pouvons exprimer simplement le rôle d'une entité, c'est alors qu'il
 Les responsabilités respectives de ces entités sont *clairement* identifiées, là où l'on ne sait pas ce qu'un `XXXManager` fait.
 
 > *Mais, que fait-on de la possibilité de créer ou supprimer un fichier ?*
+
 Deux solutions s'offrent à nous :
 * Si le langage le permet, créer une fonction libre `create` ;
 * Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Delete`).
