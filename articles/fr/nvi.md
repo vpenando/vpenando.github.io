@@ -53,15 +53,15 @@ Une interface peut être déclarée de manière comparable à une classe, except
 Exemple :
 ```cs
 interface IFileReader {
-  #region Properties
+  \#region Properties
   string Content { get; }
   bool IsOpen { get; private set; }
-  #endregion
+  \#endregion
   
-  #region Methods
+  \#region Methods
   void Open(string filename);
   void Close(); 
-  #endregion
+  \#endregion
 }
 ```
 
@@ -72,16 +72,16 @@ Ainsi, toute classe implémentant l'interface `IFileReader` se doit d'implément
 Il sera alors possible d'avoir un code similaire à :
 ```cs
 class FileReader : IFileReader {
-  #region Public properties
+  \#region Public properties
   public string Content { get; protected set; } = null;
   public bool IsOpen { get; private set; } = false;
-  #endregion
+  \#endregion
 
-  #region Private fields
+  \#region Private fields
   private string content = null;
-  #endregion
+  \#endregion
 
-  #region Public methods
+  \#region Public methods
   public void Open(string filename) {
     // ...
   }
@@ -89,7 +89,7 @@ class FileReader : IFileReader {
   public void Close() {
     // ...
   }
-  #endregion
+  \#endregion
 }
 ```
 Et, à un autre endroit du code :
@@ -132,15 +132,15 @@ Pour ce faire, il convient d'utiliser des classes dites abstraites, c'est-à-dir
 Reprenons l'exemple de l'interface `IFileReader` :
 ```cs
 interface IFileReader {
-  #region Properties
+  \#region Properties
   string Content { get; }
   bool IsOpen { get; private set; }
-  #endregion
+  \#endregion
   
-  #region Methods
+  \#region Methods
   void Open(string filename);
   void Close(); 
-  #endregion
+  \#endregion
 }
 ```
 Cette interface induit intrinsèquement certaines vérifications triviales à effectuer :
@@ -155,16 +155,16 @@ Voici l'équivalent de `IFileReader` en respectant le DP NVI :
 ```cs
 // Cette classe a le même rôle que 'IFileReader'
 abstract class BaseFileReader {
-  #region Public properties
+  \#region Public properties
   public string Content { get { return GetContent(); } }
   public bool IsOpen { get; private set; } = false;
-  #endregion
+  \#endregion
 
-  #region Private fields
+  \#region Private fields
   private string content = null;
-  #endregion
+  \#endregion
 
-  #region Public methods
+  \#region Public methods
   // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
   public void Open(string filename) {
     Debug.Assert(!string.IsNullOrEmpty(filename),
@@ -185,27 +185,27 @@ abstract class BaseFileReader {
     this.Close_Impl();
     this.IsOpen = false;
   }
-  #endregion
+  \#endregion
 
-  #region Protected methods
+  \#region Protected methods
   // Pourra être appelé dans 'Open_Impl'
   protected void SetContent(string content) {
     this.content = content;
   }
-  #endregion
+  \#endregion
 
-  #region Private methods
+  \#region Private methods
   // Effectue les relatives à l'état interne de l'instance courante, puis renvoie 'content'
   private string GetContent() {
     Debug.Assert(this.IsOpen, "(BaseFileReader.GetContent) Precondition failed: No file open");
     return this.content;
   }
-  #endregion
+  \#endregion
 
-  #region Unimplemented methods
+  \#region Unimplemented methods
   protected abstract void Open_Impl(string filename);
   protected abstract void Close_Impl();
-  #endregion
+  \#endregion
 }
 ```
 
