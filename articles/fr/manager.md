@@ -112,7 +112,6 @@ Le tout est une histoire de sémantique ; là où l'action de créer ou supprime
 
 ### Conclusion
 Soyons honnêtes ; le phénomère d'entropie a lieu quoi qu'il arrive. Quelle que soit la qualité initiale de notre code, ce dernier finit toujours par se complexifier au gré des besoins et de son évolution. Lorsqu'un client a besoin d'une nouvelle fonctionnalité, on doit parfois casser ou modifier des briques existantes, ajouter un traitement conditionnel pour un cas spécifique, ...
-
 Lorsqu'un bug complexe fait son apparition, sa résolution peut elle aussi complexifier le code, quitte à ce que le résultat soit, au final, "pas très propre".
 
 Alors, autant tenter au mieu de limiter l'évolution de la complexité en posant dès le début des bases claires, et surtout bien "bornées". Une classe donnée a **un** rôle ; si j'ai besoin d'une entité qui remplit une fonctionnalité distincte, alors je crée une nouvelle classe.
