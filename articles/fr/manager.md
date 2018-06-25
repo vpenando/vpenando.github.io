@@ -97,4 +97,5 @@ Deux solutions s'offrent à nous :
 * Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Delete`).
 
 > *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
+
 Le tout est une histoire de sémantique ; là où l'action de créer ou supprimer un fichier n'est -a priori- à faire qu'une fois, il est tout à fait possible que l'on doive écrire plusieurs fois dans un même fichier (exemple : un fichier le log). Plutôt que d'appeler plusieurs fois une fonction `write` (qui ouvre/ferme le stream vers le fichier plusieurs fois), il fait tout à fait sens de créer une entité qui est responsable de l'écriture vers ce stream. En ce qui concerne la lecture, le principe est exactement le même.
