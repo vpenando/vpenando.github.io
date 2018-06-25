@@ -4,6 +4,14 @@
 
 ---
 
+### Sommaire
+* [Introduction](#introduction)
+* [Explication](#explication)
+* [Solution](#solution)
+* [Conclusion](#conclusion)
+
+---
+
 #### Introduction
 En programmation orientée objet, on est souvent tenté de créer des "managers", ces fameuses classes qui "gèrent des choses".
 Par exemple, une classe devant "gérer" un fichier texte pourrait être exprimée ainsi :
