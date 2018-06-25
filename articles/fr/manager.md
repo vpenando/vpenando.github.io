@@ -35,6 +35,7 @@ public:
 
 Nous sommes en droit de nous poser la question suivantes : *En quoi est-ce si mal de créer un "manager" ? Tant que mon entité doit gérer des choses, il semble tout à fait légitime, voire approprié, de l'appeler `XXXManager`, non ?*
 
+---
 
 #### Explication
 En effet, une classe devant "gérer des choses" peut tout à fait être appelée "manager". Le problème ne se situe pas en ce point, mais plutôt en l'essence même de la classe. L'existence d'une telle entité mène, à terme, à une architecture bancale qui accélère un phénomène que l'on appelle l'**entropie du logiciel**.
