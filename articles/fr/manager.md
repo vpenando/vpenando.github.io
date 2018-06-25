@@ -77,4 +77,24 @@ Pour le moment, les fonctions de ce `FileManager` sont somme toutes assez trivia
 Le jour où l'on veut pouvoir supprimer un fichier, il suffira d'ajouter une méthode `Delete`, n'est-il pas ? Et si l'on décide soudainement de pouvoir "gérer" des fichiers XML, par exemple en testant leur format, que va-t-on faire ? Ajouter une fonction `IsXmlFile` ? Ou pire encore, créer un `XmlFileManager`, qui hérite de `FileManager` ?
 Nous nous retrouvons alors avec des classes [qui ont de nombreuses responsabilités, et qu'il va être très difficile de maintenir](https://openclassrooms.com/forum/sujet/fonction-find-de-std-map-sur-std-function?page=1#message-92459036).
 
-C'est à ce 
+C'est à ce moment que l'entropie évolue drastiquement ; si un système, quel qu'il soit, est destiné à évoluer vers le désordre, il convient au moins de limiter cette évolution, ou au moins de ne pas l'accélérer.
+
+
+---
+
+#### Solution
+Une solution simple consiste à **respecter au moins le SRP**, en se posant une question simple :
+> Quel sera **le** rôle de la classe que je suis en train de créer ?
+
+Si nous ne pouvons exprimer simplement le rôle d'une entité, c'est alors qu'il y a un soucis ; peut-être que notre entité a **plusieurs** responsabilités ? Pour reprendre l'idée du `FileManager` :
+* Je veux écrire dans un fichier ? Je crée une entité `FileWriter`.
+* Je veux lire le contenu d'un fichier ? Je crée une entité `FileReader`.
+Les responsabilités respectives de ces entités sont *clairement* identifiées, là où l'on ne sait pas ce qu'un `XXXManager` fait.
+
+> *Mais, que fait-on de la possibilité de créer ou supprimer un fichier ?*
+Deux solutions s'offrent à nous :
+* Si le langage le permet, créer une fonction libre `create` ;
+* Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Delete`).
+
+> *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
+Le tout est une histoire de sémantique ; là où l'action de créer ou supprimer un fichier n'est -a priori- à faire qu'une fois, il est tout à fait possible que l'on doive écrire plusieurs fois dans un même fichier (exemple : un fichier le log). Plutôt que d'appeler plusieurs fois une fonction `write` (qui ouvre/ferme le stream vers le fichier plusieurs fois), il fait tout à fait sens de créer une entité qui est responsable de l'écriture vers ce stream. En ce qui concerne la lecture, le principe est exactement le même.
