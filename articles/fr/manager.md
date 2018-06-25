@@ -12,7 +12,7 @@
 
 ---
 
-#### Introduction
+### Introduction
 En programmation orientée objet, on est souvent tenté de créer des "managers", ces fameuses classes qui "gèrent des choses".
 Par exemple, une classe devant "gérer" un fichier texte pourrait être exprimée ainsi :
 ```cs
@@ -69,7 +69,7 @@ Nous sommes en droit de nous poser la question suivantes : *En quoi est-ce si ma
 
 ---
 
-#### Explication
+### Explication
 En effet, une classe devant "gérer des choses" peut tout à fait être appelée "manager". Le problème ne se situe pas en ce point, mais plutôt en l'essence même de la classe. L'existence d'une telle entité mène, à terme, à une architecture bancale qui accélère un phénomène que l'on appelle l'[**entropie du logiciel**](https://gist.github.com/sroccaserra/6cafd444c11958059fdd2a698d4effcb).
 
 Avant tout, présentons *en quoi* créer un `XXXManager` est une mauvaise idée. En POO, il convient de respecter a minima les [**principes SOLID**](https://en.wikipedia.org/wiki/SOLID). Dans notre cas, nous allons surtout nous intéresser au premier d'entre eux, à savoir le [**SRP**](https://en.wikipedia.org/wiki/Single_responsibility_principle), qui énonce la chose suivante :
@@ -90,7 +90,7 @@ C'est à ce moment que l'entropie évolue drastiquement ; si un système, quel q
 
 ---
 
-#### Solution
+### Solution
 Une solution simple consiste à **respecter au moins le SRP**, en se posant une question simple :
 > Quel sera **le** rôle de la classe que je suis en train de créer ?
 
@@ -107,3 +107,13 @@ Deux solutions s'offrent à nous :
 > *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
 
 Le tout est une histoire de sémantique ; là où l'action de créer ou supprimer un fichier n'est *-a priori-* à faire qu'une fois, il est tout à fait possible que l'on doive écrire plusieurs fois dans un même fichier (exemple : un fichier le log). Plutôt que d'appeler plusieurs fois une fonction `write` (qui ouvre/ferme le stream vers le fichier plusieurs fois), il fait tout à fait sens de créer une entité qui est responsable de l'écriture vers ce stream. En ce qui concerne la lecture, le principe est exactement le même ; on peut vouloir le lire plusieurs fois, là où il ne fait aucunement sens de vouloir supprimer un même fichier plusieurs fois consécutives.
+
+---
+
+### Conclusion
+Soyons honnêtes ; le phénomère d'entropie a lieu quoi qu'il arrive. Quelle que soit la qualité initiale de notre code, ce dernier finit toujours par se complexifier au gré des besoins et de son évolution. Lorsqu'un client a besoin d'une nouvelle fonctionnalité, on doit parfois casser ou modifier des briques existantes, ajouter un traitement conditionnel pour un cas spécifique, ...
+
+Lorsqu'un bug complexe fait son apparition, sa résolution peut elle aussi complexifier le code, quitte à ce que le résultat soit, au final, "pas très propre".
+
+Alors, autant tenter au mieu de limiter l'évolution de la complexité en posant dès le début des bases claires, et surtout bien "bornées". Une classe donnée a **un** rôle ; si j'ai besoin d'une entité qui remplit une fonctionnalité distincte, alors je crée une nouvelle classe.
+Ainsi, le code final s'en retrouve bien plus lisible, maintenable et élégant.
