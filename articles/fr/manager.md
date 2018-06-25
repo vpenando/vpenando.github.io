@@ -81,7 +81,7 @@ Autant donc dire que nous sommes bien mal partis avec une classe qui endosse plu
 * Créer un fichier ;
 * Ecrire dans un fichier ;
 * Lire le contenu d'un fichier ;
-* Tester le contenu d'un fichier.
+* Tester l'existence d'un fichier.
 
 Pour le moment, les fonctions de ce `FileManager` sont somme toutes assez triviales. Soyons fous, ajoutons-en quelques unes.
 Le jour où l'on veut pouvoir supprimer un fichier, il suffira d'ajouter une méthode `Delete`, n'est-il pas ? Et si l'on décide soudainement de pouvoir "gérer" des fichiers XML, par exemple en testant leur format, que va-t-on faire ? Ajouter une fonction `IsXmlFile` ? Ou pire encore, créer un `XmlFileManager`, qui hérite de `FileManager` ?
