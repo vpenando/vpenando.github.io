@@ -67,7 +67,7 @@ public class FileManager {
 ```
 ***Note** - La seconde version est encore pire car elle respecte encore moins le SRP du fait qu'une instance de cette classe est susceptible de "gérer" plusieurs fichiers.*
 
-Nous sommes en droit de nous poser la question suivantes : *En quoi est-ce si mal de créer un "manager" ? Tant que mon entité doit gérer des choses, il semble tout à fait légitime, voire approprié, de l'appeler `XXXManager`, non ?*
+Nous sommes en droit de nous poser la question suivante : *En quoi est-ce si mal de créer un "manager" ? Tant que mon entité doit gérer des choses, il semble tout à fait légitime, voire approprié, de l'appeler `XXXManager`, non ?*
 
 ---
 
