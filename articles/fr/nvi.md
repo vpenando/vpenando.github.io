@@ -44,7 +44,7 @@ Parallèlement, et dans une logique assez similaire, il existe la notion d'inter
 ---
 
 #### <a name="poo_interfaces">POO & Interfaces</a>
-Une interface peut être déclarée de manière comparable à une classe, excepté que nous devons utiliser le mot-clé `interface` et non `class` (ou `struct` en fonction des cas), et en suivant certaines règles :
+Une interface peut être déclarée de manière comparable à une classe, excepté que nous devons utiliser le mot-clé `interface` et non `class`/`struct`, et en suivant certaines règles :
 * Les méthodes ne peuvent pas avoir de corps ;
 * Il n'est pas possible de déclarer des attributs ;
 * Tout est par défaut public, et cette visibilité est immuable ;
