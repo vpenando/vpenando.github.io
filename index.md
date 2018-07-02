@@ -1,5 +1,7 @@
 ## Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
 
+<img src="assets/cat-clap.gif" alt="hi" class="inline"/>
+
 ### Old dev blog
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
