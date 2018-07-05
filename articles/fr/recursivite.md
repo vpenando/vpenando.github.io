@@ -21,7 +21,7 @@ int sum(std::vector<int> const& vec) {
   return result;
 }
 ```
-De manière récursive, ce code est plus concis et bien plus élégant.
+En F# (ou OCaml), on aura plutôt tendance à privilégier la récursivité. De manière récursive, ce code est plus concis et bien plus élégant :
 ###### Possible implémentation :
 ```ml
 let rec sum list =
