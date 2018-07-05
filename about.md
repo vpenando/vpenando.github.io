@@ -3,4 +3,4 @@
 
 I'm a French developer who likes C++, C# and other languages like Python, Lua, ...
 
-I write some articles in French or in English (or Frenglish... ^^), but most of the time they're in French (sorry guys).
+Even if this blog is in English, my articles are most of the time in French (sorry guys).
