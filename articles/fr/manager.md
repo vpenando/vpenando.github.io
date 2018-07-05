@@ -104,8 +104,8 @@ Les responsabilités respectives de ces entités sont *clairement* identifiées,
 > *Mais, que fait-on de la possibilité de créer ou supprimer un fichier ?*
 
 Deux solutions s'offrent à nous :
-* Si le langage le permet, créer une fonction libre `create` ;
-* Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Delete`).
+* Si le langage le permet, créer une fonction libre (par exemple `create_file`) ;
+* Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Create`, `File.Delete`).
 
 > *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
 
