@@ -2,6 +2,20 @@
 
 ### (FR) Réflexion - Implémentation d'un singleton en C++
 
+###### Note importante
+> Cet article provient de mon "ancien" dev blog, avec quelques petits remaniements. Aussi, il est possible que vous l'ayez déjà lu auparavant.
+
+---
+
+### Sommaire
+* [Introduction](#introduction)
+* [Un singleton, c'est quoi ?](#singleton)
+* [Implémentation naïve](#implementation_naive)
+* [Implémentation avec CRTP](#implementation_crtp)
+
+---
+
+
 ```cpp
 #include <iostream>
 #include <vector>
