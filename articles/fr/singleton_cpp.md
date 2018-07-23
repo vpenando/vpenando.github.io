@@ -17,9 +17,15 @@
 
 #### <a name="singleton">Introduction</a>
 
+---
+
 #### <a name="singleton">Un singleton, c'est quoi ?</a>
 
+---
+
 #### <a name="implementation_naive">Implémentation naïve</a>
+
+---
 
 #### <a name="implementation_crtp">Implémentation avec CRTP</a>
 
