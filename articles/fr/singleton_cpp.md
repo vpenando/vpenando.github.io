@@ -30,23 +30,22 @@
 #### <a name="implementation_crtp">Implémentation avec CRTP</a>
 
 ```cpp
-#include <iostream>
-#include <vector>
-
 template<class T>
-class Singleton{
+class Singleton {
 public:
-  static T& instance(){
+  static T& instance() {
     static T inst{};
     return inst;
   }
 protected:
-  Singleton() = default;
-  Singleton(Singleton const&) = delete;
-  Singleton(Singleton&&) = delete;
-  Singleton& operator=(Singleton const&) = delete;
-  Singleton& operator=(Singleton&&) = delete;
+  // Defaulted members
+  /*   */  Singleton() = default;
   virtual ~Singleton() = default;
+  // Deleted members
+  Singleton(Singleton const&) /*      */ = delete;
+  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton& operator=(Singleton const&) = delete;
+  Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
 class Foo final : public Singleton<Foo>{
