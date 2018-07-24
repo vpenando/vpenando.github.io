@@ -25,6 +25,34 @@
 
 #### <a name="implementation_naive">Implémentation naïve</a>
 
+```cpp
+class Singleton {
+public:
+  static Singleton& instance() {
+    static Singleton inst{};
+    return inst;
+  }
+  
+  void foo() { /* ... */ }
+  void bar() { /* ... */ }
+private:
+  Singleton() = default;
+  ~Singleton() = default;
+  // Deleted members
+  Singleton(Singleton const&) /*      */ = delete;
+  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton& operator=(Singleton const&) = delete;
+  Singleton& operator=(Singleton&&) /**/ = delete;
+};
+
+// ...
+
+// A l'usage :
+auto& singleton = Singleton::instance();
+singleton.foo();
+singleton.bar();
+```
+
 ---
 
 #### <a name="implementation_crtp">Implémentation avec CRTP</a>
