@@ -29,6 +29,21 @@
 
 #### <a name="implementation_crtp">Implémentation avec CRTP</a>
 
+Pour paraphraser Wikipédia :
+> The curiously recurring template pattern (CRTP) is an idiom in C++ in which a class X derives from a class template instantiation using X itself as template argument.
+
+Soit :
+```cpp
+template<class Derived>
+class CRTP_Base
+{
+};
+
+class CRTP_Derived : public CRTP_Base<CRTP_Derived>
+{
+};
+```
+
 ```cpp
 template<class T>
 class Singleton {
@@ -41,6 +56,7 @@ protected:
   // Defaulted members
   /*   */  Singleton() = default;
   virtual ~Singleton() = default;
+private:
   // Deleted members
   Singleton(Singleton const&) /*      */ = delete;
   Singleton(Singleton&&)      /*      */ = delete;
