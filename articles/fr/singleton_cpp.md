@@ -87,7 +87,12 @@ public:
 
 using SingleFoo = Singleton<Foo>;
 ```
-Toutefois, cet exemple, bien que viable, pose le problème de la sémantique de la classe `Foo`. En effet, le fait de pouvoir à tout moment créer une instance de cette classe contredit le principe même du singleton.
+Toutefois, cet exemple, bien que viable, pose le problème de la sémantique de la classe `Foo`. En effet, le fait de pouvoir à tout moment créer une instance de cette classe contredit le principe même du singleton :
+```cpp
+// Ce code est valide :
+auto& single_foo = SingleFoo::instance();
+Foo foo{}; // Quel intérêt d'avoir un singleton si l'on peut faire ça ?
+```
 
 Une solution à ce problème permet d'utiliser conjointement une classe `Singleton` très similaire à l'exemple ci-dessus et l'héritage. Cette solution est appelée CRTP.
 
