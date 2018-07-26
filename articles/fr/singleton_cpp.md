@@ -48,9 +48,9 @@ private:
 // ...
 
 // A l'usage :
-auto& singleton = Singleton::instance();
-singleton.foo();
-singleton.bar();
+auto& instance = Singleton::instance();
+instance.foo();
+instance.bar();
 ```
 
 ---
@@ -101,7 +101,7 @@ private:
 };
 
 int main(){
-  const auto& f = Foo::instance();
-  (void)f;
+  const auto& foo = Foo::instance();
+  (void)foo;
 }
 ```
