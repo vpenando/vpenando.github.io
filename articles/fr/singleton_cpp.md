@@ -24,7 +24,7 @@
 ---
 
 #### <a name="implementation_naive">Implémentation naïve</a>
-
+Une implémentation simpliste d'un singleton pourrait ressembler à ceci :
 ```cpp
 class Singleton {
 public:
@@ -52,6 +52,44 @@ auto& instance = Singleton::instance();
 instance.foo();
 instance.bar();
 ```
+Cet exemple est tout à fait fonctionnel. Néanmoins, si l'on doit réaliser un autre type de singleton en plus de celui-ci, il faudrait alors réécrire une classe très similaire.
+Or, pour éviter toute duplication de code, il est possible (et conseillé !) d'imaginer une classe qui embarque toutes les propriétés d'un singleton et prendrait un paramètre template approprié ! Ainsi, cela permettrait de centraliser le code concerné :
+
+```cpp
+template<class T>
+class Singleton {
+public:
+  static T& instance() {
+    static T inst{};
+    return inst;
+  }
+  
+protected:
+  Singleton() = default;
+  ~Singleton() = default;
+
+private:
+  // Deleted members
+  Singleton(Singleton const&) /*      */ = delete;
+  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton& operator=(Singleton const&) = delete;
+  Singleton& operator=(Singleton&&) /**/ = delete;
+};
+
+class Foo final {
+public:
+  Foo()  = default;
+  ~Foo() = default;
+  
+  void foo() { /* ... */ }
+  void bar() { /* ... */ }
+};
+
+using SingleFoo = Singleton<Foo>;
+```
+Toutefois, cet exemple, bien que viable, pose le problème de la sémantique de la classe `Foo`. En effet, le fait de pouvoir à tout moment créer une instance de cette classe contredit le principe même du singleton.
+
+Une solution à ce problème permet d'utiliser conjointement une classe `Singleton` très similaire à l'exemple ci-dessus et l'héritage. Cette solution est appelée CRTP.
 
 ---
 
