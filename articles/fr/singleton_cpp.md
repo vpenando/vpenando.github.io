@@ -36,11 +36,11 @@ public:
   void foo() { /* ... */ }
   void bar() { /* ... */ }
 private:
-  Singleton() = default;
+  Singleton()  = default;
   ~Singleton() = default;
   // Deleted members
-  Singleton(Singleton const&) /*      */ = delete;
-  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton(Singleton const&) = delete;
+  Singleton(Singleton&&) /**/ = delete;
   Singleton& operator=(Singleton const&) = delete;
   Singleton& operator=(Singleton&&) /**/ = delete;
 };
@@ -65,13 +65,13 @@ public:
   }
   
 protected:
-  Singleton() = default;
+  Singleton()  = default;
   ~Singleton() = default;
 
 private:
   // Deleted members
-  Singleton(Singleton const&) /*      */ = delete;
-  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton(Singleton const&) = delete;
+  Singleton(Singleton&&) /**/ = delete;
   Singleton& operator=(Singleton const&) = delete;
   Singleton& operator=(Singleton&&) /**/ = delete;
 };
@@ -129,8 +129,8 @@ protected:
   virtual ~Singleton() = default;
 private:
   // Deleted members
-  Singleton(Singleton const&) /*      */ = delete;
-  Singleton(Singleton&&)      /*      */ = delete;
+  Singleton(Singleton const&) = delete;
+  Singleton(Singleton&&) /**/ = delete;
   Singleton& operator=(Singleton const&) = delete;
   Singleton& operator=(Singleton&&) /**/ = delete;
 };
