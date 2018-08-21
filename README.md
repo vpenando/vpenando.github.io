@@ -2,7 +2,7 @@
 
 #### This is my personal dev blog
 
-### Content
+## Content
 Here are some articles, mainly about programming, and design.
 
 You can also find some of my main projects:
