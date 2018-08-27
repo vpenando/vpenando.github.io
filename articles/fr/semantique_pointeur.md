@@ -52,10 +52,10 @@ Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dériv�
 ### Pointeur VS référence
 Se pose à présent la question du choix entre pointeur et référence : lequel utiliser dans quel(s) cas ?
 
-A mon sens, il existe trois cas dans lesquels utiliser des pointeurs :
+A mon sens, il existe trois cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) :
 * Collection hétérogène
-* Modification d'une ressource propriétaire (1)
-* Utilisation de fonction C
+* Modification d'une ressource propriétaire *(1)*
+* Utilisation de fonctions C
 
 *(1) Ce que j'entends par "propriétaire", c'est qu'il appartient à l'appelant d'allouer et de libérer la mémoire. Bien souvent, nous utilisons des pointeurs intelligents, ce qui induit que la question n'aura pas à se poser.*
 
@@ -72,6 +72,8 @@ foo(i);
 ```
 Dans cet exemple, la simple lecture de `foo(i)` ne permet pas de deviner que l'on passe une variable par référence ; de ce fait, le relecteur ne saura pas systématiquement que `foo` produit un effet de bord.
 En revanche `foo(&ptr)` apporte cette sémantique, évitant cet oubli.
+
+***Note** - Lorsque l'on utilise un pointeur dans une fonction `f`, il appartient à `f` de vérifier sa non-nullité avant usage. Contrairement aux références, l'usage de pointeurs apporte une précondition supplémentaire. Cependant, un simple `assert` suffit.
 
 ---
 
