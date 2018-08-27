@@ -1,6 +1,7 @@
 ## [Welcome here!](index.md) | Articles | [Main projects](projects.md) | [About me](about.md)
 
 ### All posts:
+- `2018/08/27`: [(FR) De la sémantique du pointeur](articles/fr/semantique_pointeur.md) `c++` `good-practices`
 - `2018/06/25`: [(FR) Orienté objet - Du manager à l'entropie](articles/fr/manager.md) `oop` `bad-practices`
 - `2018/04/29`: [(FR) Présentation du design pattern NVI](articles/fr/nvi.md) `oop` `design-pattern`
 - `2018/04/02`: [(FR) Amusons-nous avec la récursivité (F#)](articles/fr/recursivite.md) `f#` `functional-programming`
