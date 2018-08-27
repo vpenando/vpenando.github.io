@@ -60,7 +60,7 @@ Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dériv�
 ### <a name="pointeur_vs_reference">Pointeur VS référence</a>
 Se pose à présent la question du choix entre pointeur et référence : lequel utiliser dans quel(s) cas ?
 
-A mon sens, il existe trois cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) :
+A mon sens, il existe quelques cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) plutôt que des références :
 * Collection hétérogène
 * Modification d'une ressource propriétaire *(1)*
 * Utilisation de fonctions C
