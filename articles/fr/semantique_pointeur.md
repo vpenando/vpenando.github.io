@@ -73,7 +73,9 @@ En revanche `foo(&ptr)` apporte cette sémantique, évitant cet oubli.
 ---
 
 ### Pointeur & ownership
+Il y a cependant des cas où il incombe à la fonction appelée de libérer la mémoire. Ainsi, il y a des cas où le passage de pointeur comme paramètre induit que la responsabilité de la libération de l'objet appartient à la fonction appelée.
 
+Pour lever cette ambiguïté, un simple alias suffit :
 ```cpp
 template<class T>
 using Owner = T;
