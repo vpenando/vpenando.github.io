@@ -8,3 +8,8 @@
 En C et en C++ (bien que je n'aborderai dans cet article que le C++), nous avons la possibilité d'allouer manuellement de la mémoire pour des usages spécifiques.
 
 
+
+```cpp
+template<class T>
+using Owner = T;
+```
