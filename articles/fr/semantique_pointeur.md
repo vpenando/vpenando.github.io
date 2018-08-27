@@ -4,6 +4,14 @@
 
 ---
 
+### Sommaire
+* [Introduction](#introduction)
+* [Pointeurs VS références](#pointeurs_vs_references)
+* [Solution](#pointeurs_et_ownership)
+* [Conclusion](#conclusion)
+
+---
+
 ### Introduction
 En C et en C++ (bien que je n'aborderai dans cet article que le C++), nous avons la possibilité d'allouer manuellement de la mémoire pour des usages spécifiques (collection hétérogène par exemple) :
 ```cpp
@@ -49,7 +57,7 @@ Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dériv�
 
 ---
 
-### Pointeur VS référence
+### <a name="pointeurs_vs_references">Pointeur VS référence</a>
 Se pose à présent la question du choix entre pointeur et référence : lequel utiliser dans quel(s) cas ?
 
 A mon sens, il existe trois cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) :
@@ -73,15 +81,25 @@ foo(i);
 Dans cet exemple, la simple lecture de `foo(i)` ne permet pas de deviner que l'on passe une variable par référence ; de ce fait, le relecteur ne saura pas systématiquement que `foo` produit un effet de bord.
 En revanche `foo(&ptr)` apporte cette sémantique, évitant cet oubli.
 
-***Note** - Lorsque l'on utilise un pointeur dans une fonction `f`, il appartient à `f` de vérifier sa non-nullité avant usage. Contrairement aux références, l'usage de pointeurs apporte une précondition supplémentaire. Cependant, un simple `assert` suffit.*
+***Note** - Lorsque l'on passe un pointeur à une fonction `f`, il appartient à `f` de vérifier sa non-nullité avant usage. Contrairement aux références, l'usage de pointeurs apporte une précondition supplémentaire. Cependant, un simple `assert` suffit.*
 
 ---
 
-### Pointeur & ownership
-Il y a cependant des cas où il incombe à la fonction appelée de libérer la mémoire. Ainsi, il y a des cas où le passage de pointeur comme paramètre induit que la responsabilité de la libération de l'objet appartient à la fonction appelée.
+### <a name="pointeurs_et_ownership">Pointeur & ownership</a>
+Il y a des cas où il incombe à la fonction appelée de libérer la mémoire. Ainsi, le passage de pointeur comme paramètre induit que la responsabilité de la libération de l'objet appartient à la fonction appelée.
+
+Ce n'est toutefois pas systématiquement le cas, aussi est-il essentiel de bien déterminer qui est responsable d'une ressource donnée.
 
 Pour lever cette ambiguïté, un simple alias suffit :
 ```cpp
 template<class T>
 using Owner = T;
 ```
+Ainsi, pour un code tel que :
+```cpp
+void foo(Owner<int *> ptr) {
+  assert(ptr && "Null pointer");
+  // ...
+}
+```
+Nous savons que `foo` n'est pas responsable de `ptr`. Nous n'avons alors qu'à nous soucier de sa non-nullité.
