@@ -9,6 +9,5 @@
 - `2018/04/02`: [(FR) Amusons-nous avec la récursivité (F#)](articles/fr/recursivite.md) `f#` `functional-programming`
 
 ---
-
 #### 2017
 - `2017/11/11`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/curryfication_cpp.md) `c++` `functional-programming`
