@@ -62,7 +62,7 @@ Se pose à présent la question du choix entre pointeur et référence : lequel 
 
 A mon sens, il existe quelques cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) plutôt que des références :
 * Collection hétérogène
-* Modification d'une ressource propriétaire *(1)*
+* Accès à une ressource propriétaire *(1)* depuis une fonction
 * Utilisation de fonctions C
 
 *(1) Ce que j'entends par "propriétaire", c'est qu'il appartient à l'appelant d'allouer et de libérer la mémoire. Bien souvent, nous utilisons des pointeurs intelligents, ce qui induit que la question n'aura pas à se poser.*
