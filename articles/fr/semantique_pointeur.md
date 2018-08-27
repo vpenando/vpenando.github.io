@@ -19,9 +19,10 @@ class Bar : public Foo { /* ... */ };
 
 // ...
 
-std::vector<Foo *> vec;
-vec.push_back(new Foo{/* ... */});
-vec.push_back(new Bar{/* ... */});
+// Nous utilisons ici des smart pointers, mais l'idée est la même
+std::vector<std::unique_ptr<Foo>> vec;
+vec.emplace_back(std::make_unique<Foo>(/* ... */));
+vec.emplace_back(std::make_unique<Bar>(/* ... */));
 ```
 ***Note*** - *J'exclus volontairement l'usage des pointeurs en tant que tableaux, car nous avons `std::vector`, `std::array` et `std::dynarray` pour cet usage. L'utilisation de pointeurs en tant que tableaux est généralement à bannir.*
 
