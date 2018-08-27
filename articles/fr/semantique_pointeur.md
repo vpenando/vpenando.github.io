@@ -8,19 +8,21 @@
 En C et en C++ (bien que je n'aborderai dans cet article que le C++), nous avons la possibilité d'allouer manuellement de la mémoire pour des usages spécifiques (collection hétérogène par exemple) :
 ```cpp
 class Foo { /* ... */ };
+class Bar : public Foo { /* ... */ };
 
 // ...
 
 std::vector<Foo *> vec;
 vec.push_back(new Foo{/* ... */});
+vec.push_back(new Bar{/* ... */});
 ```
 ***Note*** - *J'exclus volontairement l'usage des pointeurs en tant que tableaux, car nous avons `std::vector`, `std::array` et `std::dynarray` pour cet usage. L'utilisation de pointeurs en tant que tableaux est généralement à bannir.*
 
-Du fait d'un phénomène appelé *slicing*, il convient de passer par des pointeurs ou des références :
+Du fait d'un phénomène appelé *slicing*, il convient de passer par des pointeurs ou des références lorsque nous passons des objets comme arguments à des fonctions :
 ```cpp
 class Base {
 public:
-  Base() = default;
+  /*   */  Base() = default;
   virtual ~Base() = default;
   virtual void foo() { std::cout << "Base::foo"; }
 };
