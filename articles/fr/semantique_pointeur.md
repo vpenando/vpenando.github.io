@@ -42,6 +42,13 @@ int main() {
 ```
 Car contre toute attente, l'output de ce programme ne sera pas `Derived::foo` mais bien `Base::foo`. En effet, à l'appel de `foo_by_value`, l'objet passé sera "tronqué" de manière à ce que seule la partie provenant de `Base` soit gardée. En passant par un pointeur ou une référence, l'objet sera conservé "entier".
 
+Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dérivé, il convient de passer par l'une de ces solutions.
+
+
+### Pointeur VS référence
+
+
+### Pointeur & ownership
 
 ```cpp
 template<class T>
