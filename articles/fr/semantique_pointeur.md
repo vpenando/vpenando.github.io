@@ -27,7 +27,7 @@ public:
   virtual void foo() { std::cout << "Base::foo"; }
 };
 
-class Derived : public Base {
+class Derived final : public Base {
 public:
   Derived() = default;
   virtual void foo() override { std::cout << "Derived::foo"; }
