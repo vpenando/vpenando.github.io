@@ -34,6 +34,7 @@ public:
 void foo_by_value(Base obj) {
   obj.foo();
 }
+```
 
 ```cpp
 template<class T>
