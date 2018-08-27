@@ -46,6 +46,28 @@ Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dériv�
 
 
 ### Pointeur VS référence
+Se pose à présent la question du choix entre pointeur et référence : lequel utiliser dans quel(s) cas ?
+
+A mon sens, il existe trois cas dans lesquels utiliser des pointeurs :
+* Collection hétérogène
+* Modification d'une ressource propriétaire (1)
+* Utilisation de fonction C
+
+*(1) Ce que j'entends par "propriétaire", c'est qu'il appartient à l'appelant d'allouer et de libérer la mémoire. Bien souvent, nous utilisons des pointeurs intelligents, ce qui induit que la question n'aura pas à se poser.*
+
+Dans les autres cas, nous utiliserons plutôt des références (de préférence constantes).
+Cependant, pourquoi utiliser un pointeur plutôt qu'une référence dans le cas de la modification d'une ressource ? La réponse est relativement simple :
+```cpp
+void foo(int& i) {
+  // Modification de i
+}
+
+// ...
+int i = 42;
+foo(i);
+```
+Dans cet exemple, la simple lecture de `foo(i)` ne permet pas de deviner que l'on passe une variable par référence ; de ce fait, le relecteur ne saura pas systématiquement que `foo` produit un effet de bord.
+En revanche `foo(&ptr)` apporte cette sémantique, évitant cet oubli.
 
 
 ### Pointeur & ownership
