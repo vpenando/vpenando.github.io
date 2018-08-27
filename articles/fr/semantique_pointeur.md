@@ -6,9 +6,8 @@
 
 ### Sommaire
 * [Introduction](#introduction)
-* [Pointeurs VS références](#pointeurs_vs_references)
-* [Solution](#pointeurs_et_ownership)
-* [Conclusion](#conclusion)
+* [Pointeur VS référence](#pointeur_vs_reference)
+* [Pointeurs & ownership](#pointeurs_et_ownership)
 
 ---
 
@@ -57,7 +56,7 @@ Ainsi donc, lorsque vous devez passer des objets d'un type pouvant être dériv�
 
 ---
 
-### <a name="pointeurs_vs_references">Pointeur VS référence</a>
+### <a name="pointeur_vs_reference">Pointeur VS référence</a>
 Se pose à présent la question du choix entre pointeur et référence : lequel utiliser dans quel(s) cas ?
 
 A mon sens, il existe trois cas dans lesquels utiliser des pointeurs (de préférence des *smart pointers*) :
