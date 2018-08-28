@@ -10,4 +10,4 @@
 
 ---
 #### 2017
-- `2017/11/11`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/curryfication_cpp.md) `c++` `functional-programming`
+- `2017/11/11`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/2017/curryfication_cpp.md) `c++` `functional-programming`
