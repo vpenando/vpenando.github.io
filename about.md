@@ -1,6 +1,11 @@
 ## [Welcome here!](index.md) | [Articles](articles.md) | [Main projects](projects.md) | About me
 `c++11` `c++14` `c++17` `c#` `f#` `python` `git` `docker` `windows` `linux`
 
-I'm a French developer who likes C++, C# and other languages like Python, Lua, ...
 
-Even if this blog is in English, my articles are most of the time in French (sorry guys).
+That's a question! Who am I?
+
+In my professional life, I'm a software engineer, working on a SaaS solution about document delivery.
+
+I'm also an OOP *(RAII, SOLID, ...)* lover. And a C++ *(C++11/14/17)* lover. 
+
+PS: Even if this blog is in English, my articles are most of the time in French (sorry guys).
