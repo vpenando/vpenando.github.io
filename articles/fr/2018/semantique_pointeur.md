@@ -102,4 +102,4 @@ void foo(Owner<int *> ptr) {
   // ...
 }
 ```
-Nous savons que `foo` n'est pas responsable de `ptr`. Nous n'avons alors qu'à nous soucier de sa non-nullité.
+Nous savons que `foo` n'est pas responsable de `ptr`. Nous n'avons alors qu'à nous soucier de sa validité. Il convient cependant de vérifier, en postcondition, que le pointeur est toujours valide (la même assertion suffit pour cela). En effet, si `foo` n'est pas responsable de `ptr` alors elle n'a aucune raison de le modifier.
