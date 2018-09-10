@@ -58,7 +58,7 @@ void mov(Register& dst, Address src) noexcept {
   mov(dst, RAM[addr]);
 }
 ```
-Notez tout de même que j'anote en commentaire ce pourquoi j'importe chacun des namespaces concernés. Ainsi, je sais pour quoi j'en ai besoin.
+Notez que j'anote tout de même en commentaire ce pour quoi j'importe chacun des namespaces concernés. Ainsi, je sais pour quoi j'en ai besoin.
 
 ---
 
