@@ -13,25 +13,51 @@ Là où certains puristes menaceraient de vous casser les genoux si vous utilise
 
 Tout d'abord, une chose simple : **JAMAIS de `using namespace XXX;` dans un header**. Sous **aucun** prétexte. Si vous importez le namespace `std` dans un header, et que le code client décide de créer une classe, par exemple `string`, que va-t-il se passer ?
 
-Cela étant dit, j'ai souvent lu et entendu çà et là qu'il était tout aussi dangereux d'en faire de même dans un fichier source. Je ne suis pas d'accord avec cette affirmation, et je vais l'expliquer dans ce petit article.
+Cela étant dit, j'ai souvent lu et entendu çà et là qu'il était tout aussi dangereux d'en faire de même dans un fichier source. Je ne suis pas tout à fait d'accord avec cette affirmation, et je vais l'expliquer dans ce petit article.
 
 ---
 
 A mon sens, il n'est absolument pas idiot d'utiliser un namespace dans un fichier source. Car il n'y a aucun risque d'affecter le code client de cette manière.
 
+Néanmoins, je vais tout de même nuancer ce propos. S'il n'y a aucun risque d'affecter le code client, il est possible d'affecter le vôtre. Aussi, il faut être sûr de ce que l'on fait et de ce que l'on va faire.
 
+D'une manière générale, je propose deux manières alternatives pour réduire la verbosité de votre code sans pour autant risquer de générer des conflits.
+
+Lorsque vous avez un namespace dont le nom est long, préférez un alias :
 ```cpp
 // Dans un fichier .cpp :
 namespace fs = boost::filesystem;
 ```
+L'intérêt est que l'on peut faire en sorte que `fs` soit un alias de `boost::filesystem` ou de `std::filesystem` (en fonction de la norme utilisée) à coups de `#if`. C'est un détail, mais c'est toujours bon à savoir.
 
+On peut également importer sélectivement ce dont on a besoin :
 ```cpp
 // Dans une fonction :
 void print_words(std::string const& text) {
-  using Word  = std::string;
-  using Words = std::vector<Word>;
-  Words words = split(text); // Admettons qu'une telle fonction existe
+  using std::cout;
+  using std::endl;
+  const auto words = split(text); // Admettons qu'une telle fonction existe
+  cout << "There's " << words.size() << " words here!" << endl;
   for (auto const& word : words) {
-    std::cout << word << std::endl;
+    cout << word << endl;
   }
 }
+```
+Cette méthode propose l'avantage de pouvoir être utilisée dans un header (dans le cas d'une fonction `inline` définie dans un header), vu que son scope est la fonction elle-même.
+
+Il est par ailleurs tout à fait viable d'importer un namespace dans une fonction :
+```cpp
+// Extrait d'un petit programme fait sur mon temps libre :
+
+void mov(Register& dst, Address src) noexcept {
+  using namespace constants; // MAX_ADDRESS, MIN_ADDRESS
+  using namespace memory;    // RAM
+  const auto addr = static_cast<Byte>(src);
+  assert(addr <  MAX_ADDRESS);
+  assert(addr >= MIN_ADDRESS);
+  mov(dst, RAM[addr]);
+}
+```
+
+---
+
