@@ -14,7 +14,7 @@ Aujourd'hui, je ne vais pas pinailler sur de la sémantique, un paradigme ou que
 
 Non, je vais plutôt vous présenter une petite astuce toute bête qui m'évite de casser la prod avant d'avoir ingéré mon litre de caféïne quotidien.
 
-Il y a quelques semaines de cela, au travail, j'ai laissé à un collègue l'accès à ma VM pour un test tout bête, qui consistait à ajouter et modifier des données dans une base de données.
+Il y a quelques semaines de cela, au travail, j'ai laissé à un collègue l'accès à ma VM de test pour un exercice tout bête, qui consistait à ajouter et modifier des données dans une base de données.
 Après avoir effectué ses tests, ledit collègue a eu la bonté de supprimer les données qu'il avait ajoutées... ou presque. En effet, à la suite d'une fausse manip, sa requête SQL est passée de `DELETE FROM <base> WHERE <condition>` à `DELETE FROM <base>`. Tout court. Sans condition.
 
 Autant donc dire que l'on a dû restaurer la VM à un snapshot plus ancien afin de récupérer le contenu de la table en question. Rien de bien dramatique donc, mais imaginez qu'une telle erreur arrive en production...?
