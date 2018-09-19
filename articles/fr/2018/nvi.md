@@ -167,10 +167,8 @@ abstract class BaseFileReader {
   #region Public methods
   // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
   public void Open(string filename) {
-    Debug.Assert(!string.IsNullOrEmpty(filename),
-      "(BaseFileReader.Open) Precondition failed: Invalid file name");
-    Debug.Assert(File.Exists(filename),
-      $"(BaseFileReader.Open) Precondition failed: Unexisting file {filename}");
+    Debug.Assert(!string.IsNullOrEmpty(filename), "Invalid file name");
+    Debug.Assert(File.Exists(filename), "No such file {filename}");
     if (this.IsOpen) {
       this.Close();
     }
@@ -181,7 +179,7 @@ abstract class BaseFileReader {
   // Effectue les vérifications relatives à l'état interne de l'instance courante,
   // puis appelle 'Close_Impl'
   public void Close() {
-    Debug.Assert(this.IsOpen, "(BaseFileReader.Close) Precondition failed: No file open");
+    Debug.Assert(this.IsOpen, "No file open");
     this.Close_Impl();
     this.IsOpen = false;
   }
@@ -197,7 +195,7 @@ abstract class BaseFileReader {
   #region Private methods
   // Effectue les relatives à l'état interne de l'instance courante, puis renvoie 'content'
   private string GetContent() {
-    Debug.Assert(this.IsOpen, "(BaseFileReader.GetContent) Precondition failed: No file open");
+    Debug.Assert(this.IsOpen, "No file open");
     return this.content;
   }
   #endregion
