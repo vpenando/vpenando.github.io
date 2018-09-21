@@ -18,7 +18,7 @@ def readrom(path):
     assert isnes, "Not a NES rom"
     return rom
     
-file = "Super Mario Bros. (JU) [!].nes"
+file = "xxxx.nes"
 rom = readrom(file)
 
 print(rom[:15])
