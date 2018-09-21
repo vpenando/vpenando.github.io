@@ -24,3 +24,4 @@ rom = readrom(file)
 print(rom[:15])
 ```
 
+Exemple d'output : `[78, 69, 83, 26, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]`
