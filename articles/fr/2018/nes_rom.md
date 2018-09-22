@@ -5,7 +5,7 @@
 
 ```py
 
-def readbin(path):
+def readbin(path: str):
     """Lecture d'un fichier en mode binaire.
     
     :param path: Chemin vers le fichier
@@ -18,7 +18,7 @@ def readbin(path):
 	
 NES_HEADER = [78, 69, 83, 26] # "NES" + 0x1A
 
-def readrom(path):
+def readrom(path: str):
     """Lecture d'une ROM de jeu NES
     
     :param path: Chemin vers le fichier
