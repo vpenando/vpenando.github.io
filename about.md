@@ -4,8 +4,8 @@
 
 That's a question! Who am I?
 
-In my professional life, I'm a software engineer, working on a SaaS solution about document delivery.
+In my professional life, I'm a software engineer, working on a SaaS solution about document delivery (ASP.NET / C++ / JS / Python).
 
-I'm also an OOP *(RAII, SOLID, ...)* lover. And a C++ *(C++11/14/17)* lover. 
+I'm also an OOP (+ RAII, SOLID, ...) lover. And a C++11/14/17 (+ STL, boost, CUDA, SFML) lover.
 
 PS: Even if this blog is in English, my articles are most of the time in French (sorry guys).
