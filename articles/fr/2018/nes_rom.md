@@ -6,6 +6,12 @@
 ```py
 
 def readbin(path):
+    """
+        Lecture d'un fichier en mode binaire.
+	
+        :param path: Chemin vers le fichier
+        :return:     Une liste avec le contenu du fichier
+    """"
     with open(path, "rb") as f:
         content = f.read()
         return list(content)
@@ -13,9 +19,17 @@ def readbin(path):
 NES_HEADER = [78, 69, 83, 26] # "NES" + 0x1A
 
 def readrom(path):
+    """
+        Lecture d'une ROM de jeu NES
+	
+        :param path: Chemin vers le fichier
+        :return:     Une liste avec le contenu du fichier
+        :warning:    Si le fichier n'est pas une ROM NES, lève une IOError
+    """"
     rom = readbin(path)
     isnes = rom[0:4] == NES_HEADER
-    assert isnes, "Not a NES rom"
+    if not isnes:
+    	raise IOError("Not a NES ROM")
     return rom
     
 file = "xxxx.nes"
