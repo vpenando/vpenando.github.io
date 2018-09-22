@@ -11,7 +11,7 @@ def readbin(path: str):
     :param path: Chemin vers le fichier
     :type path: str
     :return:     Une liste avec le contenu du fichier
-    """"
+    """
     with open(path, "rb") as f:
         content = f.read()
         return list(content)
@@ -25,7 +25,7 @@ def readrom(path: str):
     :type path: str
     :return:     Une liste avec le contenu du fichier
     :warning:    Si le fichier n'est pas une ROM NES, lève une IOError
-    """"
+    """
     rom = readbin(path)
     isnes = rom[0:4] == NES_HEADER
     if not isnes:
