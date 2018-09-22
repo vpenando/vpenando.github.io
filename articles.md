@@ -3,6 +3,7 @@
 ### All posts:
 
 #### 2018
+- `2018/09/22`: [(FR) `using namespace`, vraiment une mauvaise pratique ?](articles/fr/2018/using_namespace.md) `c++` `good-practices`
 - `2018/08/27`: [(FR) De la sémantique du pointeur](articles/fr/2018/semantique_pointeur.md) `c++` `good-practices`
 - `2018/06/25`: [(FR) Orienté objet - Du manager à l'entropie](articles/fr/2018/manager.md) `oop` `bad-practices`
 - `2018/04/29`: [(FR) Présentation du design pattern NVI](articles/fr/2018/nvi.md) `oop` `design-pattern`
