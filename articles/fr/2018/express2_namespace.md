@@ -1,9 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-### (FR) EXPRESS #2 - `using namespace`, vraiment une mauvaise pratique ?
-
-###### Note importante
-> Cet article est le second de la lignée "EXPRESS". Il s'agit d'une série d'articles relativement courts et moins formels, axés autour d'un point sur lequel je ne me voyais pas écrire un article complet. Le ton y est volontairement plus léger afin d'en faciliter la lecture (et l'écriture !).
+### (FR) `using namespace`, vraiment une mauvaise pratique ?
 
 ---
 
@@ -69,3 +66,6 @@ Notez que j'anote tout de même en commentaire ce pour quoi j'importe chacun des
 
 ---
 
+En résumé, `using namespace XXX` n'est dans l'absolu **pas** une mauvaise pratique. Il y a certes des cas où l'usage de cette instruction n'est pas judicieux (comme dans le cas d'un header, par exemple), mais son utilisation peut être acceptable à des échelles plus réduites (comme des fonctions). Il y a des cas où il est *obligatoire* de le faire (je pense notamment à `std::string_literals` pour pouvoir utiliser l'opérateur `""`). Je conseille toutefois d'anoter en commentaire ce qui nous intéresse lorsque nous utilisons un namespace afin de savoir *pourquoi* il est utilisé.
+
+Nous avons également la possibilité de faire des alias afin d'avoir des noms plus courts (`fs` vs `std::filesystem`), et il est tout aussi viable d'importer sélectivement ce dont nous avons besoin (`std::cout`, `std::endl`, ...).
