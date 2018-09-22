@@ -4,6 +4,14 @@
 
 ---
 
+### Sommaire
+* [Introduction](#introduction)
+* [Alternatives et cas d'usages](#alternatives_et_cas_d_usage)
+* [Conclusion](#conclusion)
+
+---
+
+### Introduction
 Tout comme beaucoup de langages, C++ est bien fait. La stdlib est vaste, et tout est bien rangé dans le namespace `std`.
 Sauf que des fois, on aimerait bien ne pas avoir à tout préfixer à coups de `std::`. Avoir une fonction qui découpe une `std::string` en `std::vector<std::string>` et les affiche via `std::cout`, ça commence à faire beaucoup de `std::` quand même.
 Là où certains puristes menaceraient de vous casser les genoux si vous utilisez `using namespace std` (ou autre namespace), je vous propose des solutions alternatives et des cas d'usage où cette instruction est -selon moi- tolérable.
@@ -14,6 +22,7 @@ Cela étant dit, j'ai souvent lu et entendu çà et là qu'il était tout aussi 
 
 ---
 
+### <a name="alternatives_et_cas_d_usage">Alternatives et cas d'usages</a>
 A mon sens, il n'est absolument pas idiot d'utiliser un namespace dans un fichier source. Car il n'y a aucun risque d'affecter le code client de cette manière.
 
 Néanmoins, je vais tout de même nuancer ce propos. S'il n'y a aucun risque d'affecter le code client, il est possible d'affecter le vôtre. Aussi, il faut être sûr de ce que l'on fait et de ce que l'on va faire.
@@ -66,6 +75,7 @@ Notez que j'anote tout de même en commentaire ce pour quoi j'importe chacun des
 
 ---
 
+### Conclusion
 En résumé, `using namespace XXX` n'est dans l'absolu **pas** une mauvaise pratique. Il y a certes des cas où l'usage de cette instruction n'est pas judicieux (comme dans le cas d'un header, par exemple), mais son utilisation peut être acceptable à des échelles plus réduites (comme des fonctions). Il y a des cas où il est *obligatoire* de le faire (je pense notamment à `std::string_literals` pour pouvoir utiliser l'opérateur `""`). Je conseille toutefois d'anoter en commentaire ce qui nous intéresse lorsque nous utilisons un namespace afin de savoir *pourquoi* il est utilisé.
 
 Nous avons également la possibilité de faire des alias afin d'avoir des noms plus courts (`fs` vs `std::filesystem`), et il est tout aussi viable d'importer sélectivement ce dont nous avons besoin (`std::cout`, `std::endl`, ...).
