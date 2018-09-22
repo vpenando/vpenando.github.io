@@ -9,7 +9,7 @@
 
 Tout comme beaucoup de langages, C++ est bien fait. La stdlib est vaste, et tout est bien rangé dans le namespace `std`.
 Sauf que des fois, on aimerait bien ne pas avoir à tout préfixer à coups de `std::`. Avoir une fonction qui découpe une `std::string` en `std::vector<std::string>` et les affiche via `std::cout`, ça commence à faire beaucoup de `std::` quand même.
-Là où certains puristes menaceraient de vous casser les genoux si vous utilisez `using namespace std` (ou autre namespace), je vous propose des solutions alternatives et des cas d'usage où cette instruction est tolérée.
+Là où certains puristes menaceraient de vous casser les genoux si vous utilisez `using namespace std` (ou autre namespace), je vous propose des solutions alternatives et des cas d'usage où cette instruction est -selon moi- tolérable.
 
 Tout d'abord, une chose simple : **JAMAIS de `using namespace XXX;` dans un header**. Sous **aucun** prétexte. Si vous importez le namespace `std` dans un header, et que le code client décide de créer une classe, par exemple `string`, que va-t-il se passer ?
 
@@ -26,13 +26,18 @@ D'une manière générale, je propose deux manières alternatives pour réduire 
 Lorsque vous avez un namespace dont le nom est long, préférez un alias :
 ```cpp
 // Dans un fichier .cpp :
-namespace fs = boost::filesystem;
+namespace fs = std::filesystem;
+// (Ou boost::filesystem si vous n'avez pas de compilateur supportant C++17)
 ```
 L'intérêt est que l'on peut faire en sorte que `fs` soit un alias de `boost::filesystem` ou de `std::filesystem` (en fonction de la norme utilisée) à coups de `#if`. C'est un détail, mais c'est toujours bon à savoir.
 
 On peut également importer sélectivement ce dont on a besoin :
 ```cpp
-// Dans une fonction :
+// De manière globale :
+using std::cout;
+using std::endl;
+
+// ... Ou dans une fonction :
 void print_words(std::string const& text) {
   using std::cout;
   using std::endl;
@@ -43,7 +48,7 @@ void print_words(std::string const& text) {
   }
 }
 ```
-Cette méthode propose l'avantage de pouvoir être utilisée dans un header (dans le cas d'une fonction `inline` définie dans un header), vu que son scope est la fonction elle-même.
+Cette méthode propose l'avantage de pouvoir être utilisée dans une fonction définie dans un header (dans le cas d'une fonction `inline` par exemple), vu que son scope est la fonction elle-même.
 
 Il est par ailleurs tout à fait viable d'importer un namespace dans une fonction :
 ```cpp
