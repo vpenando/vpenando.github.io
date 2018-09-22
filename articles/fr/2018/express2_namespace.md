@@ -63,6 +63,8 @@ void mov(Register& dst, Address src) noexcept {
   mov(dst, RAM[addr]);
 }
 ```
+Bien que cela ne soit pas nécessairement très utile (car après tout, je n'utiliserais qu'une fois `memory::` et deux fois `constants::`), j'utilise ces namespaces explicitement pour éviter d'avoir des instructions à rallonge.
+
 Notez que j'anote tout de même en commentaire ce pour quoi j'importe chacun des namespaces concernés. Ainsi, je sais pour quoi j'en ai besoin.
 
 ---
