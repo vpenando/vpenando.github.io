@@ -9,6 +9,7 @@ def readbin(path):
     """Lecture d'un fichier en mode binaire.
     
     :param path: Chemin vers le fichier
+    :type path: str
     :return:     Une liste avec le contenu du fichier
     """"
     with open(path, "rb") as f:
@@ -21,6 +22,7 @@ def readrom(path):
     """Lecture d'une ROM de jeu NES
     
     :param path: Chemin vers le fichier
+    :type path: str
     :return:     Une liste avec le contenu du fichier
     :warning:    Si le fichier n'est pas une ROM NES, lève une IOError
     """"
