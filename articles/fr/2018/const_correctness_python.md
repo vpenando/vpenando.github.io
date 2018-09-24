@@ -11,8 +11,8 @@
 
 ### Introduction
 ```ml
-let x = 42;;
-let coords = (10, 12);;
+let coords = (10, 12);; (* 'coords' est immuable *)
+let x, y = coords;;
 ```
 
 
@@ -28,7 +28,7 @@ template<class T>
 struct Point final {
   static_assert(std::is_integral<T>::value, "std::is_integral<T>");
 public:
-  Vector2(T _x, T _y) : x(_x), y(_y) {}
+  Vector2(T _x, T _y) : x{_x}, y{_y} {}
   const T x;
   const T y;
 };
@@ -41,7 +41,8 @@ class Point(object):
         is_number = lambda n: isinstance(n, int) or isinstance(n, float)
         assert is_number(x), "assertion 'is_number(x)' failed"
         assert is_number(y), "assertion 'is_number(y)' failed"
-        assert type(x) == type(y), "assertion 'type(x) == type(y)' failed"
+        # Optionnel :
+        #assert type(x) == type(y), "assertion 'type(x) == type(y)' failed"
         self._x = x
         self._y = y
 
