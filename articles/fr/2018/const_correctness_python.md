@@ -135,6 +135,7 @@ def bar():
 foo()
 bar()
 ```
+Produira l'erreur suivante :
 ```py
 __main__.ConstError: Can't rebind const(test)
 ```
