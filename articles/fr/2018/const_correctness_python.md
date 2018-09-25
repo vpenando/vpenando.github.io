@@ -103,4 +103,4 @@ Et la sentence est sans appel :
 ```
 AttributeError: can't set attribute
 ```
-
+Néanmoins, là où cette solution s'éloigne de la structure `Point` écrite en C++, c'est que `_x` et `_y` sont, eux, toujours accessibles. Ce n'est certes pas une bonne pratique d'y accéder directement, mais cela reste techniquement possible.
