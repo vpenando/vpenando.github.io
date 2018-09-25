@@ -36,6 +36,8 @@ let foo x y =
 ```
 Dans ce cas précis, et compte tenu du langage utilisé (OCaml), on sait d'avance que `point` est immuable. A cet effet, nul besoin de se demander si et où cette variable sera modifiée.
 
+En ce qui me concerne, je suis un peut touche à tout ; je fais du C++, du C#, du F#, mais aussi du scripting, et ce particulièrement en Python. C'est un langage qui est élégant et avec lequel on peut prototyper rapidement. Cependant, ce langage *-comme la plupart des langages de script-* me pose un petit problème : en plus d'être dynamiquement typées, les variables ne peuvent pas être déclarées comme constantes. 
+
 ---
 
 ### Exemple d'implémentation
