@@ -95,7 +95,7 @@ class Point(object):
         return self._y
 ```
 
-Il devient alors impossible de modifier les attributs `x` et `y` :
+Il devient alors impossible de modifier `x` et `y` :
 ```py
 point = Point(10, 12)
 point.x = 42
@@ -105,3 +105,20 @@ Et la sentence est sans appel :
 AttributeError: can't set attribute
 ```
 Néanmoins, là où cette solution s'éloigne de la structure `Point` écrite en C++, c'est que `_x` et `_y` sont, eux, toujours accessibles. Ce n'est certes pas une bonne pratique d'y accéder directement, mais cela reste techniquement possible.
+
+Il existe encore une solution, plus générale, présentée [ici](http://code.activestate.com/recipes/65207-constants-in-python/?in=user-97991) :
+```py
+class _const:
+    class ConstError(TypeError): pass
+    def __setattr__(self,name,value):
+        if self.__dict__.has_key(name):
+            raise self.ConstError, "Can't rebind const(%s)"%name
+        self.__dict__[name]=value
+import sys
+sys.modules[__name__]=_const()
+
+# Et à l'usage :
+import const
+const.magic = 23
+const.magic = 88 # Lève une const.ConstError
+```
