@@ -67,6 +67,7 @@ Ainsi, je tends à limiter les effets de bord et à forcer les utilisateurs de m
 
 Question : peut-on aboutir à un tel résultat en Python ?
 
+---
 
 ### Implémentation en Python
 
