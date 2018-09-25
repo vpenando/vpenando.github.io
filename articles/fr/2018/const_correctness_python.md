@@ -100,4 +100,7 @@ point = Point(10, 12)
 point.x = 42
 ```
 Et la sentence est sans appel :
-`AttributeError: can't set attribute`
+```
+AttributeError: can't set attribute
+```
+
