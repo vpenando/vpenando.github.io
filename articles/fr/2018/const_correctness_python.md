@@ -10,11 +10,31 @@
 ---
 
 ### Introduction
-```ml
-let coords = (10, 12);; (* 'coords' est immuable *)
-let x, y = coords;;
-```
 
+En programmation, il est assez courant de vouloir déclarer certaines variables comme immuables. Cela évite certains effets de bords, et la phase de debug s'en retrouve en conséquence allégée.
+
+Prenons l'exemple d'une fonction quelconque :
+```cpp
+void foo(int x, int y) {
+  Point point{x, y}; // Admettons qu'on veuille jouer avec des coordonnées
+  // Du code
+  // ...
+  // Encore du code
+  // ...
+  // Toujours plus de code
+  // ...
+}
+```
+A la simple lecture du début de cette fonction, on ne sait pas encore si `point` sera voué à être modifié. A cet effet, on aura instinctivement envie de chercher où cette variable est modifiée. En effet, il se peut que les coordonnées soient corrigées si `x` ou `y` ne correspond pas à une condition donnée. Mais il se peut également (dans la plupart des cas à vrai dire) que `point` ne soit jamais modifié.
+
+Il y a des langages où la question ne se pose même pas :
+```ml
+let foo x y =
+  let point = (x, y) in
+  (* suite de la fonction... *)
+  ;;
+```
+Dans ce cas précis, et compte tenu du langage utilisé (OCaml), on sait d'avance que `point` est immuable. A cet effet, nul besoin de se demander si et où cette variable sera modifiée.
 
 ---
 
