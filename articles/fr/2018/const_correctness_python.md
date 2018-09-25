@@ -71,9 +71,9 @@ Question : peut-on aboutir à un tel résultat en Python ?
 
 ### Implémentation en Python
 
-Et la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
+Et la réponse est... non. On peut néamoins s'approcher de ce comportement (dans des cas assez spécifiques) grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants. Il reste cependant toujours impossible de déclarer une variable libre (par opposition aux variables d'instance ou de classe) constante.
 
-Parce que du code vaut mieux qu'un long discours :
+Et, parce que du code vaut mieux qu'un long discours :
 ```py
 class Point(object):
     def __init__(self, x, y):
