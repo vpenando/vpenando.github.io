@@ -139,3 +139,4 @@ Produira l'erreur suivante :
 ```py
 __main__.ConstError: Can't rebind const(test)
 ```
+Néanmoins cette solution peut être viable à l'échelle d'un script exécuté une fois, où le dictionnaire sera libéré après exécution.
