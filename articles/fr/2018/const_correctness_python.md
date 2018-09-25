@@ -78,8 +78,8 @@ Parce que du code vaut mieux qu'un long discours :
 class Point(object):
     def __init__(self, x, y):
         is_number = lambda n: isinstance(n, int) or isinstance(n, float)
-        assert is_number(x), "assertion 'is_number(x)' failed"
-        assert is_number(y), "assertion 'is_number(y)' failed"
+        assert is_number(x), "Assertion 'is_number(x)' failed"
+        assert is_number(y), "Assertion 'is_number(y)' failed"
         # Optionnel :
         #assert type(x) == type(y), "assertion 'type(x) == type(y)' failed"
         self._x = x
@@ -93,3 +93,10 @@ class Point(object):
     def y(self):
         return self._y
 ```
+
+Il devient alors impossible de modifier les attributs `x` et `y` :
+```py
+point = Point(10, 12)
+point.x = 42
+```
+`AttributeError: can't set attribute`
