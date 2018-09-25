@@ -62,8 +62,11 @@ Point<int> point{10, 12};
 // Provoquera une erreur :
 point.x = 42;
 ```
+([Exemple de résultat avec un tel code](http://coliru.stacked-crooked.com/a/e8dde388c7cb68d8))
 
-Version Python :
+Question : peut-on aboutir à un tel résultat en Python ? Contre toute attente, la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
+
+Parce que du code vaut mieux qu'un long discours :
 ```py
 class Point(object):
     def __init__(self, x, y):
