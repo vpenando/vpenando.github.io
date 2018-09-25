@@ -36,24 +36,31 @@ let foo x y =
 ```
 Dans ce cas précis, et compte tenu du langage utilisé (OCaml), on sait d'avance que `point` est immuable. A cet effet, nul besoin de se demander si et où cette variable sera modifiée.
 
-En ce qui me concerne, je suis un peut touche à tout ; je fais du C++, du C#, du F#, mais aussi du scripting, et ce particulièrement en Python. C'est un langage qui est élégant et avec lequel on peut prototyper rapidement. Cependant, ce langage *-comme la plupart des langages de script-* me pose un petit problème : en plus d'être dynamiquement typées, les variables ne peuvent pas être déclarées comme constantes. 
+En ce qui me concerne, je suis un peut touche à tout ; je fais du C++, du C#, du F#/OCaml... mais aussi du scripting, et ce particulièrement en Python. C'est un langage qui est élégant et avec lequel on peut prototyper rapidement. Cependant, ce langage *-comme la plupart des langages de script-* me pose un petit problème : en Python, les variables, en plus d'être dynamiquement typées, ne peuvent pas être déclarées comme constantes. 
 
 ---
 
 ### Exemple d'implémentation
 
-Version C++ :
+D'une manière générale, je tends à déclarer presque *toutes* mes variables comme constantes (tant que cela a un sens et que c'est possible). En effet, dès lors qu'une entité a sémantique de valeur (par opposition à celles à sémantique d'entité - [Source](https://blog.emmanueldeloget.com/index.php?post/2011/11/18/Standard-C11-%3A-la-s%C3%A9mantique-de-d%C3%A9placement)), il est assez fréquent de pouvoir aisément la déclarer comme constante.
+
+Reprenons l'exemple des coordonnées X et Y :
 ```cpp
 #include <type_traits> // std::is_integral
 
 template<class T>
 struct Point final {
-  static_assert(std::is_integral<T>::value, "std::is_integral<T>");
+  static_assert(std::is_integral<T>::value, "Expected integral type");
 public:
-  Vector2(T _x, T _y) : x{_x}, y{_y} {}
+  Point(T _x, T _y) : x{_x}, y{_y} {}
   const T x;
   const T y;
 };
+
+// Et à l'usage :
+Point<int> point{10, 12};
+// Provoquera une erreur :
+point.x = 42;
 ```
 
 Version Python :
