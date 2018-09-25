@@ -122,3 +122,19 @@ import const
 const.magic = 23
 const.magic = 88 # Lève une const.ConstError
 ```
+Personnellement, je n'y suis pas favorable pour deux raisons :
+* Avoir un dictionnaire qui grossit sans arrêt sans être libéré peut être coûteux ;
+* Deux fonctions avec des variables possédant le même nom peuvent vite mener à la catastrophe :
+```py
+def foo():
+    const.test = 10
+    
+def bar():
+    const.test = 12
+    
+foo()
+bar()
+```
+```py
+__main__.ConstError: Can't rebind const(test)
+```
