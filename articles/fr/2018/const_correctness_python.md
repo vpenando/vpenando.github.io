@@ -40,7 +40,7 @@ En ce qui me concerne, je suis un peut touche à tout ; je fais du C++, du C#, d
 
 ---
 
-### Exemple d'implémentation
+### Exemple
 
 D'une manière générale, je tends à déclarer presque *toutes* mes variables comme constantes (tant que cela a un sens et que c'est possible). En effet, dès lors qu'une entité a sémantique de valeur (par opposition à celles à sémantique d'entité - [Source](https://blog.emmanueldeloget.com/index.php?post/2011/11/18/Standard-C11-%3A-la-s%C3%A9mantique-de-d%C3%A9placement)), il est assez fréquent de pouvoir aisément la déclarer comme constante.
 
@@ -63,8 +63,14 @@ Point<int> point{10, 12};
 point.x = 42;
 ```
 ([Exemple de résultat avec un tel code](http://coliru.stacked-crooked.com/a/e8dde388c7cb68d8))
+Ainsi, je tends à limiter les effets de bord et à forcer les utilisateurs de mon code de respecter cette philosophie. Ce n'est ni plus ni moins ce que font beaucoup de langages fonctionnels (OCaml, F#, voire Elm pour des applications Web).
 
-Question : peut-on aboutir à un tel résultat en Python ? Contre toute attente, la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
+Question : peut-on aboutir à un tel résultat en Python ?
+
+
+### Implémentation en Python
+
+Contre toute attente, la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
 
 Parce que du code vaut mieux qu'un long discours :
 ```py
