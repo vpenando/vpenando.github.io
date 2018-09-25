@@ -63,6 +63,7 @@ Point<int> point{10, 12};
 point.x = 42;
 ```
 ([Exemple de résultat avec un tel code](http://coliru.stacked-crooked.com/a/e8dde388c7cb68d8))
+
 Ainsi, je tends à limiter les effets de bord et à forcer les utilisateurs de mon code de respecter cette philosophie. Ce n'est ni plus ni moins ce que font beaucoup de langages fonctionnels (OCaml, F#, voire Elm pour des applications Web).
 
 Question : peut-on aboutir à un tel résultat en Python ?
