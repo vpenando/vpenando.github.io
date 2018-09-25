@@ -71,7 +71,7 @@ Question : peut-on aboutir à un tel résultat en Python ?
 
 ### Implémentation en Python
 
-Contre toute attente, la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
+Et la réponse est... non. On peut néamoins s'approcher de ce comportement grâce à l'utilisation des propriétés, pour rendre `x` et `y` constants.
 
 Parce que du code vaut mieux qu'un long discours :
 ```py
