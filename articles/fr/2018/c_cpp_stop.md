@@ -59,4 +59,4 @@ private:
 Foo *ptr = (Foo*) malloc(sizeof(*ptr)); // Où est l'erreur ?
 ```
 
-Dans ce code, où est le problème ? J'alloue un pointeur vers une instance de `Foo`. A priori, tout va bien, non ? 
+Dans ce code, où est le problème ? J'alloue un pointeur vers une instance de `Foo`. A priori, tout va bien, non ? Et bien en fait, non, tout ne va pas bien, car le constructeur de `Foo` n'est jamais appelé. Ainsi, l'instance vers laquelle pointe `ptr` n'est pas dans un état cohérent. Le comportement du programme est donc indéterminé.
