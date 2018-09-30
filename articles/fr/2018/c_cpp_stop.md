@@ -16,28 +16,41 @@ A l'heure où j'écris ces lignes, nous sommes en 2018. Et aujourd'hui encore, e
 Car, si ces deux langages ont un héritage en commun, ils n'ont aujourd'hui plus grand chose à voir entre eux. J'entends souvent dire que "le C++, c'est juste du C avec de l'objet". Non. Du tout. Car cela induit que les templates, les exceptions, les références, les namespaces, les lambdas, l'inférence de type, le RAII... sont disponibles en C. Ce serait bien, ça en ferait sûrement un formidable outil aujourd'hui. Car en plus d'être puissant, il serait plaisant à utiliser. Mais malheureusement, non.
 Enfin, ce n'est pas la question.
 
+
 ---
+
 
 ### Utiliser l'un ou l'autre, mais pas les deux
 Si je veux faire du C, je fais du C. Si je veux faire du C++, je fais du C++.
 
-C et C++ sont aujourd'hui plus différents que jamais. Les mélanger est une très mauvaise idée et apprendre l'un avant l'autre peut être contre-productif. Trop de ~~dinosaures~~ développeurs seniors pondent du code mélangeant les deux, ayant connu le "C with classes". A tel point que le monde du travail autour du C++ souffre de ce problème. Et de ce problème découle un autre problème, à savoir que l'enseignement n'évolue pas, ou très peu. Ca a été le cas pour mes études : on m'a enseigné un mélange de C et de C++, et ça l'est pour mon travail aujourd'hui.
+C et C++ sont aujourd'hui plus différents que jamais. Les mélanger est une très mauvaise idée et apprendre l'un avant l'autre peut être contre-productif. Trop de ~~dinosaures~~ développeurs seniors pondent du code mélangeant les deux, ayant connu le "C with classes". A tel point que le monde du travail autour du C++ souffre de ce problème. Et de ce problème découle un autre problème, à savoir que l'enseignement n'évolue pas, ou très peu. Ca a été le cas pour mes études : on m'a enseigné un mélange de C et de C++, et ça l'est pour mon travail aujourd'hui. J'ai dû apprendre de mon côté, en autodidacte, le C++ et les normes récentes, et "désapprendre" les âneries qui m'ont été enseignées. Au revoir les `char*`, au revoir les tableaux à base de pointeurs, au revoir les tableaux de tableaux (de tableaux), au revoir `malloc`, au revoir `free`... Et au revoir `new`/`delete` (surtout `delete`, car `new` peut être utilisé conjointement avec les pointeurs intelligents), ainsi que tout ce qui n'est pas RAII-conform. Car la feature la plus importante en C++, et dont il faut abuser, ce n'est pas la POO, les templates ou autre ; c'est le RAII. Il est naturel de laisser des bugs quand on programme, mais ceux de type fuite mémoire peuvent être très facilement éviter en respectant le RAII.
+
 
 ---
+
 
 ### Mélanger C et C++ : impacts
 C++ souffre énormément de son héritage du C, dû au souhait de garder une rétrocompatibilité entre les deux. C'est ainsi que l'on se retrouve avec du code blindé de `#define`, de `char*` pour représenter des chaînes de charactères, de pointeurs bruts pour utiliser des tableaux, des `goto`... mais fort heureusement, on garde aussi quelques trucs utiles, comme la macro `assert`, très utilisée en programmation par contrat.
 
-Dans cette section, je souhaiterais montrer en quoi mélanger du C et du C++ pouvait être nocif. Exemple :
+Dans cette section, je souhaiterais montrer en quoi mélanger du C et du C++ pouvait être nocif.
+
+Exemple :
 
 ```cpp
-class Foo {
+class Foo final {
 public:
-  Foo(int i) : i_(i) {}
+  Foo(int i)
+    : i_(i)  { /* ... */ }
+  ~Foo()     { /* ... */ }
   void bar() { /* ... */ }
   void baz() { /* ... */ }
+  
+private:
+  int i_;
 };
 
 // ...
 Foo *ptr = (Foo*) malloc(sizeof(*ptr)); // Où est l'erreur ?
 ```
+
+Dans ce code, où est le problème ? J'alloue un pointeur vers une instance de `Foo`. A priori, tout va bien, non ?
