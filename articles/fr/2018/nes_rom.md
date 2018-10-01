@@ -35,7 +35,7 @@ def readrom(path: str):
 file = "xxxx.nes"
 rom = readrom(file)
 
-print(rom[:15])
+print(rom[:16])
 ```
 
-Exemple d'output : `[78, 69, 83, 26, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]`
+Exemple d'output : `[78, 69, 83, 26, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]`
