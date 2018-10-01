@@ -80,6 +80,13 @@ Le code est ici plus élégant, plus court et plus sûr.
 Un autre exemple de "C/C++" bancal est l'utilisation de tableaux :
 ```cpp
 int tab[100];
+
 // Ou, pire :
-int *tab;
+
+int *tab = (int*) malloc(100 * sizeof(int));
+if (! tab) {
+  // ...
+}
+// ...
+free(tab);
 ```
