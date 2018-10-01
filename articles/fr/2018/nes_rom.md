@@ -22,9 +22,9 @@ def readrom(path: str):
     """Lecture d'une ROM de jeu NES
     
     :param path: Chemin vers le fichier
-    :type path: str
-    :return:    Une liste avec le contenu du fichier
-    :warning:   Si le fichier n'est pas une ROM NES, lève une IOError
+    :type path:  str
+    :return:     Une liste avec le contenu du fichier
+    :warning:    Si le fichier n'est pas une ROM NES, lève une IOError
     """
     rom = readbin(path)
     isnes = rom[0:4] == NES_HEADER
