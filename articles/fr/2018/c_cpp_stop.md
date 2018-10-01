@@ -88,3 +88,5 @@ if (! tab) {
 // ...
 free(tab);
 ```
+
+L'un des soucis est que la taille du tableau doit être stockée dans une variable tierce, là où `std::vector` et `std::array` exposent une fonction membre `size`, ainsi que la possibilité de détecter les accès hors bornes si besoin. De plus, nul besoin de tester si l'allocation de notre `vector` s'est bien passée, et `size` renverra toujours la bonne valeur même si la taille du tableau change. Peut-on en dire autant d'un simple pointeur ?
