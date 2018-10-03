@@ -29,6 +29,16 @@ let testMyVariable variable =
 ```
 It becomes easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion.
 
+Another syntax exists for functions using pattern matching:
+```ml
+let testMyVariable = function
+  | 0 -> (* ... *)
+  | 1 -> (* ... *)
+  | _ -> (* Default case *)
+  ;;
+```
+Here, the parameter `variable` is implicit. Thanks to the `function` keyword, the compiler knows that `testMyVariable` expects exactly one argument.
+
 ---
 
 #### 2. Examples
@@ -42,8 +52,7 @@ let rec sum = function
 ```
 In this function, we have to cases to test:
 1. The list is empty: its sum is `0`.
-2. The list is NOT empty: we return the first element + the sum of the rest of the list.
-
+2. The list is NOT empty: we return the first element (`x`) + the sum of the rest of the list (`xs`).
 
 ##### b. The number of elements in a list
 With OCaml / F#:
@@ -59,6 +68,22 @@ In this function, we have to cases to test:
 
 
 #### c. Other uses of pattern matching?
+We can combine pattern matching and custom types in order to have different computations depending on the type.
+Let's take the following code:
+```ml
+type 'a maybe =
+  | Nothing
+  | Just of 'a
+  ;;
+```
+`maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x`. It can be deconstructed thanks to pattern matching:
+```ml
+let printIfExists = function
+  | Nothing -> ()              (* Nothing to do *)
+  | Just x  -> print_string x  (* Let's print x *)
+  ;;
+```
+
 
 Pow:
 ```ml
