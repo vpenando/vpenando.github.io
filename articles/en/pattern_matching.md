@@ -134,6 +134,15 @@ let applyOperatorToInts op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
   
+let applyOperatorToFloats op val1 val2 =
+  match op with
+  | Add -> Some (val1 +. val2)
+  | Sub -> Some (val1 -. val2)
+  | Mul -> Some (val1 *. val2)
+  | Div -> Some (val1 /. val2)
+  | _   -> None (* Unsupported *)
+  ;;
+  
 let applyOperatorToBools op val1 val2 =
   match op with
   | Or  -> Some (val1 || val2)
