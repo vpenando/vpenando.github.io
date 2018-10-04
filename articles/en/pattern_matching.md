@@ -122,7 +122,7 @@ We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
 ```
-This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` -for booleans-, `Plus`, `Minus`, ...) and then support them in `applyOperator`. It's also possible to have a function for each type:
+This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `applyOperator`. It's also possible to have a function for each type:
 ```ml
 let applyOperatorToInts op val1 val2 =
   match op with
