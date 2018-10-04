@@ -151,4 +151,4 @@ let evalBoolOperation op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
 ```
-Note that we know return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operators.
+Note that we know return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operators. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation.
