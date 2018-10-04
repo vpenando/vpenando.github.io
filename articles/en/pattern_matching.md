@@ -105,7 +105,7 @@ type 'a value =
   | Computed of binaryOperator * 'a value * 'a value
   ;;
   
-let applyOperator op val1 val2 =
+let evalOperation op val1 val2 =
   match op with
   | Add -> val1 + val2
   | Sub -> val1 - val2
@@ -115,16 +115,16 @@ let applyOperator op val1 val2 =
   
 let rec computeValue = function
   | Literal literalVal -> literalVal
-  | Computed(op,n1,n2) -> applyOperator op (computeValue n1) (computeValue n2)
+  | Computed(op,n1,n2) -> evalOperation op (computeValue n1) (computeValue n2)
   ;;
 ```
 We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
 ```
-This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `applyOperator`. It's also possible to have a function for each type:
+This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
 ```ml
-let applyOperatorToInts op val1 val2 =
+let evalIntOperation op val1 val2 =
   match op with
   | Add -> Some (val1 + val2)
   | Sub -> Some (val1 - val2)
@@ -134,7 +134,7 @@ let applyOperatorToInts op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
   
-let applyOperatorToFloats op val1 val2 =
+let evalFloatOperation op val1 val2 =
   match op with
   | Add -> Some (val1 +. val2)
   | Sub -> Some (val1 -. val2)
@@ -143,7 +143,7 @@ let applyOperatorToFloats op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
   
-let applyOperatorToBools op val1 val2 =
+let evalBoolOperation op val1 val2 =
   match op with
   | Or  -> Some (val1 || val2)
   | And -> Some (val1 && val2)
