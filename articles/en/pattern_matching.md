@@ -129,7 +129,7 @@ let evalIntOperation op val1 val2 =
   | Add -> Some (val1 + val2)
   | Sub -> Some (val1 - val2)
   | Mul -> Some (val1 * val2)
-  | Div -> Some (val1 / val2)
+  | Div -> if val2 <> 0 then Some (val1 / val2) else None
   | Mod -> Some (val1 mod val2)
   | _   -> None (* Unsupported *)
   ;;
@@ -139,7 +139,7 @@ let evalFloatOperation op val1 val2 =
   | Add -> Some (val1 +. val2)
   | Sub -> Some (val1 -. val2)
   | Mul -> Some (val1 *. val2)
-  | Div -> Some (val1 /. val2)
+  | Div -> if val2 <> 0. then Some (val1 /. val2) else None
   | _   -> None (* Unsupported *)
   ;;
   
@@ -155,7 +155,18 @@ Note that we now return a `'a option` instead of `'a`. This allows us to cover t
 ```ml
 type 'a result =
   | Success of 'a
-  | InvalidOperationError
+  | OperatorNotSupportedError of string
+  | InvalidOperationError of string
   ;;
 ```
 This type is easy to extend in order to cover each error that can happen.
+
+Example:
+```ml
+let evalIntOperation op val1 val2 =
+  match op with
+  (* ... *)
+  | Div -> if val2 <> 0 then Success (val1 / val2) else InvalidOperationError "Dividing by zero"
+  | _   -> OperatorNotSupportedError "This operator is not supported for type 'int'"
+  ;;
+
