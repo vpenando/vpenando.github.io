@@ -79,7 +79,7 @@ int i = 42;
 foo(i);
 ```
 Dans cet exemple, la simple lecture de `foo(i)` ne permet pas de deviner que l'on passe une variable par référence ; de ce fait, le relecteur ne saura pas systématiquement que `foo` produit un effet de bord.
-En revanche `foo(&ptr)` apporte cette sémantique, évitant cet oubli.
+En revanche `foo(&i)` apporte cette sémantique, évitant cet oubli.
 
 ***Note** - Lorsque l'on passe un pointeur à une fonction `f`, il appartient à `f` de vérifier sa non-nullité avant usage. Contrairement aux références, l'usage de pointeurs apporte une précondition supplémentaire. Cependant, un simple `assert` suffit.*
 
