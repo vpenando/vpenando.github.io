@@ -122,7 +122,7 @@ We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
 ```
-This is the first step of writing a minimalist interpreter! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
+This is the first step of writing a minimalist interpreter! We can then extend it by adding other binary operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
 ```ml
 let evalIntOperation op val1 val2 =
   match op with
@@ -151,4 +151,11 @@ let evalBoolOperation op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
 ```
-Note that we now return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operators. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation.
+Note that we now return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operators. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation. We could also create a type that represents the result:
+```ml
+type 'a result =
+  | Success of 'a
+  | InvalidOperationError
+  ;;
+```
+This type is easy to extend in order to cover each error that can happen.
