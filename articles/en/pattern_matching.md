@@ -79,7 +79,7 @@ type 'a maybe =
   | Just of 'a
   ;;
 ```
-`maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x` of type `'a`. It can be deconstructed thanks to pattern matching:
+As the standard type `option`, `maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x` of type `'a`. It can be deconstructed thanks to pattern matching:
 ```ml
 (* Expects a "string maybe" *)
 let printIfExists = function
@@ -87,7 +87,7 @@ let printIfExists = function
   | Just x  -> print_string x  (* Let's print x *)
   ;;
 ```
-Another use of pattern matching could be to resolve arithmetic computations.
+Another use of pattern matching could be to resolve successive computations.
 
 Simple example:
 ```ml
