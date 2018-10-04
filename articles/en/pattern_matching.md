@@ -2,7 +2,9 @@
 
 ### [EN] - Let's play with pattern matching!
 
-#### 1. What is pattern matching?
+---
+
+### 1. What is pattern matching?
 In languages like C++, C, C#, we have the `switch` structure that allows us to test a variable:
 ```cs
 void testMyVariable(int variable) {
@@ -41,7 +43,7 @@ It's easy to compute the sum of a list, the depth of a tree, or any complex comp
 
 ---
 
-#### 2. Examples
+### 2. Examples
 ##### a. The sum of a list
 With OCaml / F#:
 ```ml
@@ -66,8 +68,9 @@ In this function, we have to cases to test:
 1. The list is empty: its count is `0`.
 2. The list is NOT empty: we return `1` + the count of the rest of the list.
 
+---
 
-#### c. Other uses of pattern matching?
+### 3. Other uses of pattern matching
 We can combine pattern matching and custom types in order to have different computations depending on the type.
 Let's take the following code:
 ```ml
@@ -118,23 +121,4 @@ let rec computeValue = function
 We can now resolve successive computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
-```
-
-Pow:
-```ml
-let rec pow n p =
-  if p < 0 then failwith "Expected a positive number"
-  match p with
-  | 0 -> 1
-  | _ -> n * (pow n (p-1))
-  ;;
-```
-Factorial:
-```ml
-let rec fac n =
-  if n < 0 then failwith "Expected a positive number"
-  match n with
-  | 0 -> 1
-  | _ -> n * (fac (n-1))
-  ;;
 ```
