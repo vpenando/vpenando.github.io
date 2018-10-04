@@ -79,7 +79,7 @@ type 'a maybe =
   | Just of 'a
   ;;
 ```
-As the standard type `option`, `maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x` of type `'a`. It can be deconstructed thanks to pattern matching:
+As the standard type `option`, `maybe` is a generic type that can take two different values: `Nothing`, that means "no value", and `Just x` taking a value `x` of type `'a`. It can be deconstructed thanks to pattern matching:
 ```ml
 (* Expects a "string maybe" *)
 let printIfExists = function
@@ -122,7 +122,7 @@ We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
 ```
-This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
+This is the first step of writing a minimalist interpreter! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
 ```ml
 let evalIntOperation op val1 val2 =
   match op with
