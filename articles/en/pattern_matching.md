@@ -45,7 +45,7 @@ It's easy to compute the sum of a list, the depth of a tree, or any complex comp
 
 ### 2. Examples
 ##### a. The sum of a list
-With OCaml / F#:
+The sum of a list can be computed very easily with pattern matching:
 ```ml
 let rec sum = function
   | []    -> 0 (* The sum of an empty list is 0 *)
@@ -57,7 +57,7 @@ In this function, we have to cases to test:
 2. The list is NOT empty: we return the first element (`x`) + the sum of the rest of the list (`xs`).
 
 ##### b. The number of elements in a list
-With OCaml / F#:
+In the same way, we can also compute how many elements are contained in a list:
 ```ml
 let rec count = function
   | []    -> 0
