@@ -27,8 +27,6 @@ let testMyVariable variable =
   | _ -> (* Default case *)
   ;;
 ```
-It becomes easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion.
-
 Another syntax exists for functions using pattern matching:
 ```ml
 let testMyVariable = function
@@ -38,6 +36,8 @@ let testMyVariable = function
   ;;
 ```
 Here, the parameter `variable` is implicit. Thanks to the `function` keyword, the compiler knows that `testMyVariable` expects exactly one argument.
+
+It's easy to compute the sum of a list, the depth of a tree, or any complex computation by coupling pattern matching and recursion.
 
 ---
 
@@ -76,14 +76,49 @@ type 'a maybe =
   | Just of 'a
   ;;
 ```
-`maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x`. It can be deconstructed thanks to pattern matching:
+`maybe` is a generic type that can take two different values: `Nothing` that means "no value" and `Just x` taking a value `x` of type `'a`. It can be deconstructed thanks to pattern matching:
 ```ml
+(* Expects a "string maybe" *)
 let printIfExists = function
   | Nothing -> ()              (* Nothing to do *)
   | Just x  -> print_string x  (* Let's print x *)
   ;;
 ```
+Another use of pattern matching could be to resolve arithmetic computations.
 
+Simple example:
+```ml
+(* Accepted operators: +, -, * and / *)
+type binaryOperator =
+  | Add
+  | Sub
+  | Mul
+  | Div
+  ;;
+  
+(* A value can be a literal one (ex: 42) or computed (ex: 42 * 2) *)
+type 'a value =
+  | Literal of 'a
+  | Computed of binaryOperator * 'a value * 'a value
+  ;;
+  
+let applyOperator op val1 val2 =
+  match op with
+  | Add -> val1 + val2
+  | Sub -> val1 - val2
+  | Mul -> val1 * val2
+  | Div -> val1 / val2
+  ;;
+  
+let rec computeValue = function
+  | Literal literalVal -> literalVal
+  | Computed(op,n1,n2) -> applyOperator op (computeValue n1) (computeValue n2)
+  ;;
+```
+We can now resolve successive computations like:
+```ml
+let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
+```
 
 Pow:
 ```ml
