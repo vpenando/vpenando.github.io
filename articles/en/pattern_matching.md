@@ -142,3 +142,4 @@ let applyOperatorToBools op val1 val2 =
   | _   -> None (* Unsupported *)
   ;;
 ```
+Not that we know return a `a option` instead of the real type. This allows us to cover the case of unsupported operators.
