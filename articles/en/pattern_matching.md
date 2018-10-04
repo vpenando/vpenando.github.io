@@ -118,7 +118,27 @@ let rec computeValue = function
   | Computed(op,n1,n2) -> applyOperator op (computeValue n1) (computeValue n2)
   ;;
 ```
-We can now resolve successive computations like:
+We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
+```
+This is the first step of writing a minimalist parser! We can then extend it by adding other operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` -for booleans-, `Plus`, `Minus`, ...) and then support them in `applyOperator`. It's also possible to have a function for each type:
+```ml
+let applyOperatorToInts op val1 val2 =
+  match op with
+  | Add -> Some (val1 + val2)
+  | Sub -> Some (val1 - val2)
+  | Mul -> Some (val1 * val2)
+  | Div -> Some (val1 / val2)
+  | Mod -> Some (val1 mod val2)
+  | _   -> None (* Unsupported *)
+  ;;
+  
+let applyOperatorToBools op val1 val2 =
+  match op with
+  | Or  -> Some (val1 || val2)
+  | And -> Some (val1 && val2)
+  | Xor -> Some (val1 <> val2)
+  | _   -> None (* Unsupported *)
+  ;;
 ```
