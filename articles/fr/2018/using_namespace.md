@@ -62,7 +62,6 @@ Il est par ailleurs tout à fait viable d'importer un namespace dans une fonctio
 
 void mov(Register& dst, Address src) noexcept {
   using namespace constants; // MAX_ADDRESS, MIN_ADDRESS
-  using namespace memory;    // RAM
   const auto addr = static_cast<Byte>(src);
   assert(addr <  MAX_ADDRESS);
   assert(addr >= MIN_ADDRESS);
