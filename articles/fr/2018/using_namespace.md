@@ -14,7 +14,7 @@
 ### Introduction
 Tout comme beaucoup de langages, C++ est bien fait. La stdlib est vaste, et tout est bien rangé dans le namespace `std`.
 Sauf que des fois, on aimerait bien ne pas avoir à tout préfixer à coups de `std::`. Avoir une fonction qui découpe une `std::string` en `std::vector<std::string>` et les affiche via `std::cout`, ça commence à faire beaucoup de `std::` quand même.
-Là où certains puristes menaceraient de vous casser les genoux si vous utilisez `using namespace std` (ou autre namespace), je vous propose des solutions alternatives et des cas d'usage où cette instruction est -selon moi- tolérable.
+Là où certains puristes menaceraient de vous casser les genoux si vous utilisez `using namespace std` (ou autre namespace), je vous propose des solutions alternatives et des cas d'usage où cette instruction est *-selon moi-* acceptable.
 
 Tout d'abord, une chose simple : **JAMAIS de `using namespace XXX;` dans un header**. Sous **aucun** prétexte. Si vous importez le namespace `std` dans un header, et que le code client décide de créer une classe, par exemple `string`, que va-t-il se passer ?
 
