@@ -36,8 +36,8 @@ import sys
 ROM_HEADER_SIZE = 16
 
 with open(sys.argv[1], "rb") as f:
-    bin = list(f.read())
-    header = bin[:ROM_HEADER_SIZE]
+    content = list(f.read())
+    header = content[:ROM_HEADER_SIZE]
     for byte in header:
         print(format(byte, '02x'))
 ```
