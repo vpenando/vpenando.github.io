@@ -26,7 +26,7 @@
 11-15: Zero filled
 ```
 
-### Lecture d'une ROM
+#### Lecture d'une ROM
 Tout d'abord, voici un petit script qui fait une chose très simple : il se contente d'afficher (en hexadécimal) le header d'une ROM NES.
 ```py
 #!/bin/python
