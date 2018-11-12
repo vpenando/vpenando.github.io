@@ -48,3 +48,24 @@ Pour l'exécuter, c'est très simple :
 chmod +x rom_header.py
 ./rom_header.py
 ```
+Exemple d'output :
+```sh
+
+> ./rom_header.py "***.nes"
+4e
+45
+53
+1a
+02
+01
+01
+00
+00
+00
+00
+00
+00
+00
+00
+00
+```
