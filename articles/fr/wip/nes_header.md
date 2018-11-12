@@ -42,6 +42,7 @@ with open(sys.argv[1], "rb") as f:
         print(byte)
 ```
 ***Note** - Ce script est volontairement allégé (pas de vérification sur la validité du chemin, taille de la ROM, etc...) pour plus de lisibilité.*
+
 Pour l'exécuter, c'est très simple :
 ```sh
 chmod +x rom_header.py
