@@ -27,7 +27,7 @@
 ```
 
 ### Lecture d'une ROM
-Tout d'abord, voici un petit script qui fait une chose très simple : il se contente d'afficher (en base décimale) le header d'une ROM NES.
+Tout d'abord, voici un petit script qui fait une chose très simple : il se contente d'afficher (en hexadécimal) le header d'une ROM NES.
 ```py
 #!/bin/python
 # rom_header.py
@@ -39,7 +39,7 @@ with open(sys.argv[1], "rb") as f:
     bin = list(f.read())
     header = bin[:ROM_HEADER_SIZE]
     for byte in header:
-        print(byte)
+        print(format(byte, '02x'))
 ```
 ***Note** - Ce script est volontairement allégé (pas de vérification sur la validité du chemin, taille de la ROM, etc...) pour plus de lisibilité.*
 
