@@ -25,3 +25,20 @@
 10: Flags 10 (unofficial)
 11-15: Zero filled
 ```
+
+### Lecture d'une ROM
+```py
+#!/bin/python
+import sys
+
+ROM_HEADER_SIZE = 16
+
+if __name__ == "__main__" and len(sys.argv) == 2:
+    path = sys.argv[1]
+    with open(path, "rb") as binfile:
+        bin = list(binfile.read())
+        print("ROM: " + path)
+        print("Header: {}".format(bin[:ROM_HEADER_SIZE]))
+
+
+```
