@@ -35,9 +35,8 @@ import sys
 
 ROM_HEADER_SIZE = 16
 
-if __name__ == "__main__" and len(sys.argv) == 2:
-    path = sys.argv[1]
-    with open(path, "rb") as f:
+if __name__ == "__main__":
+    with open(sys.argv[1], "rb") as f:
         bin = list(f.read())
         header = bin[:ROM_HEADER_SIZE]
         for byte in header:
