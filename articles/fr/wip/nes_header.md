@@ -39,9 +39,9 @@ if __name__ == "__main__" and len(sys.argv) == 2:
     path = sys.argv[1]
     with open(path, "rb") as f:
         bin = list(f.read())
-        assert len(bin) >= ROM_HEADER_SIZE
-        print("ROM: " + path)
-        print("Header: {}".format(bin[:ROM_HEADER_SIZE]))
+        header = bin[:ROM_HEADER_SIZE]
+        for byte in header:
+            print(byte)
 ```
 Pour l'exécuter, c'est très simple :
 ```sh
