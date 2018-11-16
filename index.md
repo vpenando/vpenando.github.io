@@ -1,5 +1,7 @@
 ## Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
 
+<img src="assets/cat-clap.gif" alt="hi" class="inline"/>
+
 ### Old dev blog
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
@@ -9,6 +11,5 @@
 - `2018/08/27`: [(FR) De la sémantique du pointeur](articles/fr/2018/semantique_pointeur.md) `c++` `good-practices`
 - `2018/06/25`: [(FR) Orienté objet - Du manager à l'entropie](articles/fr/2018/manager.md) `oop` `bad-practices`
 - `2018/04/29`: [(FR) Présentation du design pattern NVI](articles/fr/2018/nvi.md) `oop` `design-pattern`
-- `2018/04/02`: [(FR) Amusons-nous avec la récursivité (F#)](articles/fr/2018/recursivite.md) `f#` `functional-programming`
 
 [More...](articles.md)
