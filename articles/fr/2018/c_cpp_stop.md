@@ -95,12 +95,12 @@ L'un des soucis est que la taille du tableau doit être stockée dans une variab
 
 ---
 
-### Solutions
+### <a name="solutions">Solutions</a>
 Je pense qu'il est raisonnablement possible, et envisageable, de sensibiliser les développeurs au RAII et aux principes SOLID. En ce qui me concerne, j'ai eu l'occasion de tenir une première conférence sur le sujet en 2016. Elle a été bien accueillie par certains, moins bien par d'autres, mais elle a au moins eu le mérite de souveler la question et de faire réfléchir. Néanmoins, à mon âge, j'ai beaucoup de mal à convaincre les seniors. Car après tout, je ne suis qu'un petit jeune en début de carrière, mon avis est difficilement bien accuelli.
 
 Une autre solution (que je n'ai pas creusée outre mesure) est une fonctionnalité de certains compilateurs, qui consiste à "bannir" l'utilisation de certaines fonctions ([*poison*](https://github.com/leafsr/gcc-poison)) de manière à forcer les utilisateurs du code à employer une autre solution, plus sûre ([Exemple](http://coliru.stacked-crooked.com/a/4cf8414a0e6bafce)).
 
 ---
 
-### Conclusion
+### <a name="conclusion">Conclusion</a>
 Soyons clairs : le "C/C++" n'existe pas, dans le sens où ce n'est pas un langage. C'est un mélange maladroit de deux langages ayant deux optiques différentes, si ce n'est opposées. Le langage C est par nature radicalement opposé au RAII, l'un des plus importants pilliers du C++. Cet argument seul devrait être suffisant pour ne pas mélanger C et C++. Rajoutons à cela qu'utiliser du code C au sein d'un programme C++ (à part de rares cas comme l'utilisation d'`assert` ou l'écriture d'un wrapper RAII-conform d'une API C, [exemple](https://github.com/vpenando/sdl-cpp)) peut mener à la catastrophe si l'on ne sait pas ce que l'on fait.
