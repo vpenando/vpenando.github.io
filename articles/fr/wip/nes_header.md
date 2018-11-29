@@ -29,7 +29,7 @@
 #### Lecture d'une ROM
 Tout d'abord, voici un petit script qui fait une chose très simple : il se contente d'afficher (en hexadécimal) le header d'une ROM NES.
 ```py
-#!/bin/python
+#!/usr/bin/env python
 # rom_header.py
 import sys
 
@@ -46,11 +46,10 @@ with open(sys.argv[1], "rb") as f:
 Pour l'exécuter, c'est très simple :
 ```sh
 chmod +x rom_header.py
-./rom_header.py
+./rom_header.py <ROM>
 ```
 Exemple d'output :
 ```sh
-
 > ./rom_header.py "***.nes"
 4e
 45
