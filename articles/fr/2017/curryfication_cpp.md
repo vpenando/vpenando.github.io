@@ -90,7 +90,7 @@ const auto five = add2(3);
 A titre d'exemple, voici un programme complet ainsi que sa sortie, disponible sur [coliru](http://coliru.stacked-crooked.com/a/52bf27fed21e1cda) :
 
 ```cpp
-#include <iostream> // std::cout
+#include <iostream> // std::cout, std::endl
 
 namespace fun {
 
