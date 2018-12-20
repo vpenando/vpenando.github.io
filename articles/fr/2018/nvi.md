@@ -134,7 +134,7 @@ Reprenons l'exemple de l'interface `IFileReader` :
 interface IFileReader {
   #region Properties
   string Content { get; }
-  bool IsOpen { get; private set; }
+  bool IsOpen { get; }
   #endregion
   
   #region Methods
