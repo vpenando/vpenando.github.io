@@ -55,7 +55,7 @@ Exemple :
 interface IFileReader {
   #region Properties
   string Content { get; }
-  bool IsOpen { get; private set; }
+  bool IsOpen { get; }
   #endregion
   
   #region Methods
