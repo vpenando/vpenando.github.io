@@ -54,7 +54,7 @@ void print_words(std::string const& text) {
   }
 }
 ```
-Cette méthode propose l'avantage de pouvoir être utilisée dans une fonction définie dans un header (dans le cas d'une fonction `inline` par exemple), vu que son scope est la fonction elle-même.
+Cette méthode propose l'avantage de pouvoir être utilisée dans une fonction définie dans un header, vu que son scope est la fonction elle-même.
 
 Il est par ailleurs tout à fait viable d'importer un namespace dans une fonction :
 ```cpp
