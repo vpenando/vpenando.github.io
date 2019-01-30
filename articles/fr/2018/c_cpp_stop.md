@@ -90,7 +90,7 @@ L'un des soucis est que la taille du tableau doit être stockée dans une variab
 ### Solutions
 Je pense qu'il est raisonnablement possible, et envisageable, de sensibiliser les développeurs au RAII et aux principes SOLID. En ce qui me concerne, j'ai eu l'occasion de tenir une première conférence sur le sujet en 2016. Elle a été bien accueillie par certains, moins bien par d'autres, mais elle a au moins eu le mérite de souveler la question et de faire réfléchir. Néanmoins, à mon âge, j'ai beaucoup de mal à convaincre les seniors. Car après tout, je ne suis qu'un petit jeune en début de carrière, mon avis est difficilement bien accuelli.
 
-Une autre solution (que je n'ai pas creusée outre mesure) est une fonctionnalité de certains compilateurs, qui consiste à "bannir" l'utilisation de certaines fonctions ([*poison*](https://github.com/leafsr/gcc-poison)) de manière à forcer les utilisateurs du code à employer une autre solution, plus sûre ([Exemple](http://coliru.stacked-crooked.com/a/4cf8414a0e6bafce)).
+Une autre solution (que je n'ai pas creusée outre mesure) est une fonctionnalité de certains compilateurs, qui consiste à "bannir" l'utilisation de certaines fonctions ([*poison*](https://github.com/leafsr/gcc-poison)) de manière à forcer les utilisateurs du code à employer une autre solution, plus sûre.
 
 ---
 
