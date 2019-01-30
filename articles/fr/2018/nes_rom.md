@@ -32,10 +32,10 @@ def readrom(path: str):
     	raise IOError("Not a NES ROM")
     return rom
     
-file = "xxxx.nes"
-rom = readrom(file)
+rom = readrom("xxxx.nes")
+header = rom[:16]
 
-print(rom[:16])
+print(header)
 ```
 
 Exemple d'output : `[78, 69, 83, 26, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]`
