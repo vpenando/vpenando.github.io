@@ -50,7 +50,22 @@ Microsoft ayant réalisé les différents problèmes soulevés par `null` (#Bala
 
 ***Note -** Pour des raisons de rétrocompatibilité, assigner `null` à un type référence non-nullable produit juste un warning. Cependant, je suggère de toujours traiter les warnings comme des erreurs (sous Visual Studio : Project > Properties > Build > Treat Warnings as errors).*
 
+Paradoxalement, C# 6 a permis l'arrivée de l'opérateur `?.` (aka Null Propagation Operator), qui empêche le code suivant de planter :
+```cs
+class Foo {
+    public string Bar { get; }
+    
+    // ...
+}
 
+// ...
+
+Foo f = null;
+var result = f?.Bar;  // pas de NullReferenceException !
+                      // result vaudra simplement null
+                      // car l'expression f?.Bar renvoie null
+```
+Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
 ---
 
@@ -58,4 +73,4 @@ Microsoft ayant réalisé les différents problèmes soulevés par `null` (#Bala
 Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
-A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Interdire son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative.
+A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Limiter son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative. Bien qu'utile dans certains cas, elle nous oblige à être extrêmement vigilants.
