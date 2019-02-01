@@ -5,8 +5,10 @@
 ---
 
 ### Sommaire
-* [Introduction](#introduction)
-*
+* Introduction
+* Problème
+* Solutions
+* Mais du coup, c'est vraiment utile ?
 
 ---
 
@@ -47,6 +49,8 @@ string s = null; // Warning: Assignment of null to non-nullable reference type
 Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décidé de rendre explicite l'usage de types nullables *via* l'obligation d'employer le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` reste compatible. Pour rappel, `T?` est juste une syntaxe pour `Nullable<T>`.
 
 ***Note -** Pour des raisons de rétrocompatibilité, assigner `null` à un type référence non-nullable produit juste un warning. Cependant, je suggère de toujours traiter les warnings comme des erreurs (sous Visual Studio : Project > Properties > Build > Treat Warnings as errors).*
+
+
 
 ---
 
