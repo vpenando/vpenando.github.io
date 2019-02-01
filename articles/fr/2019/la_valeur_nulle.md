@@ -29,23 +29,22 @@ Mais une valeur nulle pose également bon nombre de soucis, car elle impose par 
 #### Problème
 Qui n'a jamais été confronté à la fameuse `NullReferenceException` en C# ?
 
-Je suis souvent amené à maintenir du code C# où chaque méthode commence par une suite de `Debug.Assert(xxx != null, "Invalid parameter xxx")`. Cela induit que là où la valeur nulle est théoriquement *acceptée* (pour chaque type référence, en soi), son usage n'est pas toléré. Chaque type référence (contrairement aux types valeurs), en C#, accepte cette valeur :
+Je suis souvent amené à maintenir du code C# où chaque méthode commence par une suite de `Debug.Assert(xxx != null, "Invalid parameter xxx")`. Cela induit que là où la valeur nulle est *théoriquement* acceptée (pour chaque type référence, en soi), son usage n'est pas toléré. Chaque type référence (contrairement aux types valeurs), en C#, accepte cette valeur :
 ```cs
 string toto = null;  // ok, type référence
 int titi = null;     // ko, type valeur
 ```
-Si le code client n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction / méthode. 
-
+Si le code n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction / méthode. Chaque programmeur doit donc prendre en compte ce cas de figure, ce qui multiplie rapidement le nombre de vérifications à faire. Cela devient donc vite très lourd, et plus rapidement source d'erreurs.
 
 ---
 
 #### Solutions
 
-1. Nullable reference types (C# 8)
+1. C# - Nullable reference types (C# 8)
 ```cs
 string s = null; // Warning: Assignment of null to non-nullable reference type
 ```
-Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décider de rendre explicites les types nullables *via* le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` est compatible. Pour rappel, `T?` est juste une syntaxe pour `Nullable<T>`.
+Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décidé de rendre explicite l'usage de types nullables *via* l'obligation d'employer le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` reste compatible. Pour rappel, `T?` est juste une syntaxe pour `Nullable<T>`.
 
 ***Note -** Pour des raisons de rétrocompatibilité, assigner `null` à un type référence non-nullable produit juste un warning. Cependant, je suggère de toujours traiter les warnings comme des erreurs (sous Visual Studio : Project > Properties > Build > Treat Warnings as errors).*
 
