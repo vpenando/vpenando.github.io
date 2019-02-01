@@ -27,21 +27,32 @@ Mais une valeur nulle pose également bon nombre de soucis, car elle impose par 
 ---
 
 #### Problème
+Qui n'a jamais été confronté à la fameuse `NullReferenceException` en C# ?
+
 Je suis souvent amené à maintenir du code C# où chaque méthode commence par une suite de `Debug.Assert(xxx != null, "Invalid parameter xxx")`. Cela induit que là où la valeur nulle est théoriquement *acceptée* (pour chaque type référence, en soi), son usage n'est pas toléré. Chaque type référence (contrairement aux types valeurs), en C#, accepte cette valeur :
 ```cs
 string toto = null;  // ok, type référence
 int titi = null;     // ko, type valeur
 ```
-Si le code client n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction / méthode.
+Si le code client n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction / méthode. 
 
 
 ---
 
 #### Solutions
-Nullable reference types (C# 8)
+
+1. Nullable reference types (C# 8)
 ```cs
 string s = null; // Warning: Assignment of null to non-nullable reference type
 ```
+Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décider de rendre explicites les types nullables *via* le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` est compatible. Pour rappel, `T?` est juste une syntaxe pour `Nullable<T>`.
 
+***Note -** Pour des raisons de rétrocompatibilité, assigner `null` à un type référence non-nullable produit juste un warning. Cependant, je suggère de toujours traiter les warnings comme des erreurs (sous Visual Studio : Project > Properties > Build > Treat Warnings as errors).*
 
+---
 
+#### Mais du coup, c'est vraiment utile ?
+Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
+> De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
+
+A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Interdire son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative.
