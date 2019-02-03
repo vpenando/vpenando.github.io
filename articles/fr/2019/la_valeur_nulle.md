@@ -64,7 +64,7 @@ class Foo {
 Foo f = null;
 var result = f?.Bar;  // pas de NullReferenceException !
                       // result vaudra simplement null
-                      // car l'expression f?.Bar renvoie null
+                      // car l'expression "f?.Bar" renvoie null
 ```
 Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
