@@ -46,7 +46,10 @@ Si le code n'est pas blindé, il devient alors assez facile de le faire crasher 
 ```cs
 string s = null; // Warning: Assignment of null to non-nullable reference type
 ```
-Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décidé de rendre explicite l'usage de types nullables *via* l'obligation d'employer le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` reste compatible. Pour rappel, `T?` est juste une syntaxe pour `Nullable<T>`.
+Microsoft ayant réalisé les différents problèmes soulevés par `null` (#BalanceTaNullReferenceException), ils ont décidé de rendre explicite l'usage de types nullables *via* l'obligation d'employer le suffixe `?`. `string` deviendrait donc non-nullable, là où `string?` reste compatible. Pour rappel, `T?` est juste une syntaxe pour `System.Nullable<T>` :
+```cs
+int? toto = null;  // ok : "toto" est de type Nullable<int>
+```
 
 ***Note -** Pour des raisons de rétrocompatibilité, assigner `null` à un type référence non-nullable produit juste un warning. Cependant, je suggère de toujours traiter les warnings comme des erreurs (sous Visual Studio : Project > Properties > Build > Treat Warnings as errors).*
 
@@ -66,6 +69,19 @@ var result = f?.Bar;  // pas de NullReferenceException !
                       // car l'expression f?.Bar renvoie null
 ```
 Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
+
+2. C++ - `std::optional` (C++17 / Boost)
+Je suis développeur C++ avant tout. C'est le langage que j'utilise le plus, et les occasions d'employer les paramètres par défaut ne manquent pas. L'astuce "classique" consiste à utiliser des pointeurs :
+```cpp
+using Owner = T;  // alias sémantique
+                  // cela induit qu'un "Owner<T>" est l'unique
+                  // responsable de la ressource tenue.
+
+void foo(int arg1, int arg2, Owner<int*> optional=nullptr){
+  // ...
+}
+```
+
 
 ---
 
