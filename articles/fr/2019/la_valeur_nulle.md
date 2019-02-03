@@ -99,7 +99,7 @@ let print_if_exists optionalValue =
   | None -> print_string "???"
   ;;
 ```
-Elm dispose d'une mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
+Elm dispose d'un mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
 ```elm
 myFunction maybe =
   case maybe of
