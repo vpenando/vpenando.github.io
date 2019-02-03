@@ -24,7 +24,7 @@ def say_hello(name=None):
         print("Hello, world!")
 ```
 
-Mais une valeur nulle pose également bon nombre de soucis, car elle impose par nature des préconditions supplémentaires.
+Mais une valeur nulle pose également bon nombre de soucis, car elle impose par nature des préconditions supplémentaires. En effet, que se passerait-il si l'on tente d'utiliser une variable nulle ?
 
 ---
 
@@ -36,7 +36,7 @@ Je suis souvent amené à maintenir du code C# où chaque méthode commence par 
 string toto = null;  // ok, type référence
 int titi = null;     // ko, type valeur
 ```
-Si le code n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction / méthode. Chaque programmeur doit donc prendre en compte ce cas de figure, ce qui multiplie rapidement le nombre de vérifications à faire. Cela devient donc vite très lourd, et plus rapidement source d'erreurs.
+Si le code n'est pas blindé, il devient alors assez facile de le faire crasher en envoyant `null` en lieu et place d'un paramètre d'une fonction ou méthode. Chaque programmeur doit donc prendre en compte ce cas de figure, ce qui multiplie rapidement le nombre de vérifications à faire. Cela devient donc vite très lourd, et plus rapidement source d'erreurs.
 
 ---
 
