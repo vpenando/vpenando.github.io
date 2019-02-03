@@ -92,7 +92,8 @@ Je fais également un peu de fonctionnel avec OCaml / F#, et j'ai eu l'occasion 
 ```ml
 (* OCaml / F# *)
 let someValue = Some "Hello, world!" ;;
-let noneValue = None ;;
+
+(* "someValue" est de type "string option" *)
 
 let print_if_exists optionalValue =
   match optionalValue with
@@ -100,7 +101,13 @@ let print_if_exists optionalValue =
   | None -> print_string "???"
   ;;
 ```
-
+Elm dispose d'une mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
+```elm
+myFunction maybe =
+  case maybe of
+    Just value -> -- quelque chose...
+    Nothing -> -- autre chose...
+```
 
 ---
 
