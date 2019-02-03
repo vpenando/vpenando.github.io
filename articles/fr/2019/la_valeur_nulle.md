@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-### (FR) La valeur null, un réel intérêt ?
+## (FR) La valeur null, un réel intérêt ?
 
 ---
 
@@ -12,7 +12,7 @@
 
 ---
 
-#### Introduction
+### Introduction
 Beaucoup de langages ont une valeur nulle, telle que `null` en C#, `None` en Python, `nil` en Ruby ou Lua (sans oublier `NULL` en C et `nullptr` en C++ lorsque l'on utilise des pointeurs).
 Cette valeur a toujours la même sémantique, à savoir l'absence de valeur. Cela peut avoir ses avantages, comme lorsque l'on veut proposer des paramètres optionnels pour une fonction :
 
@@ -28,7 +28,7 @@ Mais une valeur nulle pose également bon nombre de soucis, car elle impose par 
 
 ---
 
-#### Problème
+### Problème
 Qui n'a jamais été confronté à la fameuse `NullReferenceException` en C# ?
 
 Je suis souvent amené à maintenir du code C# où chaque méthode commence par une suite de `Debug.Assert(xxx != null, "Invalid parameter xxx")`. Cela induit que là où la valeur nulle est *théoriquement* acceptée (pour chaque type référence, en soi), son usage n'est pas toléré. Chaque type référence (contrairement aux types valeurs), en C#, accepte cette valeur :
@@ -40,7 +40,7 @@ Si le code n'est pas blindé, il devient alors assez facile de le faire crasher 
 
 ---
 
-#### Solutions
+### Solutions
 
 1. C# - Nullable reference types (C# 8)
 ```cs
@@ -69,7 +69,7 @@ Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous expos
 
 ---
 
-#### Mais du coup, c'est vraiment utile ?
+### Mais du coup, c'est vraiment utile ?
 Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
