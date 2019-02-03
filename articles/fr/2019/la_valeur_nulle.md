@@ -71,6 +71,7 @@ var result = f?.Bar;  // pas de NullReferenceException !
 Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
 2. C++ - `std::optional` (C++17 / Boost)
+
 Je suis développeur C++ avant tout. C'est le langage que j'utilise le plus, et les occasions d'employer les paramètres par défaut ne manquent pas. L'astuce "classique" consiste à utiliser des pointeurs :
 ```cpp
 using Owner = T;  // alias sémantique
