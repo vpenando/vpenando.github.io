@@ -81,6 +81,7 @@ void foo(int arg1, int arg2, Owner<int*> optional=nullptr){
   // ...
 }
 ```
+Bien que l'usage soit assez commun en soi, l'utilisation d'un pointeur en lieu et place d'une valeur optionnel est sémantiquement assez bancale. Rajoutons à cela que l'*ownership* n'est pas clairement définie à la simple lecture du prototype de `foo` (d'où l'usage de l'alias `Owner`.
 
 
 ---
