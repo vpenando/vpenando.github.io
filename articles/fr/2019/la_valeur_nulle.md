@@ -57,12 +57,10 @@ Paradoxalement, C# 6 a permis l'arrivée de l'opérateur `?.` (aka Null Propagat
 ```cs
 class Foo {
     public string Bar { get; }
-    
     // ...
 }
 
 // ...
-
 Foo f = null;
 var result = f?.Bar;  // pas de NullReferenceException !
                       // result vaudra simplement null
