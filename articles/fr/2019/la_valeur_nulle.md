@@ -87,9 +87,24 @@ Bien que l'usage soit assez commun en soi, l'utilisation d'un pointeur en lieu e
 Fort heureusement, C++17 a rajouté un type (déjà disponible dans Boost) qui apporte toute cette sémantique : `std::optional`. Tout comme pour C# 8, on restreint là encore l'utilisation d'une valeur nulle. L'usage de pointeurs bruts étant déjà déprécié aujourd'hui (au profit de types RAII-conform), on donne aux programmeurs une autre alternative.
 
 
+#### 3. Et dans d'autres langages ?
+Je fais également un peu de fonctionnel avec OCaml / F#, et j'ai eu l'occasion d'utiliser un peu Elm sur mon temps libre. Ces langages proposent des types proposant des valeurs pseudo-nulles. Exemple :
+```ml
+(* OCaml / F# *)
+let someValue = Some "Hello, world!" ;;
+let noneValue = None ;;
+
+let print_if_exists optionalValue =
+  match optionalValue with
+  | Some value -> print_string value
+  | None -> print_string "???"
+  ;;
+```
+
+
 ---
 
-### Mais du coup, c'est vraiment utile ?
+### Mais du coup, `null`/`None`/`nil`, c'est vraiment utile ?
 Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
