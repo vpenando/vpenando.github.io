@@ -82,7 +82,7 @@ void foo(int arg1, int arg2, Owner<int*> optional=nullptr){
   // ...
 }
 ```
-Bien que l'usage soit assez commun en soi, l'utilisation d'un pointeur en lieu et place d'une valeur optionnelle est sémantiquement assez bancale. Rajoutons à cela que l'*ownership* n'est pas clairement définie à la simple lecture du prototype de `foo` (d'où l'usage de l'alias `Owner`).
+Bien que l'usage soit assez commun en soi, l'utilisation d'un pointeur en lieu et place d'une valeur optionnelle est sémantiquement assez bancale. Rajoutons à cela que l'*ownership* n'est pas clairement définie à la simple lecture du prototype de `foo` (d'où l'usage de l'alias `Owner`, qui l'apporte explicitement).
 
 Fort heureusement, C++17 a rajouté un type (déjà disponible dans Boost) qui apporte toute cette sémantique : `std::optional`. Tout comme pour C# 8, on restreint là encore l'utilisation d'une valeur nulle. L'usage de pointeurs bruts étant déjà déprécié aujourd'hui, on donne aux programmeurs une autre alternative.
 
