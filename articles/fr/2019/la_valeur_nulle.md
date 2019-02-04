@@ -127,6 +127,7 @@ type Maybe a
     = Just a
     | Nothing
 ```
+L'intérêt de ce genre de type est que l'on s'interdit de pouvoir rendre toute variable nulle, à moins d'explicitement utiliser un type "nullable". Ainsi, pas de surprise avec des variables nulles.
 
 ---
 
