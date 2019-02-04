@@ -113,7 +113,7 @@ void foo(int arg1, int arg2, int arg3){
 ```
 
 #### 3. Et dans d'autres langages ?
-Je fais également un peu de fonctionnel avec OCaml / F#, et j'ai eu l'occasion d'utiliser un peu Elm sur mon temps libre. Ces langages proposent des types proposant des valeurs pseudo-nulles. Exemple :
+Je fais également un peu de fonctionnel avec OCaml / F#, et j'ai eu l'occasion d'utiliser Elm sur mon temps libre. Ces langages proposent des types proposant des valeurs pseudo-nulles. Exemple :
 ```ml
 (* OCaml / F# *)
 let someValue = Some "Hello, world!" ;;
