@@ -164,3 +164,6 @@ output :
 nil
 ]]--
 ```
+JavaScript, par exemple, s'autorise également ce comportement.
+
+Cela contribue à garantir la grande malléabilité du langage, mais la plupart des autres langages (notamment les langages compilés) ne s'autorisent pas cela.
