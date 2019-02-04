@@ -179,4 +179,19 @@ JavaScript, par exemple, s'autorise également ce comportement.
 
 Cela contribue à garantir la grande malléabilité du langage, mais la plupart des autres langages (notamment les langages compilés) ne s'autorisent pas cela. Spécifier un paramètre par défaut nul ne présente que rarement un intérêt lorsque l'on a la possibilité de surcharger une fonction. Cela alourdit vite le code si l'on doit enchaîner les `if (xxx == null) { /* ... */ }` pour chaque paramètre : je préfère largement avoir une fonction distincte pour chaque cas, quand c'est possible.
 
-Finalement, le cas des paramètres optionnels constitue **le** cas nominal d'emploi d'une valeur nulle. A-t-on besoin de `null` dans d'autres cas ?
+Finalement, le cas des paramètres optionnels constitue **le** cas nominal d'emploi d'une valeur nulle.
+A-t-on besoin de `null` dans d'autres cas ?
+Le cas :
+```py
+foo = None
+if XXXX:
+   foo = "toto"
+else:
+   foo = "titi"
+```
+... n'est pas un cas *valide*, car il peut être simplifié ainsi :
+```py
+foo = "titi"
+if XXXX:
+    foo = "toto"
+```
