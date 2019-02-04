@@ -195,3 +195,4 @@ foo = "titi"
 if XXXX:
     foo = "toto"
 ```
+De cette manière, pas de `None`. La plupart des cas d'utilisation de valeurs nulles sont aisément simplifiables de la même manière.
