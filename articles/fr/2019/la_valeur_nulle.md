@@ -105,6 +105,15 @@ let print_if_exists optionalValue =
   | None -> print_string "???"
   ;;
 ```
+Le type `option` correspond, comme son nom l'indique, à une valeur optionnelle. Il accepte de ce fait deux "types" de valeurs : `None` (plus ou moins équivalent à `null`) et `Some xxx`, avec `xxx` une valeur.
+
+Il pourrait être implémenté ainsi :
+```ml
+type 'a option =
+  | Some of 'a  (* une valeur de type 'a *)
+  | None        (* pas de valeur *)
+  ;;
+```
 Elm dispose d'un mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
 ```elm
 myFunction maybe =
