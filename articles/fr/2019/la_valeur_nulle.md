@@ -11,7 +11,7 @@
   * [1. C# - Nullable reference types (C# 8)](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#1-c---nullable-reference-types-c-8)
   * [2. C++ - `std::optional` (C++17 / Boost)](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#2-c---stdoptional-c17--boost)
   * [3. Et dans d'autres langages ?](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#3-et-dans-dautres-langages-)
-* [Mais du coup, c'est vraiment utile ?](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#mais-du-coup-une-valeur-nulle-cest-vraiment-utile-)
+* [Mais du coup, une valeur nulle, c'est vraiment utile ?](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#mais-du-coup-une-valeur-nulle-cest-vraiment-utile-)
 
 ---
 
@@ -69,6 +69,8 @@ var result = f?.Bar;  // pas de NullReferenceException !
                       // result vaudra simplement null
                       // car l'expression "f?.Bar" renvoie null
 ```
+Bien que le but soit très louable (s'éviter des `NullReferenceException`s), je trouve cette solution plutôt maladroite. Elle ne corrige que la forme (le code ne plantera pas), mais pas le fond (on continue à avoir des variables nulles). De ce fait, il finira tôt ou tard par crasher, à un endroit où nous n'aurons pas été suffisamment vigilants.
+
 Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
 #### 2. C++ - `std::optional` (C++17 / Boost)
