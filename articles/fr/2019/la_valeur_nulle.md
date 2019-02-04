@@ -144,7 +144,7 @@ L'intérêt de ce genre de type est que l'on s'interdit de pouvoir rendre toute 
 
 ---
 
-### Mais du coup, `null`/`None`/`nil`, c'est vraiment utile ?
+### Mais du coup, une valeur nulle, c'est vraiment utile ?
 Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
