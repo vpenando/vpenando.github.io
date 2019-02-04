@@ -2,6 +2,10 @@
 
 ### All posts:
 
+#### 2019
+- `2019/02/04`: [(FR) La valeur nulle, un réel intérêt ?](articles/fr/2019/la_valeur_nulle.md)
+
+---
 #### 2018
 - `2018/12/13`: [(FR) EXPRESS #1 - Comment ne pas casser la prod](articles/fr/2018/express1_script_prod.md) `good-practices`
 - `2018/11/16`: [(FR) "C/C++", stop !](articles/fr/2018/c_cpp_stop.md) `c++` `bad-practices`
