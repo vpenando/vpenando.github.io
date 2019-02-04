@@ -146,6 +146,21 @@ Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de pose
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
 A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Limiter son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative. Bien qu'utile dans certains cas, elle nous oblige à être extrêmement vigilants.
-Beaucoup de langages pourraient selon moi s'en passer.
+Beaucoup de langages pourraient selon moi s'en passer, ou tout du moins se restreindre à un type "nullable".
 
-Néanmoins, je pense que dans le cas de langages de script, c'est un excellent atout. Je pense notamment à Python, où la surcharge de fonction n'existe pas.
+Néanmoins, je pense que dans le cas de langages de script, c'est un excellent atout. Je pense notamment à Python, où la surcharge de fonction n'existe pas. Ainsi, pour simuler des paramètres optionnels, `None` est indispensable. En Lua, tous les paramètres de fonctions sont nuls par défaut :
+```lua
+function foo(arg1, arg2, arg3)
+  print(arg1)
+  print(arg2)
+  print(arg3)
+end
+
+foo(1, 2)
+--[[
+output :
+1
+2
+nil
+]]--
+```
