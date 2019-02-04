@@ -5,10 +5,13 @@
 ---
 
 ### Sommaire
-* Introduction
-* Problème
-* Solutions
-* Mais du coup, c'est vraiment utile ?
+* [Introduction](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#introduction)
+* [Problème](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#probl%C3%A8me)
+* [Solutions](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#solutions)
+  * [1. C# - Nullable reference types (C# 8)](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#1-c---nullable-reference-types-c-8)
+  * [2. C++ - `std::optional` (C++17 / Boost)](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#2-c---stdoptional-c17--boost)
+  * [3. Et dans d'autres langages ?](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#3-et-dans-dautres-langages-)
+* [Mais du coup, c'est vraiment utile ?](https://github.com/vpenando/vpenando.github.io/blob/master/articles/fr/2019/la_valeur_nulle.md#mais-du-coup-nullnonenil-cest-vraiment-utile-)
 
 ---
 
