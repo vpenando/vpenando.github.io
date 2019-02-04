@@ -126,7 +126,7 @@ let print_if_exists optionalValue =
   | None -> print_string "???"
   ;;
 ```
-Le type `option` correspond, comme son nom l'indique, à une valeur optionnelle. Il accepte de ce fait deux "types" de valeurs : `None` et `Some xxx`, avec `xxx` une valeur.
+Le type `option` correspond, comme son nom l'indique, à une valeur optionnelle. Il accepte de ce fait deux "types" de valeurs : `None` et `Some xxx`, avec `xxx` une valeur quelconque, telle que "Hello, world!" dans l'exemple ci-dessus.
 
 Il pourrait être implémenté ainsi :
 ```ml
