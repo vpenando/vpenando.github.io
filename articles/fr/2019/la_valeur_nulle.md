@@ -77,7 +77,7 @@ Bar realResult = result ?? new Bar(/* ... */);
 // sinon, on crée une nouvelle instance de "Bar"
 ```
 
-Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
+Autrement, sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
 #### 2. C++ - `std::optional` (C++17 / Boost)
 
