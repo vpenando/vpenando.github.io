@@ -147,7 +147,7 @@ L'intérêt de ce genre de type est que l'on s'interdit de pouvoir rendre toute 
 ---
 
 ### Mais du coup, une valeur nulle, c'est vraiment utile ?
-Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de poser la question suivante :
+Au vu des potentiels soucis causés par la valeur nulle, nous nous devons de poser la question suivante :
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
 A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Limiter son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative. Bien qu'utile dans certains cas, elle nous oblige à être extrêmement vigilants.
@@ -171,4 +171,4 @@ nil
 ```
 JavaScript, par exemple, s'autorise également ce comportement.
 
-Cela contribue à garantir la grande malléabilité du langage, mais la plupart des autres langages (notamment les langages compilés) ne s'autorisent pas cela.
+Cela contribue à garantir la grande malléabilité du langage, mais la plupart des autres langages (notamment les langages compilés) ne s'autorisent pas cela. Spécifier un paramètre par défaut nul ne présente que rarement un intérêt lorsque l'on a la possibilité de surcharger une fonction. Cela alourdit vite le code si l'on doit enchaîner les `if (xxx == null) { /* ... */ }` pour chaque paramètre : je préfère largement avoir une fonction distincte pour chaque cas, quand c'est possible.
