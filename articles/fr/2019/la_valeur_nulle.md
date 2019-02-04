@@ -90,6 +90,16 @@ Bien que l'usage soit assez commun en soi, l'utilisation d'un pointeur en lieu e
 
 Fort heureusement, C++17 a rajouté un type (déjà disponible dans Boost) qui apporte toute cette sémantique : `std::optional`. Tout comme pour C# 8, on restreint là encore l'utilisation d'une valeur nulle. L'usage de pointeurs bruts étant déjà déprécié aujourd'hui (au profit de types RAII-conform), on donne aux programmeurs une autre alternative.
 
+Il existe une autre solution pour se passer de l'emploi de pointeurs ou de `std::optional`. En effet, la surcharge de fonction est une option viable :
+```cpp
+void foo(int arg1, int arg2){
+  // ...
+}
+
+void foo(int arg1, int arg2, int arg3){
+  // ...
+}
+```
 
 #### 3. Et dans d'autres langages ?
 Je fais également un peu de fonctionnel avec OCaml / F#, et j'ai eu l'occasion d'utiliser un peu Elm sur mon temps libre. Ces langages proposent des types proposant des valeurs pseudo-nulles. Exemple :
@@ -136,3 +146,6 @@ Au vu des potentiels soucis causé par la valeur nulle, nous nous devons de pose
 > De quel côté penche la balance lorsque l'on mesure l'intérêt de la valeur nulle et ses désagréments ?
 
 A mon sens, sans hésiter, `null` pose plus de problèmes qu'elle n'en résout. Limiter son usage comme le propose Microsoft pour C# 8 me semble être une bonne alternative. Bien qu'utile dans certains cas, elle nous oblige à être extrêmement vigilants.
+Beaucoup de langages pourraient selon moi s'en passer.
+
+Néanmoins, je pense que dans le cas de langages de script, c'est un excellent atout. Je pense notamment à Python, où la surcharge de fonction n'existe pas.
