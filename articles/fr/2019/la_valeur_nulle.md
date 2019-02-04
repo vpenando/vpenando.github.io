@@ -69,7 +69,13 @@ var result = f?.Bar;  // pas de NullReferenceException !
                       // result vaudra simplement null
                       // car l'expression "f?.Bar" renvoie null
 ```
-Bien que le but soit très louable (s'éviter des `NullReferenceException`s), je trouve cette solution plutôt maladroite. Elle ne corrige que la forme (le code ne plantera pas), mais pas le fond (on continue à avoir des variables nulles). De ce fait, il finira tôt ou tard par crasher, à un endroit où nous n'aurons pas été suffisamment vigilants.
+Bien que le but soit très louable (s'éviter des `NullReferenceException`s), je trouve cette solution plutôt maladroite. Elle ne corrige que la forme (le code ne plantera pas), mais pas le fond (on continue à avoir des variables nulles). De ce fait, il finira tôt ou tard par crasher, à un endroit où nous n'aurons pas été suffisamment vigilants, par exemple en employant l'opérateur `??` :
+```cs
+// pour faire suite au code ci-dessus :
+Bar realResult = result ?? new Bar(/* ... */);
+// si "result" est non-nul, on assigne sa valeur à "realResult"
+// sinon, on crée une nouvelle instance de "Bar"
+```
 
 Sans traiter les warnings comme erreurs (cf. la note ci-dessus), nous nous exposons à nouveau à recevoir `null` comme valeur pour `result`.
 
