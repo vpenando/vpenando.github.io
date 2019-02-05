@@ -27,7 +27,7 @@ def say_hello(name=None):
         print("Hello, world!")
 ```
 
-Mais une valeur nulle pose également bon nombre de soucis, car elle impose par nature des préconditions supplémentaires. En effet, que se passerait-il si l'on tente d'utiliser une variable nulle ? Tenter d'appeler une méthode `foo()` d'une instance nulle d'une classe `Bar` provoquerait un crash.
+Mais une valeur nulle pose également bon nombre de soucis, car elle impose par nature des préconditions supplémentaires. En effet, que se passerait-il si l'on tente d'utiliser une variable nulle ? Tenter d'appeler une méthode d'une instance nulle provoquerait un crash, ou a minima lèverait une exception.
 
 ---
 
