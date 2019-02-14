@@ -136,17 +136,17 @@ type 'a option =
   ;;
 ```
 Elm dispose d'un mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
-```elm
+```sql
 myFunction maybe =
   case maybe of
     Just value -> -- quelque chose...
     Nothing -> -- autre chose...
 ```
 Dans la même logique que `option`, `Maybe` pourrait être implémenté ainsi :
-```elm
+```ml
 type Maybe a
-    = Just a
-    | Nothing
+  = Just a
+  | Nothing
 ```
 L'intérêt de ce genre de type est que l'on s'interdit de pouvoir rendre toute variable nulle, à moins d'explicitement utiliser un type "nullable". Ainsi, pas de surprise avec des variables nulles.
 
