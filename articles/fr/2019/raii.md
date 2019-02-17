@@ -24,3 +24,10 @@ if (! file) {
   fclose(file);
 }
 ```
+
+Exemple de code conforme au RAII :
+```py
+with open("foo.txt", "r") as f:
+	# lecture du fichier
+# ici, le fichier est fermé
+```
