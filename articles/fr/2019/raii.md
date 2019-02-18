@@ -11,7 +11,7 @@
 
 ### Définition
 
-Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource (pointeur, connexion, ...), ladite ressource sera bel et bien libérée lors de la destruction de l'objet.
+Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource (pointeur, connexion, ...), ladite ressource sera bel et bien libérée lors de la destruction de l'objet. Il associe la durée de vie d'une ressource à celle de son propriétaire.
 
 Par exemple, en C++, `std::istream` et `std::ostream` sont, au même titre que `std::unique_ptr` et `std::shared_ptr`, des capsules RAII-conform. Les ressources allouées sont libérées à la destruction des instances.
 
@@ -37,3 +37,11 @@ with open("foo.txt", "r") as f:
 # ici, le fichier est fermé
 ```
 Cet exemple de code est tout à fait RAII-conform, car le fichier est libéré à la sortie du bloc `with`/`as` (à l'appel de `__exit__()`).
+
+Les langages modernes sont à peu près full RAII-conform ; les objets sont
+
+---
+
+### Cas d'utilisation
+
+D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser des pointeurs de manière à s'affranchir de multiples vérifications après chaque allocation.
