@@ -54,15 +54,12 @@ Les langages modernes sont à peu près full RAII-conform ; les objets sont gén
 
 D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser des pointeurs (comme l'utilisation d'une bibliothèque C) de manière à s'affranchir de multiples vérifications après chaque allocation.
 
-Si les pointeurs bruts sont dépréciés en C, ce n'est pas pour rien :
+Si les pointeurs bruts sont dépréciés en C++, ce n'est pas pour rien :
 ```c
-int *ptr = malloc(sizeof(*ptr));
-if (! ptr) {
-  // erreur
-}
+int *ptr = new int(42); // potentielle fuite mémoire si ça throw
 *ptr = 42;
 // utilisation
-free(ptr);
+delete ptr;
 ```
 Version RAII-conform :
 ```cpp
