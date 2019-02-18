@@ -44,4 +44,4 @@ Les langages modernes sont à peu près full RAII-conform ; les objets sont
 
 ### Cas d'utilisation
 
-D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser des pointeurs de manière à s'affranchir de multiples vérifications après chaque allocation.
+D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser des pointeurs (comme l'utilisation d'une bibliothèque C) de manière à s'affranchir de multiples vérifications après chaque allocation.
