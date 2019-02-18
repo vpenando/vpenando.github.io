@@ -14,7 +14,7 @@
 Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource, ladite ressource sera bel et bien libérée lors de la destruction de l'objet. Il associe la durée de vie d'une ressource à celle de son propriétaire.
 
 Définissons avant tout ce que peut être une ressource. Dans notre cas (et surtout en C++, ce dernier étant mon langage de prédilection), il peut s'agir de :
-* Pointeurs bruts (`int*`, `char*`...) ;
+* Pointeurs bruts (`int*`, `char*`, ...) ;
 * Stream vers un fichier ;
 * Connexion SQL ;
 * ...
