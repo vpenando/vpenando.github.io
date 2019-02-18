@@ -36,3 +36,4 @@ with open("foo.txt", "r") as f:
     # lecture du fichier
 # ici, le fichier est fermé
 ```
+Cet exemple de code est tout à fait RAII-conform, car le fichier est libéré à la sortie du bloc `with`/`as` (à l'appel de `__exit__()`).
