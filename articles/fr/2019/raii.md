@@ -11,7 +11,15 @@
 
 ### Définition
 
-Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource (pointeur, connexion, ...), ladite ressource sera bel et bien libérée lors de la destruction de l'objet. Il associe la durée de vie d'une ressource à celle de son propriétaire.
+Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource, ladite ressource sera bel et bien libérée lors de la destruction de l'objet. Il associe la durée de vie d'une ressource à celle de son propriétaire.
+
+Définissons avant tout ce que peut être une ressource. Dans notre cas (et surtout en C++, ce dernier étant mon langage de prédilection), il peut s'agir de :
+* Pointeurs bruts (`int*`, `char*`...) ;
+* Stream vers un fichier ;
+* Connexion SQL ;
+* ...
+
+Le point commun de ces éléments est qu'ils doivent être à la fois alloués et libérés à la main. Le but du RAII est de s'affranchir de ces étapes en les rendant automatiques.
 
 Par exemple, en C++, `std::istream` et `std::ostream` sont, au même titre que `std::unique_ptr` et `std::shared_ptr`, des capsules RAII-conform. Les ressources allouées sont libérées à la destruction des instances.
 
