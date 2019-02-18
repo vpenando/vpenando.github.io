@@ -38,7 +38,7 @@ with open("foo.txt", "r") as f:
 ```
 Cet exemple de code est tout à fait RAII-conform, car le fichier est libéré à la sortie du bloc `with`/`as` (à l'appel de `__exit__()`).
 
-Les langages modernes sont à peu près full RAII-conform ; les objets sont
+Les langages modernes sont à peu près full RAII-conform ; les objets sont généralement supprimés par un garbage collector, et les ressources sous-jacentes le sont également.
 
 ---
 
