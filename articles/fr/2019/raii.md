@@ -60,10 +60,14 @@ D'une manière générale, il convient de *toujours* passer par des capsules RAI
 
 Si les pointeurs bruts sont dépréciés en C++, ce n'est pas pour rien :
 ```cpp
-int *ptr = new int(42); // potentielle fuite mémoire si ça throw
-*ptr = 42;
-// utilisation
-delete ptr;
+int *ptr1 = new int(42);
+int *ptr2 = new int(0); // potentielle fuite mémoire si ça throw
+
+*ptr1 = 42;
+*ptr2 = *ptr1;
+
+delete ptr1;
+delete ptr2;
 ```
 Version RAII-conform :
 ```cpp
