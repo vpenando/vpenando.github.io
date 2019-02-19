@@ -11,6 +11,8 @@
 
 ### Définition
 
+Je parle souvent de cette notion dans mes articles, mais je ne l'ai pas encore définie (du moins, sur ce blog).
+
 Le RAII (pour **R**esource **A**cquisition **I**s **I**nitialisation) est un principe clé de l'orienté objet. Malgré son nom trompeur, le RAII garantit que losqu'un object acquiert une ressource, ladite ressource sera bel et bien libérée lors de la destruction de l'objet. Il associe la durée de vie d'une ressource à celle de son propriétaire.
 
 Définissons avant tout ce que peut être une ressource. Dans notre cas (et surtout en C++, ce dernier étant mon langage de prédilection), il peut s'agir de :
@@ -36,15 +38,17 @@ if (! file) {
   fclose(file);
 }
 ```
-Dans un exemple aussi simple, le fichier sera libéré comme attendu, mais dans un exemple plus complexe *-ou pire, dans un code mêlant C et C++-*, il peut ne **jamais** l'être. Il y a alors une fuite mémoire. Le RAII est le meilleur moyen de se prémunir des fuites mémoire, en garantissant que les capsules ayant l'ownership s'occupent de libérer les ressources.
-
-Exemple de code conforme au RAII :
-```py
-with open("foo.txt", "r") as f:
-    # lecture du fichier
-# ici, le fichier est fermé
+Dans un exemple aussi simple, le fichier sera libéré comme attendu, mais dans un exemple plus complexe *-ou pire, dans un code mêlant C et C++-*, il peut ne **jamais** l'être. Il y a alors une fuite mémoire. Le RAII est le meilleur moyen de se prémunir des fuites mémoire, en garantissant que les capsules ayant l'ownership s'occupent de libérer les ressources :
+```cpp
+// /!\ il est nécessaire d'avoir un compilateur supportant C++17
+if (std::ifstream s{"toto.txt"}; s) {
+  // lecture du fichier...
+  if (/* condition */) {
+    throw std::runtime_error{"invalid input"});
+  }
+}
 ```
-Cet exemple de code est tout à fait RAII-conform, car le fichier est libéré à la sortie du bloc `with`/`as` (à l'appel de `__exit__()`).
+Dans cet exemple, si l'on atteint la condition permettant de lever une exception, le fichier sera correctement fermé, car le destructeur de `std::ifstream` sera appelé.
 
 Les langages modernes sont à peu près full RAII-conform ; les objets sont généralement supprimés par un garbage collector, et les ressources sous-jacentes le sont également.
 
