@@ -61,16 +61,14 @@ D'une manière générale, il convient de *toujours* passer par des capsules RAI
 Si les pointeurs bruts sont dépréciés en C++, ce n'est pas pour rien :
 ```cpp
 int *ptr1 = new int(42);
-int *ptr2 = new int(0); // potentielle fuite mémoire si ça throw
-
-*ptr1 = 42;
-*ptr2 = *ptr1;
-
+int *ptr2 = new int(12); // potentielle fuite mémoire si ça throw
+                         // car ptr1 ne sera jamais détruit
 delete ptr1;
 delete ptr2;
 ```
 Version RAII-conform :
 ```cpp
-auto ptr = std::make_unique<int>(42);
+auto ptr1 = std::make_unique<int>(42);
+auto ptr2 = std::make_unique<int>(12);
 // utilisation
 ```
