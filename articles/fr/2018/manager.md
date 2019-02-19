@@ -75,7 +75,7 @@ Nous sommes en droit de nous poser la question suivante : *En quoi est-ce si mal
 En effet, une classe devant "gérer des choses" peut tout à fait être appelée "manager". Le problème ne se situe pas en ce point, mais plutôt en l'essence même de la classe. L'existence d'une telle entité mène, à terme, à une architecture bancale qui accélère un phénomène que l'on appelle l'[**entropie du logiciel**](https://gist.github.com/sroccaserra/6cafd444c11958059fdd2a698d4effcb).
 
 Avant tout, présentons *en quoi* créer un `XXXManager` est une mauvaise idée. En POO, il convient de respecter a minima les [**principes SOLID**](https://en.wikipedia.org/wiki/SOLID). Dans notre cas, nous allons surtout nous intéresser au premier d'entre eux, à savoir le [**SRP**](https://en.wikipedia.org/wiki/Single_responsibility_principle), qui énonce la chose suivante :
-> Toute fonction, classe, ou module, doit avoir une et une seule responsabilité. Cette entité doit rendre **un** service, et **bien** le rendre.
+> Toute fonction ou classe doit avoir une et une seule responsabilité. Cette entité doit rendre **un** service, et **bien** le rendre.
 
 Autant donc dire que nous sommes bien mal partis avec une classe qui endosse plusieurs responsabilités :
 * Créer un fichier ;
