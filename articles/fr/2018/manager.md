@@ -83,11 +83,11 @@ Autant donc dire que nous sommes bien mal partis avec une classe qui endosse plu
 * Lire le contenu d'un fichier ;
 * Tester l'existence d'un fichier.
 
-Pour le moment, les fonctions de ce `FileManager` sont somme toutes assez triviales. Soyons fous, ajoutons-en quelques unes.
+Pour le moment, les fonctions de ce `FileManager` sont somme toute assez triviales. Soyons fous, ajoutons-en quelques unes.
 Le jour où l'on veut pouvoir supprimer un fichier, il suffira d'ajouter une méthode `Delete`, n'est-il pas ? Et si l'on décide soudainement de pouvoir "gérer" des fichiers XML, par exemple en testant leur format, que va-t-on faire ? Ajouter une fonction `IsXmlFile` ? Ou pire encore, créer un `XmlFileManager`, qui hérite de `FileManager` ?
 Nous nous retrouvons alors avec des classes [**qui ont de nombreuses responsabilités, et qu'il va être très difficile de maintenir**](https://openclassrooms.com/forum/sujet/fonction-find-de-std-map-sur-std-function?page=1#message-92459036).
 
-C'est à ce moment que l'entropie évolue drastiquement ; si un système, quel qu'il soit, est destiné à évoluer vers le désordre, il convient au moins de limiter cette évolution, ou au moins de ne pas l'accélérer.
+C'est à ce moment que l'entropie évolue drastiquement ; si un système, quel qu'il soit, est destiné à évoluer vers le désordre, il convient de limiter cette évolution, ou *a minima* de ne pas l'accélérer.
 
 
 ---
@@ -96,7 +96,7 @@ C'est à ce moment que l'entropie évolue drastiquement ; si un système, quel q
 Une solution simple consiste à **respecter au moins le SRP**, en se posant une question simple :
 > Quel sera **le** rôle de la classe que je suis en train de créer ?
 
-Si nous ne pouvons exprimer simplement le rôle d'une entité, c'est alors qu'il y a un soucis ; peut-être que notre entité a **plusieurs** responsabilités ? Pour reprendre l'idée du `FileManager` :
+Si nous ne pouvons pas exprimer simplement le rôle d'une entité, c'est alors qu'il y a un soucis ; peut-être que notre entité a **plusieurs** responsabilités ? Pour reprendre l'idée du `FileManager` :
 * Je veux écrire dans un fichier ? Je crée une entité `FileWriter`.
 * Je veux lire le contenu d'un fichier ? Je crée une entité `FileReader`.
 Les responsabilités respectives de ces entités sont *clairement* identifiées, là où l'on ne sait pas ce qu'un `XXXManager` fait.
@@ -104,7 +104,7 @@ Les responsabilités respectives de ces entités sont *clairement* identifiées,
 > *Mais, que fait-on de la possibilité de créer ou supprimer un fichier ?*
 
 Deux solutions s'offrent à nous :
-* Si le langage le permet, créer une fonction libre (par exemple `create_file`) ;
+* Si le langage le permet, créer une fonction libre (par exemple `create_file` pour créer un fichier, `delete_file` pour le supprimer) ;
 * Si la première solution n'est pas envisageable (par exemple en C# ou en Java), ~~changer de langage~~ passer par une classe/méthode statique (ex. en C# : `File.Create`, `File.Delete`).
 
 > *Si l'on peut passer par des fonctions libres, pourquoi alors créer une classe `FileWriter` ou `FileReader` ?*
