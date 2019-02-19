@@ -44,7 +44,7 @@ Dans un exemple aussi simple, le fichier sera libéré comme attendu, mais dans 
 if (std::ifstream s{"toto.txt"}; s) {
   // lecture du fichier...
   if (/* condition */) {
-    throw std::runtime_error{"invalid input"});
+    throw std::runtime_error{"invalid input"};
   }
 }
 ```
