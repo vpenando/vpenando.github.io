@@ -64,6 +64,8 @@ int *ptr1 = new int(42);
 int *ptr2 = new int(12); // potentielle fuite mémoire si ça throw
                          // car ptr1 ne sera jamais détruit
 // utilisation
+// ...
+
 delete ptr1;
 delete ptr2;
 ```
