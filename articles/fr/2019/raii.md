@@ -40,8 +40,8 @@ if (! file) {
 ```
 Dans un exemple aussi simple, le fichier sera libéré comme attendu, mais dans un exemple plus complexe *-ou pire, dans un code mêlant C et C++-*, il peut ne **jamais** l'être. Il y a alors une fuite mémoire. Le RAII est le meilleur moyen de se prémunir des fuites mémoire, en garantissant que les capsules ayant l'ownership s'occupent de libérer les ressources :
 ```cpp
-// /!\ il est nécessaire d'avoir un compilateur supportant C++17
-if (std::ifstream s{"toto.txt"}; s) {
+std::ifstream stream{"toto.txt"}
+if (stream) {
   // lecture du fichier...
   if (/* condition */) {
     throw std::runtime_error{"invalid input"};
