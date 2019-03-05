@@ -107,11 +107,11 @@ private unsafe static void RawAddMatrices(
 
 Benchmarks d'additions de matrices de 5000x5000 élements :
 ```sh
-(Safe)   Time: 1169,6524 ms
-(Unsafe) Time: 132,9075 ms
+(Matrix.SafeAdd)   Time: 1169,6524 ms
+(Matrix.UnsafeAdd) Time: 132,9075 ms
 ```
 9000x9000 :
 ```sh
-(Safe)   Time: 2234.8486 ms
-(Unsafe) Time: 350.5943 ms
+(Matrix.SafeAdd)   Time: 2234.8486 ms
+(Matrix.UnsafeAdd) Time: 350.5943 ms
 ```` 
