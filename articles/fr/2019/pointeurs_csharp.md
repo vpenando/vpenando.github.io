@@ -55,7 +55,7 @@ public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
     Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
     Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
     var result = new Matrix(lhs.Height, lhs.Width);
-    for (int i = 0; i < lhs.buffer.Count(); ++i) {
+    for (var i = 0; i < lhs.buffer.Count(); ++i) {
         result.buffer[i] = lhs.buffer[i] + rhs.buffer[i];
     }
     return result;
@@ -66,7 +66,7 @@ public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
     Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
     var count = lhs.buffer.Count();
-    double[] result = new double[count];
+    var result = new double[count];
     unsafe {
         fixed (double*
             rawDst = result,
