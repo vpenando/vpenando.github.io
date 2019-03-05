@@ -78,7 +78,7 @@ sealed class Matrix {
     }
 }
 ```
-Elle contient des éléments situés à des coordonnées X et Y définies et un tableau interne les contenant. Une petite astuce pour gagner en performances consiste en n'avoir qu'un tableau unidimentionnel plutôt qu'un tableau de tableaux (`double[][]`) et une méthode "convertissant" des coordonnées X et Y en index. Les accès sont ainsi plus rapides.
+Elle contient des éléments situés à des coordonnées X et Y définies et un tableau interne les contenant. Une petite astuce pour gagner en performances consiste en n'avoir qu'un tableau unidimentionnel plutôt qu'un tableau de tableaux (`double[][]`) et une méthode "convertissant" des coordonnées X et Y en index. Les données étant linéarisées en mémoire, les accès sont ainsi plus rapides.
 
 Addition :
 ```cs
