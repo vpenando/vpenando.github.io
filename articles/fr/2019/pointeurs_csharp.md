@@ -41,7 +41,7 @@ Rassurez-vous, l'utilisation de pointeurs en C# n'est pas aussi complexe.
 ---
 
 ### Exemple
-Soit une classe `Matrix` représentant une matrice mathématique.
+Soit une classe `Matrix` représentant une matrice mathématique :
 ```cs
 sealed class Matrix {
     // tableau interne
@@ -71,9 +71,14 @@ sealed class Matrix {
     }
 
     // convertit un couple de coordonnées X et Y en index unidimensionnel
-    private uint CoordsToIndex(uint y, uint x) => y * this.Width + x;
+    private uint CoordsToIndex(uint y, uint x) {
+        Debug.Assert(y < this.Height, $"Out of bounds! (Y: {y}, Height: {this.Height})");
+        Debug.Assert(x < this.Width, $"Out of bounds! (X: {x}, Width: {this.Width})");
+        return y * this.Width + x;
+    }
 }
 ```
+Elle contient des éléments situés à des coordonnées X et Y
 
 Addition :
 ```cs
