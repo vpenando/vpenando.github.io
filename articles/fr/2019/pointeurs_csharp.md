@@ -180,7 +180,8 @@ unsafe {
     }
 }
 ```
-Tout comme au-dessus, nous entrons dans un bloc "unsafe".
+C'est véritablement ici que la magie opère.
+Avant toute chose, tout comme au-dessus, nous entrons dans un bloc "unsafe".
 Un bloc `fixed` empêche le GC de déplacer des variables dont nous pourrions avoir besoin. Dans le cas présent, les variables `rawDst`, `rawLhs` et `rawRhs` ont la garantie d'être valides jusqu'à la fin du bloc `fixed`.
 
 Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
