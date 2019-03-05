@@ -170,12 +170,10 @@ On se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir 
 La partie la plus intéressante est la suivante :
 ```cs
 unsafe {
-    // on travaille sur les couches les plus bas niveau
-    // heureusement, on ne fait rien de bien compliqué :)
     fixed (double*
-        rawDst = result,      // ce tableau sera rempli avec le résultat attendu
-        rawLhs = lhs.buffer,  // en soi, on pointe sur &lhs.buffer[0]
-        rawRhs = rhs.buffer)  // pareil ici, on pointe sur &rhs.buffer[0]
+        rawDst = result,
+        rawLhs = lhs.buffer,
+        rawRhs = rhs.buffer)
     {
         AddRawMatrices(/*out*/ rawDst, rawLhs, rawRhs, count);
     }
