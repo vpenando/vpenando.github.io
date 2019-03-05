@@ -165,6 +165,22 @@ void AddRawMatrices(
         ++lhs;
     }
 ```
+On se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir `count`) et de copier la somme des valeurs pointées par `lhs` et `rhs` dans `dst`. Rien de bien sorcier ici.
+
+La partie la plus intéressante est la suivante :
+```cs
+unsafe {
+    // on travaille sur les couches les plus bas niveau
+    // heureusement, on ne fait rien de bien compliqué :)
+    fixed (double*
+        rawDst = result,      // ce tableau sera rempli avec le résultat attendu
+        rawLhs = lhs.buffer,  // en soi, on pointe sur &lhs.buffer[0]
+        rawRhs = rhs.buffer)  // pareil ici, on pointe sur &rhs.buffer[0]
+    {
+        AddRawMatrices(/*out*/ rawDst, rawLhs, rawRhs, count);
+    }
+}
+```
 
 Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
 
