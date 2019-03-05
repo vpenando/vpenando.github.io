@@ -35,6 +35,13 @@ sealed class Matrix {
         this.Width = width;
         this.buffer = new double[this.Width * this.Height];
     }
+    
+    // sera utilisé par la suite
+    private Matrix() {
+        this.Height = 0;
+        this.Width = 0;
+        this.buffer = null;
+    }
 
     // convertit un couple de coordonnées X et Y en index unidimensionnel
     private uint CoordsToIndex(uint y, uint x) => y * this.Width + x;
