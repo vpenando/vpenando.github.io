@@ -165,7 +165,7 @@ void AddRawMatrices(
         ++lhs;
     }
 ```
-On se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir `count`) et de copier la somme des valeurs pointées par `lhs` et `rhs` dans `dst`. Rien de bien sorcier ici.
+On se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir `count`) et de copier la somme des différentes valeurs successivement pointées par `lhs` et `rhs` dans `dst`. Rien de bien sorcier ici.
 
 La partie la plus intéressante est la suivante :
 ```cs
