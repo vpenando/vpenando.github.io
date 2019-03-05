@@ -96,8 +96,7 @@ private unsafe static void RawAddMatrices(
     Debug.Assert(lhs != null, "Null pointer");
     Debug.Assert(rhs != null, "Null pointer");
     Debug.Assert(count > 0, "Invalid array size");
-    for (var i = 0; i < count; ++i)
-    {
+    for (var i = 0; i < count; ++i) {
         *dst = *lhs + *rhs;
         ++dst;
         ++rhs;
