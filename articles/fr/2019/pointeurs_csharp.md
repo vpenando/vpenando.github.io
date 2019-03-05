@@ -106,13 +106,16 @@ public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     // ok !
     var count = lhs.buffer.Count();
     var result = new double[count];
+    // nous entrons dans un contexte unsafe
     unsafe {
+        // on travaille sur les couches les plus bas niveau
+        // heureusement, on ne fait rien de bien compliqué :)
         fixed (double*
             rawDst = result,      // ce tableau sera rempli avec le résultat attendu
             rawLhs = lhs.buffer,  // en soi, on pointe sur &lhs.buffer[0]
             rawRhs = rhs.buffer)  // pareil ici, on pointe sur &rhs.buffer[0]
         {
-            RawAddMatrices(/*out*/ rawDst, rawLhs, rawRhs, count);
+            AddRawMatrices(/*out*/ rawDst, rawLhs, rawRhs, count);
         }
     }
     var matrix = new Matrix();
@@ -125,7 +128,7 @@ public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
 // attention !
 // nous n'avons ici AUCUN contrôle des bornes !
 // il faut donc fournir des paramètres corrects.
-private unsafe static void RawAddMatrices(
+private unsafe static void AddRawMatrices(
     double *dst,  // matrice de destination
     double *lhs,  // opérande de gauche
     double *rhs,  // opérande de droite
@@ -145,6 +148,24 @@ private unsafe static void RawAddMatrices(
     }
 }
 ```
+Les parties qui nous intéressent ici sont la méthode `AddRawMatrices` et le code contenu dans le bloc `unsafe {}`. Examinons-les de plus près.
+
+La méthode `AddRawMatrices`, une fois nettoyée de ses fioritures, se limite à ceci :
+```cs
+void AddRawMatrices(
+    double *dst,  // matrice de destination
+    double *lhs,  // opérande de gauche
+    double *rhs,  // opérande de droite
+    int count)    // nombre d'éléments
+{
+    for (var i = 0; i < count; ++i) {
+        *dst = *lhs + *rhs;
+        ++dst;
+        ++rhs;
+        ++lhs;
+    }
+```
+
 Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
 
 Benchmarks d'additions de matrices de 5000x5000 élements :
