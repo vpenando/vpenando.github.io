@@ -80,9 +80,8 @@ sealed class Matrix {
 ```
 Elle contient des éléments situés à des coordonnées X et Y définies et un tableau interne les contenant. Une petite astuce pour gagner en performances consiste en n'avoir qu'un tableau unidimentionnel plutôt qu'un tableau de tableaux (`double[][]`) et une méthode "convertissant" des coordonnées X et Y en index. Les données étant linéarisées en mémoire, les accès sont ainsi plus rapides.
 
-Addition :
+Nous pourrions implémenter une méthode d'addition ainsi (qui serait ensuite appelée par `Matrix.operator+`) :
 ```cs
-// version lente
 public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
     // préconditions
     Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
@@ -94,7 +93,10 @@ public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
     }
     return result;
 }
+```
 
+Mais vous vous en doutez, il y a mieux ! Une méthode plus rapide serait d'utiliser des pointeurs ! Nous outrepassons ainsi les diverses couches de .NET appelées par le code ci-dessus !
+```cs
 // version optimisée
 public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     // préconditions
@@ -142,6 +144,7 @@ private unsafe static void RawAddMatrices(
     }
 }
 ```
+Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
 
 Benchmarks d'additions de matrices de 5000x5000 élements :
 ```sh
