@@ -106,8 +106,13 @@ private unsafe static void RawAddMatrices(
 }
 ```
 
-Différences de temps pour des additions de matrices de 5000x5000 élements :
+Benchmarks d'additions de matrices de 5000x5000 élements :
 ```sh
 (Safe)   Time: 1169,6524 ms
 (Unsafe) Time: 132,9075 ms
 ```
+9000x9000 :
+```sh
+(Safe)   Time: 2234.8486 ms
+(Unsafe) Time: 350.5943 ms
+```` 
