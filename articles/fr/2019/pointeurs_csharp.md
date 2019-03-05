@@ -36,6 +36,8 @@ free(array);  // libération manuelle
 ```
 Autant dire que ça n'est pas de tout confort, n'est-ce pas ?
 
+Rassurez-vous, l'utilisation de pointeurs en C# n'est pas aussi complexe.
+
 ---
 
 ### Exemple
