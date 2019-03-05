@@ -10,6 +10,15 @@
 ---
 
 ### Introduction
+***Note - Cet article traitera de C# avancé**. Nous aborderons des notions telles que le code *unsafe*, les blocs `fixed (...)`, ou encore l'utilisation du mot-clé `stackalloc` (oui oui, je parle bien de C#) ; aussi je vous conseille de vous renseigner sur ces points avant de lire la suite !*
+
+Alors que l'utilisation des pointeurs est dépréciée en C++ au profit de capsules RAII-conform (`std::string` plutôt que `const char*`, `std::vector<T>`/`std::array<SIZE, T>` plutôt que `T[]`, `std::unique_ptr<T>`/`std::shared_ptr<T>` plutôt que `T*`...), elle peut être d'une grande utilité en C#. Comme nous allons le voir dans la suite de cet article, utiliser des pointeurs nous permet de nous affranchir de l'overhead causé par les diverses couches appelées lorsque nous invoquons une méthode.
+
+La question du RAII ne se pose pas du fait que les pointeurs créés en C# entrent dans deux catégories :
+* D'un côté, on pointe sur des variables déjà existantes *via* `fixed` => pas d'allocation, le GC s'occupe de tout ;
+* De l'autre, les pointeurs alloués sur la pile *via* `stackalloc` => sur la pile, pas de libération nécessaire.
+
+Contrairement à ce que l'on pourrait faire en C, nous n'allouons à aucun moment un pointeur sur le tas ; aucune libération n'est donc nécessaire.
 
 ---
 
