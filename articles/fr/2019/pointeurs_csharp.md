@@ -20,6 +20,21 @@ La question du RAII ne se pose pas du fait que les pointeurs créés en C# entre
 
 Contrairement à ce que l'on pourrait faire en C, nous n'allouons à aucun moment un pointeur sur le tas ; aucune libération n'est donc nécessaire.
 
+Pour rappel, l'utilisation de pointeurs en C ressemble à ceci :
+```c
+#define ARRAY_SIZE 10
+// ...
+
+int *array = malloc(sizeof(*array) * ARRAY_SIZE);  // allocation manuelle
+if (! array) {
+  // l'allocation a échoué
+  // traitement de l'erreur...
+}
+// utilisation...
+// ...
+free(array);  // libération manuelle
+```
+
 ---
 
 ### Exemple
