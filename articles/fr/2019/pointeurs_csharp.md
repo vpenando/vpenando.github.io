@@ -79,8 +79,10 @@ Addition :
 ```cs
 // version lente
 public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
+    // préconditions
     Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
     Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
+    // ok !
     var result = new Matrix(lhs.Height, lhs.Width);
     for (var i = 0; i < lhs.buffer.Count(); ++i) {
         result.buffer[i] = lhs.buffer[i] + rhs.buffer[i];
@@ -90,15 +92,17 @@ public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
 
 // version optimisée
 public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
+    // préconditions
     Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
     Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
+    // ok !
     var count = lhs.buffer.Count();
     var result = new double[count];
     unsafe {
         fixed (double*
-            rawDst = result,
-            rawLhs = lhs.buffer,
-            rawRhs = rhs.buffer)
+            rawDst = result,      // ce tableau sera rempli avec le résultat attendu
+            rawLhs = lhs.buffer,  // en soi, on pointe sur &lhs.buffer[0]
+            rawRhs = rhs.buffer)  // pareil ici, on pointe sur &rhs.buffer[0]
         {
             RawAddMatrices(/*out*/ rawDst, rawLhs, rawRhs, count);
         }
@@ -119,10 +123,12 @@ private unsafe static void RawAddMatrices(
     double *rhs,  // opérande de droite
     int count)    // nombre d'éléments
 {
+    // préconditions
     Debug.Assert(dst != null, "Null pointer");
     Debug.Assert(lhs != null, "Null pointer");
     Debug.Assert(rhs != null, "Null pointer");
     Debug.Assert(count > 0, "Invalid array size");
+    // ok !
     for (var i = 0; i < count; ++i) {
         *dst = *lhs + *rhs;
         ++dst;
