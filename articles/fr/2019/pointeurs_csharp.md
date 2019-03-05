@@ -34,6 +34,7 @@ if (! array) {
 // ...
 free(array);  // libération manuelle
 ```
+Autant dire que ça n'est pas de tout confort, n'est-ce pas ?
 
 ---
 
