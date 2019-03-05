@@ -83,11 +83,14 @@ public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     return matrix;
 }
 
+// attention !
+// nous n'avons ici AUCUN contrôle des bornes !
+// il faut donc fournir des paramètres corrects.
 private unsafe static void RawAddMatrices(
-    double *dst,  // raw buffer of destination matrix
-    double *lhs,  // raw buffer of left matrix
-    double *rhs,  // raw buffer of right matrix
-    int count)    // elements count
+    double *dst,  // matrice de destination
+    double *lhs,  // opérande de gauche
+    double *rhs,  // opérande de droite
+    int count)    // nombre d'éléments
 {
     Debug.Assert(dst != null, "Null pointer");
     Debug.Assert(lhs != null, "Null pointer");
