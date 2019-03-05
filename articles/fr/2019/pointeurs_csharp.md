@@ -152,7 +152,7 @@ Les parties qui nous intéressent ici sont la méthode `AddRawMatrices` et le co
 
 La méthode `AddRawMatrices`, une fois nettoyée de ses fioritures, se limite à ceci :
 ```cs
-void AddRawMatrices(
+unsafe void AddRawMatrices(
     double *dst,  // matrice de destination
     double *lhs,  // opérande de gauche
     double *rhs,  // opérande de droite
@@ -165,6 +165,7 @@ void AddRawMatrices(
         ++lhs;
     }
 ```
+Le mot-clé `unsafe` indique que nous entrons dans une partie de code "risquée" ; pas de vérification par le CLR. Mais surtout, il est nécessaire d'être dans un bloc unsafe pour utiliser des pointeurs !
 On se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir `count`) et de copier la somme des différentes valeurs successivement pointées par `lhs` et `rhs` dans `dst`. Rien de bien sorcier ici.
 
 La partie la plus intéressante est la suivante :
@@ -179,6 +180,8 @@ unsafe {
     }
 }
 ```
+Tout comme au-dessus, nous entrons dans un bloc "unsafe".
+Un bloc `fixed` empêche le GC de déplacer des variables dont nous pourrions avoir besoin. Dans le cas présent, les variables `rawDst`, `rawLhs` et `rawRhs` ont la garantie d'être valides jusqu'à la fin du bloc `fixed`.
 
 Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
 
