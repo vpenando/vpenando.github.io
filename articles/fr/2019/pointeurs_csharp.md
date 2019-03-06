@@ -164,6 +164,7 @@ unsafe void AddRawMatrices(
         ++rhs;
         ++lhs;
     }
+}
 ```
 Le mot-clé `unsafe` indique que nous entrons dans une partie de code "risquée" ; pas de vérification par le CLR. Mais surtout, il est nécessaire d'être dans un bloc unsafe pour utiliser des pointeurs !
 Sinon, d'un point de vue algorithmique, on se contente d'itérer sur des pointeurs un nombre de fois défini (à savoir `count`) et de copier la somme des différentes valeurs successivement pointées par `lhs` et `rhs` dans `dst`. Rien de bien sorcier ici.
