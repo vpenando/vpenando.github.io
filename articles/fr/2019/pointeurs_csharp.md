@@ -5,8 +5,9 @@
 ---
 
 ### Sommaire
-* [Introduction](#introduction)
-* [Exemple](#exemple)
+* Introduction
+* Pointeurs et performances
+* Allocation manuelle de mémoire ?
 
 ---
 
@@ -41,7 +42,7 @@ Rassurez-vous, l'utilisation de pointeurs en C# n'est pas aussi complexe.
 
 ---
 
-### Exemple
+### Pointeurs et performances
 Soit une classe `Matrix` représentant une matrice mathématique :
 ```cs
 sealed class Matrix {
@@ -195,3 +196,17 @@ Benchmarks d'additions de matrices de 5000x5000 élements :
 (Matrix.SafeAdd)   Time: 2234.8486 ms
 (Matrix.UnsafeAdd) Time: 350.5943 ms
 ```` 
+
+---
+
+### Allocation manuelle de mémoire ?
+Il est possible d'allouer manuellement de la mémoire en C# via le mot-clé `stackalloc`. Contrairement à `malloc` en C, la mémoire n'est pas allouée sur le tas mais sur la pile. Elle sera donc naturellement libérée.
+
+**Attention** ! En allouant beaucoup de mémoire, on risque la `StackOverflowException`, la pile ayant une taille limitée.
+
+Exemple d'allocation sur la pile :
+```cs
+int *array = stackalloc int[100];
+```
+Cela permet de manipuler des tableaux "bruts".
+Bien évidemment, il est nécessaire d'être dans un contexte `unsafe` pour utiliser `stackalloc`.
