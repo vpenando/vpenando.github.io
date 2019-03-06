@@ -89,7 +89,7 @@ public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
     Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
     // ok !
     var result = new Matrix(lhs.Height, lhs.Width);
-    for (var i = 0; i < lhs.buffer.Count(); ++i) {
+    for (var i = 0; i < result.buffer.Count(); ++i) {
         result.buffer[i] = lhs.buffer[i] + rhs.buffer[i];
     }
     return result;
@@ -108,7 +108,6 @@ public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     var result = new double[count];
     // nous entrons dans un contexte unsafe
     unsafe {
-        // on travaille sur les couches les plus bas niveau
         // heureusement, on ne fait rien de bien compliqué :)
         fixed (double*
             rawDst = result,      // ce tableau sera rempli avec le résultat attendu
@@ -182,9 +181,9 @@ unsafe {
 ```
 C'est véritablement ici que la magie opère.
 Avant toute chose, tout comme au-dessus, nous entrons dans un bloc "unsafe".
-Un bloc `fixed` empêche le GC de déplacer des variables dont nous pourrions avoir besoin. Dans le cas présent, les variables `rawDst`, `rawLhs` et `rawRhs` ont la garantie d'être valides jusqu'à la fin du bloc `fixed`.
+Un bloc `fixed` empêche le GC de déplacer des variables dont nous pourrions avoir besoin, telles que `result`, `lhs` ou `rhs`. Dans le cas présent, les variables `rawDst`, `rawLhs` et `rawRhs` ont la garantie d'être valides jusqu'à la fin du bloc `fixed`.
 
-Ainsi, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
+En utilisant des pointeurs plutôt qu'un tableau classique, le code est nettement plus rapide, et cette différence est encore plus apparente lorsque nous travaillons sur des gros volumes de données.
 
 Benchmarks d'additions de matrices de 5000x5000 élements :
 ```sh
