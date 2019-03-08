@@ -215,6 +215,6 @@ Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'a
 ---
 
 ### Conclusion
-D'une manière générale, il est très rare d'avoir recours à du code "unsafe". Manipuler directement la mémoire via des pointeurs reste exceptionnel et propre à un besoin précis, telle que du traitement d'images, ou encore des calculs matriciels. La plupart des utilisations du C# ne nécessite habituellement pas un tel niveau d'optimisation.
+D'une manière générale, il est très rare d'avoir recours à du code "unsafe". Manipuler directement la mémoire via des pointeurs reste exceptionnel et propre à un besoin précis, tel que du traitement d'image, ou encore des calculs matriciels. La plupart des utilisations du C# ne nécessite habituellement pas un tel niveau d'optimisation.
 
 Néanmoins, il est intéressant de se renseigner sur ces fonctionnalités du langage, ne serait-ce que par cusiosité !
