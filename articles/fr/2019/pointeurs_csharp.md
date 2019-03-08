@@ -210,8 +210,4 @@ Exemple d'allocation sur la pile :
 ```cs
 int *array = stackalloc int[100];
 ```
-Ici, le gain en performances est dû à :
-* Une allocation sur la pile est plus rapide qu'une allocation sur le tas ;
-* Le GC n'entre pas en jeu (il n'opère que sur le tas).
-
-Bien évidemment, il est nécessaire d'être dans un contexte `unsafe` pour utiliser `stackalloc`.
+`stackalloc` est généralement plus lent qu'un tableau classique (`int[]`) ; c'est [lorsque l'on manipule des gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
