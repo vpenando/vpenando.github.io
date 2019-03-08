@@ -210,4 +210,9 @@ Exemple d'allocation sur la pile :
 ```cs
 int *array = stackalloc int[100];
 ```
-`stackalloc` est généralement plus lent qu'un tableau classique (`int[]`) ; c'est [lorsque l'on manipule des gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
+Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'avec un tableau classique (`int[]`) ; c'est [lorsque l'on manipule des gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
+
+---
+
+### Conclusion
+D'une manière générale, il est très rare d'avoir recours à du code "unsafe". Manipuler directement la mémoire via des pointeurs reste exceptionnel et propre à un besoin précis, telle que du traitement d'images, ou encore des calculs matriciels.
