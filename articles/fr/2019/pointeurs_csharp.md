@@ -210,9 +210,11 @@ Exemple d'allocation sur la pile :
 ```cs
 int *array = stackalloc int[100];
 ```
-Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'avec un tableau classique (`int[]`) ; c'est [lorsque l'on manipule des gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
+Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'avec un tableau classique (`int[]`) ; c'est [lorsque l'on traite de gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
 
 ---
 
 ### Conclusion
-D'une manière générale, il est très rare d'avoir recours à du code "unsafe". Manipuler directement la mémoire via des pointeurs reste exceptionnel et propre à un besoin précis, telle que du traitement d'images, ou encore des calculs matriciels.
+D'une manière générale, il est très rare d'avoir recours à du code "unsafe". Manipuler directement la mémoire via des pointeurs reste exceptionnel et propre à un besoin précis, telle que du traitement d'images, ou encore des calculs matriciels. La plupart des utilisations du C# ne nécessite habituellement pas un tel niveau d'optimisation.
+
+Néanmoins, il est intéressant de se renseigner sur ces fonctionnalités du langage, ne serait-ce que par cusiosité !
