@@ -13,11 +13,11 @@
 ---
 
 ### Introduction
-***Note - Cet article traitera de C# avancé**. Nous aborderons des notions telles que le code *unsafe*, les blocs `fixed (...)`, ou encore l'utilisation du mot-clé `stackalloc` (oui oui, je parle bien de C#) ; aussi je vous conseille de vous renseigner sur ces points avant de lire la suite !*
+***Note - Cet article traitera de C# avancé**. Nous aborderons des notions telles que le code "unsafe", les blocs `fixed (...)`, ou encore l'utilisation du mot-clé `stackalloc` (oui oui, je parle bien de C#) ; aussi je vous conseille de vous renseigner sur ces points avant de lire la suite !*
 
 Alors que l'utilisation des pointeurs est dépréciée en C++ au profit de capsules RAII-conform (`std::string` plutôt que `const char*`, `std::vector<T>`/`std::array<SIZE, T>` plutôt que `T[]`, `std::unique_ptr<T>`/`std::shared_ptr<T>` plutôt que `T*`...), elle peut être d'une grande utilité en C#. Comme nous allons le voir dans la suite de cet article, utiliser des pointeurs nous permet de nous affranchir de l'overhead causé par les diverses couches appelées lorsque nous invoquons une méthode.
 
-La question du RAII ne se pose pas du fait que les pointeurs créés en C# entrent dans deux catégories :
+La question du RAII ne se pose pas du fait que les pointeurs créés en C# entrent dans l'une de ces deux catégories :
 * D'un côté, on pointe sur des variables déjà existantes *via* `fixed` => pas d'allocation, le GC s'occupe de tout ;
 * De l'autre, les pointeurs alloués sur la pile *via* `stackalloc` => sur la pile, pas de libération nécessaire.
 
@@ -73,7 +73,7 @@ sealed class Matrix {
         this.buffer = null;
     }
 
-    // convertit un couple de coordonnées X et Y en index unidimensionnel
+    // convertit un couple de coordonnées en index unidimensionnel
     private uint CoordsToIndex(uint y, uint x) {
         Debug.Assert(y < this.Height, $"Out of bounds! (Y: {y}, Height: {this.Height})");
         Debug.Assert(x < this.Width, $"Out of bounds! (X: {x}, Width: {this.Width})");
@@ -81,7 +81,7 @@ sealed class Matrix {
     }
 }
 ```
-Elle contient des éléments situés à des coordonnées X et Y définies et un tableau interne les contenant. Une petite astuce pour gagner en performances consiste en n'avoir qu'un tableau unidimentionnel plutôt qu'un tableau de tableaux (`double[][]`) et une méthode "convertissant" des coordonnées X et Y en index. Les données étant linéarisées en mémoire, les accès sont ainsi plus rapides.
+Elle contient des éléments situés à des coordonnées définies et un tableau interne les contenant. Une petite astuce pour gagner en performances consiste en n'avoir qu'un tableau unidimentionnel plutôt qu'un tableau de tableaux (`double[][]`) et une méthode "convertissant" des coordonnées X et Y en index. Les données étant linéarisées en mémoire, les accès sont ainsi plus rapides.
 
 Nous pourrions implémenter une méthode d'addition ainsi (qui serait ensuite appelée par `Matrix.operator+`) :
 ```cs
@@ -211,7 +211,7 @@ Exemple d'allocation sur la pile :
 ```cs
 int *array = stackalloc int[100];
 ```
-Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'avec un tableau classique (`int[]`) ; c'est [lorsque l'on traite de gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent.
+Manipuler un tableau alloué avec `stackalloc` est généralement plus lent qu'avec un tableau classique (`int[]`) ; c'est [lorsque l'on traite de gros volumes de données](https://gist.github.com/goldshtn/7021608) que le gain de performance est présent. ([Benchmark](https://gist.github.com/vpenando/b18a7720ee23d8436a266b6ca63a2612))
 
 ---
 
