@@ -8,6 +8,7 @@
 * Introduction
 * Pointeurs et performances
 * Allocation manuelle de mémoire ?
+* Conclusion
 
 ---
 
