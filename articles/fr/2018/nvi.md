@@ -16,7 +16,7 @@
 ---
 
 #### Introduction
-Beaucoup de langage de programmation supportent la programmation dite "orientée objet". A cet effet, il est possible de créer des classes, qui serviront ensuite à la création d'instances. Il existe également une notion de hiérarchie, où une classe `Child` peut dériver d'une classe `Parent`.
+Beaucoup de langages de programmation supportent la programmation dite "orientée objet". A cet effet, il est possible de créer des classes, qui serviront ensuite à la création d'instances. Il existe également une notion de hiérarchie, où une classe `Child` peut dériver d'une classe `Parent`.
 Ce mécanisme permet à `Child` d'hériter des propriétés de `Parent`.
 
 Exemple en C# :
