@@ -28,7 +28,7 @@ Par exemple, en C++, `std::istream` et `std::ostream` sont, au même titre que `
 ---
 
 ### Exemples
-Exemple de code non-conforme au RAII car le fichier doit être libéré à la main :
+Exemple de code non-conforme au RAII (car le fichier doit être libéré à la main) :
 ```c
 FILE *file = fopen("foo.txt", "r");
 if (! file) {
