@@ -42,6 +42,8 @@ let head_of_list ls =
   ;;
 ```
 
+---
+
 
 ### Application au C#
 C# 8 a introduit une forme de pattern matching, en suivant la syntaxe suivante :
