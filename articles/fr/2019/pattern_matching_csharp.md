@@ -57,8 +57,8 @@ Exemple :
 ```cs
 bool TupleContains((object, object) tuple, object value)
     => tuple switch {
-        var (x, _) when Equals(x, value) => true,
-        var (_, y) when Equals(y, value) => true,
+        var (x, _) when object.Equals(x, value) => true,
+        var (_, y) when object.Equals(y, value) => true,
         _ => false
     };
 ```
