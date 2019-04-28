@@ -41,3 +41,24 @@ let head_of_list ls =
   | x::_ -> Some x // sinon, on renvoie son premier élément
   ;;
 ```
+
+
+### Application au C#
+C# 8 a introduit une forme de pattern matching, en suivant la syntaxe suivante :
+```cs
+variableToTest switch {
+    value1 [when condition1] => result1,
+    value2 [when condition2] => result2,
+    // ...
+    _ => defaultResult
+}
+```
+Exemple :
+```cs
+bool TupleContains((object, object) tuple, object value)
+    => tuple switch {
+        var (x, _) when Equals(x, value) => true,
+        var (_, y) when Equals(y, value) => true,
+        _ => false
+    };
+```
