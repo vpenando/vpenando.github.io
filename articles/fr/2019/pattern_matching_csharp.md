@@ -31,4 +31,13 @@ void MatchWith42(int x) {
     }
 }
 ```
-
+Néanmoins, le pattern matching permet de décomposer des entités, comme par exemple :
+```fs
+// cette fonction renvoie une valeur optionnelle :
+// 'Some X' ou 'None'
+let head_of_list ls =
+  match ls with
+  | []   -> None
+  | x::_ -> Some x
+  ;;
+```
