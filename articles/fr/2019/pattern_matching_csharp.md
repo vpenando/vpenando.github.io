@@ -37,7 +37,7 @@ Néanmoins, le pattern matching permet de décomposer des entités, comme par ex
 // 'Some X' ou 'None'
 let head_of_list ls =
   match ls with
-  | []   -> None
-  | x::_ -> Some x
+  | []   -> None   // si la liste est vide, on renvoie une valeur nulle
+  | x::_ -> Some x // sinon, on renvoie son premier élément
   ;;
 ```
