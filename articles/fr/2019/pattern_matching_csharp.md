@@ -64,3 +64,11 @@ bool TupleContains((object, object) tuple, object value)
         _ => false
     };
 ```
+Equivalent en F# :
+```fs
+let tuple_contains tup value =
+  match tup with
+  | (value, _) -> true
+  | (_, value) -> true
+  | _ -> false
+```
