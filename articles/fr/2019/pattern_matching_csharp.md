@@ -73,12 +73,22 @@ let tuple_contains tup value =
   | _ -> false
 ```
 
-Cette syntaxe suit un peu la même logique que le `catch`/`when` introduit par C# 6 :
+Cette syntaxe suit un peu la même logique que le `catch`/`when` introduit par C# 6 (nommé *Exception Filtering*) :
 ```cs
 try {
     // ...
-}
-catch (Exception e) when (<condition>) {
+} catch (Exception e) when (<condition>) {
     // ...
+}
+```
+Exemple :
+```cs
+void DoSomething(int a, int b, bool catchExceptionIfAny = true) {
+    try {
+        // ...
+        throw new Exception("Catch me if you can!");
+    } catch (Exception e) when (catchExceptionIfAny) {
+        Console.WriteLine("Got ya!");
+    }
 }
 ```
