@@ -31,14 +31,14 @@ void MatchWith42(int x) {
     }
 }
 ```
-Néanmoins, le pattern matching permet de décomposer des entités, comme par exemple :
+Néanmoins, contrairement au `switch` que nous connaissons, le pattern matching permet de décomposer des entités, comme par exemple :
 ```fs
 // cette fonction renvoie une valeur optionnelle :
 // 'Some X' ou 'None'
 let head_of_list ls =
   match ls with
-  | []   -> None   // si la liste est vide, on renvoie une valeur nulle
-  | x::_ -> Some x // sinon, on renvoie son premier élément
+  | []   -> None    // si la liste est vide, on renvoie une valeur nulle
+  | x::_ -> Some x  // sinon, on renvoie son premier élément, ici x
   ;;
 ```
 
@@ -71,4 +71,14 @@ let tuple_contains tup value =
   | (value, _) -> true
   | (_, value) -> true
   | _ -> false
+```
+
+Cette syntaxe suit un peu la même logique que le `catch`/`when` introduit par C# 6 :
+```cs
+try {
+    // ...
+}
+catch (Exception e) when (<condition>) {
+    // ...
+}
 ```
