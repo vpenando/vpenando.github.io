@@ -87,8 +87,8 @@ Nous pourrions implémenter une méthode d'addition ainsi (qui serait ensuite ap
 ```cs
 public static Matrix SafeAdd(Matrix lhs, Matrix rhs) {
     // préconditions
-    Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
-    Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
+    Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on these matrices");
+    Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on these matrices");
     // ok !
     var result = new Matrix(lhs.Height, lhs.Width);
     for (var i = 0; i < result.buffer.Count(); ++i) {
@@ -103,8 +103,8 @@ Mais vous vous en doutez, il y a mieux ! Une méthode plus rapide serait d'utili
 // version optimisée
 public static Matrix UnsafeAdd(Matrix lhs, Matrix rhs) {
     // préconditions
-    Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on this matrices");
-    Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on this matrices");
+    Debug.Assert(lhs.Width == rhs.Width, "Cannot perform operation on these matrices");
+    Debug.Assert(lhs.Height == rhs.Height, "Cannot perform operation on these matrices");
     // ok !
     var count = lhs.buffer.Count();
     var result = new double[count];
