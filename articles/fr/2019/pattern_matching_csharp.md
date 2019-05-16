@@ -13,12 +13,14 @@
 ### Introduction
 En programmation fonctionnelle, il existe la notion de pattern matching :
 ```fs
+// ici en F#
 let match_with_42 x =
   match x with
   | 42 -> // ...
   | _  -> // ...
   ;;
 ```
+
 Cette instruction est fortement similaire au `switch` que nous avons dans la plupart des langages :
 ```cs
 void MatchWith42(int x) {
