@@ -45,7 +45,6 @@ let head_of_list ls =
 
 ---
 
-
 ### Application au C#
 C# 8 a introduit une forme de pattern matching, en suivant la syntaxe suivante :
 ```cs
@@ -60,8 +59,8 @@ Exemple :
 ```cs
 bool TupleContains((object, object) tuple, object value)
     => tuple switch {
-        var (lhs, _) when object.Equals(lhs, value) => true,
-        var (_, rhs) when object.Equals(rhs, value) => true,
+        var (lhs, _) when lhs == value => true,
+        var (_, rhs) when rhs == value => true,
         _ => false
     };
     
@@ -77,6 +76,7 @@ let tuple_contains tup value =
   | (_, value) -> true
   | _ -> false
 ```
+Plus puissante et plus concise qu'un `switch` habituel (plus de `case`, `break`, ...), l'*expression switch* permet aisément d'effectuer des comparaisons peu triviales auparavant.
 
 Cette syntaxe suit un peu la même logique que le `catch`/`when` introduit par C# 6 (nommé *Exception Filtering*) :
 ```cs
@@ -97,3 +97,12 @@ void DoSomething(int a, int b, bool catchExceptionIfAny = true) {
     }
 }
 ```
+
+---
+
+### Conclusion
+Avec cette future mise à jour (C# 8 est encore en préversion pour le moment), C# tend de plus en plus à se rapprocher de la programmation fonctionnelle, notamment de son cousin F#.
+
+Personnellement, cette orientation me ravit, étant amateur de fonctionnel (bon, j'attends toujours la *const correctness* et les fonctions libres, mais j'espère que ça viendra un jour).
+
+Si vous souhaitez expérimenter ces nouvelles fonctionnalités, je vous invite à télécharger Visual Studio 2019 ou à vous rendre sur [un compilateur en ligne supportant C# 8](https://sharplab.io/).
