@@ -83,7 +83,9 @@ Cette syntaxe suit un peu la même logique que le `catch`/`when` introduit par C
 ```cs
 try {
     // ...
-} catch (Exception e) when (<condition>) {
+} catch (Exception e) when (<condition1>) {
+    // ...
+} catch (Exception e) when (<condition2>) {
     // ...
 }
 ```
