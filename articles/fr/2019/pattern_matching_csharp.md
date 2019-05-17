@@ -75,6 +75,7 @@ let tuple_contains tup value =
   | (value, _) -> true
   | (_, value) -> true
   | _ -> false
+  ;;
 ```
 Plus puissante et plus concise qu'un `switch` habituel (plus de `case`, `break`, ...), l'*expression switch* permet aisément d'effectuer des comparaisons peu triviales auparavant.
 
