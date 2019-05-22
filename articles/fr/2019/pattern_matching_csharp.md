@@ -59,8 +59,8 @@ Exemple :
 ```cs
 bool TupleContains((object, object) tuple, object value)
     => tuple switch {
-        var (lhs, _) when lhs == value => true,
-        var (_, rhs) when rhs == value => true,
+        var (lhs, _) when Equals(lhs, value) => true,
+        var (_, rhs) when Equals(rhs, value) => true,
         _ => false
     };
     
