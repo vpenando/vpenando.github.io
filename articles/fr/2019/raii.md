@@ -71,7 +71,7 @@ if (! window) {
     throw std::runtime_error{SDL_GetError()};
 }
 
-// ...
+// utilisation...
 
 SDL_DestroyWindow(window);
 ```
@@ -80,13 +80,9 @@ Version RAII-conform :
 // meilleure approche
 sdl::Window window{"Ma super fenêtre SDL", 640, 480, sdl::Window::OPENGL};
 
-// on peut même se permettre de rendre optionnels certains paramètres !
-class Window final {
-public:
-    Window(std::string const& title, size_t width, size_t height, UInt32 flags);
-    Window(std::string const& title, size_t width, size_t height, size_t x, size_t y, UInt32 flags);
-    // ...
-};
+// utilisation...
+
+// rien à faire ! Le destructeur s'occupe de tout
 ```
 
 
