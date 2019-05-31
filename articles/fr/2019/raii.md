@@ -70,6 +70,10 @@ SDL_Window *window = SDL_CreateWindow(
 if (! window) {
     throw std::runtime_error{SDL_GetError()};
 }
+
+// ...
+
+SDL_DestroyWindow(window);
 ```
 Version RAII-conform :
 ```cpp
