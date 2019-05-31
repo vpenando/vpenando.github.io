@@ -56,7 +56,38 @@ Les langages modernes sont à peu près full RAII-conform ; les objets sont gén
 
 ### Cas d'utilisation
 
-D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser une bibliothèque C de manière à s'affranchir de multiples vérifications après chaque allocation.
+D'une manière générale, il convient de *toujours* passer par des capsules RAII lorsque l'on veut manipuler des ressources qui doivent être allouées et libérées à la main. Usez et abusez d'objets RAII en C++ (`std::string`, `std::vector`, ...) plutôt que d'employer des pointeurs bruts. Toujours en C++, créez un wrapper RAII lorsque vous devez utiliser une bibliothèque C de manière à vous affranchir de multiples vérifications après chaque allocation ; tout sera fait sous le capot, et le code véritablement utile ne sera pas "pollué" de vérifications :
+```cpp
+// ce qu'il ne faut PAS faire en C++
+SDL_Window *window = SDL_CreateWindow(
+    "Ma super fenêtre SDL",
+    SDL_WINDOWPOS_UNDEFINED,
+    SDL_WINDOWPOS_UNDEFINED,
+    640,
+    480,
+    SDL_WINDOW_OPENGL
+);
+if (! window) {
+    throw std::runtime_error{SDL_GetError()};
+}
+```
+Version RAII-conform :
+```cpp
+// meilleure approche
+sdl::Window window{"Ma super fenêtre SDL", 640, 480, sdl::Window::OPENGL};
+
+// on peut même se permettre de rendre optionnels certains paramètres !
+class Window final {
+public:
+    Window(std::string const& title, size_t width, size_t height, UInt32 flags);
+    Window(std::string const& title, size_t width, size_t height, size_t x, size_t y, UInt32 flags);
+    // ...
+};
+```
+
+
+
+
 
 Si les pointeurs bruts sont dépréciés en C++, ce n'est pas pour rien :
 ```cpp
