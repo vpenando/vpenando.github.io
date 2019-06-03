@@ -14,27 +14,32 @@ En C++, on parle souvent de *const-correctness*. Il s'agit d'une bonne pratique 
 
 Prenons l'exemple suivant :
 ```cpp
+// cela marche avec toute fonction renvoyant un code d'erreur,
+// mais SDL_BlitSurface a l'avantage d'être bien connue.
 int SDL_BlitSurface(SDL_Surface*    src,
                     const SDL_Rect* srcrect,
                     SDL_Surface*    dst,
                     SDL_Rect*       dstrect);
 
 int result = SDL_BlitSurface(src, srcrect, dst, dstrect);
-if (result = 0) {  // /!\ Erreur /!\
+if (result = 0) {  // /!\ Erreur : un '=' ou un '!' a été oublié  /!\
     //     ^  ici
 }
+```
+Que se passe-t-il ici ? La variable `result`, quelle que soit sa valeur, est réassignée dans le `if` de manière à valoir 0. Ce faisant :
+* La condition est **toujours** évaluée à `false` ;
+* La précédente valeur de `result` est écrasée.
+
+Ainsi, nous ne savons pas si l'appel à `SDL_BlitSurface` a réussi ou échoué. Une solution possible serait de passer la variable `result` constante de manière à avoir une erreur de compilation :
+```
+error: cannot assign to variable 'result' with const-qualified type 'const int'
 ```
 
 Certains langages, notamment en programmation fonctionnelle, rendent par défaut toutes les variables constantes :
 ```fs
 let foo = 42;;  (* 'foo' n'est pas modifiable *)
 ```
-En C++, comme dans beaucoup de langages, toute variable est par défaut modifiable :
-```cpp
-int foo = 42;
-foo = 12;
-```
-
+En C++, nous avons de nombreux moyens de déclarer des constantes. C++11 a par ailleurs ajouté le mot-clé `constexpr`, que je vais comparer aux moyens connus.
 
 ---
 
