@@ -39,13 +39,32 @@ Certains langages, notamment en programmation fonctionnelle, rendent par défaut
 ```fs
 let foo = 42;;  (* 'foo' n'est pas modifiable *)
 ```
-En C++, nous avons de nombreux moyens de déclarer des constantes. C++11 a par ailleurs ajouté le mot-clé `constexpr`, que je vais comparer aux moyens connus.
+En C++, nous avons de nombreux moyens de déclarer des constantes. C++11 a par ailleurs ajouté le mot-clé `constexpr`, que je vais comparer aux habituels `const` et `#define`.
 
 ---
 
 ### `constexpr` vs `const`
+Comme vu dans la partie précédente, `const` permet de déclarer une variable constante :
+```cpp
+const int i = 42;  // i n'est pas modifiable
+```
+Le mot-clé `const` peut être placé avant ou après le type, sans réelle incidence :
+```cpp
+const int i = 42;
+// équivaut à :
+int const i = 42;
+```
+Une petite subtilité existe cependant, dans le cas des pointeurs :
+```cpp
+const int *ptr = 42;
+// n'est pas la même chose que :
+int* const ptr = 42;
+```
+Dans le premier cas, la valeur pointée par `ptr` n'est pas modifiable. Il n'est donc pas possible d'assigner une valeur à `*ptr`.
 
+Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une valeur à `*ptr`.
 
+***Note -** Pour déclarer un pointeur constant vers une valeur constante, on utilise `const T* const`.*
 
 ---
 
