@@ -76,8 +76,10 @@ int value() {
     return i;
 }
 
-constexpr auto I = value();
+const auto i1 = value();      // ok
+constexpr auto i2 = value();  // pas ok
 ```
+Mais du coup, si `constepr` est plus contraignant que `const`, quel est son intérêt ?
 
 ---
 
