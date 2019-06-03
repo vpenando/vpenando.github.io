@@ -9,7 +9,8 @@
 
 ---
 
-### Introduction
+Introduction
+---
 En C++, on parle souvent de *const-correctness*. Il s'agit d'une bonne pratique visant à promouvoir l'usage de constantes autant que possible. Cela nous permet d'éviter de modifier des variables qui ne devraient pas l'être.
 
 Prenons l'exemple suivant :
@@ -43,7 +44,8 @@ En C++, nous avons de nombreux moyens de déclarer des constantes. C++11 a par a
 
 ---
 
-### `constexpr` vs `const`
+`constexpr` vs `const`
+---
 Comme vu dans la partie précédente, `const` permet de déclarer une variable constante :
 ```cpp
 const int i = 42;  // i n'est pas modifiable
@@ -66,9 +68,21 @@ Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une 
 
 ***Note -** Pour déclarer un pointeur constant vers une valeur constante, on utilise `const T* const`.*
 
+Le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, ces dernières doivent pouvoir être évaluées à la compilation. Un tel code n'est pas valide :
+```cpp
+int value() {
+    int i = 0;
+    std::cin >> i;
+    return i;
+}
+
+constexpr auto I = value();
+```
+
 ---
 
-### `constexpr` vs `#define`
+`constexpr` vs `#define`
+---
 
 * scope global
 * redéfinitions ? (ex : dans un namespace)
