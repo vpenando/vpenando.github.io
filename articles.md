@@ -3,6 +3,7 @@
 ### All posts:
 
 #### 2019
+- `2019/03/11`: [(FR) Du pattern matching en C# ! (C# 8)](articles/fr/2019/pattern_matching_csharp.md)
 - `2019/03/11`: [(FR) Des pointeurs en C# !](articles/fr/2019/pointeurs_csharp.md)
 - `2019/02/04`: [(FR) La valeur nulle, un réel intérêt ?](articles/fr/2019/la_valeur_nulle.md)
 
