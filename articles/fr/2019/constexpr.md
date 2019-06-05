@@ -97,7 +97,7 @@ constexpr size_t fac(size_t value) noexcept {
 // et à l'usage :
 constexpr auto fac5 = fac(5);
 ```
-Et, mieux encore une fonction avec un template :
+Et, mieux encore, une fonction avec un template :
 ```cpp
 template<class T>
 constexpr T fac(T value) noexcept {
