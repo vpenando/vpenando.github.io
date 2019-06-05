@@ -79,7 +79,14 @@ int value() {
 const auto i1 = value();      // ok
 constexpr auto i2 = value();  // pas ok
 ```
-Mais du coup, si `constepr` est plus contraignant que `const`, quel est son intérêt ?
+Mais du coup, si `constexpr` est plus contraignant que `const`, quel est son intérêt ?
+
+Outre le fait qu'une variable `constexpr` est forcément une constante de compilation, on peut également y appliquer un template :
+```cpp
+template<int I>
+constexpr auto square = I * I;
+```
+C'est par ailleurs ainsi que sont définies des variables telles que [`std::is_same_v`](https://en.cppreference.com/w/cpp/types/is_same) (qui n'est en définitive qu'un alias pour `std::is_same<T, U>::value`).
 
 ---
 
