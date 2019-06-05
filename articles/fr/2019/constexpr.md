@@ -88,6 +88,16 @@ constexpr auto square = I * I;
 ```
 C'est par ailleurs ainsi que sont définies des variables telles que [`std::is_same_v`](https://en.cppreference.com/w/cpp/types/is_same) (qui n'est en définitive qu'un alias pour `std::is_same<T, U>::value`).
 
+Enfin, une fonction peut également être `constexpr` !
+```cpp
+constexpr size_t fac(size_t value) noexcept {
+  return (value == 0) ? 1 : value * fac(value - 1);
+}
+
+// et à l'usage :
+constexpr auto fac5 = fac(5);
+```
+
 ---
 
 `constexpr` vs `#define`
