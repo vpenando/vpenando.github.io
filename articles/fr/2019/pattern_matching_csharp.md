@@ -34,7 +34,7 @@ void MatchWith42(int x) {
 }
 ```
 Néanmoins, contrairement au `switch` que nous connaissons, le pattern matching permet de décomposer des entités, comme par exemple :
-```fs
+```ml
 (* cette fonction renvoie une valeur optionnelle :
  * 'Some X' ou 'None' *)
 let head_of_list ls =
@@ -70,7 +70,7 @@ var tuple = (10, 12);
 var contains10 = TupleContains(tuple, 10);
 ```
 Equivalent en F# :
-```fs
+```ml
 let tuple_contains tup value =
   match tup with
   | (value, _) -> true
