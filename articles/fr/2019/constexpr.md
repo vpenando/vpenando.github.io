@@ -142,8 +142,10 @@ Une constante déclarée de cette manière n'est pas explicitement typée :
 ```
 Version `constexpr` :
 ```cpp
+constexpr double PI = 3.14159265359;
+// ou :
 template<class T>
-constexpr static T PI = static_cast<T>(3.14159265359);
+constexpr T PI = static_cast<T>(3.14159265359);
 ```
 
 a
@@ -152,11 +154,4 @@ a
 * typage
 * template
 
-```cpp
-#define PI 3.14159265359
 
-constexpr double PI = 3.14159265359;
-// ou :
-template<class T>
-constexpr T PI = static_cast<T>(3.14159265359);
-```
