@@ -114,7 +114,14 @@ constexpr auto fac5 = fac<size_t>(5);
 
 `constexpr` vs `#define`
 ---
-
+Il existe également la version ~~paléolithique~~ "à l'ancienne" :
+```cpp
+#define SOME_CONSTANT 42
+```
+Vous le savez, toutes les ocurrences de `SOME_CONSTANT` seront remplacées par la valeur associée, ici `42`.
+Néanmoins, l'option `#define` pose un certain nombre de problèmes :
+* Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global ;
+* Une constante déclarée de cette manière n'est pas explicitement typée
 
 * scope global
 * redéfinitions ? (ex : dans un namespace)
