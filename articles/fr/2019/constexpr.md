@@ -123,6 +123,8 @@ Néanmoins, l'option `#define` pose un certain nombre de problèmes :
 * Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global ;
 * Une constante déclarée de cette manière n'est pas explicitement typée
 
+
+a
 * scope global
 * redéfinitions ? (ex : dans un namespace)
 * typage
