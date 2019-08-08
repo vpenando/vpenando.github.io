@@ -136,10 +136,15 @@ const auto foo_const = foo::CONSTANT;
 const auto bar_const = bar::CONSTANT;
 ```
 
-
-
-* Une constante déclarée de cette manière n'est pas explicitement typée
-
+Une constante déclarée de cette manière n'est pas explicitement typée :
+```cpp
+#define PI 3.14159265359
+```
+Version `constexpr` :
+```cpp
+template<class T>
+constexpr static T PI = static_cast<T>(3.14159265359);
+```
 
 a
 * scope global
