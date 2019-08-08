@@ -149,3 +149,7 @@ constexpr T PI = static_cast<T>(3.14159265359);
 ```
 En C++ moderne, les constantes à base de `#define` devraient être évitées au profit de `constexpr`. 
 
+---
+
+Conclusion
+---
