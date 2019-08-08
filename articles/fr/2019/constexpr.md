@@ -121,7 +121,7 @@ Il existe également la version ~~paléolithique~~ "à l'ancienne" :
 Toutes les ocurrences de `SOME_CONSTANT` seront remplacées par la valeur associée, ici `42`.
 Néanmoins, l'option `#define` pose un certain nombre de problèmes :
 
-Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global. Ce soucis n'existe pas avec `constexpr` :
+Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global ; on ne peut donc pas redéfinir une variable avec le même nom. Ce soucis n'existe pas avec `constexpr` :
 ```cpp
 namespace foo {
   constexpr int CONSTANT = 42;
