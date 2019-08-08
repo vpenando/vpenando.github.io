@@ -118,9 +118,26 @@ Il existe également la version ~~paléolithique~~ "à l'ancienne" :
 ```cpp
 #define SOME_CONSTANT 42
 ```
-Vous le savez, toutes les ocurrences de `SOME_CONSTANT` seront remplacées par la valeur associée, ici `42`.
+Toutes les ocurrences de `SOME_CONSTANT` seront remplacées par la valeur associée, ici `42`.
 Néanmoins, l'option `#define` pose un certain nombre de problèmes :
-* Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global ;
+
+Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global. Ce soucis n'existe pas avec `constexpr` :
+```cpp
+namespace foo {
+  constexpr int CONSTANT = 42;
+} // namespace foo
+
+namespace bar {
+  constexpr int CONSTANT = 12;
+} // namespace bar
+
+// et à l'usage :
+const auto foo_const = foo::CONSTANT;
+const auto bar_const = bar::CONSTANT;
+```
+
+
+
 * Une constante déclarée de cette manière n'est pas explicitement typée
 
 
