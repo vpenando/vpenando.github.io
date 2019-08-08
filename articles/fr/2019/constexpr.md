@@ -7,6 +7,7 @@
 ### Sommaire
 * [Introduction](#introduction)
 * [`constexpr` vs `const`](#constexpr-vs-const)
+* [`constexpr` vs `#define`](#constexpr-vs-define)
 
 ---
 
