@@ -155,6 +155,8 @@ a
 ```cpp
 #define PI 3.14159265359
 
+constexpr double PI = 3.14159265359;
+// ou :
 template<class T>
-constexpr static T PI = static_cast<T>(3.14159265359);
+constexpr T PI = static_cast<T>(3.14159265359);
 ```
