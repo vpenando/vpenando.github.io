@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) `const`, `constexpr`, `#define` ?
+## (FR) [C++] `const`, `constexpr`, `#define` ?
 
 ---
 
@@ -70,7 +70,7 @@ Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une 
 
 ***Note -** Pour déclarer un pointeur constant vers une valeur constante, on utilise `const T* const`.*
 
-Le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, leurs valeurs doivent pouvoir être évaluées à la compilation. Un tel code n'est donc pas valide :
+Arrivé avec la norme C++11, le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, leurs valeurs doivent pouvoir être évaluées à la compilation. Un tel code n'est donc pas valide :
 ```cpp
 int value() {
     int i = 0;
@@ -114,6 +114,7 @@ constexpr auto fac5 = fac<size_t>(5);
 
 `constexpr` vs `#define`
 ---
+
 
 * scope global
 * redéfinitions ? (ex : dans un namespace)
