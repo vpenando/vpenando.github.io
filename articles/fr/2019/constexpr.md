@@ -6,6 +6,7 @@
 
 ### Sommaire
 * [Introduction](#introduction)
+* [`constexpr` vs `const`](#constexpr-vs-const)
 
 ---
 
@@ -68,7 +69,7 @@ Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une 
 
 ***Note -** Pour déclarer un pointeur constant vers une valeur constante, on utilise `const T* const`.*
 
-Le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, ces dernières doivent pouvoir être évaluées à la compilation. Un tel code n'est pas valide :
+Le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, leurs valeurs doivent pouvoir être évaluées à la compilation. Un tel code n'est donc pas valide :
 ```cpp
 int value() {
     int i = 0;
