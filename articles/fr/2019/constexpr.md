@@ -147,11 +147,5 @@ constexpr double PI = 3.14159265359;
 template<class T>
 constexpr T PI = static_cast<T>(3.14159265359);
 ```
-
-a
-* scope global
-* redéfinitions ? (ex : dans un namespace)
-* typage
-* template
-
+En C++ moderne, les constantes à base de `#define` devraient être évitées au profit de `constexpr`. 
 
