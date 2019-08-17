@@ -85,8 +85,12 @@ Mais du coup, si `constexpr` est plus contraignant que `const`, quel est son int
 
 Outre le fait qu'une variable `constexpr` est forcément une constante de compilation, on peut également y appliquer un template :
 ```cpp
-template<int I>
-constexpr auto square = I * I;
+template<int N>
+constexpr auto square = N * N;
+
+// mais encore :
+template<class T, T N>
+constexpr T square = N * N;
 ```
 C'est par ailleurs ainsi que sont définies des variables telles que [`std::is_same_v`](https://en.cppreference.com/w/cpp/types/is_same) (qui n'est en définitive qu'un alias pour `std::is_same<T, U>::value`).
 
@@ -159,10 +163,10 @@ constexpr T PI = static_cast<T>(3.14159265359);
 ```
 Comme vu plus haut, on peut appliquer un template à une variable `constexpr`. Cela permet de réaliser des calculs évalués au compile-time, ce qui n'est pas nécessairement le cas avec un `#define` :
 ```cpp
-template<int I>
-constexpr auto square = I * I;  // sera forcément évalué à la compilation
+template<int N>
+constexpr auto square = N * N;  // sera forcément évalué à la compilation
 
-#define SQUARE(I) I * I         // ?
+#define SQUARE(N) N * N         // ?
 ```
 
 En C++ moderne, les constantes à base de `#define` devraient être évitées au profit de `constexpr`. 
