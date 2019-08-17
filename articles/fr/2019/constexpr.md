@@ -39,7 +39,7 @@ error: cannot assign to variable 'result' with const-qualified type 'const int'
 ```
 
 Certains langages, notamment en programmation fonctionnelle, rendent par défaut toutes les variables constantes :
-```fs
+```ml
 let foo = 42;;  (* 'foo' n'est pas modifiable *)
 ```
 En C++, nous avons de nombreux moyens de déclarer des constantes. C++11 a par ailleurs ajouté le mot-clé `constexpr`, que je vais comparer aux habituels `const` et `#define`.
