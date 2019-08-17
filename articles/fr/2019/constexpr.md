@@ -26,7 +26,7 @@ int SDL_BlitSurface(SDL_Surface*    src,
 
 int result = SDL_BlitSurface(src, srcrect, dst, dstrect);
 if (result = 0) {  // /!\ Erreur : un '=' ou un '!' a été oublié  /!\
-    //     ^  ici
+  //       ^  ici
 }
 ```
 Que se passe-t-il ici ? La variable `result`, quelle que soit sa valeur, est réassignée dans le `if` de manière à valoir 0. Ce faisant :
@@ -73,9 +73,9 @@ Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une 
 Arrivé avec la norme C++11, le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, leurs valeurs doivent pouvoir être évaluées à la compilation. Un tel code n'est donc pas valide :
 ```cpp
 int value() {
-    int i = 0;
-    std::cin >> i;
-    return i;
+  int i = 0;
+  std::cin >> i;
+  return i;
 }
 
 const auto i1 = value();      // ok
