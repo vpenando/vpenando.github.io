@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) C++ - `const`, `constexpr`, `#define` ?
+## (FR) La const-correctness appliquée au C++ moderne
 
 ---
 
@@ -171,3 +171,6 @@ En C++ moderne, les constantes à base de `#define` devraient être évitées au
 
 Conclusion
 ---
+D'une manière générale, j'ai tendance à n'utiliser `#define` que pour des [include guards](https://en.wikipedia.org/wiki/Include_guard). Parallèlement, j'utilise autant que possible des variables constantes afin d'éviter des effets de bord. Lorsque je peux utiliser `constexpr`, alors j'utilise `constexpr`. À défaut, j'utilise `const`.
+
+C++ met à disposition des outils pour optimiser au mieux notre code, alors autant les utiliser.
