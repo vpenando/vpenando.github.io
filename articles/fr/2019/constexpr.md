@@ -137,12 +137,12 @@ const auto bar_const = bar::CONSTANT;
 ```
 Ce qui induit que le code suivant est valide :
 ```cpp
-namespace lol {
-    #define FOO 42
-}
+namespace foo {
+  #define FOO 42
+} // namespace foo
 
 int main(void) {
-    std::cout << FOO;  // 42
+  std::cout << FOO;  // 42
 }
 ```
 
