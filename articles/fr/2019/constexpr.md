@@ -157,6 +157,14 @@ constexpr double PI = 3.14159265359;
 template<class T>
 constexpr T PI = static_cast<T>(3.14159265359);
 ```
+Comme vu plus haut, on peut appliquer un template à une variable `constexpr`. Cela permet de réaliser des calculs évalués au compile-time, ce qui n'est pas nécessairement le cas avec un `#define` :
+```cpp
+template<int I>
+constexpr auto square = I * I;  // sera forcément évalué à la compilation
+
+#define SQUARE(I) I * I         // ?
+```
+
 En C++ moderne, les constantes à base de `#define` devraient être évitées au profit de `constexpr`. 
 
 ---
