@@ -135,7 +135,7 @@ namespace bar {
 const auto foo_const = foo::CONSTANT;
 const auto bar_const = bar::CONSTANT;
 ```
-Ce qui induit que le code suivant est valide :
+Ce qui induit que [le code suivant est valide](http://coliru.stacked-crooked.com/a/468fbad2c048f4c5) :
 ```cpp
 namespace foo {
   #define FOO 42
