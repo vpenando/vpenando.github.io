@@ -3,6 +3,7 @@
 ### All posts:
 
 #### 2019
+- `2019/08/17`: [(FR) La const-correctness appliquée au C++ moderne](articles/fr/2019/constexpr.md) `c++` `modern-c++` `good-practices`
 - `2019/06/09`: [(FR) Du pattern matching en C# ! (C# 8)](articles/fr/2019/pattern_matching_csharp.md) `c#`
 - `2019/03/11`: [(FR) Des pointeurs en C# !](articles/fr/2019/pointeurs_csharp.md) `c#` `low-level` `performances`
 - `2019/02/04`: [(FR) La valeur nulle, un réel intérêt ?](articles/fr/2019/la_valeur_nulle.md) `good-practices`
