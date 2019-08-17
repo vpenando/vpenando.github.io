@@ -141,7 +141,7 @@ namespace foo {
   #define FOO 42
 } // namespace foo
 
-int main(void) {
+int main() {
   std::cout << FOO;  // 42
 }
 ```
