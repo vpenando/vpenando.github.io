@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) [C++] `const`, `constexpr`, `#define` ?
+## (FR) C++ - `const`, `constexpr`, `#define` ?
 
 ---
 
@@ -135,8 +135,18 @@ namespace bar {
 const auto foo_const = foo::CONSTANT;
 const auto bar_const = bar::CONSTANT;
 ```
+Ce qui induit que le code suivant est valide :
+```cpp
+namespace lol {
+    #define FOO 42
+}
 
-Une constante déclarée de cette manière n'est pas explicitement typée :
+int main(void) {
+    std::cout << FOO;  // 42
+}
+```
+
+De plus, une constante déclarée de cette manière n'est pas explicitement typée :
 ```cpp
 #define PI 3.14159265359
 ```
