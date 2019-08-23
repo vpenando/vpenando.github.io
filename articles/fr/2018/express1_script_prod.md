@@ -69,14 +69,14 @@ if [[ $mode -eq 1 ]]; then
   echo "Done"
 else
   echo "Simulating query DELETE FROM $1 WHERE $2..."
-  # On pourrait presque faire un SELECT count(*) FROM $1 where $2
+  # On pourrait presque faire un SELECT count(*) FROM $1 WHERE $2
   # pour afficher combien d'éléments seraient affectés.
 fi
 ```
 
 Exemple d'output type :
 ```
-Info: Starting script 'exampleQuery.sh'
+Info: Starting script 'deleteQuery.sh'
 Info: Started by 'vincent' (123456)
 Info: Running on host 'nulix'
 
@@ -88,7 +88,7 @@ Simulating query DELETE FROM sample WHERE 1=1...
 
 Là, il ne reste qu'à se relire puis relancer le script avec l'option `/process`. Ainsi, on est sûr qu'en laissant ce script entre les mains d'un collègue insuffisamment caféïné, le risque de tout casser s'amoindrit.
 
-On peut même assez facilement logger qui fait quoi si l'on prend la peine de rediriger l'output vers un fichier de log quelconque (`./exampleQuery.sh base 1=1 /process >> out.log`).
+On peut même assez facilement logger qui fait quoi si l'on prend la peine de rediriger l'output vers un fichier de log quelconque (`./deleteQuery.sh base 1=1 /process >> out.log`).
 
 ---
 
