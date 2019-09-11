@@ -71,7 +71,8 @@ if (! window) {
     throw std::runtime_error{SDL_GetError()};
 }
 
-// utilisation...
+// utilisation
+// ...
 
 SDL_DestroyWindow(window);
 ```
@@ -80,14 +81,11 @@ Version RAII-conform :
 // meilleure approche
 sdl::Window window{"Ma super fenêtre SDL", 640, 480, sdl::Window::OPENGL};
 
-// utilisation...
+// utilisation
+// ...
 
 // rien à faire ! Le destructeur s'occupe de tout
 ```
-
-
-
-
 
 Si les pointeurs bruts sont dépréciés en C++, ce n'est pas pour rien :
 ```cpp
@@ -104,5 +102,9 @@ Version RAII-conform :
 ```cpp
 auto ptr1 = std::make_unique<int>(42);
 auto ptr2 = std::make_unique<int>(12);
+
 // utilisation
+// ...
+
+// rien à faire ! Le destructeur s'occupe de tout aussi
 ```
