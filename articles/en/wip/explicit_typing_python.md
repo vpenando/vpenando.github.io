@@ -19,7 +19,7 @@ Explicit typing in Python?
 ---
 Since Python 3.5 ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), explicit typing is supported:
 ```py
-def add(x: int, y: int) :
+def add(x: int, y: int):
     return x + y
 ```
 It's even possible to specify the return type of a function!
