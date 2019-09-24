@@ -32,17 +32,8 @@ Mypy
 ```py
 from typing import Callable, List, Set, Dict, Tuple, Optional
 
-
-Int = int
-Bool = bool
-Float = float
-String = str
-
-
 def check_value(value: int) -> Optional[int]:
     return value
-
-
 
 print(check_value(42))
 ```
