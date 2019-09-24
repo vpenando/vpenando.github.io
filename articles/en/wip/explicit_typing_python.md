@@ -19,18 +19,22 @@ Explicit typing in Python?
 ---
 Since Python 3.5 ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), explicit typing is supported:
 ```py
-def foo(arg1: int, arg2: int) -> None:
-    print(arg1)
-    print(arg2)
+def add(x: int, y: int) :
+    return x + y
 ```
-But what happens if we call `foo` with, for example, strings? Let's try and see its output:
+It's even possible to specify the return type of a function!
 ```py
-foo('foo', 'bar')
+def add(x: int, y: int) -> int:
+    return x + y
+```
+But what happens if we call `add` with, for example, strings? Let's try and see its output:
+```py
+result = add('foo', 'bar')
+print(result)
 ```
 Output:
 ```
-foo
-bar
+foobar
 ```
 
 ---
