@@ -11,7 +11,7 @@ As you certainly know, Python is a dynamically, implicitly typed language. Thats
 foo = 42     # here, 'foo' is an int
 foo = "Foo"  # now, 'foo' is a string
 ```
-You don't have to specify the type to Python: it will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types.
+You don't have to specify `foo`'s type: Python will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types.
 
 ---
 
