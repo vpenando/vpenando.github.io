@@ -27,7 +27,7 @@ It's even possible to specify the return type of a function!
 def add(x: int, y: int) -> int:
     return x + y
 ```
-But what happens if we call `add` with, for example, strings? Let's try and see its output:
+But what happens if we call `add` with, for example, strings? Let's try and see the output:
 ```py
 result = add('foo', 'bar')
 print(result)
