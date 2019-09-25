@@ -41,7 +41,7 @@ Output:
 ```
 foobar
 ```
-It seems that Python doesn't look at `x`'s expected type, as well as `y`'s. Following the example above, what happened?
+It seems that Python doesn't look at `x`'s expected type, as well as `y`'s one. Following the example above, what happened?
 
 ---
 
