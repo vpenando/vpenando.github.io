@@ -17,7 +17,7 @@ You don't have to specify `foo`'s type: Python will determine it by itself. But,
 
 Explicit typing in Python?
 ---
-Since Python 3.5 ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), explicit typing is supported:
+Since Python 3.5 ([PEP 484](https://www.python.org/dev/peps/pep-0484/)), explicit typing (known as 'types hints') is supported:
 ```py
 def add(x: int, y: int):
     return x + y
