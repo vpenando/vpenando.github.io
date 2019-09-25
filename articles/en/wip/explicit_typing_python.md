@@ -8,10 +8,15 @@ Introduction
 ---
 As you certainly know, Python is a dynamically, implicitly typed language. Thats means that this code is valid:
 ```py
+def print_value(value):
+    print(value)
+    
 foo = 42     # here, 'foo' is an int
+print_value(foo)
 foo = "Foo"  # now, 'foo' is a string
+print_value(foo)
 ```
-You don't have to specify `foo`'s type: Python will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types.
+You don't have to specify `foo`'s type: Python will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types that are expected by functions and methods (like the `print_value` function seen above).
 
 ---
 
