@@ -16,7 +16,7 @@ print_value(foo)
 foo = "Foo"  # now, 'foo' is a string
 print_value(foo)
 ```
-You don't have to specify `foo`'s type: Python will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types that are expected by functions and methods (like the `print_value` function seen above).
+You don't have to write `foo`'s type: Python will determine it by itself. But, since Python 3.5, there is a way to explicitly specify types that are expected by functions and methods (like the `print_value` function seen above).
 
 ---
 
@@ -32,7 +32,22 @@ It's even possible to specify the return type of a function!
 def add(x: int, y: int) -> int:
     return x + y
 ```
-But what happens if we call `add` with, for example, strings? Let's try and see the output:
+But what happens if we call `add` with, for example, strings?
+In C++, a similar example won't compile:
+```cpp
+int add(int x, int y) {
+    return x + y;
+}
+
+using namespace std::string_literals;  // for "s" suffix
+add("foo"s, "bar"s);
+
+// Output:
+//   fatal error: no matching function for call to 'add'
+//   note: candidate function not viable: no known conversion from 'basic_string<char>' to 'int' for 1st argument
+```
+
+Back to Python, let's try and see the output:
 ```py
 result = add('foo', 'bar')
 print(result)
