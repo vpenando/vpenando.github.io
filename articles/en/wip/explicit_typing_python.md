@@ -63,6 +63,8 @@ It seems that Python doesn't look at `x`'s expected type, as well as `y`'s one. 
 Mypy
 ---
 
+Install it with `pip install mypy`.
+
 ```py
 from typing import Callable, List, Set, Dict, Tuple, Optional
 
