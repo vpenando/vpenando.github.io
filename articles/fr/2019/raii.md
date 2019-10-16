@@ -47,6 +47,14 @@ if (stream) {
 ```
 Dans cet exemple, si l'on atteint la condition permettant de lever une exception, le fichier sera correctement fermé, car le destructeur de `std::ifstream` sera appelé.
 
+Il en va bien évidemment de même pour les pointeurs intelligents :
+```cpp
+auto ptr1 = std::make_unique<int>(42);
+throw std::runtime_error{"une erreur quelconque"}; // ptr1 est quand même libéré
+                                                   // car le destructeur de std::unique_ptr<int>
+                                                   // a été appelé.
+```
+
 Les langages modernes sont à peu près full RAII-conform ; les objets sont généralement supprimés par un garbage collector, et les ressources sous-jacentes le sont également.
 
 ---
@@ -110,4 +118,5 @@ auto ptr2 = std::make_unique<int>(12);
 
 ### Conclusion
 
-En somme, le RAII est le *meilleur* moyen de s'assurer d'une gestion correcte des ressources. Plus concis et surtout automatique, il lie intrinsèquement la vie d'une ressource à celle de son propriétaire. Par exemple, un `std::unique_ptr<int>` est propriétaire d'un `int*` et garantit que ce dernier sera correctement libéré quoi qu'il arrive.
+En somme, le RAII est le *meilleur* moyen de s'assurer d'une gestion correcte des ressources. Plus concis et surtout automatique, il lie intrinsèquement la vie d'une ressource à celle de son propriétaire. Par exemple, un `std::unique_ptr<int>` est propriétaire d'un `int*` et garantit que ce dernier sera correctement alloué et libéré quoi qu'il arrive.
+
