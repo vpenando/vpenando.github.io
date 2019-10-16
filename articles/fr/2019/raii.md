@@ -29,20 +29,20 @@ Exemple de code non-conforme au RAII (car le fichier doit être libéré à la m
 ```c
 FILE *file = fopen("foo.txt", "r");
 if (! file) {
-  // gestion de l'erreur
+    // gestion de l'erreur
 } else {
-  // lecture du fichier...
-  fclose(file);
+    // lecture du fichier...
+    fclose(file);
 }
 ```
 Dans un exemple aussi simple, le fichier sera libéré comme attendu, mais dans un exemple plus complexe *-ou pire, dans un code mêlant C et C++-*, il peut ne **jamais** l'être. Il y a alors une fuite mémoire. Le RAII est le meilleur moyen de se prémunir des fuites mémoire, en garantissant que les capsules ayant l'ownership s'occupent de libérer les ressources :
 ```cpp
 std::ifstream stream{"toto.txt"};
 if (stream) {
-  // lecture du fichier...
-  if (/* condition */) {
-    throw std::runtime_error{"invalid input"};
-  }
+    // lecture du fichier...
+    if (/* condition */) {
+        throw std::runtime_error{"invalid input"};
+    }
 }
 ```
 Dans cet exemple, si l'on atteint la condition permettant de lever une exception, le fichier sera correctement fermé, car le destructeur de `std::ifstream` sera appelé.
