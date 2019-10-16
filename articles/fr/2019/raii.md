@@ -49,8 +49,8 @@ Dans cet exemple, si l'on atteint la condition permettant de lever une exception
 
 Il en va bien évidemment de même pour les pointeurs intelligents :
 ```cpp
-auto ptr1 = std::make_unique<int>(42);
-throw std::runtime_error{"une erreur quelconque"}; // ptr1 est quand même libéré
+auto ptr = std::make_unique<int>(42);
+throw std::runtime_error{"une erreur quelconque"}; // 'ptr' est quand même libéré
                                                    // car le destructeur de std::unique_ptr<int>
                                                    // a été appelé.
 ```
