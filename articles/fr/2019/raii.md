@@ -4,11 +4,6 @@
 
 ---
 
-### Sommaire
-
-
----
-
 ### Définition
 
 Je parle souvent de cette notion dans mes articles, mais je ne l'ai pas encore définie (du moins, sur ce blog).
@@ -22,6 +17,8 @@ Définissons avant tout ce que peut être une ressource. Dans notre cas (et surt
 * ...
 
 Le point commun de ces éléments est qu'ils doivent être à la fois alloués et libérés à la main. Le but du RAII est de s'affranchir de ces étapes en les rendant automatiques.
+
+À présent, définissons ce qu'est un *propriétaire*. Lorsque l'on dit qu'un objet détient une ressource, cela signifie que l'objet dispose "sous le capot" d'une instance de ladite ressource. Par exemple, un `std::vector<T>` est propriétaire d'un `T*`, un `std::array<T, SIZE>` est propriétaire d'un `T[SIZE]`, et cela s'applique à la plupart des conteneurs de la STL.
 
 Par exemple, en C++, `std::istream` et `std::ostream` sont, au même titre que `std::unique_ptr` et `std::shared_ptr`, des capsules RAII-conform. Les ressources allouées sont libérées à la destruction des instances.
 
@@ -108,3 +105,9 @@ auto ptr2 = std::make_unique<int>(12);
 
 // rien à faire ! Le destructeur s'occupe de tout aussi
 ```
+
+---
+
+### Conclusion
+
+En somme, le RAII est le *meilleur* moyen de s'assurer d'une gestion correcte des ressources. Plus concis et surtout automatique, il lie intrinsèquement la vie d'une ressource à celle de son propriétaire. Par exemple, un `std::unique_ptr<int>` est propriétaire d'un `int*` et garantit que ce dernier sera correctement libéré quoi qu'il arrive.
