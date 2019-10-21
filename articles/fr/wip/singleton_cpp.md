@@ -39,7 +39,6 @@ public:
 private:
     Singleton()  = default;
     ~Singleton() = default;
-    // Deleted members
     Singleton(Singleton const&) = delete;
     Singleton(Singleton&&) /**/ = delete;
     Singleton& operator=(Singleton const&) = delete;
@@ -70,7 +69,6 @@ protected:
     ~Singleton() = default;
 
 private:
-    // Deleted members
     Singleton(Singleton const&) = delete;
     Singleton(Singleton&&) /**/ = delete;
     Singleton& operator=(Singleton const&) = delete;
@@ -107,15 +105,13 @@ Pour paraphraser Wikipédia :
 Soit :
 ```cpp
 template<class Derived>
-class CRTP_Base
-{
+class CRTP_Base {
 };
 
-class CRTP_Derived : public CRTP_Base<CRTP_Derived>
-{
+class CRTP_Derived: public CRTP_Base<CRTP_Derived> {
 };
 ```
-
+Donc, dans le cas d'un singleton :
 ```cpp
 template<class T>
 class Singleton {
@@ -126,7 +122,6 @@ public:
     }
 
 protected:
-    // Defaulted members
     /*   */  Singleton() = default;
     virtual ~Singleton() = default;
 
@@ -138,7 +133,7 @@ private:
     Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
-class Foo final : public Singleton<Foo>{
+class Foo final: public Singleton<Foo> {
     friend class Singleton<Foo>;
 private:
     // ...
