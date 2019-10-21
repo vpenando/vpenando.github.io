@@ -28,21 +28,22 @@ Une implémentation simpliste d'un singleton pourrait ressembler à ceci :
 ```cpp
 class Singleton {
 public:
-  static Singleton& instance() {
-    static Singleton inst{};
-    return inst;
-  }
+    static Singleton& instance() {
+        static Singleton inst{};
+        return inst;
+    }
   
-  void foo() { /* ... */ }
-  void bar() { /* ... */ }
+    void foo() { /* ... */ }
+    void bar() { /* ... */ }
+    
 private:
-  Singleton()  = default;
-  ~Singleton() = default;
-  // Deleted members
-  Singleton(Singleton const&) = delete;
-  Singleton(Singleton&&) /**/ = delete;
-  Singleton& operator=(Singleton const&) = delete;
-  Singleton& operator=(Singleton&&) /**/ = delete;
+    Singleton()  = default;
+    ~Singleton() = default;
+    // Deleted members
+    Singleton(Singleton const&) = delete;
+    Singleton(Singleton&&) /**/ = delete;
+    Singleton& operator=(Singleton const&) = delete;
+    Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
 // ...
@@ -59,30 +60,30 @@ Or, pour éviter toute duplication de code, il est possible (et conseillé !) d'
 template<class T>
 class Singleton {
 public:
-  static T& instance() {
-    static T inst{};
-    return inst;
-  }
+    static T& instance() {
+        static T inst{};
+        return inst;
+    }
   
 protected:
-  Singleton()  = default;
-  ~Singleton() = default;
+    Singleton()  = default;
+    ~Singleton() = default;
 
 private:
-  // Deleted members
-  Singleton(Singleton const&) = delete;
-  Singleton(Singleton&&) /**/ = delete;
-  Singleton& operator=(Singleton const&) = delete;
-  Singleton& operator=(Singleton&&) /**/ = delete;
+    // Deleted members
+    Singleton(Singleton const&) = delete;
+    Singleton(Singleton&&) /**/ = delete;
+    Singleton& operator=(Singleton const&) = delete;
+    Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
 class Foo final {
 public:
-  Foo()  = default;
-  ~Foo() = default;
+    Foo()  = default;
+    ~Foo() = default;
   
-  void foo() { /* ... */ }
-  void bar() { /* ... */ }
+    void foo() { /* ... */ }
+    void bar() { /* ... */ }
 };
 
 using SingleFoo = Singleton<Foo>;
@@ -119,32 +120,34 @@ class CRTP_Derived : public CRTP_Base<CRTP_Derived>
 template<class T>
 class Singleton {
 public:
-  static T& instance() {
-    static T inst{};
-    return inst;
-  }
+    static T& instance() {
+        static T inst{};
+        return inst;
+    }
+
 protected:
-  // Defaulted members
-  /*   */  Singleton() = default;
-  virtual ~Singleton() = default;
+    // Defaulted members
+    /*   */  Singleton() = default;
+    virtual ~Singleton() = default;
+
 private:
-  // Deleted members
-  Singleton(Singleton const&) = delete;
-  Singleton(Singleton&&) /**/ = delete;
-  Singleton& operator=(Singleton const&) = delete;
-  Singleton& operator=(Singleton&&) /**/ = delete;
+    // Deleted members
+    Singleton(Singleton const&) = delete;
+    Singleton(Singleton&&) /**/ = delete;
+    Singleton& operator=(Singleton const&) = delete;
+    Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
 class Foo final : public Singleton<Foo>{
     friend class Singleton<Foo>;
 private:
-  // ...
+    // ...
 
-  Foo() = default;
+    Foo() = default;
 };
 
-int main(){
-  const auto& foo = Foo::instance();
-  (void)foo;
+int main() {
+    const auto& foo = Foo::instance();
+    (void)foo;
 }
 ```
