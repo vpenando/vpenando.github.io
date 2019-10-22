@@ -16,10 +16,10 @@ En programmation fonctionnelle, il existe la notion de pattern matching :
 ```ml
 (* ici en F# *)
 let match_with_42 x =
-  match x with
-  | 42 -> printfn "X vaut 42 !"         (* "si x est égal à 42" *)
-  | _  -> printfn "X vaut autre chose"  (* "sinon" *)
-  ;;
+    match x with
+    | 42 -> printfn "X vaut 42 !"         (* "si x est égal à 42" *)
+    | _  -> printfn "X vaut autre chose"  (* "sinon" *)
+    ;;
 ```
 Cette instruction est fortement similaire au `switch` que nous avons dans la plupart des langages, comme ici en C# :
 ```cs
@@ -36,7 +36,7 @@ void MatchWith42(int x) {
 Néanmoins, contrairement au `switch` que nous connaissons, le pattern matching permet de décomposer des entités, comme par exemple :
 ```ml
 (*
- * Cette fonction renvoie une valeur optionnelle :
+ * cette fonction renvoie une valeur optionnelle :
  * 'Some X' ou 'None'
  *)
 let head_of_list ls =
