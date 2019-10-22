@@ -155,7 +155,7 @@ Note that we now return a `'a option` instead of `'a`. This allows us to cover t
 ```ml
 type 'a result =
     | Success of 'a
-    | OperatorNotSupportedError of string
+    | UnsupportedOperatorError of string
     | InvalidOperationError of string
     ;;
 ```
@@ -167,6 +167,6 @@ let evalIntOperation op val1 val2 =
     match op with
     (* ... *)
     | Div -> if val2 <> 0 then Success (val1 / val2) else InvalidOperationError "Dividing by zero"
-    | _   -> OperatorNotSupportedError "This operator is not supported for type 'int'"
+    | _   -> UnsupportedOperatorError "This operator is not supported for type 'int'"
     ;;
 
