@@ -35,13 +35,15 @@ void MatchWith42(int x) {
 ```
 Néanmoins, contrairement au `switch` que nous connaissons, le pattern matching permet de décomposer des entités, comme par exemple :
 ```ml
-(* cette fonction renvoie une valeur optionnelle :
- * 'Some X' ou 'None' *)
+(*
+ * Cette fonction renvoie une valeur optionnelle :
+ * 'Some X' ou 'None'
+ *)
 let head_of_list ls =
-  match ls with
-  | []   -> None    (* si la liste est vide, on renvoie une valeur nulle *)
-  | x::_ -> Some x  (* sinon, on renvoie son premier élément, ici x *)
-  ;;
+    match ls with
+    | []   -> None    (* si la liste est vide, on renvoie une valeur nulle *)
+    | x::_ -> Some x  (* sinon, on renvoie son premier élément, ici x *)
+    ;;
 ```
 
 ---
@@ -72,11 +74,11 @@ var contains10 = TupleContains(tuple, 10);
 Equivalent en F# :
 ```ml
 let tuple_contains tup value =
-  match tup with
-  | (value, _) -> true
-  | (_, value) -> true
-  | _ -> false
-  ;;
+    match tup with
+    | (value, _) -> true
+    | (_, value) -> true
+    | _ -> false
+    ;;
 ```
 Plus puissante et plus concise qu'un `switch` habituel (plus de `case`, `break`, ...), l'*expression switch* permet aisément d'effectuer des comparaisons peu triviales auparavant.
 
