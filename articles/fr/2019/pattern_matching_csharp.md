@@ -21,7 +21,7 @@ let match_with_42 x =
     | _  -> printfn "X vaut autre chose"  (* "sinon" *)
     ;;
 ```
-Cette instruction est fortement similaire au `switch` que nous avons dans la plupart des langages, comme ici en C# :
+Cette fonctionnalité est fortement similaire au `switch` que nous avons dans la plupart des langages, comme ici en C# :
 ```cs
 void MatchWith42(int x) {
     switch (x) {
