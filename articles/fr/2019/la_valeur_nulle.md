@@ -59,7 +59,7 @@ int? toto = null;  // ok : "toto" est de type Nullable<int>
 Paradoxalement, C# 6 a permis l'arrivée de l'opérateur `?.` (aka Null Propagation Operator), qui empêche le code suivant de planter :
 ```cs
 class Foo {
-    public string Bar { get; }
+    public Bar Bar { get; }
     // ...
 }
 
