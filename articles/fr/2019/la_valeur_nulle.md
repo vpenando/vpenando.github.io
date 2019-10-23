@@ -143,7 +143,7 @@ myFunction maybe =
     Nothing -> -- autre chose...
 ```
 Dans la même logique que `option`, `Maybe` pourrait être implémenté ainsi :
-```ml
+```elm
 type Maybe a
   = Just a
   | Nothing
