@@ -136,7 +136,7 @@ type 'a option =
   ;;
 ```
 Elm dispose d'un mécanisme similaire avec le type `Maybe`, acceptant les valeurs `Just quelquechose` et `Nothing` :
-```sql
+```elm
 myFunction maybe =
   case maybe of
     Just value -> -- quelque chose...
