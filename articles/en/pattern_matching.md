@@ -115,7 +115,7 @@ let evalOperation op val1 val2 =
   
 let rec computeValue = function
     | Literal literalValue -> literalValue
-    | Computed(op, n1, n2) -> evalOperation op (computeValue n1) (computeValue n2)
+    | Computed(op, v1, v2) -> evalOperation op (computeValue v1) (computeValue v2)
     ;;
 ```
 We can now resolve computations like:
