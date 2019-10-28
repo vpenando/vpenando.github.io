@@ -150,6 +150,13 @@ let evalBoolOperation op val1 val2 =
     | Xor -> Some (val1 <> val2)
     | _   -> None (* Unsupported *)
     ;;
+    
+type typedValue =
+    | Int of int
+    | Float of float
+    | Bool of bool
+    | String of string
+    ;;
 ```
 Note that we now return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operations. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation. We could also create a type that represents the result:
 ```ml
