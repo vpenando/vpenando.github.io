@@ -5,7 +5,7 @@
 ---
 
 ### 1. What is pattern matching?
-In many languages (like C++, C, C#...), we have the `switch` structure that allows us to test a variable:
+In many languages (like C++, C, C#...), we have the `switch` structure that allows us to test a value:
 ```cs
 void testMyVariable(int variable) {
     switch (variable) {
@@ -92,7 +92,7 @@ Another use of pattern matching could be to resolve successive computations.
 Simple example:
 ```ml
 (* Accepted operators: +, -, * and / *)
-type binaryOperator =
+type binaryOperation =
     | Add
     | Sub
     | Mul
@@ -102,7 +102,7 @@ type binaryOperator =
 (* A value can be a literal one (ex: 42) or computed (ex: 42 * 2) *)
 type 'a value =
     | Literal of 'a
-    | Computed of binaryOperator * 'a value * 'a value
+    | Computed of binaryOperation * 'a value * 'a value
     ;;
   
 let evalOperation op val1 val2 =
@@ -122,7 +122,7 @@ We can now resolve computations like:
 ```ml
 let result = computeValue (Computed(Sub, (Computed(Add, Literal 1, Literal 2)), Literal 2));;
 ```
-This is the first step of writing a minimalist interpreter! We can then extend it by adding other binary operators (`Mod`, `Or`, `And`, `Xor`, ...) and unary operators (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
+This is the first step of writing a minimalist interpreter! We can then extend it by adding other binary operations (`Mod`, `Or`, `And`, `Xor`, ...) and unary operations (`Not` *-for booleans-*, `Plus`, `Minus`, ...) and then support them in `evalOperation`. It's also possible to have a function for each type:
 ```ml
 let evalIntOperation op val1 val2 =
     match op with
@@ -151,11 +151,11 @@ let evalBoolOperation op val1 val2 =
     | _   -> None (* Unsupported *)
     ;;
 ```
-Note that we now return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operators. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation. We could also create a type that represents the result:
+Note that we now return a `'a option` instead of `'a`. This allows us to cover the case of unsupported operations. If `evalXXXOperation` returns `None`, we know that we tried to compute an invalid operation. We could also create a type that represents the result:
 ```ml
 type 'a result =
     | Success of 'a
-    | UnsupportedOperatorError of string
+    | UnsupportedOperationError of string
     | InvalidOperationError of string
     ;;
 ```
@@ -167,6 +167,6 @@ let evalIntOperation op val1 val2 =
     match op with
     (* ... *)
     | Div -> if val2 <> 0 then Success (val1 / val2) else InvalidOperationError "Dividing by zero"
-    | _   -> UnsupportedOperatorError "This operator is not supported for type 'int'"
+    | _   -> UnsupportedOperationError "This operation is not supported for type 'int'"
     ;;
 
