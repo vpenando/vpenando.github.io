@@ -18,9 +18,11 @@
 ### Supprimer des éléments selon un prédicat
 ```cpp
 std::vector<int> vec = { 1, 2, 3, 4, 5 };
-const auto pred = [](auto i) -> bool { return i < 5; };
-const auto begin = std::remove_if(vec.begin(), vec.end(), pred);
-vec.erase(begin, vec.end());
+const auto predicate = [](auto i) -> bool { return i < 5; };
+vec.erase(
+    std::remove_if(vec.begin(), vec.end(), predicate),
+    vec.end()
+);
 ```
 
 ---
@@ -28,9 +30,7 @@ vec.erase(begin, vec.end());
 ### Supprimer l'élément situé à l'index `n`
 ```cpp
 std::vector<int> vec = { 1, 2, 3, 4, 5 };
-const auto idx = 2;
-assert(idx < vec.size() && "Out of bounds");
-std::swap(vec.back(), vec[idx]);
+std::swap(vec.back(), vec[2]);
 vec.pop_back();
 ```
 
