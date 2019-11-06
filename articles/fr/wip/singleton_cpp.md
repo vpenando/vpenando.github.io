@@ -135,9 +135,12 @@ private:
 
 class Foo final: public Singleton<Foo> {
     friend class Singleton<Foo>;
+    
+public:
+    void foo();
+    void bar();
+    
 private:
-    // ...
-
     Foo() = default;
 };
 
