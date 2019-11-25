@@ -133,9 +133,9 @@ private:
     Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
+
 class Foo final: public Singleton<Foo> {
-    friend class Singleton<Foo>;
-    
+    friend class Singleton<Foo>;  // Notez la relation d'amitié
 public:
     void foo();
     void bar();
@@ -143,9 +143,4 @@ public:
 private:
     Foo() = default;
 };
-
-int main() {
-    const auto& foo = Foo::instance();
-    (void)foo;
-}
 ```
