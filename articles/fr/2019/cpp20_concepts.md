@@ -13,9 +13,7 @@
 
 ```cpp
 template<typename T>
-concept bool Integral() {
-    return std::is_integral<T>::value;
-}
+concept Integral = std::is_integral<T>::value;
 
 void foo(Integral i) {
     std::cout << i;
