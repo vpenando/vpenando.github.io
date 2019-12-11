@@ -21,3 +21,5 @@ void foo(Integral i) {
     std::cout << i;
 }
 ```
+
+* Invariants vérifiés par le type lui-même
