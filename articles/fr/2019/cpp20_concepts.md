@@ -12,8 +12,12 @@
 ### Introduction
 
 ```cpp
-template<typename T>
-concept Integral = std::is_integral<T>::value;
+template<class T>
+concept Integral = std::is_integral_v<T>;
+
+// plutôt que :
+template<class T>
+using Integral = typename std::enable_if<std::is_integral_v<T>, T>::type;
 
 void foo(Integral i) {
     std::cout << i;
