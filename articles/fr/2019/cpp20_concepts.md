@@ -17,7 +17,7 @@ concept Integral = std::is_integral_v<T>;
 
 // plutôt que :
 template<class T>
-using Integral = typename std::enable_if<std::is_integral_v<T>, T>::type;
+using Integral = std::enable_if_t<std::is_integral_v<T>, T>;
 
 void foo(Integral i) {
     std::cout << i;
