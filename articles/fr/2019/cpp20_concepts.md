@@ -31,7 +31,8 @@ void foo(Integral i) {
 template<class T>
 using Integral = std::enable_if_t<std::is_integral_v<T>, T>;
 
-void foo(Integral i) {
+template<class T>
+void foo(Integral<T> i) {
     std::cout << i;
 }
 ```
