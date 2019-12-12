@@ -8,19 +8,15 @@
 ---
 
 ### Sommaire
-* [Introduction](#introduction)
-* [Un singleton, c'est quoi ?](#singleton)
+* [Introduction - Un singleton, c'est quoi ?](#singleton)
 * [Implémentation naïve](#implementation_naive)
 * [Implémentation avec CRTP](#implementation_crtp)
 * [Conclusion](#conclusion)
 
 ---
 
-#### <a name="singleton">Introduction</a>
-
----
-
-#### <a name="singleton">Un singleton, c'est quoi ?</a>
+#### <a name="singleton">Introduction - Un singleton, c'est quoi ?</a>
+Un singleton est une classe dont il n'existe une seule instance, et qui expose une méthode ou propriété publique et statique afin d'y accéder.
 
 ---
 
@@ -155,7 +151,7 @@ Ainsi, la classe `Foo` :
 * Ne peut pas être instanciée n'importe où (grâce à son constructeur privé) ;
 * Ne permet pas de construction par copie ou déplacement (via les constructeurs supprimés de `Singleton`).
 
-Nous avons donc un singleton qui expose les bonnes restrictions afin de remplir au mieux son rôle.
+Nous avons donc ici un singleton qui expose les bonnes restrictions afin de remplir au mieux son rôle.
 
 ---
 
