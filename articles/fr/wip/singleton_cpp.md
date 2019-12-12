@@ -12,6 +12,7 @@
 * [Un singleton, c'est quoi ?](#singleton)
 * [Implémentation naïve](#implementation_naive)
 * [Implémentation avec CRTP](#implementation_crtp)
+* [Conclusion](#conclusion)
 
 ---
 
@@ -153,3 +154,10 @@ Ainsi, la classe `Foo` :
 * Expose l'interface publique de `Singleton` ;
 * Ne peut pas être instanciée n'importe où (grâce à son constructeur privé) ;
 * Ne permet pas de construction par copie ou déplacement (via les constructeurs supprimés de `Singleton`).
+
+Nous avons donc un singleton qui expose les bonnes restrictions afin de remplir au mieux son rôle.
+
+---
+
+#### <a name="conclusion">Conclusion</a>
+Pour résumer, le CRTP, bien que déroutant au premier abord, est probablement la manière la plus efficace pour implémenter un singleton.
