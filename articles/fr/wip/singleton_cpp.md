@@ -160,4 +160,4 @@ Nous avons donc un singleton qui expose les bonnes restrictions afin de remplir 
 ---
 
 #### <a name="conclusion">Conclusion</a>
-Pour résumer, le CRTP, bien que déroutant au premier abord, est probablement la manière la plus efficace pour implémenter un singleton.
+Pour résumer, le CRTP, bien que déroutant au premier abord, est probablement la manière la plus efficace pour implémenter un singleton. En effet, il permet d'éviter de dupliquer inutilement du code et d'ajouter simplement l'interface d'un singleton à une classe.
