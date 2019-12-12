@@ -16,7 +16,7 @@
 ---
 
 #### <a name="singleton">Introduction - Un singleton, c'est quoi ?</a>
-Un singleton est une classe dont il n'existe une seule instance, et qui expose une méthode ou propriété publique et statique afin d'y accéder.
+Un singleton est une classe dont il n'existe qu'une seule instance, et qui expose une méthode ou propriété publique et statique afin d'y accéder. Il s'agit donc d'une forme de variable globale, mais version POO.
 
 ---
 
