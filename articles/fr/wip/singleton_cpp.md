@@ -104,14 +104,17 @@ Pour paraphraser Wikipédia :
 
 Soit :
 ```cpp
-template<class Derived>
-class CRTP_Base {
+template<class T>
+class Base {
+public:
+    void foo();
+    void bar();
 };
 
-class CRTP_Derived: public CRTP_Base<CRTP_Derived> {
+class Derived: public Base<Derived> {
 };
 ```
-Donc, dans le cas d'un singleton :
+Dans le cas d'un singleton, l'application ressemblerait à ceci :
 ```cpp
 template<class T>
 class Singleton {
@@ -126,21 +129,27 @@ protected:
     virtual ~Singleton() = default;
 
 private:
-    // Deleted members
     Singleton(Singleton const&) = delete;
     Singleton(Singleton&&) /**/ = delete;
     Singleton& operator=(Singleton const&) = delete;
     Singleton& operator=(Singleton&&) /**/ = delete;
 };
 
-
 class Foo final: public Singleton<Foo> {
     friend class Singleton<Foo>;  // Notez la relation d'amitié
+                                  // afin de permettre l'appel à Foo::Foo() depuis Singleton
 public:
     void foo();
     void bar();
+    
+    // Héritée :
+    //static Foo instance();
     
 private:
     Foo() = default;
 };
 ```
+Ainsi, la classe `Foo` :
+* Expose l'interface publique de `Singleton` ;
+* Ne peut pas être instanciée n'importe où (grâce à son constructeur privé) ;
+* Ne permet pas de construction par copie ou déplacement (via les constructeurs supprimés de `Singleton`).
