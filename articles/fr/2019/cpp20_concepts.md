@@ -26,3 +26,7 @@ void foo(Integral i) {
 
 * Invariants vérifiés par le type lui-même
 * GCC : `-std=c++2a -fconcepts`
+
+---
+
+### Concepts vs std::enable_if
