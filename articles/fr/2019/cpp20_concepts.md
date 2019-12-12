@@ -15,10 +15,6 @@
 template<class T>
 concept Integral = std::is_integral_v<T>;
 
-// plutôt que :
-template<class T>
-using Integral = std::enable_if_t<std::is_integral_v<T>, T>;
-
 void foo(Integral i) {
     std::cout << i;
 }
@@ -30,3 +26,12 @@ void foo(Integral i) {
 ---
 
 ### Concepts vs std::enable_if
+```cpp
+// plutôt que :
+template<class T>
+using Integral = std::enable_if_t<std::is_integral_v<T>, T>;
+
+void foo(Integral i) {
+    std::cout << i;
+}
+```
