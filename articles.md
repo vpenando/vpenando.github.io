@@ -2,6 +2,9 @@
 
 ### All posts:
 
+#### 2020
+- `2020/01/24`: [(FR) Réflexion - Implémentation d'un singleton en C++](articles/fr/2020/singleton_cpp.md) `oop` `c++` `good-practices`
+
 #### 2019
 - `2019/11/18`: [(FR) Analysons le microprocesseur MOS Technology 6502](articles/fr/2019/6502.md) `asm`
 - `2019/10/16`: [(FR) Le RAII, qu'est-ce que c'est ?](articles/fr/2019/raii.md) `oop` `c++` `good-practices`
