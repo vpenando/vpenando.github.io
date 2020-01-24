@@ -6,7 +6,7 @@
 
 Introduction
 ---
-As you certainly know, Python is a dynamically, implicitly typed language. Thats means that this code is valid:
+As you certainly know, Python is a dynamically, implicitly typed language. That means that this code is valid:
 ```py
 def print_value(value):
     print(value)
