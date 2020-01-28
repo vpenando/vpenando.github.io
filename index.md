@@ -1,13 +1,13 @@
 ## Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
 
-### Old dev blog
+### Old dev blog:
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Coming soon:
 - *(FR) Les interfaces en Go*
 - *(FR) C++ - Amusons-nous avec les variadic templates*
 
-### Latest posts
+### Latest posts:
 - `2020/01/24`: [(FR) Réflexion - Implémentation d'un singleton en C++](articles/fr/2020/singleton_cpp.md) `oop` `c++` `good-practices`
 - `2019/11/18`: [(FR) Analysons le microprocesseur MOS Technology 6502](articles/fr/2019/6502.md) `asm`
 - `2019/10/16`: [(FR) Le RAII, qu'est-ce que c'est ?](articles/fr/2019/raii.md) `oop` `c++` `good-practices`
