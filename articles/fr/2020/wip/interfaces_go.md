@@ -34,7 +34,7 @@ Pour ce faire, créons la méthode `Greet` :
 import "fmt"
 
 func (self Foo) Greet() {
-    fmt.Printf("Hello, I'm %s!", "Bob")
+    fmt.Printf("Hello, I'm %s!", self.Name)
 }
 ```
 Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonction. Elle dispose d'un paramètre supplémentaire, le "receiver", ici nommé `self`. Il est possible de passer un "receiver" par valeur ou par pointeur :
