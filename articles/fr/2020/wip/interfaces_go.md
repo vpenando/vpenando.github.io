@@ -91,3 +91,4 @@ struct Base {}
 
 struct Child: Base {}  // <- invalide
 ```
+Sans pour autant aller dans le détail, il existe la notion d' "embedding" en Go, qui se rapproche de l'héritage. Plus d'informations [sur cette page](https://travix.io/type-embedding-in-go-ba40dd4264df).
