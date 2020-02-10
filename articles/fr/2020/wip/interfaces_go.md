@@ -40,6 +40,7 @@ type MyInterface interface {
     bar()
 }
 ```
+Ici, l'interface `MyInterface` expose deux méthodes, `foo` et `bar`. Les structures implémentant cette interface doivent donc exposer ces méthodes.
 
 ---
 
@@ -80,3 +81,13 @@ func (self *Foo) Baz() {
 La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger. De fait, on ne peut modifier l'instance courante que via le passage par pointeur.
 
 La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur.
+
+---
+
+### Implémenter une interface
+En Go, il n'existe pas d'héritage à proprement parler. Ainsi, contrairement à d'autres langages, il n'est pas possible de faire ceci :
+```go
+struct Base {}
+
+struct Child: Base {}  // <- invalide
+```
