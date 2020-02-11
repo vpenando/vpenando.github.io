@@ -53,20 +53,20 @@ Ici, l'interface `MyInterface` expose deux méthodes, `foo` et `bar`. Les struct
 ### Structures & méthodes
 Soit la structure suivante :
 ```go
-type Foo struct {
+type User struct {
     Name string
 }
 ```
 Nous aimerions pouvoir, par exemple, faire ceci :
 ```go
-foo := Foo{Name: "Bob"}
-foo.Greet()  // "Hello, I'm Bob!"
+bob := User{Name: "Bob"}
+bob.Greet()  // "Hello, I'm Bob!"
 ```
 Pour ce faire, créons la méthode `Greet` :
 ```go
 import "fmt"
 
-func (self Foo) Greet() {
+func (self User) Greet() {
     fmt.Printf("Hello, I'm %s!", self.Name)
 }
 ```
@@ -84,9 +84,9 @@ func (self *Foo) Baz() {
     // ...
 }
 ```
-La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger si l'objet occupe un grand espace mémoire. De fait, on ne peut modifier l'instance courante que via le passage par pointeur ; dans le cas d'un passage par valeur, on ne modifiera que sa copie.
+La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger si l'objet occupe un grand espace mémoire. De fait, on ne peut modifier l'instance courante que via le passage par pointeur ; dans le cas d'un passage par valeur, on ne modifiera que sa copie. (À quelques exceptions près, où la structure contient un pointeur)
 
-La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur.
+La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur. Nous n'avons donc pas besoin d'utiliser un opérateur comme `->` comme en C.
 
 ---
 
@@ -97,4 +97,28 @@ struct Base {}
 
 struct Child: Base {}  // <- invalide
 ```
-Sans pour autant aller dans le détail, il existe la notion d' "embedding" en Go, qui se rapproche de l'héritage. Plus d'informations [sur cette page](https://travix.io/type-embedding-in-go-ba40dd4264df).
+Sans pour autant aller dans le détail, il existe la notion d' "embedding" en Go, qui se rapproche de l'héritage. Plus d'informations sur [cette page](https://travix.io/type-embedding-in-go-ba40dd4264df).
+
+Pour implémenter (nous devrions dire "satisfaire") une interface, c'est donc extrêmement simple : il suffit que la structure expose les méthodes de l'interface !
+
+Exemple :
+```go
+type IUser interface {
+    Greet()  // nous déclarons une méthode 'Greet()'
+}
+
+type User struct {
+    Name string
+}
+
+func (self User) Greet() {
+    fmt.Printf("Hello, I'm %s!", self.Name)
+}
+```
+Et voilà ! Notre structure `User` satisfait bel et bien `IUser`.
+
+---
+
+### Conclusion
+
+Personnellement, je ne suis pas particulièrement adepte du fait de pouvoir implicitement implémenter une interface. Par habitude, j'aime, à la lecture d'une classe ou d'une structure, savoir quelles interfaces sont implémentées.
