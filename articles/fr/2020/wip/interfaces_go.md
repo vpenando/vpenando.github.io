@@ -29,12 +29,12 @@ class Foo: IFoo
 {
     // 'Foo' doit implémenter 'IFoo'
     
-    void Bar()
+    public void Bar()
     {
         // ...
     }
     
-    void Baz()
+    public void Baz()
     {
         // ...
     }
