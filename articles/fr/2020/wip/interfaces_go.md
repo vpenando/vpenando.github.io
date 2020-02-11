@@ -122,3 +122,5 @@ Et voilà ! Notre structure `User` satisfait bel et bien `IUser`.
 ### Conclusion
 
 Personnellement, je ne suis pas particulièrement adepte du fait de pouvoir implicitement implémenter une interface. Par habitude, j'aime, à la lecture d'une classe ou d'une structure, savoir quelles interfaces sont implémentées. Néanmoins, cela fait partie de l'ADN de Go, afin de garder sa simplicité et son expressivité, comme l'énonce la [documentation en ligne](https://golang.org/doc/faq#principles).
+
+Ce mécanisme est néanmoins très puissant, et, combiné avec la possibilité d'implémenter des méthodes pour *n'importe quel type* permet une énorme souplesse. Il devient alors possible de faire en sorte qu'un `int` implémente une interface donnée, par exemple !
