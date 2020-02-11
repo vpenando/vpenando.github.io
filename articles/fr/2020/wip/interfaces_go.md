@@ -7,7 +7,10 @@
 ### Sommaire
 
 ---
-En orienté objet, une interface est une structure déclarant des méthodes que devront exposer les classes l'implémentant. Il s'agit donc ni plus ni moins qu'un contrat.
+
+### Introduction
+---
+En orienté objet, une interface est une structure déclarant des méthodes (et attributs, dans le cas du C#) que devront exposer les classes l'implémentant.
 
 Exemple en C# :
 ```cs
@@ -33,7 +36,10 @@ class Foo: IFoo
     }
 }
 ```
-L'interface `IFoo` définit un contrat, que remplit `Foo` en implémentant ses méthodes `Bar` et `Baz`. La notion d'interface existe également en Go :
+Il s'agit donc ni plus ni moins qu'un contrat, où toute classe implémentant `IFoo` devra exposer son interface publique.
+L'interface `IFoo` définit un contrat, que remplit `Foo` en implémentant ses méthodes `Bar` et `Baz`.
+
+La notion d'interface existe également en Go :
 ```go
 type MyInterface interface {
     foo() int32
