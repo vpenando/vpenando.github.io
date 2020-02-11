@@ -14,7 +14,7 @@
 
 ### Introduction
 ---
-En orienté objet, une interface est une structure déclarant des méthodes (et attributs, dans le cas du C#) que devront exposer les classes l'implémentant.
+En orienté objet, une interface est une structure déclarant des méthodes (et propriétés, dans le cas du C#) que devront exposer les classes l'implémentant.
 
 Exemple en C# :
 ```cs
