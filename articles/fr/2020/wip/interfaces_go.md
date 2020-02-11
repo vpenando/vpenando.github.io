@@ -84,7 +84,7 @@ func (self *Foo) Baz() {
     // ...
 }
 ```
-La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger. De fait, on ne peut modifier l'instance courante que via le passage par pointeur.
+La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger si l'objet occupe un grand espace mémoire. De fait, on ne peut modifier l'instance courante que via le passage par pointeur ; dans le cas d'un passage par valeur, on ne modifiera que sa copie.
 
 La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur.
 
