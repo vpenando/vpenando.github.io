@@ -40,7 +40,7 @@ class Foo: IFoo
     }
 }
 ```
-Il ne s'agit donc ni plus ni moins qu'un contrat, où toute classe implémentant `IFoo` devra exposer son interface publique.
+Il ne s'agit donc ni plus ni moins que d'un contrat, où toute classe implémentant `IFoo` devra exposer son interface publique.
 L'interface `IFoo` définit un contrat, que remplit `Foo` en implémentant ses méthodes `Bar` et `Baz`.
 
 La notion d'interface existe également en Go :
