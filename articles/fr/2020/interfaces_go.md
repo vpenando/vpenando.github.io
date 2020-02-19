@@ -76,7 +76,7 @@ func (self User) Greet() {
 ```
 Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonction. Elle dispose d'un paramètre supplémentaire, le "receiver", ici nommé `self`. Il est possible de passer un "receiver" par valeur ou par pointeur :
 ```go
-struct Foo {}
+type Foo struct {}
 
 // par valeur
 func (self Foo) Bar() {
@@ -97,9 +97,9 @@ La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne chang
 ### Implémenter une interface
 En Go, il n'existe pas d'héritage à proprement parler. Ainsi, contrairement à d'autres langages, il n'est pas possible de faire ceci :
 ```go
-struct Base {}
+type Base struct {}
 
-struct Child: Base {}  // <- invalide
+type Child struct: Base {}  // <- invalide
 ```
 Sans pour autant aller dans le détail, il existe la notion d' "embedding" en Go, qui se rapproche de l'héritage. Plus d'informations sur [cette page](https://travix.io/type-embedding-in-go-ba40dd4264df).
 
