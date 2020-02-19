@@ -50,7 +50,7 @@ type MyInterface interface {
     bar()
 }
 ```
-Ici, l'interface `MyInterface` expose deux méthodes, `foo` et `bar`. Les structures implémentant cette interface doivent donc exposer ces méthodes.
+Ici, l'interface `MyInterface` expose deux méthodes, `foo` et `bar`. Les structures implémentant cette interface doivent donc faire de même.
 
 ---
 
