@@ -21,7 +21,7 @@ foo(42);     // int
 foo(3.14);   // double
 foo("foo");  // const char*
 ```
-Ici, la fonction `foo` accepte à peu près tous les types de paramètres, à condition qu'il existe une surcharche de `std::cout::operator<<` pour ceux-ci.
+Ici, la fonction `foo` accepte à peu près tous les types de paramètres, à condition qu'il existe une surcharche de `std::ostream::operator<<` pour ceux-ci.
 
 ---
 
@@ -50,7 +50,7 @@ template<class T, class ...TArgs>
 void foo(T const& value, TArgs&& ...args) {
     // version récursive
     foo(value);    // on appelle foo<T>
-    foo(args...);  // on rappelle foo<T, TArgs...>
+    foo(args...);  // on rappelle foo sans T
 }
 
 // et à l'usage :
@@ -71,19 +71,30 @@ void test_type() {
 Solution :
 ```cpp
 namespace impl {
+
+    /*
+     * 'is_any_of' teste récursivement chacun des types de 'TArgs' jusqu'à-ce que
+     * l'un d'eux corresponde à 'T' ou que l'on atteigne la fin de 'TArgs'.
+     */
     template<class T, unsigned N, class ...TArgs>
     struct is_any_of {
+    
+        // si l'on n'a pas encore atteint la fin de 'TArgs', cette variable vaut true
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
-        using conditional_type = typename std::conditional<
-            has_next_type,
-            is_any_of<T, N+1, TArgs...>,
-            std::false_type
+        
+        using condition_type = typename std::conditional<
+            has_next_type,                // existe-t-il encore un (N+1)-ième type ?
+            is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = 'is_any_of<T, N+1, TArgs...>'
+            std::false_type               // sinon, 'condition_type' = 'std::false_type'
         >::type;
-        using TArg1 = typename std::tuple_element<N, std::tuple<TArgs...> >::type;
+        
+        // N-ième type à tester
+        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
 
     public:
-        constexpr static auto value = std::is_same<T, TArg1>::value || conditional_type::value;
+        constexpr static auto value = std::is_same<T, NthType>::value || condition_type::value;
     };
+
 } // namespace impl
 
 template<class T, class ...Args>
