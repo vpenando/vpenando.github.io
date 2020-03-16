@@ -119,10 +119,11 @@ void test_type() {
 ```cpp
 namespace impl {
 
+    struct not_found {};
+    
     template<class T, unsigned N, class ...TArgs>
     struct _any_of {
-    
-    
+
         // N-ième type à tester
         using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
     
@@ -132,12 +133,12 @@ namespace impl {
     		typename std::conditional<
     			N+1 < sizeof...(TArgs),
     			_any_of<T, N + 1, TArgs...>,
-    			void
+    			not_found
     		>::type
     	>::type;
     
     	static_assert(
-            N < sizeof...(TArgs) && ! std::is_same<type, void>::value,
+            N < sizeof...(TArgs) && ! std::is_same<type, not_found>::value,
             "End of recursion: no matching type found"
         );
     };
