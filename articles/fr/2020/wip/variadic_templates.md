@@ -78,6 +78,7 @@ namespace impl {
      */
     template<class T, unsigned N, class ...TArgs>
     struct is_any_of {
+    private:
     
         // si l'on n'a pas encore atteint la fin de 'TArgs', cette variable vaut true
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
@@ -107,4 +108,41 @@ void test_type() {
     // nous voulons savoir si T est un int ou double, par exemple
     constexpr auto is_int_or_double = is_any_of<T, int, double>::value;
 }
+```
+
+
+
+---
+
+
+
+```cpp
+namespace impl {
+
+    template<class T, unsigned N, class ...TArgs>
+    struct _any_of {
+    
+    
+        // N-ième type à tester
+        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
+    
+    	using type = typename std::conditional<
+    		std::is_same<T, NthType>::value,
+    		T,
+    		typename std::conditional<
+    			N+1 < sizeof...(TArgs),
+    			_any_of<T, N + 1, TArgs...>,
+    			void
+    		>::type
+    	>::type;
+    
+    	static_assert(N < sizeof...(TArgs) && ! std::is_same<type, void>::value, "End of recursion: no matching type found");
+    };
+
+}
+
+template<class T, class ...TArgs>
+using _any_of = typename impl::_any_of<T, 0, TArgs...>::type;
+
+template<class T, class ...TArgs>
 ```
