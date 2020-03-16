@@ -119,29 +119,29 @@ void test_type() {
 ```cpp
 namespace impl {
 
-    struct not_found {};
-    
-    template<class T, unsigned N, class ...TArgs>
-    struct _any_of {
+	struct not_found {};
 
-        // N-ième type à tester
-        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
-    
-    	using type = typename std::conditional<
-    		std::is_same<T, NthType>::value,
-    		T,
-    		typename std::conditional<
-    			N+1 < sizeof...(TArgs),
-    			_any_of<T, N + 1, TArgs...>,
-    			not_found
-    		>::type
-    	>::type;
-    
-    	static_assert(
-            N < sizeof...(TArgs) && ! std::is_same<type, not_found>::value,
-            "End of recursion: no matching type found"
-        );
-    };
+	template<class T, unsigned N, class ...TArgs>
+	struct _any_of {
+
+		// N-ième type à tester
+		using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
+
+		using type = typename std::conditional <
+			std::is_same<T, NthType>::value,
+			T,
+			typename std::conditional<
+			N + 1 < sizeof...(TArgs),
+			_any_of<T, N + 1, TArgs...>,
+			not_found
+			> ::type
+			>::type;
+
+		static_assert(
+			N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
+			"End of recursion: no matching type found"
+			);
+	};
 
 }
 
@@ -149,4 +149,5 @@ template<class T, class ...TArgs>
 using _any_of = typename impl::_any_of<T, 0, TArgs...>::type;
 
 template<class T, class ...TArgs>
+using any_of = typename _any_of<T, TArgs...>::type;
 ```
