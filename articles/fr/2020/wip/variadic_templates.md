@@ -60,7 +60,7 @@ foo(3, ".", 14);
 ---
 
 ### Utilisations variées des variadic templates
-Par exemple, comment savoir si un type correspond à des types spécifiés ? Illustration :
+Par exemple, comment savoir si un type est le même que l'un des types d'un variadic template ? Illustration :
 ```cpp
 template<class T>
 void test_type() {
