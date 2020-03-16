@@ -136,7 +136,10 @@ namespace impl {
     		>::type
     	>::type;
     
-    	static_assert(N < sizeof...(TArgs) && ! std::is_same<type, void>::value, "End of recursion: no matching type found");
+    	static_assert(
+            N < sizeof...(TArgs) && ! std::is_same<type, void>::value,
+            "End of recursion: no matching type found"
+        );
     };
 
 }
