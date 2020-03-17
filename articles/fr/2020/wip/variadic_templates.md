@@ -60,7 +60,7 @@ foo(3, ".", 14);
 ---
 
 ### Utilisations variées des variadic templates
-Par exemple, comment savoir si un type est le même que l'un des types d'un variadic template ? Illustration :
+Par exemple, comment savoir si un type correspond à un autre parmi une liste de types spécifiés ? Illustration :
 ```cpp
 template<class T>
 void test_type() {
@@ -71,35 +71,37 @@ void test_type() {
 Solution :
 ```cpp
 namespace impl {
-
+    
     /*
      * 'is_any_of' teste récursivement chacun des types de 'TArgs' jusqu'à-ce que
      * l'un d'eux corresponde à 'T' ou que l'on atteigne la fin de 'TArgs'.
      */
     template<class T, unsigned N, class ...TArgs>
-    struct is_any_of {
-    private:
+    struct _is_any_of {
     
         // si l'on n'a pas encore atteint la fin de 'TArgs', cette variable vaut true
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
         
         using condition_type = typename std::conditional<
-            has_next_type,                // existe-t-il encore un (N+1)-ième type ?
-            is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = 'is_any_of<T, N+1, TArgs...>'
-            std::false_type               // sinon, 'condition_type' = 'std::false_type'
+            has_next_type,                 // existe-t-il encore un (N+1)-ième type ?
+            _is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = 'is_any_of<T, N+1, TArgs...>'
+            std::false_type                // sinon, 'condition_type' = 'std::false_type'
         >::type;
         
         // N-ième type à tester
-        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
+        using nth_type = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
 
     public:
-        constexpr static auto value = std::is_same<T, NthType>::value || condition_type::value;
+        constexpr static auto value = std::is_same<T, nth_type>::value || condition_type::value;
     };
 
 } // namespace impl
 
-template<class T, class ...Args>
-struct is_any_of: impl::is_any_of<T, 0u, Args...> {};
+template<class T, class ...TArgs>
+using is_any_of = impl::_is_any_of<T, 0, TArgs...>;
+
+template<class T, class ...TArgs>
+constexpr static auto is_any_of_v = is_any_of<T, TArgs...>::value;
 ```
 Et à l'usage :
 ```cpp
@@ -119,29 +121,28 @@ void test_type() {
 ```cpp
 namespace impl {
 
-	struct not_found {};
+    struct not_found {};
 
-	template<class T, unsigned N, class ...TArgs>
-	struct _any_of {
+    template<class T, unsigned N, class ...TArgs>
+    struct _any_of {
 
-		// N-ième type à tester
-		using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
+        // N-ième type à tester
+        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
 
-		using type = typename std::conditional <
-			std::is_same<T, NthType>::value,
-			T,
-			typename std::conditional<
-			N + 1 < sizeof...(TArgs),
-			_any_of<T, N + 1, TArgs...>,
-			not_found
-			> ::type
-			>::type;
+        using type = typename std::conditional <
+            std::is_same<T, NthType>::value,
+            T,
+            typename std::conditional<
+                N + 1 < sizeof...(TArgs),
+                _any_of<T, N + 1, TArgs...>,
+                not_found>::type
+        >::type;
 
-		static_assert(
-			N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
-			"End of recursion: no matching type found"
-			);
-	};
+        static_assert(
+        N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
+        "End of recursion: no matching type found"
+        );
+    };
 
 }
 
