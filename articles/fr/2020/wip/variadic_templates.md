@@ -78,7 +78,7 @@ namespace impl {
      */
     template<class T, unsigned N, class ...TArgs>
     struct _is_any_of {
-    
+    private:
         // si l'on n'a pas encore atteint la fin de 'TArgs', cette variable vaut true
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
         
