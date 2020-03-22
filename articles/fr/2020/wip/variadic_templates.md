@@ -34,7 +34,7 @@ Un bon exemple de l'utilisation des variadic template est la classe [`std::tuple
 Pour utiliser les variadic templates, la syntaxe est la suivante :
 ```cpp
 template<class ...TArgs>
-void bar(TArgs&& ...args) {
+void bar(TArgs ...args) {
     // ...
 }
 ```
@@ -49,8 +49,8 @@ void foo(T const& value) {
 template<class T, class ...TArgs>
 void foo(T const& value, TArgs&& ...args) {
     // version récursive
-    foo(value);    // on appelle foo<T>
-    foo(args...);  // on rappelle foo sans T
+    foo(value);                         // on appelle foo<T>
+    foo(std::forward<TArgs>(args)...);  // on rappelle foo sans T
 }
 
 // et à l'usage :
