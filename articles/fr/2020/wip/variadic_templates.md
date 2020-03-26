@@ -29,7 +29,7 @@ Ici, la fonction `foo` accepte à peu près tous les types de paramètres, à co
 Avec la norme C++11, arrivée en 2011, ont été ajoutés les variadic templates, permettant à une fonction, classe, ou structure de prendre un nombre indéfini de paramètres. (Depuis C++14, il est même possible d'utiliser les templates *-ainsi que les variadic templates-* conjointement avec une variable `constexpr`.)
 
 Ils viennent remplacer de façon moderne la syntaxe C très lourde à base de `...`, `va_list`, `va_start`, `va_arg` et `va_end`.
-Un bon exemple de l'utilisation des variadic template est la classe [`std::tuple`](https://en.cppreference.com/w/cpp/utility/tuple).
+Un bon exemple de l'utilisation des variadic templates est la classe [`std::tuple`](https://en.cppreference.com/w/cpp/utility/tuple).
 
 Pour utiliser les variadic templates, la syntaxe est la suivante :
 ```cpp
@@ -84,7 +84,7 @@ namespace impl {
         
         using condition_type = typename std::conditional<
             has_next_type,                 // existe-t-il encore un (N+1)-ième type ?
-            _is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = 'is_any_of<T, N+1, TArgs...>'
+            _is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = '_is_any_of<T, N+1, TArgs...>'
             std::false_type                // sinon, 'condition_type' = 'std::false_type'
         >::type;
         
@@ -92,7 +92,7 @@ namespace impl {
         using nth_type = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
 
     public:
-        constexpr static auto value = std::is_same<T, nth_type>::value || condition_type::value;
+        constexpr static auto value = std::is_same_v<T, nth_type> || condition_type::value;
     };
 
 } // namespace impl
@@ -100,6 +100,7 @@ namespace impl {
 template<class T, class ...TArgs>
 using is_any_of = impl::_is_any_of<T, 0, TArgs...>;
 
+// version C++17, avec le suffixe "_v"
 template<class T, class ...TArgs>
 constexpr static auto is_any_of_v = is_any_of<T, TArgs...>::value;
 ```
@@ -127,20 +128,20 @@ namespace impl {
     struct _any_of {
 
         // N-ième type à tester
-        using NthType = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
+        using nth_type = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
 
         using type = typename std::conditional <
-            std::is_same<T, NthType>::value,
+            std::is_same<T, nth_type>::value,
             T,
             typename std::conditional<
                 N + 1 < sizeof...(TArgs),
-                _any_of<T, N + 1, TArgs...>,
+                _any_of<T, N+1, TArgs...>,
                 not_found>::type
         >::type;
 
         static_assert(
-        N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
-        "End of recursion: no matching type found"
+            N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
+            "End of recursion: no matching type found"
         );
     };
 
