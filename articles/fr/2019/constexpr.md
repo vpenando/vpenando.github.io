@@ -103,16 +103,7 @@ constexpr size_t fac(size_t value) noexcept {
 // et à l'usage :
 constexpr auto fac5 = fac(5);
 ```
-Et, mieux encore, une fonction avec un template :
-```cpp
-template<class T>
-constexpr T fac(T value) noexcept {
-  return (value == 0) ? 1 : value * fac(value - 1);
-}
-
-// et à l'usage :
-constexpr auto fac5 = fac<size_t>(5);
-```
+Et, mieux encore, on peut également créer une fonction `constexpr` avec un template !
 
 ---
 
