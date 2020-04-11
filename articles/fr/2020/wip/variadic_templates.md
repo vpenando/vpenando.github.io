@@ -62,7 +62,7 @@ foo(3, ".", 14);
 foo(".", 14);
 foo(14);
 ```
-Vous l'aurez remarqué, le dernier appel n'attend qu'un seul paramètre ; c'est là que la première version de `foo` (sans `TArgs`) est appelée.
+À chacun de ceux-ci, un appel unitaire à `foo` est effectué.
 
 ---
 
