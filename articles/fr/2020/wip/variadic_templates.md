@@ -56,6 +56,13 @@ void foo(T const& value, TArgs&& ...args) {
 // et à l'usage :
 foo(3, ".", 14);
 ```
+Concrètement, les appels successifs à `foo` sont les suivants :
+```
+foo(3, ".", 14);
+foo(".", 14);
+foo(14);
+```
+Vous l'aurez remarqué, le dernier appel n'attend qu'un seul paramètre ; c'est là que la première version de `foo` (sans `TArgs`) est appelée.
 
 ---
 
@@ -109,7 +116,7 @@ Et à l'usage :
 template<class T>
 void test_type() {
     // nous voulons savoir si T est un int ou double, par exemple
-    constexpr auto is_int_or_double = is_any_of<T, int, double>::value;
+    constexpr auto is_int_or_double = is_any_of_v<T, int, double>;
 }
 ```
 
