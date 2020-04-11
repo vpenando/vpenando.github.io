@@ -57,7 +57,7 @@ void foo(T const& value, TArgs&& ...args) {
 foo(3, ".", 14);
 ```
 Concrètement, les appels successifs à `foo` sont les suivants :
-```
+```cpp
 foo(3, ".", 14);
 foo(".", 14);
 foo(14);
