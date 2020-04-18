@@ -75,6 +75,8 @@ void test_type() {
     constexpr auto is_int_or_double = ???
 }
 ```
+Oui, nous pourrions utiliser `std::is_same`, mais ça n'est pas le but de l'exercice.
+
 Solution :
 ```cpp
 namespace impl {
@@ -125,38 +127,3 @@ void test_type() {
 ---
 
 
-
-```cpp
-namespace impl {
-
-    struct not_found {};
-
-    template<class T, unsigned N, class ...TArgs>
-    struct _any_of {
-
-        // N-ième type à tester
-        using nth_type = typename std::tuple_element<N, std::tuple<TArgs...>>::type;
-
-        using type = typename std::conditional <
-            std::is_same<T, nth_type>::value,
-            T,
-            typename std::conditional<
-                N + 1 < sizeof...(TArgs),
-                _any_of<T, N+1, TArgs...>,
-                not_found>::type
-        >::type;
-
-        static_assert(
-            N < sizeof...(TArgs) && !std::is_same<type, not_found>::value,
-            "End of recursion: no matching type found"
-        );
-    };
-
-}
-
-template<class T, class ...TArgs>
-using _any_of = typename impl::_any_of<T, 0, TArgs...>::type;
-
-template<class T, class ...TArgs>
-using any_of = typename _any_of<T, TArgs...>::type;
-```
