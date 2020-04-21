@@ -69,8 +69,8 @@ Pour ce faire, créons la méthode `Greet` :
 ```go
 import "fmt"
 
-func (self User) Greet() {
-    fmt.Printf("Hello, I'm %s!", self.Name)
+func (user User) Greet() {
+    fmt.Printf("Hello, I'm %s!", user.Name)
 }
 ```
 Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonction. Elle dispose d'un paramètre supplémentaire, le "receiver", ici nommé `self`. Il est possible de passer un "receiver" par valeur ou par pointeur :
@@ -78,12 +78,12 @@ Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonct
 type Foo struct {}
 
 // par valeur
-func (self Foo) Bar() {
+func (foo Foo) Bar() {
     // ...
 }
 
 // par pointeur
-func (self *Foo) Baz() {
+func (foo *Foo) Baz() {
     // ...
 }
 ```
