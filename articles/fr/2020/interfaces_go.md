@@ -5,10 +5,10 @@
 ---
 
 ### Sommaire
-* Introduction
-* Structures & méthodes
-* Implémenter une interface
-* Conclusion
+* [Introduction](#introduction)
+* [Structures & méthodes](#structures--méthodes)
+* [Implémenter une interface](#implémenter-une-interface)
+* [Conclusion](#conclusion)
 
 ---
 
