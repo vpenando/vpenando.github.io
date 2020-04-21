@@ -13,7 +13,6 @@
 ---
 
 ### Introduction
----
 En orienté objet, une interface est une structure déclarant des méthodes (et propriétés, dans le cas du C#) que devront exposer les classes l'implémentant.
 
 Exemple en C# :
@@ -107,7 +106,7 @@ Pour implémenter (nous devrions dire "satisfaire") une interface, c'est donc ex
 
 Exemple :
 ```go
-type IUser interface {
+type Person interface {
     Greet()  // nous déclarons une méthode 'Greet()'
 }
 
@@ -115,11 +114,11 @@ type User struct {
     Name string
 }
 
-func (self User) Greet() {
-    fmt.Printf("Hello, I'm %s!", self.Name)
+func (p Person) Greet() {
+    fmt.Printf("Hello, I'm %s!", p.Name)
 }
 ```
-Et voilà ! Notre structure `User` satisfait bel et bien `IUser`.
+Et voilà ! Notre structure `User` satisfait bel et bien `Person`.
 
 ---
 
