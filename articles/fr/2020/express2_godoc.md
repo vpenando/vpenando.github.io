@@ -144,4 +144,4 @@ Voici donc ce à quoi ressemble la documentation de notre nouvelle fonction :
 
 <img src="images/quelconque.png" />
 
-Vous connaissez à présent les rudiments de godoc et êtes à même de documenter votre code Go !
+Vous connaissez à présent les rudiments de godoc et êtes à même de documenter votre code Go. Si vous souhaitez davantage de lecture, vous trouverez un article plus complet [ici](https://medium.com/@elliotchance/godoc-tips-tricks-cda6571549b).
