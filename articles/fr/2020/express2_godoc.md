@@ -14,6 +14,7 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 Au court de ce bref article, je vais présenter l'outil de génération de doc inclus avec Go, et comment l'utiliser. Rien de bien sorcier, vous verrez !
 
 <img src="images/gopher.png" align="center" />
+<br />
 <label align="center" >aaa</label>
 
 ---
