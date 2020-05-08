@@ -80,6 +80,15 @@ func Quelconque(param1 int, param2 string) {
     }
 }
 ```
+Pour documenter un type, rien de plus simple :
+```go
+// Foo est un type.
+type Foo struct {
+    Champ1 string // Documentation pour le champ 1
+    Champ2 int    // Documentation pour le champ 2
+}
+```
+Voilà, vous savez à présent écrire une documentation rudimentaire pour votre code Go !
 
 ---
 
@@ -126,7 +135,6 @@ $ godoc
 Nous pouvons alors consulter la documentation en nous rendant sur `localhost:6060`.
 
 ---
-
 
 Et voici ce à quoi ressemble la documentation de notre nouvelle fonction :
 
