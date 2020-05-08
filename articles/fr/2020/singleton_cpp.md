@@ -140,7 +140,7 @@ public:
     void bar();
     
     // Héritée :
-    //static Foo instance();
+    //static Foo& instance();
     
 private:
     Foo() = default;
