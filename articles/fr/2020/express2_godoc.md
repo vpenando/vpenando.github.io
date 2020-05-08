@@ -13,12 +13,12 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 
 Au court de ce bref article, je vais présenter l'outil de génération de doc inclus avec Go, et comment l'utiliser. Rien de bien sorcier, vous verrez !
 
-<img src="images/gopher.png" align="center" />
+<img src="images/gopher.png" style="align:center" />
 <br />
-<label text-align="center" >aaa</label>
+<label style="text-align:center" >aaa</label>
 
 ---
 
-### La documentation à l'ère paléolithique
-Il y a fort longtemps, lorsque la terre n'abritait pas encore l'humanité, écrire une doc était très fastidieux. Déjà parce que les dinosaures ne savaient pas écrire, mais surtout parce que l'on n'avait pas d'outil vraiment taillés pour.
+### La documentation à l'ère du jurassique
+Il y a fort longtemps, lorsque la terre n'abritait pas encore l'humanité, écrire une doc était très fastidieux. Déjà parce que les dinosaures ne savaient pas écrire, mais surtout parce que l'on n'avait pas d'outils vraiment taillés pour.
 Puis virent le jour des outils tels que [Doxygen](http://www.doxygen.nl/), permettant de générer une documentation à partir des commentaires contenus dans vos fichiers source.
