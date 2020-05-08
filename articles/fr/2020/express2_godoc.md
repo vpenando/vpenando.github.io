@@ -27,3 +27,20 @@ Puis virent le jour des outils tels que [Doxygen](http://www.doxygen.nl/), perme
 Certains langages de programmation (car c'est ce qui nous intéresse, dans le cas présent) embarquent des outils de génération de doc. C'est le cas de Go, dont nous allons parler ici.
 
 Go, né il y a une petite dizaine d'années, est le langage de programmation créé par Google pour répondre aux problématiques inhérentes à Google. Il a ensuite été démocratisé au fil des années, jusqu'à se hisser parmi [les langages les plus populaires](https://hackr.io/blog/best-programming-languages-to-learn-2020-jobs-future).
+
+Sa grande popularité s'explique par sa simplicité et son expressivité. Ces qualités font partie de l'ADN de Go, et son outil de génération de doc suit la même philosophie.
+
+---
+
+### Mise en pratique
+Avant tout, créons une fonction quelconque.
+```go
+func Quelconque() {
+    // ...
+}
+```
+Ajoutons-y quelques ingrédients, tels que des paramètres :
+```go
+func Quelconque(param1 int, param2 string) {
+    // ...
+}
