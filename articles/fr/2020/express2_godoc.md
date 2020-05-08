@@ -119,3 +119,15 @@ func ExampleQuelconque() {
    // Output: Ceci est une documentation très utile
 }
 ```
+Pour consulter godoc, il suffit de lancer dans un terminal :
+```shell
+$ godoc
+```
+Nous pouvons alors consulter la documentation en nous rendant sur `localhost:6060`.
+
+---
+
+
+Et voici ce à quoi ressemble la documentation de notre nouvelle fonction :
+
+<img src="images/quelconque.png" />
