@@ -21,6 +21,8 @@ Au court de ce bref article, je vais présenter l'outil de génération de doc i
 Il y a fort longtemps, lorsque la terre n'abritait pas encore l'humanité, écrire une doc était très fastidieux. Déjà parce que les dinosaures ne savaient pas écrire, mais surtout parce que l'on n'avait pas d'outils vraiment taillés pour.
 Puis virent le jour des outils tels que [Doxygen](http://www.doxygen.nl/), permettant de générer une documentation à partir des commentaires contenus dans vos fichiers source.
 
+Doxygen est un très bon outil (que j'utilise pour le C++), mais dans le cas de Go, il convient d'utiliser un outil plus moderne. Et comme dirait un certain personnage de Kaamelott : à godoc.
+
 ---
 
 ### Et aujourd'hui ?
@@ -28,7 +30,7 @@ Certains langages de programmation (car c'est ce qui nous intéresse, dans le ca
 
 Go, né il y a une petite dizaine d'années, est le langage de programmation créé par Google pour répondre aux problématiques inhérentes à Google. Il a ensuite été démocratisé au fil des années, jusqu'à se hisser parmi [les langages les plus populaires](https://hackr.io/blog/best-programming-languages-to-learn-2020-jobs-future).
 
-Sa grande popularité s'explique par sa simplicité et son expressivité. Ces qualités font partie de l'ADN de Go, et son outil de génération de doc suit la même philosophie.
+Sa grande popularité s'explique par sa simplicité et son expressivité. Ces qualités font partie de l'ADN de Go, et son outil de génération de doc, godoc, suit la même philosophie. Sa [documentation en ligne](https://golang.org/pkg/) a été créée avec godoc.
 
 ---
 
@@ -76,5 +78,44 @@ func Quelconque(param1 int, param2 string) {
     for i := 0; i < param1; i++ {
         fmt.Println(param2)
     }
+}
+```
+
+---
+
+### Mise en pratique (un tout petit peu) avancée
+Si vous avez un peu fouillé dans la doc de Go, vous avez probablement remarqué qu'il y a parfois des exemples de code ! C'est cool ça ! 
+Vous vous en doutez, il est bien entendu possible de le faire avec godoc !
+
+Néanmoins, cela n'est pas aussi simple que ce que l'on a vu au-dessus. Il me faut d'abord faire un bref apparté sur comment fonctionnent les tests en Go.
+
+Pour chaque fichier source, il est possible de créer des tests en créant un autre fichier, portant le même nom suivi du suffixe `_test`. Par exemple, si l'on crée `quelconque.go`, le fichier de tests associé sera nommé `quelconque_test.go`. Et c'est exactement ce que l'on va faire !
+
+`quelconque.go` :
+```go
+package quelconque
+
+import (
+    "fmt"
+)
+
+// Quelconque affiche N fois une chaîne de caractères donnée.
+// Exemple d'utilisation :
+//  Quelconque(42, "Bonjour !")
+func Quelconque(param1 int, param2 string) {
+    for i := 0; i < param1; i++ {
+        fmt.Println(param2)
+    }
+}
+```
+Pour créer un exemple de `Quelconque` qui sera affiché dans la doc, il faut créer une fonction d'exemple dans `quelconque_test.go`. Cette fonction doit s'appeler `ExampleQuelconque`, et son contenu sera affiché dans la doc. Pour afficher son output, il suffit d'y inclure un commentaire commençant par `Output:`.
+
+`quelconque_test.go` :
+```go
+package quelconque
+
+func ExampleQuelconque() {
+   Quelconque(1, "Ceci est une documentation très utile")
+   // Output: Ceci est une documentation très utile
 }
 ```
