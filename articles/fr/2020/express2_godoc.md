@@ -33,7 +33,7 @@ Sa grande popularité s'explique par sa simplicité et son expressivité. Ces qu
 ---
 
 ### Mise en pratique
-Avant tout, créons une fonction quelconque.
+Avant tout, créons une fonction quelconque :
 ```go
 func Quelconque() {
     // ...
@@ -44,3 +44,12 @@ Ajoutons-y quelques ingrédients, tels que des paramètres :
 func Quelconque(param1 int, param2 string) {
     // ...
 }
+```
+Enfin, implémentons-la !
+```go
+func Quelconque(param1 int, param2 string) {
+    for i := 0; i < param1; i++ {
+        fmt.Println(param2)
+    }
+ }
+ ```
