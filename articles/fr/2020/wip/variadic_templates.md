@@ -66,7 +66,7 @@ foo(14);
 
 ---
 
-### Utilisations variées des variadic templates
+### Mise en pratique
 Par exemple, comment savoir si un type correspond à un autre parmi une liste de types spécifiés ? Illustration :
 ```cpp
 template<class T>
@@ -81,10 +81,8 @@ Solution :
 ```cpp
 namespace impl {
     
-    /*
-     * 'is_any_of' teste récursivement chacun des types de 'TArgs' jusqu'à-ce que
-     * l'un d'eux corresponde à 'T' ou que l'on atteigne la fin de 'TArgs'.
-     */
+    // 'is_any_of' teste récursivement chacun des types de 'TArgs' jusqu'à-ce que
+    // l'un d'eux corresponde à 'T' ou que l'on atteigne la fin de 'TArgs'.
     template<class T, unsigned N, class ...TArgs>
     struct _is_any_of {
     private:
@@ -113,7 +111,9 @@ using is_any_of = impl::_is_any_of<T, 0, TArgs...>;
 template<class T, class ...TArgs>
 constexpr static auto is_any_of_v = is_any_of<T, TArgs...>::value;
 ```
-Et à l'usage :
+**Note -** `sizeof...(TArgs)` renvoie simplement le nombre de types contenus dans `TArgs`.
+
+À l'usage, notre `is_any_of_v` peut être employé comme suit :
 ```cpp
 template<class T>
 void test_type() {
