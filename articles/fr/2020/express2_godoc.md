@@ -136,6 +136,12 @@ Nous pouvons alors consulter la documentation en nous rendant sur `localhost:606
 
 ---
 
-Et voici ce à quoi ressemble la documentation de notre nouvelle fonction :
+### À quoi cela ressemble-t-il ?
+
+La documentation générée via godoc est au même format que la doc officielle de Go. Il s'agit donc d'un format compréhensible pour quiconque est familier avec la doc officielle.
+
+Voici donc ce à quoi ressemble la documentation de notre nouvelle fonction :
 
 <img src="images/quelconque.png" />
+
+Vous connaissez à présent les rudiments de godoc et êtes à même de documenter votre code Go !
