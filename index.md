@@ -3,7 +3,7 @@
 ### Old dev blog:
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
-### Coming soon:
+### Currently working on:
 - *(FR) C++ - Amusons-nous avec les variadic templates*
 
 ### Latest posts:
