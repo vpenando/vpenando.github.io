@@ -15,9 +15,10 @@ Au court de ce bref article, je vais présenter l'outil de génération de doc i
 
 <img src="images/gopher.png" align="center" />
 <br />
-<label align="center" >aaa</label>
+<label text-align="center" >aaa</label>
 
 ---
 
 ### La documentation à l'ère paléolithique
 Il y a fort longtemps, lorsque la terre n'abritait pas encore l'humanité, écrire une doc était très fastidieux. Déjà parce que les dinosaures ne savaient pas écrire, mais surtout parce que l'on n'avait pas d'outil vraiment taillés pour.
+Puis virent le jour des outils tels que [Doxygen](http://www.doxygen.nl/), permettant de générer une documentation à partir des commentaires contenus dans vos fichiers source.
