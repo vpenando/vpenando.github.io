@@ -132,7 +132,7 @@ Pour consulter godoc, il suffit de lancer dans un terminal :
 ```shell
 $ godoc
 ```
-Nous pouvons alors consulter la documentation en nous rendant sur `localhost:6060`.
+Nous pouvons alors consulter la documentation en nous rendant sur `localhost:6060`. Attention néanmoins, godoc se base sur [`GOPATH`](https://astaxie.gitbooks.io/build-web-application-with-golang/fr/01.2.html).
 
 ---
 
