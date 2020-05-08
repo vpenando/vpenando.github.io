@@ -13,12 +13,17 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 
 Au court de ce bref article, je vais présenter l'outil de génération de doc inclus avec Go, et comment l'utiliser. Rien de bien sorcier, vous verrez !
 
-<img src="images/gopher.png" style="align:center" />
-<br />
-<label style="text-align:center" >aaa</label>
+<img src="images/gopher.png" />
 
 ---
 
 ### La documentation à l'ère du jurassique
 Il y a fort longtemps, lorsque la terre n'abritait pas encore l'humanité, écrire une doc était très fastidieux. Déjà parce que les dinosaures ne savaient pas écrire, mais surtout parce que l'on n'avait pas d'outils vraiment taillés pour.
 Puis virent le jour des outils tels que [Doxygen](http://www.doxygen.nl/), permettant de générer une documentation à partir des commentaires contenus dans vos fichiers source.
+
+---
+
+### Et aujourd'hui ?
+Certains langages de programmation (car c'est ce qui nous intéresse, dans le cas présent) embarquent des outils de génération de doc. C'est le cas de Go, dont nous allons parler ici.
+
+Go, né il y a une petite dizaine d'années, est le langage de programmation créé par Google pour répondre aux problématiques inhérentes à Google. Il a ensuite été démocratisé au fil des années, jusqu'à se hisser parmi [les langages les plus populaires](https://hackr.io/blog/best-programming-languages-to-learn-2020-jobs-future).
