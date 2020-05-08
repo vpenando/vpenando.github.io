@@ -53,3 +53,28 @@ func Quelconque(param1 int, param2 string) {
     }
  }
  ```
+À présent, nous allons nous atteler à documenter cette fonction "à la Go". Cet outil fonctionne un peu comme Doxygen, énoncé plus haut ; tout se base sur les commentaires. Néanmoins, le commentaire doit commencer par le nom de la fonction.
+```go
+// Quelconque affiche N fois une chaîne de caractères donnée.
+func Quelconque(param1 int, param2 string) {
+    for i := 0; i < param1; i++ {
+        fmt.Println(param2)
+    }
+}
+```
+Pour insérer du code dans notre doc, il suffit simplement de le précéder d'un espace :
+```
+ceci n'est pas du code
+ ceci est du code
+```
+À l'usage :
+```go
+// Quelconque affiche N fois une chaîne de caractères donnée.
+// Exemple d'utilisation :
+//  Quelconque(42, "Bonjour !")
+func Quelconque(param1 int, param2 string) {
+    for i := 0; i < param1; i++ {
+        fmt.Println(param2)
+    }
+}
+```
