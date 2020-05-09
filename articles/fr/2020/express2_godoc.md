@@ -88,6 +88,8 @@ type Foo struct {
     Champ2 int    // Documentation pour le champ 2
 }
 ```
+Il convient néanmoins d'apporter une précision : il n'est pas utile de documenter les types et fonctions privés d'un module, car ceux-ci ne seront pas affichés dans la doc. Seule son interface publique sera réellement documentée.
+
 Voilà, vous savez à présent écrire une documentation rudimentaire pour votre code Go !
 
 ---
