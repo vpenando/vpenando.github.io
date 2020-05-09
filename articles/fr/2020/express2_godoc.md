@@ -65,7 +65,7 @@ func Quelconque(param1 int, param2 string) {
 }
 ```
 Pour insérer du code dans notre doc, il suffit simplement de le précéder d'un espace :
-```
+```go
 // ceci n'est pas du code
 //  ceci est du code
 ```
