@@ -80,7 +80,7 @@ func Quelconque(param1 int, param2 string) {
     }
 }
 ```
-Pour documenter un type, rien de plus simple :
+Bien entendu, les fonctions ne sont pas les seules structures que l'on peut documenter. Par exemple, pour documenter un type, rien de plus simple :
 ```go
 // Foo est un type.
 type Foo struct {
