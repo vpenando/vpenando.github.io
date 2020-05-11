@@ -7,6 +7,8 @@
 - `2020/02/11`: [(FR) Les interfaces en Go](articles/fr/2020/interfaces_go.md) `go` `golang`
 - `2020/01/24`: [(FR) Réflexion - Implémentation d'un singleton en C++](articles/fr/2020/singleton_cpp.md) `oop` `c++` `good-practices`
 
+---
+
 #### 2019
 - `2019/11/18`: [(FR) Analysons le microprocesseur MOS Technology 6502](articles/fr/2019/6502.md) `asm`
 - `2019/10/16`: [(FR) Le RAII, qu'est-ce que c'est ?](articles/fr/2019/raii.md) `oop` `c++` `good-practices`
@@ -16,6 +18,7 @@
 - `2019/02/04`: [(FR) La valeur nulle, un réel intérêt ?](articles/fr/2019/la_valeur_nulle.md) `good-practices`
 
 ---
+
 #### 2018
 - `2018/12/13`: [(FR) EXPRESS #1 - Comment ne pas casser la prod](articles/fr/2018/express1_script_prod.md) `good-practices`
 - `2018/09/22`: [(FR) `using namespace`, vraiment une mauvaise pratique ?](articles/fr/2018/using_namespace.md) `c++` `good-practices`
@@ -25,5 +28,6 @@
 - `2018/04/02`: [(FR) Amusons-nous avec la récursivité (F#)](articles/fr/2018/recursivite.md) `f#` `functional-programming`
 
 ---
+
 #### 2017
 - `2017/11/11`: [(FR) Réflexion - Application partielle de fonction en C++](articles/fr/2017/curryfication_cpp.md) `c++` `functional-programming`
