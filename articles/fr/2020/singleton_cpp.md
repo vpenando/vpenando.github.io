@@ -122,8 +122,8 @@ public:
     }
 
 protected:
-    /*   */  Singleton() = default;
-    virtual ~Singleton() = default;
+    Singleton() = default;
+    ~Singleton() = default;
 
 private:
     Singleton(Singleton const&) = delete;
