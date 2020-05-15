@@ -78,6 +78,7 @@ int value() {
   return i;
 }
 
+// à l'usage :
 const auto i1 = value();      // ok
 constexpr auto i2 = value();  // pas ok
 ```
