@@ -26,7 +26,7 @@ int SDL_BlitSurface(SDL_Surface*    src,
 
 int result = SDL_BlitSurface(src, srcrect, dst, dstrect);
 if (result = 0) {  // /!\ Erreur : un '=' ou un '!' a été oublié  /!\
-  //       ^  ici
+    //     ^  ici
 }
 ```
 Que se passe-t-il ici ? La variable `result`, quelle que soit sa valeur, est réassignée dans le `if` de manière à valoir 0. Ce faisant :
@@ -73,9 +73,9 @@ Dans le second cas, le pointeur n'est pas modifiable, mais on peut assigner une 
 Arrivé avec la norme C++11, le mot-clé `constexpr` permet quant à lui de déclarer des constantes évaluées à la compilation. Cependant, leurs valeurs doivent pouvoir être évaluées à la compilation. Un tel code n'est donc pas valide :
 ```cpp
 int value() {
-  int i = 0;
-  std::cin >> i;
-  return i;
+    int i = 0;
+    std::cin >> i;
+    return i;
 }
 
 // à l'usage :
@@ -98,7 +98,7 @@ C'est par ailleurs ainsi que sont définies des variables telles que [`std::is_s
 Enfin, une fonction peut également être `constexpr` !
 ```cpp
 constexpr size_t fac(size_t value) noexcept {
-  return (value == 0) ? 1 : value * fac(value - 1);
+    return (value == 0) ? 1 : value * fac(value - 1);
 }
 
 // et à l'usage :
@@ -117,14 +117,14 @@ Il existe également la version ~~paléolithique~~ "à l'ancienne" :
 Toutes les ocurrences de `SOME_CONSTANT` seront remplacées par la valeur associée, ici `42`.
 Néanmoins, l'option `#define` pose un certain nombre de problèmes :
 
-Dans l'exemple ci-dessus, `SOME_CONSTANT` est déclarée dans le scope global ; on ne peut donc pas redéfinir une variable avec le même nom. Ce soucis n'existe pas avec `constexpr` :
+Dans l'exemple ci-dessus, `SOME_CONSTANT` doit être déclarée dans le scope global ; on ne peut donc pas redéfinir une variable avec le même nom. Ce soucis n'existe pas avec `constexpr` :
 ```cpp
 namespace foo {
-  constexpr int CONSTANT = 42;
+    constexpr int CONSTANT = 42;
 } // namespace foo
 
 namespace bar {
-  constexpr int CONSTANT = 12;
+    constexpr int CONSTANT = 12;
 } // namespace bar
 
 // et à l'usage :
@@ -134,11 +134,11 @@ const auto bar_const = bar::CONSTANT;
 Ce qui induit que [le code suivant est valide](http://coliru.stacked-crooked.com/a/468fbad2c048f4c5) :
 ```cpp
 namespace foo {
-  #define FOO 42
+    #define FOO 42
 } // namespace foo
 
 int main() {
-  std::cout << FOO;  // 42
+    std::cout << FOO;  // 42
 }
 ```
 
