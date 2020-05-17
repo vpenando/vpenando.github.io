@@ -23,21 +23,21 @@ Ce mécanisme permet à `Child` d'hériter des propriétés (attributs et métho
 Exemple en C# :
 ```cs
 class Parent {
-  public Parent() {
-    // ...
-  }
+    public Parent() {
+        // ...
+    }
   
-  public void Foo() {
-    // ...
-  }
+    public void Foo() {
+        // ...
+    }
 }
 
 class Child : Parent {
-  public Child() : base() {
-    // ...
-  }
+    public Child() : base() {
+        // ...
+    }
   
-  // Child hérite naturellement de 'Foo'
+    // Child hérite naturellement de 'Foo'
 }
 ```
 Parallèlement, et dans une logique assez similaire, il existe la notion d'interface, que nous allons présenter dans la partie suivante.
@@ -54,15 +54,15 @@ Une interface peut être déclarée de manière comparable à une classe, except
 Exemple :
 ```cs
 interface IFileReader {
-  #region Properties
-  string Content { get; }
-  bool IsOpen { get; }
-  #endregion
+    #region Properties
+    string Content { get; }
+    bool IsOpen { get; }
+    #endregion
   
-  #region Methods
-  void Open(string filename);
-  void Close(); 
-  #endregion
+    #region Methods
+    void Open(string filename);
+    void Close(); 
+    #endregion
 }
 ```
 
@@ -73,31 +73,31 @@ Ainsi, toute classe implémentant l'interface `IFileReader` se doit d'implément
 Il sera alors possible d'avoir un code similaire à :
 ```cs
 class FileReader : IFileReader {
-  #region Public properties
-  public string Content { get; protected set; } = null;
-  public bool IsOpen { get; private set; } = false;
-  #endregion
+    #region Public properties
+    public string Content { get; protected set; } = null;
+    public bool IsOpen { get; private set; } = false;
+    #endregion
 
-  #region Private fields
-  private string content = null;
-  #endregion
+    #region Private fields
+    private string content = null;
+    #endregion
 
-  #region Public methods
-  public void Open(string filename) {
-    // ...
-  }
+    #region Public methods
+    public void Open(string filename) {
+        // ...
+    }
 
-  public void Close() {
-    // ...
-  }
-  #endregion
+    public void Close() {
+        // ...
+    }
+    #endregion
 }
 ```
 Et, à un autre endroit du code :
 
 ```cs
 void Foo(IFileReader reader) {
-  // ...
+    // ...
 }
 
 // ...
@@ -133,15 +133,15 @@ Pour ce faire, il convient d'utiliser des classes dites abstraites, c'est-à-dir
 Reprenons l'exemple de l'interface `IFileReader` :
 ```cs
 interface IFileReader {
-  #region Properties
-  string Content { get; }
-  bool IsOpen { get; }
-  #endregion
+    #region Properties
+    string Content { get; }
+    bool IsOpen { get; }
+    #endregion
   
-  #region Methods
-  void Open(string filename);
-  void Close(); 
-  #endregion
+    #region Methods
+    void Open(string filename);
+    void Close(); 
+    #endregion
 }
 ```
 Cette interface induit intrinsèquement certaines vérifications triviales à effectuer :
@@ -156,55 +156,55 @@ Voici l'équivalent de `IFileReader` en respectant le DP NVI :
 ```cs
 // Cette classe a le même rôle que 'IFileReader'
 abstract class BaseFileReader {
-  #region Public properties
-  public string Content { get { return GetContent(); } }
-  public bool IsOpen { get; private set; } = false;
-  #endregion
+    #region Public properties
+    public string Content { get { return GetContent(); } }
+    public bool IsOpen { get; private set; } = false;
+    #endregion
 
-  #region Private fields
-  private string content = null;
-  #endregion
+    #region Private fields
+    private string content = null;
+    #endregion
 
-  #region Public methods
-  // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
-  public void Open(string filename) {
-    Debug.Assert(!string.IsNullOrEmpty(filename), "Invalid file name");
-    Debug.Assert(File.Exists(filename), "No such file {filename}");
-    if (this.IsOpen) {
-      this.Close();
+    #region Public methods
+    // Effectue les vérifications relatives à 'filename', puis appelle 'Open_Impl'
+    public void Open(string filename) {
+        Debug.Assert(!string.IsNullOrEmpty(filename), "Invalid file name");
+        Debug.Assert(File.Exists(filename), "No such file {filename}");
+        if (this.IsOpen) {
+            this.Close();
+        }
+        this.Open_Impl(filename);
+        this.IsOpen = true;
     }
-    this.Open_Impl(filename);
-    this.IsOpen = true;
-  }
 
-  // Effectue les vérifications relatives à l'état interne de l'instance courante,
-  // puis appelle 'Close_Impl'
-  public void Close() {
-    Debug.Assert(this.IsOpen, "No file open");
-    this.Close_Impl();
-    this.IsOpen = false;
-  }
-  #endregion
+    // Effectue les vérifications relatives à l'état interne de l'instance courante,
+    // puis appelle 'Close_Impl'
+    public void Close() {
+        Debug.Assert(this.IsOpen, "No file open");
+        this.Close_Impl();
+        this.IsOpen = false;
+    }
+    #endregion
 
-  #region Protected methods
-  // Pourra être appelé dans 'Open_Impl'
-  protected void SetContent(string content) {
-    this.content = content;
-  }
-  #endregion
+    #region Protected methods
+    // Pourra être appelé dans 'Open_Impl'
+    protected void SetContent(string content) {
+        this.content = content;
+    }
+    #endregion
 
-  #region Private methods
-  // Effectue les relatives à l'état interne de l'instance courante, puis renvoie 'content'
-  private string GetContent() {
-    Debug.Assert(this.IsOpen, "No file open");
-    return this.content;
-  }
-  #endregion
+    #region Private methods
+    // Effectue les relatives à l'état interne de l'instance courante, puis renvoie 'content'
+    private string GetContent() {
+        Debug.Assert(this.IsOpen, "No file open");
+        return this.content;
+    }
+    #endregion
 
-  #region Unimplemented methods
-  protected abstract void Open_Impl(string filename);
-  protected abstract void Close_Impl();
-  #endregion
+    #region Unimplemented methods
+    protected abstract void Open_Impl(string filename);
+    protected abstract void Close_Impl();
+    #endregion
 }
 ```
 
@@ -214,18 +214,18 @@ Seules les méthodes `Open_Impl` et `Close_Impl` devront être implémentées ; 
 
 ```cs
 class XmlFileReader : BaseFileReader {
-  public XmlFileReader(string filename) : base() {
-    this.Open(filename);
-  }
+    public XmlFileReader(string filename) : base() {
+        this.Open(filename);
+    }
 
-  protected override void Open_Impl(string filename) {
-    // Lecture du fichier
-    // Eventuelles vérifications sur le contenu du fichier
-  }
+    protected override void Open_Impl(string filename) {
+        // Lecture du fichier
+        // Eventuelles vérifications sur le contenu du fichier
+    }
 
-  protected override void Close_Impl() {
-    // Fermeture du fichier
-  }
+    protected override void Close_Impl() {
+        // Fermeture du fichier
+    }
 }
 ```
 
