@@ -114,8 +114,8 @@ type User struct {
     Name string
 }
 
-func (p Person) Greet() {
-    fmt.Printf("Hello, I'm %s!", p.Name)
+func (u User) Greet() {
+    fmt.Printf("Hello, I'm %s!", u.Name)
 }
 ```
 Et voilà ! Notre structure `User` satisfait bel et bien `Person`.
