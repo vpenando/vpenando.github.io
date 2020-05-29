@@ -73,7 +73,7 @@ func (user User) Greet() {
     fmt.Printf("Hello, I'm %s!", user.Name)
 }
 ```
-Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonction. Elle dispose d'un paramètre supplémentaire, le "receiver", ici nommé `self`. Il est possible de passer un "receiver" par valeur ou par pointeur :
+Cette syntaxe diffère quelque peu de la manière habituelle de créer une fonction. Elle dispose d'un paramètre supplémentaire, appelé le "receiver". Il est possible de passer un "receiver" par valeur ou par pointeur :
 ```go
 type Foo struct {}
 
@@ -89,7 +89,7 @@ func (foo *Foo) Baz() {
 ```
 La différence entre ces deux modes de fonctionnement est la même qu'en C ou C++. En passant un paramètre par valeur, une copie sera créée. Par pointeur, seule son adresse sera copiée, ce qui est parfois beaucoup plus léger si l'objet occupe un grand espace mémoire. De fait, on ne peut modifier l'instance courante que via le passage par pointeur ; dans le cas d'un passage par valeur, on ne modifiera que sa copie. (À quelques exceptions près, où la structure contient un pointeur)
 
-La syntaxe pour accéder aux membres de `self` ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur. Nous n'avons donc pas besoin d'utiliser un opérateur comme `->` comme en C.
+La syntaxe pour accéder aux membres du "receiver" ou appeler ses méthodes ne change pas, que l'on utilise le passage par valeur ou par pointeur. Nous n'avons donc pas besoin d'utiliser un opérateur comme `->` comme en C.
 
 ---
 
