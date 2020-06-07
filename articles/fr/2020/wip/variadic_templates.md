@@ -67,6 +67,8 @@ foo(14);
 ```
 À chacun de ceux-ci, un appel unitaire à `foo` est effectué.
 
+
+
 ---
 
 ### Mise en pratique
