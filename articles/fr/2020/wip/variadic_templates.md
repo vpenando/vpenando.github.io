@@ -2,6 +2,9 @@
 
 ### (FR) C++ - Amusons-nous avec les variadic templates
 
+###### Note importante
+> Cet article provient de mon "ancien" dev blog, avec quelques petits remaniements. Aussi, il est possible que vous l'ayez déjà lu auparavant.
+
 ---
 
 ### Sommaire
@@ -26,7 +29,7 @@ Ici, la fonction `foo` accepte à peu près tous les types de paramètres, à co
 ---
 
 ### Variadic templates, kézako ?
-Avec la norme C++11, arrivée en 2011, ont été ajoutés les variadic templates, permettant à une fonction, classe, ou structure de prendre un nombre indéfini de paramètres. (Depuis C++14, il est même possible d'utiliser les templates *-ainsi que les variadic templates-* conjointement avec une variable `constexpr`.)
+Avec la norme C++11, arrivée en 2011, ont été ajoutés les variadic templates, permettant à une fonction, classe, ou structure de prendre un nombre indéfini de paramètres. Depuis C++14, il est même possible d'utiliser les templates *-ainsi que les variadic templates-* conjointement avec une variable `constexpr`.
 
 Ils viennent remplacer de façon moderne la syntaxe C très lourde à base de `...`, `va_list`, `va_start`, `va_arg` et `va_end`.
 Un bon exemple de l'utilisation des variadic templates est la classe [`std::tuple`](https://en.cppreference.com/w/cpp/utility/tuple).
@@ -117,7 +120,7 @@ constexpr static auto is_any_of_v = is_any_of<T, TArgs...>::value;
 ```cpp
 template<class T>
 void test_type() {
-    // nous voulons savoir si T est un int ou double, par exemple
+    // nous voulons savoir si T est un int ou un double, par exemple
     constexpr auto is_int_or_double = is_any_of_v<T, int, double>;
 }
 ```
