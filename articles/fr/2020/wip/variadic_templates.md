@@ -52,7 +52,7 @@ void foo(T&& value) {
 template<class T, class ...TArgs>
 void foo(T&& value, TArgs&& ...args) {
     // version récursive
-    foo(std::forward<T>(value));                         // on appelle foo<T>
+    foo(std::forward<T>(value));        // on appelle foo<T>
     foo(std::forward<TArgs>(args)...);  // on rappelle foo sans T
 }
 
@@ -125,8 +125,6 @@ void test_type() {
 }
 ```
 
-
-
 ---
 
-
+### 
