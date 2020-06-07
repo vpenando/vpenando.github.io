@@ -44,15 +44,15 @@ void bar(TArgs ...args) {
 Voici un exemple concret d'utilisation des variadic templates, basé sur la fonction `foo` créée plus haut.
 ```cpp
 template<class T>
-void foo(T const& value) {
+void foo(T&& value) {
     // version ne prenant qu'un paramètre
     std::cout << value;
 }
 
 template<class T, class ...TArgs>
-void foo(T const& value, TArgs&& ...args) {
+void foo(T&& value, TArgs&& ...args) {
     // version récursive
-    foo(value);                         // on appelle foo<T>
+    foo(std::forward<T>(value));                         // on appelle foo<T>
     foo(std::forward<TArgs>(args)...);  // on rappelle foo sans T
 }
 
