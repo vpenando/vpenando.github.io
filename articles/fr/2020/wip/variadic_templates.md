@@ -8,6 +8,10 @@
 ---
 
 ### Sommaire
+* [Introduction](#introduction)
+* [Variadic templates, kézako ?](#variadic-templates-k%C3%A9zako-)
+* [Mise en pratique](#mise-en-pratique)
+* [En résumé](#en-résumé)
 
 ---
 
