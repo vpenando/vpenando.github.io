@@ -88,7 +88,7 @@ Solution :
 namespace impl {
     
     // _is_any_of teste récursivement chacun des types de TArgs jusqu'à-ce que
-    // l'un d'eux corresponde à T ou que l'on atteigne la fin de 'TArgs'.
+    // l'un d'eux corresponde à T ou que l'on atteigne la fin de TArgs.
     template<class T, unsigned N, class ...TArgs>
     struct _is_any_of {
     private:
