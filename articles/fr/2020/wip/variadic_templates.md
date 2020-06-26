@@ -139,3 +139,5 @@ Par ailleurs, l'exemple ci-dessus présente la plupart des choses que vous devez
 * `template<class ...TArgs>` pour créer une fonction/classe template ;
 * `sizeof...(TArgs)` pour récupérer le nombre de types sous-jacents ;
 * `std::tuple_element<N, std::tuple<TArgs...>>::type` pour récupérer le n-ième élément.
+
+**Note -** Pour les fonctions telles que `std::forward<T>`, la syntaxe est `std::forward<TArgs>(args)...`.
