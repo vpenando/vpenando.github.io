@@ -87,18 +87,18 @@ Solution :
 ```cpp
 namespace impl {
     
-    // 'is_any_of' teste récursivement chacun des types de 'TArgs' jusqu'à-ce que
-    // l'un d'eux corresponde à 'T' ou que l'on atteigne la fin de 'TArgs'.
+    // _is_any_of teste récursivement chacun des types de TArgs jusqu'à-ce que
+    // l'un d'eux corresponde à T ou que l'on atteigne la fin de 'TArgs'.
     template<class T, unsigned N, class ...TArgs>
     struct _is_any_of {
     private:
-        // si l'on n'a pas encore atteint la fin de 'TArgs', cette variable vaut true
+        // si l'on n'a pas encore atteint la fin de TArgs, cette variable vaut true
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
         
         using condition_type = typename std::conditional<
             has_next_type,                // existe-t-il encore un (N+1)-ième type ?
-            _is_any_of<T, N+1, TArgs...>, // si oui, 'condition_type' = '_is_any_of<T, N+1, TArgs...>'
-            std::false_type               // sinon, 'condition_type' = 'std::false_type'
+            _is_any_of<T, N+1, TArgs...>, // si oui, condition_type = _is_any_of<T, N+1, TArgs...>
+            std::false_type               // sinon, condition_type = std::false_type
         >::type;
         
         // N-ième type à tester
