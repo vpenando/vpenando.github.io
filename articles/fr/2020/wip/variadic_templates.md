@@ -2,9 +2,6 @@
 
 ### (FR) C++ - Amusons-nous avec les variadic templates
 
-###### Note importante
-> Cet article provient de mon "ancien" dev blog, avec quelques petits remaniements. Aussi, il est possible que vous l'ayez déjà lu auparavant.
-
 ---
 
 ### Sommaire
