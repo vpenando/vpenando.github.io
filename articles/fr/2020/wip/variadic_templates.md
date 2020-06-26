@@ -129,4 +129,9 @@ void test_type() {
 
 ---
 
-### 
+### En résumé
+En somme, les variadic templates peuvent accomplir bien des choses, le tout avec une syntaxe très légère !
+Par ailleurs, l'exemple ci-dessus présente la plupart des choses que vous devez connaître à leur propos :
+* `template<class ...TArgs>` pour créer une fonction/classe template ;
+* `sizeof...(TArgs)` pour récupérer le nombre de types sous-jacents ;
+* `std::tuple_element<N, std::tuple<TArgs...>>::type` pour récupérer le n-ième élément.
