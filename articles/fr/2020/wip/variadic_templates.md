@@ -96,9 +96,9 @@ namespace impl {
         constexpr static auto has_next_type = N < sizeof...(TArgs) - 1;
         
         using condition_type = typename std::conditional<
-            has_next_type,                 // existe-t-il encore un (N+1)-ième type ?
-            _is_any_of<T, N+1, TArgs...>,  // si oui, 'condition_type' = '_is_any_of<T, N+1, TArgs...>'
-            std::false_type                // sinon, 'condition_type' = 'std::false_type'
+            has_next_type,                // existe-t-il encore un (N+1)-ième type ?
+            _is_any_of<T, N+1, TArgs...>, // si oui, 'condition_type' = '_is_any_of<T, N+1, TArgs...>'
+            std::false_type               // sinon, 'condition_type' = 'std::false_type'
         >::type;
         
         // N-ième type à tester
