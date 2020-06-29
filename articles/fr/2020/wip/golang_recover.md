@@ -10,7 +10,7 @@
 
 ### Introduction
 
-* Fonction`defer`red appelée avant `panic`
+* Fonction`defer`red appelée après `panic`
 ```go
 package main
 
