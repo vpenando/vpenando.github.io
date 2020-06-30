@@ -9,7 +9,9 @@
 ---
 
 ### Introduction
-Dans de nombreux langages, la gestion des erreurs se fait via des exceptions. Exemple en C++ :
+Dans de nombreux langages, la gestion des erreurs se fait via des exceptions.
+
+Exemple en C++ :
 ```cpp
 int divide(int a, int b) {
     if (b == 0) {
@@ -18,7 +20,9 @@ int divide(int a, int b) {
     return a / b;
 }
 ```
-Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une des fonctions appelantes aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. Illustration :
+Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une des fonctions appelantes aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
+
+Illustration :
 ```cpp
 try {
     int result = divide(1, 0);
