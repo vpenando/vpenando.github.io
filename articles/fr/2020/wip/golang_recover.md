@@ -33,7 +33,7 @@ try {
 ```
 ([Source](http://coliru.stacked-crooked.com/a/6330f023102bc707))
 
-Comme attendu, l'erreur sera rattrapée dans le bloc `catch` :
+Comme attendu, l'erreur sera rattrapée dans le bloc `catch` et l'output sera bien évidemment :
 ```
 erreur : division by zero
 ```
