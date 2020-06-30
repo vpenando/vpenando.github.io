@@ -18,7 +18,14 @@ int divide(int a, int b) {
     return a / b;
 }
 ```
-Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try`/`catch` duquel l'une des fonctions appelantes aurait été appelée.
+Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une des fonctions appelantes aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. Illustration :
+```cpp
+try {
+    int result = divide(1, 0);
+} catch (std::exception const& e) {
+    // l'exception sera rattrappée dans ce bloc
+}
+```
 
 * Fonction`defer`red appelée après `panic`
 ```go
