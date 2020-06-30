@@ -9,6 +9,16 @@
 ---
 
 ### Introduction
+Dans de nombreux langages, la gestion des erreurs se fait via des exceptions. Exemple en C++ :
+```cpp
+int divide(int a, int b) {
+    if (b == 0) {
+        throw std::runtime_error("division by zero");
+    }
+    return a / b;
+}
+```
+Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try`/`catch` duquel l'une des fonctions appelantes aurait été appelée.
 
 * Fonction`defer`red appelée après `panic`
 ```go
@@ -46,6 +56,8 @@ func divide(a, b int) int {
 ### `panic()`
 * Stoppe appelle chaque fonction `defer`red, puis retourne de la fonction courante, et ainsi de suite pour chaque fonction
 * Termine le programme avec un code != 0
+
+
 
 ---
 
