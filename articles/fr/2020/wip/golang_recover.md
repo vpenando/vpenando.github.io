@@ -68,7 +68,7 @@ main.main()
 exit status 2
 ```
 Il fait donc sens de l'appeler lorsque le programme est dans un état incohérent et qu'il ne fait plus sens de poursuivre le flux d'exécution normalement.
-Néanmoins, il existe une petite subtilité dans le cas des fonctions `defer`red.
+Néanmoins, il existe une petite subtilité dans le cas de l'utilisation du mot-clé `defer`.
 
 ---
 
@@ -95,7 +95,7 @@ defer file.Close()
 // du code...
 // ...
 ```
-La fonction `defer`red est empilée et, lorsque l'on atteint la fin de la fonction courante, tous les appels empilés via `defer` sont successivement appelés.
+La fonction "deferred" est empilée et, lorsque l'on atteint la fin de la fonction courante, tous les appels empilés via `defer` sont successivement exécutés.
 La particularité de `defer` est que les fonctions empilées seront appelées même en cas de `panic()` :
 ```go
 func main() {
@@ -103,20 +103,21 @@ func main() {
     fmt.Println("ne sera jamais affiché :(")
 }
 
-func caller(){
+func caller() {
     defer func() {
         fmt.Println("sera affiché en troisième !")
     }()
     called()
 }
 
-func called(){
+func called() {
     defer func() {
         fmt.Println("sera affiché en deuxième !")
     }()
     defer func() {
         fmt.Println("sera affiché en premier !")
     }()
+    // à ce stade, les deux appels ci-dessus sont empilés
     panic("panique !")
 }
 ```
