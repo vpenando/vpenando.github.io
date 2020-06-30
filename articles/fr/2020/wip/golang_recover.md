@@ -40,3 +40,21 @@ func divide(a, b int) int {
     return a / b
 }
 ```
+
+---
+
+### `panic()`
+* Stoppe appelle chaque fonction `defer`red, puis retourne de la fonction courante, et ainsi de suite pour chaque fonction
+* Termine le programme avec un code != 0
+
+---
+
+### Point sur `defer`
+* Délègue un appel à la fin de la fonction avant son `return`
+* Empile des appels à des goroutines
+
+---
+
+### `recover()`
+* Rétablit le contrôle du programme ; interrompt un `panic()`
+* Inutile en dehors d'une goroutine `defer`red
