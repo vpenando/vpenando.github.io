@@ -27,6 +27,8 @@ try {
     std::cout << "erreur : " << e.what();
 }
 ```
+([Source](http://coliru.stacked-crooked.com/a/6330f023102bc707))
+
 Comme attendu, l'erreur sera rattrapée dans le bloc `catch` :
 ```
 erreur : division by zero
@@ -40,6 +42,7 @@ func something() (int, error) {
     return 0, nil
 }
 ```
+Il est courant pour une fonction de retourner une valeur supplémentaire, afin de renseigner la possible rencontre d'une erreur.
 Conventionnellement, on utilise la valeur `nil` pour signifier l'absence d'erreur. [Le type `error` étant une interface](https://golang.org/pkg/builtin/#error), il accepte la valeur `nil`.
 
 Parallèlement aux erreurs, il existe la notion de panique, qui se matérialise sous la forme de la fonction `panic()`.
@@ -62,27 +65,85 @@ panic: une erreur est survenue
 
 goroutine 1 [running]:
 main.main()
-	chemin/vers/fichier.go:8 +0x40
+    chemin/vers/fichier.go:ligne
 exit status 2
 ```
-
-
-
-
-* Stoppe appelle chaque fonction `defer`red, puis retourne de la fonction courante, et ainsi de suite pour chaque fonction
-* Termine le programme avec un code != 0
-
-
+Il fait donc sens de l'appeler lorsque le programme est dans un état incohérent et qu'il ne fait plus sens de poursuivre le flux d'exécution normalement.
+Néanmoins, il existe une petite subtilité dans le cas des fonctions `defer`red.
 
 ---
 
 ### Point sur `defer`
-* Délègue un appel à la fin de la fonction avant son `return`
-* Empile des appels à des goroutines
+En Go, le mot-clé `defer` permet de déléguer un appel à la fin d'une fonction donnée. Exemple :
+```go
+func main() {
+   defer func(){
+      fmt.Println("sera affiché en dernier")
+    }()
+    fmt.Println("sera affiché en premier")
+}
+```
+([Source](https://play.golang.org/p/kQRWpuT1bqD))
+
+Ce mécanisme est notamment utilisé lorsque l'on manipule des fichiers :
+```go
+file, err := os.Open("test.txt")
+if err != nil {
+    // traitement de l'erreur
+}
+defer file.Close()
+// ...
+// du code...
+// ...
+```
+La fonction `defer`red est empilée et, lorsque l'on atteint la fin de la fonction courante, tous les appels empilés via `defer` sont successivement appelés.
+La particularité de `defer` est que les fonctions empilées seront appelées même en cas de `panic()` :
+```go
+func main() {
+    caller()
+    fmt.Println("ne sera jamais affiché :(")
+}
+
+func caller(){
+    defer func() {
+        fmt.Println("sera affiché en troisième !")
+    }()
+    called()
+}
+
+func called(){
+    defer func() {
+        fmt.Println("sera affiché en deuxième !")
+    }()
+    defer func() {
+        fmt.Println("sera affiché en premier !")
+    }()
+    panic("panique !")
+}
+```
+Output :
+```
+sera affiché en premier !
+sera affiché en deuxième !
+sera affiché en troisième !
+panic: panique !
+
+goroutine 1 [running]:
+main.called()
+    chemin/vers/fichier.go:ligne
+main.caller()
+    chemin/vers/fichier.go:ligne
+main.main()
+    chemin/vers/fichier.go:ligne
+exit status 2
+```
+([Source](https://play.golang.org/p/6PCBN0_U9J5))
+
+Ce point est crucial lors de la gestion des appels à `panic()`.
 
 ---
 
-### `recover()`
+### La fonction `recover()`
 * Rétablit le contrôle du programme ; interrompt un `panic()`
 * Inutile en dehors d'une goroutine `defer`red
 
