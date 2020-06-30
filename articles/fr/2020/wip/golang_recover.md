@@ -52,8 +52,8 @@ La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux 
 Exemple :
 ```go
 func main() {
-	panic("une erreur est survenue")
-	fmt.Println("ne sera jamais affiché")
+    panic("une erreur est survenue")
+    fmt.Println("ne sera jamais affiché")
 }
 ```
 La sortie de ce programme est :
