@@ -117,7 +117,6 @@ func called() {
     defer func() {
         fmt.Println("sera affiché en premier !")
     }()
-    // à ce stade, les deux appels ci-dessus sont empilés
     panic("panique !")
 }
 ```
