@@ -57,7 +57,7 @@ Parallèlement aux erreurs, il existe la notion de panique, qui se matérialise 
 La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux d'exécution du programme et remonte chacune des fonctions appelantes, jusqu'à rencontrer un appel à la fonction `recover()`, que nous aborderons plus tard dans cet article. Si cette fonction n'est pas appelée, l'exécution du programme finit par être stoppée et celui-ci retourne un statut différent de `0`.
 
 ([Exemple](https://play.golang.org/p/HeTJoJtH5TN))
-```
+
 La sortie de ce programme est :
 ```
 panic: une erreur est survenue
