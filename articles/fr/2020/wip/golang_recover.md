@@ -76,8 +76,8 @@ Néanmoins, il existe une petite subtilité dans le cas de l'utilisation du mot-
 En Go, le mot-clé `defer` permet de déléguer un appel à la fin d'une fonction donnée. Exemple :
 ```go
 func main() {
-   defer func(){
-      fmt.Println("sera affiché en dernier")
+    defer func() {
+        fmt.Println("sera affiché en dernier")
     }()
     fmt.Println("sera affiché en premier")
 }
