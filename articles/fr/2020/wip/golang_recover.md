@@ -58,12 +58,12 @@ La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux 
 
 ```go
 func main() {
-	callPanic()
-	fmt.Println("ne sera jamais affiché")
+    callPanic()
+    fmt.Println("ne sera jamais affiché")
 }
 
 func callPanic() {
-	panic("une erreur est survenue")
+    panic("une erreur est survenue")
 }
 ```
 ([Source](https://play.golang.org/p/HeTJoJtH5TN))
