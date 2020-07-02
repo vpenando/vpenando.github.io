@@ -83,7 +83,9 @@ Néanmoins, il existe une petite subtilité dans le cas de l'utilisation du mot-
 ---
 
 ### Point sur `defer`
-En Go, le mot-clé `defer` permet de déléguer un appel à la fin d'une fonction donnée. Exemple :
+En Go, le mot-clé `defer` permet de déléguer un appel à la fin d'une fonction donnée.
+
+Exemple :
 ```go
 func main() {
     defer func() {
