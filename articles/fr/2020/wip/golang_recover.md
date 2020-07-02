@@ -13,11 +13,11 @@ Dans de nombreux langages, la gestion des erreurs se fait via des exceptions.
 
 Exemple en C++ :
 ```cpp
-int divide(int a, int b) {
-    if (b == 0) {
+int divide(int n, int divisor) {
+    if (divisor == 0) {
         throw std::runtime_error("division by zero");
     }
-    return a / b;
+    return n / divisor;
 }
 ```
 Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une des fonctions appelantes aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
@@ -56,7 +56,17 @@ Parallèlement aux erreurs, il existe la notion de panique, qui se matérialise 
 ### La fonction `panic()`
 La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux d'exécution du programme et remonte chacune des fonctions appelantes, jusqu'à rencontrer un appel à la fonction `recover()`, que nous aborderons plus tard dans cet article. Si cette fonction n'est pas appelée, l'exécution du programme finit par être stoppée et celui-ci retourne un statut différent de `0`.
 
-([Exemple](https://play.golang.org/p/HeTJoJtH5TN))
+```go
+func main() {
+	callPanic()
+	fmt.Println("ne sera jamais affiché")
+}
+
+func callPanic() {
+	panic("une erreur est survenue")
+}
+```
+([Source](https://play.golang.org/p/HeTJoJtH5TN))
 
 La sortie de ce programme est :
 ```
