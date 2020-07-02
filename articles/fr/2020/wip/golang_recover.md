@@ -20,7 +20,7 @@ int divide(int n, int divisor) {
     return n / divisor;
 }
 ```
-Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une des fonctions appelantes aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
+Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution normal du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une de ces fonctions aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
 
 Illustration :
 ```cpp
