@@ -168,7 +168,7 @@ func main() {
     tryRecover()
 }
 ```
-En effet, l'appel à `recover()` ne sera **jamais** atteint dans ce cas. Et c'est là qu'intervient `defer` ; en effet, un appel deferred" sera exécuté même en cas de `panic()` ! Ainsi, le code suivant fonctionne comme attendu :
+En effet, l'appel à `recover()` ne sera **jamais** atteint dans ce cas. Et c'est là qu'intervient `defer` ; en effet, un appel deferred" sera exécuté même en cas de `panic()` ! Ainsi, le code suivant fonctionnera comme attendu :
 ```go
 func tryRecover() {
     defer func() {
@@ -186,36 +186,3 @@ func main() {
 ```
 ([Source](https://play.golang.org/p/vQeKR9d0vwA))
 
-* Rétablit le contrôle du programme ; interrompt un `panic()`
-* Inutile en dehors d'une goroutine `defer`red
-
-* Fonction`defer`red appelée après `panic`
-```go
-package main
-
-import (
-    "fmt"
-    "log"
-)
-
-func main() {
-    divideByZero()
-    fmt.Println("we survived dividing by zero!")
-}
-
-func divideByZero() {
-    defer func() {
-        if err := recover(); err != nil {
-            log.Println("panic occurred:", err)
-        }
-    }()
-    fmt.Println(divide(1, 0))
-}
-
-func divide(n, divisor int) int {
-    if divisor == 0 {
-        panic(nil)
-    }
-    return n / divisor
-}
-```
