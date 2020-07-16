@@ -20,7 +20,7 @@ int divide(int n, int divisor) {
     return n / divisor;
 }
 ```
-Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution normal du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une de ces fonctions aurait été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
+Si nous tentons d'appeler notre fonction `divide` avec comme second argument `0`, une exception sera levée. Cette exception rompt le flux d'exécution normal du programme et remonte chacune des fonctions appelantes jusqu'à rencontrer un bloc `try` duquel l'une de ces fonctions a été appelée. Elle sera ensuite rattrappée par la clause `catch`. 
 
 Illustration :
 ```cpp
@@ -31,11 +31,11 @@ try {
     std::cout << "erreur : " << e.what();
 }
 ```
-([Source](http://coliru.stacked-crooked.com/a/6330f023102bc707))
+([Source](http://coliru.stacked-crooked.com/a/d06febe1057c5d33))
 
 Comme attendu, l'exception sera rattrapée dans le bloc `catch` et l'output sera bien évidemment :
 ```
-erreur : division by zero
+error: division by zero
 ```
 En Go, la notion d'exception n'existe pas. À la place, il existe la notion d'erreur, qui vient en complément de la possibilité pour une fonction de retourner plusieurs valeurs :
 ```go
