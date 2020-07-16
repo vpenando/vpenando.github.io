@@ -181,10 +181,10 @@ func divideByZero() {
     fmt.Println(divide(1, 0))
 }
 
-func divide(a, b int) int {
-    if b == 0 {
+func divide(n, divisor int) int {
+    if divisor == 0 {
         panic(nil)
     }
-    return a / b
+    return n / divisor
 }
 ```
