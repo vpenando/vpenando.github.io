@@ -59,18 +59,18 @@ La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux 
 ```go
 func main() {
     callPanic()
-    fmt.Println("ne sera jamais affiché")
+    fmt.Println("will never be reached")
 }
 
 func callPanic() {
-    panic("une erreur est survenue")
+    panic("something bad happened :(")
 }
 ```
-([Source](https://play.golang.org/p/HeTJoJtH5TN))
+([Source](https://play.golang.org/p/SGvkXHtjpbi))
 
 La sortie de ce programme est :
 ```
-panic: une erreur est survenue
+panic: something bad happened :(
 
 goroutine 1 [running]:
 main.main()
@@ -115,7 +115,7 @@ func main() {
     fmt.Println("will never be reached :(")
 }
 
-func caller(){
+func caller() {
     defer func() {
         fmt.Println("third!")
     }()
