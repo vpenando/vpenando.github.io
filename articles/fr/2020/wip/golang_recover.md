@@ -89,12 +89,12 @@ Exemple :
 ```go
 func main() {
     defer func() {
-        fmt.Println("sera affiché en dernier")
+        fmt.Println("last :(")
     }()
-    fmt.Println("sera affiché en premier")
+    fmt.Println("first!")
 }
 ```
-Ici, la fonction anonyme sera appelée à la fin de `main`. ([Source](https://play.golang.org/p/kQRWpuT1bqD))
+Ici, la fonction anonyme sera appelée à la fin de `main`. ([Source](https://play.golang.org/p/kd-onsT1Qp-))
 
 Ce mécanisme est par exemple utilisé lorsque l'on manipule des fichiers :
 ```go
@@ -112,32 +112,32 @@ La particularité de `defer` est que les appels empilés seront exécutés même
 ```go
 func main() {
     caller()
-    fmt.Println("ne sera jamais affiché :(")
+    fmt.Println("will never be reached :(")
 }
 
-func caller() {
+func caller(){
     defer func() {
-        fmt.Println("sera affiché en troisième !")
+        fmt.Println("third!")
     }()
     called()
 }
 
-func called() {
+func called(){
     defer func() {
-        fmt.Println("sera affiché en deuxième !")
+        fmt.Println("second!")
     }()
     defer func() {
-        fmt.Println("sera affiché en premier !")
+        fmt.Println("first!")
     }()
-    panic("panique !")
+    panic("something bad happened")
 }
 ```
 Output :
 ```
-sera affiché en premier !
-sera affiché en deuxième !
-sera affiché en troisième !
-panic: panique !
+first!
+second!
+third!
+panic: something bad happened
 
 goroutine 1 [running]:
 main.called()
@@ -148,7 +148,7 @@ main.main()
     chemin/vers/fichier.go:ligne
 exit status 2
 ```
-([Source](https://play.golang.org/p/6PCBN0_U9J5))
+([Source](https://play.golang.org/p/tof87famHnH))
 
 Ce point est crucial lors de la gestion des appels à `panic()`.
 
