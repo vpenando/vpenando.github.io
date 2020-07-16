@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-### (FR) Recover en Go
+### (FR) La fonction `recover()` en Go
 
 ---
 
@@ -160,7 +160,7 @@ En Go, la fonction `recover()` permet de rétablir le contrôle de notre program
 Néanmoins, `panic()` rompt le flux d'exécution du programme. Ainsi, le code suivant n'aura pas le résultat escompté :
 ```go
 func tryRecover() {
-    panic("aaaah!")
+    panic("aaaah!") // rompt l'exécution
     recover()       // n'aura aucun effet
 }
 
@@ -168,7 +168,7 @@ func main() {
     tryRecover()
 }
 ```
-En effet, l'appel à `recover()` ne sera **jamais** atteint dans ce cas. Et c'est là qu'intervient `defer` ; en effet, un appel deferred" sera exécuté même en cas de `panic()` ! Ainsi, le code suivant fonctionnera comme attendu :
+L'appel à `recover()` ne sera **jamais** atteint dans ce cas. Et c'est là qu'intervient `defer` ; en effet, un appel "deferred" sera exécuté même en cas de `panic()` ! Ainsi, le code suivant fonctionnera comme attendu :
 ```go
 func tryRecover() {
     defer func() {
@@ -185,4 +185,9 @@ func main() {
 }
 ```
 ([Source](https://play.golang.org/p/vQeKR9d0vwA))
+
+---
+
+### Conclusion
+Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme les exceptions dans d'autres langages.
 
