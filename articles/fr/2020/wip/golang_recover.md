@@ -155,6 +155,37 @@ Ce point est crucial lors de la gestion des appels à `panic()`, car, vous vous 
 ---
 
 ### La fonction `recover()`
+En Go, la fonction `recover()` permet de rétablir le contrôle de notre programme si un appel à `panic()` a été effectué. Elle permet également de récupérer la valeur passée en paramètre de `panic()`.
+
+Néanmoins, `panic()` rompt le flux d'exécution du programme. Ainsi, le code suivant n'aura pas le résultat escompté :
+```go
+func tryRecover() {
+    panic("aaaah!")
+    recover()       // n'aura aucun effet
+}
+
+func main() {
+    tryRecover()
+}
+```
+En effet, l'appel à `recover()` ne sera **jamais** atteint dans ce cas. Et c'est là qu'intervient `defer` ; en effet, un appel deferred" sera exécuté même en cas de `panic()` ! Ainsi, le code suivant fonctionne comme attendu :
+```go
+func tryRecover() {
+    defer func() {
+        if err := recover(); err != nil {
+            fmt.Println("the error was:", err)
+        }
+    }()
+    panic("aaaah!")
+}
+
+func main() {
+    tryRecover()
+    fmt.Println("ok!") // sera bien exécuté
+}
+```
+([Source](https://play.golang.org/p/vQeKR9d0vwA))
+
 * Rétablit le contrôle du programme ; interrompt un `panic()`
 * Inutile en dehors d'une goroutine `defer`red
 
