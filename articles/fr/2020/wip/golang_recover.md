@@ -77,7 +77,7 @@ main.main()
     chemin/vers/fichier.go:ligne
 exit status 2
 ```
-Il fait donc sens de l'appeler lorsque le programme est dans un état incohérent et qu'il ne fait plus sens de poursuivre le flux d'exécution normalement.
+Il fait donc sens de l'appeler lorsque le programme est dans un état incohérent et qu'il ne doit plus poursuivre son flux d'exécution normalement.
 Néanmoins, il existe une petite subtilité dans le cas de l'utilisation du mot-clé `defer`.
 
 ---
@@ -94,9 +94,9 @@ func main() {
     fmt.Println("sera affiché en premier")
 }
 ```
-([Source](https://play.golang.org/p/kQRWpuT1bqD))
+Ici, la fonction anonyme sera appelée à la fin de `main`. ([Source](https://play.golang.org/p/kQRWpuT1bqD))
 
-Ce mécanisme est notamment utilisé lorsque l'on manipule des fichiers :
+Ce mécanisme est par exemple utilisé lorsque l'on manipule des fichiers :
 ```go
 file, err := os.Open("test.txt")
 if err != nil {
@@ -107,8 +107,8 @@ defer file.Close()
 // du code...
 // ...
 ```
-La fonction "deferred" est empilée et, lorsque l'on atteint la fin de la fonction courante, tous les appels empilés via `defer` sont successivement exécutés.
-La particularité de `defer` est que les fonctions empilées seront appelées même en cas de `panic()` :
+L'appel "deferred" est empilé et, lorsque l'on atteint la fin de la fonction courante, tous les appels empilés via `defer` sont successivement exécutés.
+La particularité de `defer` est que les appels empilés seront exécutés même en cas de `panic()` :
 ```go
 func main() {
     caller()
