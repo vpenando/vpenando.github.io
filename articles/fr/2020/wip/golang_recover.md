@@ -189,5 +189,5 @@ func main() {
 ---
 
 ### Conclusion
-Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme les exceptions dans d'autres langages.
+Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme une exception dans d'autres langages.
 
