@@ -150,7 +150,7 @@ exit status 2
 ```
 ([Source](https://play.golang.org/p/tof87famHnH))
 
-Ce point est crucial lors de la gestion des appels à `panic()`, car, vous vous en doutez, on veut parfois reprendre le contrôle d'un programme plutôt que de le faire crasher.
+Ce point est crucial lors de la gestion des appels à `panic()`, car, vous vous en doutez, on veut parfois pouvoir reprendre le contrôle d'un programme plutôt que de le faire crasher.
 
 ---
 
