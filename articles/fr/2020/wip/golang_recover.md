@@ -77,6 +77,8 @@ main.main()
     chemin/vers/fichier.go:ligne
 exit status 2
 ```
+Le programme est terminé avec un code d'erreur et la call stack afin de remonter jusqu'à la source de notre erreur.
+
 Il fait donc sens de l'appeler lorsque le programme est dans un état incohérent et qu'il ne doit plus poursuivre son flux d'exécution normalement.
 Néanmoins, il existe une petite subtilité dans le cas de l'utilisation du mot-clé `defer`.
 
@@ -186,8 +188,11 @@ func main() {
 ```
 ([Source](https://play.golang.org/p/vQeKR9d0vwA))
 
+Néanmoins, la plupart des erreurs rencontrées devrait à mon sens être traitée par valeurs de retour. Les appels à `panic()` doivent être utilisés avec parcimonie, car peuvent théoriquement stopper net le programme. Ils témoignent d'un comportement ne permettant pas de continuer le fonctionnement normal.
+
 ---
 
 ### Conclusion
 Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme une exception dans d'autres langages. Parallèlement, la fonction `recover()` permet de rattraper l'erreur, comme une clause `catch` éviterait qu'une exception stoppe notre programme.
 
+Ainsi, tant que le comportement de notre programme n'est pas fatal, je préconise de simplement renvoyer des erreurs. A contrario, si notre programme ne peut (et ne doit) pas continuer, alors il convient de l'arrêter via `panic()`.
