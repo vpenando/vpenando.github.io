@@ -129,7 +129,7 @@ func caller() {
     called()
 }
 
-func called(){
+func called() {
     defer func() {
         fmt.Println("second!")
     }()
