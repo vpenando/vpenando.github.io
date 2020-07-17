@@ -54,7 +54,7 @@ Parallèlement aux erreurs, il existe la notion de panique, qui se matérialise 
 ---
 
 ### La fonction `panic()`
-La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux d'exécution du programme et remonte chacune des fonctions appelantes, jusqu'à rencontrer un appel à la fonction `recover()`, que nous aborderons plus tard dans cet article. Si cette fonction n'est pas appelée, l'exécution du programme finit par être stoppée et celui-ci retourne un statut différent de `0`.
+La fonction `panic()` agit un peu comme une exception ; elle interrompt le flux d'exécution du programme et remonte chacune des fonctions appelantes, jusqu'à rencontrer un appel à la fonction `recover()`, que nous aborderons plus tard dans cet article. Si cette fonction n'est pas appelée, l'exécution du programme finit par être stoppée et celui-ci retourne un statut différent de `0`. Ainsi, appeler `panic()` signifie que notre programme ne **doit** pas continuer normalement, contrairement à un retour d'erreur.
 
 ```go
 func main() {
@@ -189,5 +189,5 @@ func main() {
 ---
 
 ### Conclusion
-Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme une exception dans d'autres langages.
+Go dispose de deux mécanismes pour traiter les comportement anormaux ; les erreurs, que l'on utilise conventionnellement comme valeurs de retour, et la fonction `panic()`, qui agit un peu comme une exception dans d'autres langages. Parallèlement, la fonction `recover()` permet de rattraper l'erreur, comme une clause `catch` éviterait qu'une exception stoppe notre programme.
 
