@@ -5,6 +5,11 @@
 ---
 
 ### Sommaire
+* [Introduction](#introduction)
+* [La fonction `panic()`](#la-fonction-panic)
+* [Point sur `defer`](#point-sur-defer)
+* [La fonction `recover()`](#la-fonction-recover)
+* [Conclusion](#conclusion)
 
 ---
 
