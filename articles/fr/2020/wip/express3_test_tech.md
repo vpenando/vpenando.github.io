@@ -36,7 +36,7 @@ Personnellement, il s'agit
 
 ---
 
-### Cas n°3 : le nazi
+#### Cas n°3 : le test nazi
 Connaître le langage + tout le framework par coeur
 exemple vécu : coder sur papier
 
