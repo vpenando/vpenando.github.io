@@ -31,6 +31,7 @@ En effet, même sans réellement connaître la réponse à une question donnée,
 ---
 
 #### Cas n°2 : le test chronométré
+Puisque l'on parle de test concret, nous y voilà.
 
 ---
 
