@@ -14,16 +14,31 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 ---
 
 ### Introduction
-Avant d'aborder le "bon" test technique, je souhaiterais parler de ce que je pense être de mauvais test technique. J'en distingue deux cas.
+Dans un processus de recrutement, il y a dans la plupart des cas une évaluation technique. Elle peut avoir différentes formes, mais a toujours le même but : jauger le niveau d'un candidat. Bien souvent, le ou la RH n'a pas les connaissances techniques nécessaires, et c'est tout à fait normal. Ainsi, votre interlocuteur passera par un test rédigé par des personnes ayant un profil plus technique.
+
+Avant d'aborder le "bon" test technique, je souhaiterais parler de ce que je pense être de mauvais test technique. J'en distingue plusieurs cas.
+Avant toute chose, posons-nous les bonnes questions : que veut-on évaluer ? Veut-on un candidat qui connait un langage du bout des doigts ? Ou plutôt un profil qui, à défaut de connaître un langage par coeur, va exercer sa logique ?
+
+Enfin, je rappelle que j'emploierai un ton plus léger qu'à l'accoutumée, ainsi vous risquez de lire çà et là quelques expressions familières.
 
 ---
 
-#### Cas n° 1 : le faut test
-QCM
+#### Cas n° 1 : le faux test
+Le premier cas est ce que je considère être un "faux" test, j'ai nommé le QCM. Pour être tout à fait honnête, il s'agit à mon sens d'une vaste farce, qui n'évalue en rien les compétences concrètes d'un candidat. Il n'est absolument PAS viable de se baser sur un test au résultat potentiellement aléatoire pour déterminer si un profil correspond ou non à son besoin.
+
+En effet, même sans réellement connaître la réponse à une question donnée, on peut répondre au pif et s'en sortir. De plus, de bêtes questions ne sont jamais pertinentes face à un exercice concret.
+
+Personnellement, il s'agit 
 
 ---
 
 #### Cas n°2 : le test chronométré
+
+---
+
+### Cas n°3 : le nazi
+Connaître le langage + tout le framework par coeur
+exemple vécu : coder sur papier
 
 ---
 
