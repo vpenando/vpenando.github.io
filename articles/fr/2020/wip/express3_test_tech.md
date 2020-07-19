@@ -28,8 +28,6 @@ Le premier cas est ce que je considère être un "faux" test, j'ai nommé le QCM
 
 En effet, même sans réellement connaître la réponse à une question donnée, on peut répondre au pif et s'en sortir. De plus, de bêtes questions ne sont jamais pertinentes face à un exercice concret.
 
-Personnellement, il s'agit 
-
 ---
 
 #### Cas n°2 : le test chronométré
