@@ -38,6 +38,7 @@ Je vais parler ici d'un exemple parmi les plus idiots qu'il m'ait été donné d
 
 Il s'agit sans l'ombre d'un doute du pire type de test possible à mes yeux, à la fois pour le candidat, mais également pour le recruteur, qui fait perdre pas mal de crédibilité à son entreprise.
 
+Rien ne vaut un test concret, avec de vrais outils et un environnement de travail viable.
 
 ---
 
