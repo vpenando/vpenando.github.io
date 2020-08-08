@@ -47,7 +47,8 @@ Rien ne vaut un test concret, avec de vrais outils et un environnement de travai
 
 Attention, je rappelle que cela correspond à mon avis personnel ; tout le monde n'a pas le même avis vis-à-vis de ce type de test.
 
-Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 30 minutes, 45 ou en une heure ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. J'ai appris après coup, via recruteurs prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
+Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 30 minutes, 45 ou en une heure ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. En plus de n'avoir que peu d'intérêt (mélanger C et C++ sans couche RAII-conform est une erreur), il est difficilement réalisable sans connaître au préalable l'API SQLite. 
+J'ai appris après coup, via recruteurs prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
 
 ---
 
