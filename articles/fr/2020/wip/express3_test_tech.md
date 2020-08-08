@@ -52,3 +52,5 @@ Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a
 ---
 
 ### Du coup, un bon test, c'est quoi ?
+* Echanges techniques
+* Exercice en live avec les devs
