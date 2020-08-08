@@ -30,7 +30,7 @@ En effet, même sans réellement connaître la réponse à une question donnée,
 
 ---
 
-#### Cas n°2 : le test sur papier (lol)
+#### Cas n°2 : le test sur papier
 Je vais parler ici d'un exemple parmi les plus idiots qu'il m'ait été donné de rencontrer : coder sur papier. En plus de ne pas refléter votre potentiel environnement de travail (du moins je l'espère pour vous), le test papier nécessite :
 * De connaître un langage par coeur ;
 * De connaître potentiellement un framework par coeur ;
@@ -43,7 +43,12 @@ Rien ne vaut un test concret, avec de vrais outils et un environnement de travai
 ---
 
 #### Cas n°3 : le test chronométré
-Puisque l'on parle de test concret, nous y voilà.
+***Note :** Par "test chronométré", j'entends "coder quelque chose seul sur un outil en ligne en un temps imparti".* Seulement, ça faisait un peu long comme titre.
+
+Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque.
+
+
+#### Conclusion de cette première partie
 
 
 ---
