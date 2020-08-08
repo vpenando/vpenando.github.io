@@ -14,7 +14,7 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 ---
 
 ### Introduction
-Dans un processus de recrutement, il y a dans la plupart des cas une évaluation technique. Elle peut avoir différentes formes, mais a toujours le même but : jauger le niveau d'un candidat. Bien souvent, le ou la RH n'a pas les connaissances techniques nécessaires, et c'est tout à fait normal. Ainsi, votre interlocuteur passera par un test rédigé par des personnes ayant un profil plus technique.
+Dans un processus de recrutement, il y a dans la plupart des cas une évaluation technique. Elle peut avoir différentes formes, mais a toujours le même but : jauger le niveau d'un candidat. Bien souvent, la personne en face de vous n'a pas les connaissances techniques nécessaires, et c'est tout à fait normal. Ainsi, votre interlocuteur passera par un test rédigé par des personnes ayant un profil plus technique.
 
 Avant d'aborder le "bon" test technique, je souhaiterais parler de ce que je pense être de mauvais test technique. J'en distingue plusieurs cas.
 Avant toute chose, posons-nous les bonnes questions : que veut-on évaluer ? Veut-on un candidat qui connait un langage du bout des doigts ? Ou plutôt un profil qui, à défaut de connaître un langage par coeur, va exercer sa logique ?
@@ -30,14 +30,20 @@ En effet, même sans réellement connaître la réponse à une question donnée,
 
 ---
 
-#### Cas n°2 : le test chronométré
-Puisque l'on parle de test concret, nous y voilà.
+#### Cas n°2 : le test sur papier (lol)
+Je vais parler ici d'un exemple parmi les plus idiots qu'il m'ait été donné de rencontrer : coder sur papier. En plus de ne pas refléter votre potentiel environnement de travail (du moins je l'espère pour vous), le test papier nécessite :
+* De connaître un langage par coeur ;
+* De connaître potentiellement un framework par coeur ;
+* De ne faire aucune faute (on ne peut ni déboguer ni modifier ce que l'on a écrit !).
+
+Il s'agit sans l'ombre d'un doute du pire type de test possible à mes yeux, à la fois pour le candidat, mais également pour le recruteur, qui fait perdre pas mal de crédibilité à son entreprise.
+
 
 ---
 
-#### Cas n°3 : le test nazi
-Connaître le langage + tout le framework par coeur
-exemple vécu : coder sur papier
+#### Cas n°3 : le test chronométré
+Puisque l'on parle de test concret, nous y voilà.
+
 
 ---
 
