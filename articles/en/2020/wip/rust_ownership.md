@@ -9,7 +9,7 @@
 
 ---
 
-### Rust 
+### Illustration
 
 ```rust
 fn main() {
