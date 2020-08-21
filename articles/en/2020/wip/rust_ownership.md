@@ -23,14 +23,13 @@ Output:
 
 ```
 error[E0382]: borrow of moved value: `vec1`
- --> tempCodeRunnerFile.rust:6:22
+ --> tempCodeRunnerFile.rust:5:22
   |
 3 |     let vec1 = vec![1,2,3];
   |         ---- move occurs because `vec1` has type `std::vec::Vec<i32>`, which does not implement the `Copy` trait
 4 |     let _vec2 = vec1;
   |                 ---- value moved here
-5 | 
-6 |     println!("{:?}", vec1);
+5 |     println!("{:?}", vec1);
   |                      ^^^^ value borrowed here after move
 
 error: aborting due to previous error
