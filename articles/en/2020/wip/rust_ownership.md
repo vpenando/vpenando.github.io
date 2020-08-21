@@ -11,6 +11,7 @@
 
 ### Illustration
 
+Let's take the following code as an example:
 ```rust
 fn main() {
     let vec1 = vec![1, 2, 3];
@@ -18,9 +19,7 @@ fn main() {
     println!("{:?}", vec1);
 }
 ```
-
 Output:
-
 ```
 error[E0382]: borrow of moved value: `vec1`
  --> tempCodeRunnerFile.rust:5:22
@@ -36,6 +35,8 @@ error: aborting due to previous error
 
 For more information about this error, try `rustc --explain E0382`.
 ```
+Explanation: `vec1`'s content has been moved into `vec2`. Thus, `vec2` is now the new *owner* of this resource.
+
 An illustration of this behavior is C++'s **move semantics**:
 ```cpp
 #include <iostream>
