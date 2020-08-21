@@ -56,3 +56,10 @@ vec2.data(): 0x8c6c20
 vec1.data(): 0
 ```
 As we can see, `vec1`'s inner pointer is directly moved into `vec2`.
+
+### Ownership Rules
+
+From the the official documentation:
+* Each value in Rust has a variable that’s called its owner.
+* There can only be one owner at a time.
+* When the owner goes out of scope, the value will be dropped.
