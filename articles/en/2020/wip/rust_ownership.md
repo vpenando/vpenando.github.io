@@ -57,7 +57,7 @@ vec1.data(): 0x8c6c20
 vec2.data(): 0x8c6c20
 vec1.data(): 0
 ```
-As we can see, `vec1`'s inner pointer is directly moved into `vec2`.
+As we can see, `vec1`'s inner pointer is directly moved into `vec2`. It is then set to `nullptr`.
 
 ---
 
