@@ -43,6 +43,7 @@ An illustration of this behavior is C++'s **move semantics**:
 #include <vector>
 
 int main() {
+    // this is the equivalent of the above code, with a few prints.
     std::vector<int> vec1{1, 2, 3};
     std::cout << "vec1.data(): " << vec1.data() << "\n";
     std::vector<int> vec2 = std::move(vec1);
