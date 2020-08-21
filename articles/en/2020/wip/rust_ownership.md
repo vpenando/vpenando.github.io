@@ -43,14 +43,16 @@ An illustration of this behavior is C++'s **move semantics**:
 
 int main() {
     std::vector<int> vec1{1, 2, 3};
-    std::cout << "&vec1[0]: " << &vec1[0] << "\n";
+    std::cout << "vec1.data(): " << vec1.data() << "\n";
     std::vector<int> vec2 = std::move(vec1);
-    std::cout << "&vec2[0]: " << &vec2[0] << "\n";
+    std::cout << "vec2.data(): " << vec2.data() << "\n";
+    std::cout << "vec1.data(): " << vec1.data() << "\n";
 }
 ```
 Output:
 ```
-&vec1[0]: 0x1813c20
-&vec2[0]: 0x1813c20
+vec1.data(): 0x8c6c20
+vec2.data(): 0x8c6c20
+vec1.data(): 0
 ```
-In fact, `vec1`'s inner pointer is directly moved into `vec2`.
+As we can see, `vec1`'s inner pointer is directly moved into `vec2`.
