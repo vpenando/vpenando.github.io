@@ -58,6 +58,8 @@ vec1.data(): 0
 ```
 As we can see, `vec1`'s inner pointer is directly moved into `vec2`.
 
+---
+
 ### Ownership Rules
 
 From the the official documentation:
