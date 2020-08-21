@@ -14,7 +14,7 @@
 ```rust
 fn main() {
     let vec1 = vec![1, 2, 3];
-    let _vec2 = vec1;
+    let _vec2 = vec1; // _ is here to avoid the "unused variable" warning
     println!("{:?}", vec1);
 }
 ```
