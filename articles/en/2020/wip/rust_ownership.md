@@ -30,8 +30,9 @@ Let's take the following code as an example:
 ```rust
 fn main() {
     let vec1 = vec![1, 2, 3];
-    let _vec2 = vec1; // _ is here to avoid the "unused variable" warning
+    let vec2 = vec1;
     println!("{:?}", vec1);
+    println!("{:?}", vec2);
 }
 ```
 Output:
