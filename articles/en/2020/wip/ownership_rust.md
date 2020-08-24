@@ -82,3 +82,4 @@ As we can see, `vec1`'s inner pointer is directly moved into `vec2`. `vec1`'s da
 
 ---
 
+### Conclusion
