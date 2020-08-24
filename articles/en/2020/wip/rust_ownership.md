@@ -6,6 +6,13 @@
 
 ### Introduction
 
+One of the main features of Rust is *ownership*. 
+Ownership follow three rules.
+
+From the the official documentation:
+* Each value in Rust has a variable that’s called its owner.
+* There can only be one owner at a time.
+* When the owner goes out of scope, the value will be dropped.
 
 ---
 
@@ -61,9 +68,3 @@ As we can see, `vec1`'s inner pointer is directly moved into `vec2`. `vec1`'s da
 
 ---
 
-### Ownership Rules
-
-From the the official documentation:
-* Each value in Rust has a variable that’s called its owner.
-* There can only be one owner at a time.
-* When the owner goes out of scope, the value will be dropped.
