@@ -35,7 +35,12 @@ fn main() {
     println!("{:?}", vec2);
 }
 ```
-Output:
+As a C++ developer, I expected the output to be something like:
+```
+[1, 2, 3]
+[1, 2, 3]
+```
+But reality is quite different:
 ```
 error[E0382]: borrow of moved value: `vec1`
  --> tempCodeRunnerFile.rust:5:22
@@ -51,7 +56,7 @@ error: aborting due to previous error
 
 For more information about this error, try `rustc --explain E0382`.
 ```
-Explanation: `vec1`'s content has been moved into `vec2`. Thus, `vec2` is now the new *owner* of this resource.
+What happened? `vec1`'s content has been moved into `vec2`. Thus, `vec2` is now the new *owner* of this resource. Remember the second rule of *ownership*: There can only be one owner at a time.
 
 An illustration of this behavior is C++'s **move semantics**:
 ```cpp
