@@ -24,7 +24,7 @@ let s = String::from("hello");
 
 ---
 
-### Illustration
+### Ownership & moves
 
 Let's take the following code as an example:
 ```rust
