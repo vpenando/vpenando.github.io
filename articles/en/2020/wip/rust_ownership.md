@@ -10,9 +10,17 @@ One of the main features of Rust is *ownership*.
 Ownership follow three rules.
 
 From the the official documentation:
-* Each value in Rust has a variable that’s called its owner.
+* Each value in Rust has a variable that’s called its *owner*.
 * There can only be one owner at a time.
 * When the owner goes out of scope, the value will be dropped.
+
+Example:
+```rust
+let s = String::from("hello");
+```
+* Here, `s` is the *owner* of the value `"hello"` stored in the heap.
+* `s` is the only owner of this value.
+* At the end of the scope where `s` is declared, it will be dropped from memory.
 
 ---
 
