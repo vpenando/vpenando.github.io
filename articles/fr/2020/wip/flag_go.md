@@ -75,7 +75,48 @@ func main() {
   fmt.Println("n =", n)
 }
 ```
+Il semble de prime abord moins pratique que la version précédente ; en effet, quel intérêt de passer par un paramètre supplémentaire plutôt que d'attendre une valeur de retour ? C'est la question à laquelle nous allons répondre dans la partie suivante.
 
 ---
 
 ### Bonne pratique : la fonction `init()`
+La fonction `init()` est une fonction un peu particulière, un peu à la manière de `main()`. Tentez d'exécuter ce code :
+```go
+func init() {
+	fmt.Println("Never called...?")
+}
+
+func main() {
+}
+```
+([Exemple en ligne](https://play.golang.org/p/wth4TMNhcAb))
+
+Que s'est-il passé !? Nous n'avons pas appelé `init()`, et pourtant, elle s'est exécutée ? En effet, cette fonction, si elle est déclarée, est appelée automatiquement. Mieux encore, tout fichier source peut déclarer une fonction `init()`... et même plusieurs ! Davantage d'informations [ici](https://golang.org/doc/effective_go.html#init).
+
+Cette fonction est donc très utile pour effectuer des traitements divers en amont de la logique du programme. Des traitement tels que, disons, la lecture de flags, par exemple ! Et en prime, c'est là qu'entre sérieusement en jeu nos fonctions `IntVar`, `StringVar` et leurs cousines !
+
+Exemple :
+
+```
+var (
+  n int
+  b bool
+  s string
+)
+
+func init() {
+  // La lecture des flags est effectuée ici
+  flag.IntVar(&n, "n", 0, "description")
+  flag.BoolVar(&b, "b", false, "description")
+  flag.StringVar(&s, "s", "empty", "description")
+  flag.Parse()
+}
+
+func main() {
+  // Nous n'avons plus qu'à traiter les valeurs de nos différents flags
+  fmt.Println("n =", n)
+  fmt.Println("b =", b)
+  fmt.Println("s =", s)
+}
+```
+([Exemple en ligne](https://play.golang.org/p/xMh6ngRG4Az))
