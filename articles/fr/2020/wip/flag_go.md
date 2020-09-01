@@ -60,7 +60,7 @@ func main() {
   fmt.Println("n =", *n)
 }
 ```
-Essayons de passer un flag à notre application : `go run main.go -n 5`... Et ça marche ! Excellent !
+Essayons de passer un flag à notre application : `go run main.go -n 5`... Et ça marche ! Excellent ! Une syntaxe alternative existe, à savoir `go run main.go -n=5`. De plus, pour les booléens, nul besoin de spécifier une valeur. Leur valeur est par défaut conditionnée par leur présence ou leur absence.
 
 Revenons à présent sur les fonctions `BoolVar`, `IntVar` et leurs équivalents. Leurs fonctionnement est (très) légèrement différent. Plutôt que de renvoyer une valeur, elles prennent un argument supplémentaire en première position et suivent la logique suivante :
 ```go
@@ -96,8 +96,7 @@ Que s'est-il passé !? Nous n'avons pas appelé `init()`, et pourtant, elle s'es
 Cette fonction est donc très utile pour effectuer des traitements divers en amont de la logique du programme. Des traitement tels que, disons, la lecture de flags, par exemple ! Et en prime, c'est là qu'entre sérieusement en jeu nos fonctions `IntVar`, `StringVar` et leurs cousines !
 
 Exemple :
-
-```
+```go
 var (
   n int
   b bool
