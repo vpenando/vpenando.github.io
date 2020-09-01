@@ -19,7 +19,7 @@ Exemple :
 ```sh
 ls -l
 ```
-La commande `ls` liste le contenu du dossier courant. Ici, elle est appelée avec le flag `-l`, pour le format long. Plus d'informations [ici](http://manpagesfr.free.fr/man/man1/ls.1.html).
+La commande `ls` liste le contenu du dossier courant. Ici, elle est appelée avec le flag `-l`, au sujet duquel vous trouverez plus d'informations [ici](http://manpagesfr.free.fr/man/man1/ls.1.html).
 Et bien, sachez qu'il est possible de créer des flags similaires en Go, et ce très simplement !
 
 ---
@@ -57,11 +57,11 @@ Une autre fonction clé du package `flag` est la fonction `Parse()`. C'est elle 
 Au vu de la manière dont fonctionnent, les diverses fonctions présentées ci-dessus, une première tentative pourrait être la suivante :
 ```go
 func main() {
-  n := flag.Int("n", 0, "description de ce super flag")
-  flag.Parse()
-  // La fonction 'Int' renvoie un pointeur (amis du C, bonjour).
-  // Il nous suffit de le déréférencer pour obtenir sa valeur :
-  fmt.Println("n =", *n)
+    n := flag.Int("n", 0, "description de ce super flag")
+    flag.Parse()
+    // La fonction 'Int' renvoie un pointeur (amis du C, bonjour).
+    // Il nous suffit de le déréférencer pour obtenir sa valeur :
+    fmt.Println("n =", *n)
 }
 ```
 Essayons de passer un flag à notre application : `go run main.go -n 5`... Et ça marche ! Excellent ! Une syntaxe alternative existe, à savoir `go run main.go -n=5`. De plus, pour les booléens, nul besoin de spécifier une valeur. Leur valeur est par défaut conditionnée par leur présence ou leur absence.
@@ -73,10 +73,10 @@ func NomDuTypeVar(<Adresse du résultat>, <Nom du flag>, <Valeur par défaut>, <
 Dans le cas de notre ami `-n`, l'usage serait donc celui-ci :
 ```go
 func main() {
-  var n int
-  flag.IntVar(&n, "n", 0, "description de ce super flag")
-  flag.Parse()
-  fmt.Println("n =", n)
+    var n int
+    flag.IntVar(&n, "n", 0, "description de ce super flag")
+    flag.Parse()
+    fmt.Println("n =", n)
 }
 ```
 Il semble de prime abord moins pratique que la version précédente ; en effet, quel intérêt de passer par un paramètre supplémentaire plutôt que d'attendre une valeur de retour ? C'est la question à laquelle nous allons répondre dans la partie suivante.
@@ -87,7 +87,7 @@ Il semble de prime abord moins pratique que la version précédente ; en effet, 
 La fonction `init()` est une fonction un peu particulière, un peu à la manière de `main()`. Tentez d'exécuter ce code :
 ```go
 func init() {
-	fmt.Println("Never called...?")
+    fmt.Println("Never called...?")
 }
 
 func main() {
@@ -102,24 +102,24 @@ Cette fonction est donc très utile pour effectuer des traitements divers en amo
 Exemple :
 ```go
 var (
-  n int
-  b bool
-  s string
+    n int
+    b bool
+    s string
 )
 
 func init() {
-  // La lecture des flags est effectuée ici :
-  flag.IntVar(&n, "n", 0, "description")
-  flag.BoolVar(&b, "b", false, "description")
-  flag.StringVar(&s, "s", "empty", "description")
-  flag.Parse()
+    // La lecture des flags est effectuée ici :
+    flag.IntVar(&n, "n", 0, "description")
+    flag.BoolVar(&b, "b", false, "description")
+    flag.StringVar(&s, "s", "empty", "description")
+    flag.Parse()
 }
 
 func main() {
-  // Nous n'avons plus qu'à traiter les valeurs de nos différents flags :
-  fmt.Println("n =", n)
-  fmt.Println("b =", b)
-  fmt.Println("s =", s)
+    // Nous n'avons plus qu'à traiter les valeurs de nos différents flags :
+    fmt.Println("n =", n)
+    fmt.Println("b =", b)
+    fmt.Println("s =", s)
 }
 ```
 ([Exemple en ligne](https://play.golang.org/p/xMh6ngRG4Az))
