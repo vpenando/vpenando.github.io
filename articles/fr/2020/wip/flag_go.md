@@ -130,3 +130,4 @@ En utilisant la fonction `init()` de la sorte, nous séparons la lecture de nos 
 
 ### Conclusion
 Go est un langage extrêmement puissant, qui fournit une suite d'outils et de packages très impressionnante afin de répondre à la plupart des besoins. Parmi eux, le package `flag` permet une gestion des flags extrêmement simple : en effet, en seulement deux lignes, nous pouvons ajouter un flag à notre application. Et, comme si ça ne suffisait pas, il existe la fonction `Usage()`, qui permet de lister les flags que nous avons créés.
+De plus, en utilisant la fonction `init()`, nous pouvons segmenter notre code de manière à isoler la lecture des flags sans polluer notre code.
