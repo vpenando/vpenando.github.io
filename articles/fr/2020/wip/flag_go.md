@@ -6,6 +6,9 @@
 
 ### Sommaire
 * [Introduction](#introduction)
+* [Le package `flag`](#le-package-flag)
+* [Bonne pratique : la fonction `init()`](#bonne-pratique--la-fonction-init)
+* [Conclusion](#conclusion)
 
 ---
 
@@ -45,6 +48,7 @@ Chacune de ces fonctions suit la logique suivante :
 ```go
 func NomDuType(<Nom du flag>, <Valeur par défaut>, <Description>)
 ```
+Mais, me direz-vous, quel intérêt de fournir une description à un flag ? En effet, à quel moment est-elle utilisée ? Imaginez une fonction d'aide, permettant de lister et décrire vos différents flags. Avoir une description est toujours utile. Mais, comme il serait fastidieux de créer cette fonction soi-même (et la mettre à jour quand on ajoute ou supprime des flags), il existe la fonction `Usage()`, qui fait tout ça pour vous.
 
 De plus, comme vous l'aurez constaté, les fonctions `Bool`, `Int` et `String` ont leur équivalent suffixé de `Var`, comme `IntVar`. Nous reviendrons dessus dans un instant. Pour le moment, essayons de créer un flag `-n`, à la manière de `head`.
 
@@ -104,7 +108,7 @@ var (
 )
 
 func init() {
-  // La lecture des flags est effectuée ici
+  // La lecture des flags est effectuée ici :
   flag.IntVar(&n, "n", 0, "description")
   flag.BoolVar(&b, "b", false, "description")
   flag.StringVar(&s, "s", "empty", "description")
@@ -112,10 +116,17 @@ func init() {
 }
 
 func main() {
-  // Nous n'avons plus qu'à traiter les valeurs de nos différents flags
+  // Nous n'avons plus qu'à traiter les valeurs de nos différents flags :
   fmt.Println("n =", n)
   fmt.Println("b =", b)
   fmt.Println("s =", s)
 }
 ```
 ([Exemple en ligne](https://play.golang.org/p/xMh6ngRG4Az))
+
+En utilisant la fonction `init()` de la sorte, nous séparons la lecture de nos différents flags et le traitement de leurs valeurs.
+
+---
+
+### Conclusion
+Go est un langage extrêmement puissant, qui fournit une suite d'outils et de packages très impressionnante afin de répondre à la plupart des besoins. Parmi eux, le package `flag` permet une gestion des flags extrêmement simple : en effet, en seulement deux lignes, nous pouvons ajouter un flag à notre application. Et, comme si ça ne suffisait pas, il existe la fonction `Usage()`, qui permet de lister les flags que nous avons créés.
