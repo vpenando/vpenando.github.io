@@ -41,6 +41,8 @@ func IntVar(p *int, name string, value int, usage string)
 
 func String(name string, value string, usage string) *string
 func StringVar(p *string, name string, value string, usage string)
+
+// ...
 ```
 ***Note** - Bien d'autres fonctions sont fournies, je vous renvoie à [l'index du package](https://golang.org/pkg/flag/#pkg-index).*
 
