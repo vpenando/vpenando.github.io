@@ -1,5 +1,5 @@
 ## [Welcome here!](index.md) | [Articles](articles.md) | [Main projects](projects.md) | About me
-`c++11` `c++14` `c++17` `c#` `f#` `python` `git` `docker` `windows` `linux`
+`c++` `go` `c#` `python` `git` `docker` `windows` `linux`
 
 
 That's a question! Who am I?
