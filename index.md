@@ -4,6 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
+- `2020/09/02`: [(FR) La gestion des flags en Go](articles/fr/2020/flag_go.md) `go` `golang`
 - `2020/07/17`: [(FR) La fonction `recover()` en Go](articles/fr/2020/golang_recover.md) `go` `golang`
 - `2020/06/26`: [(FR) C++ - Amusons-nous avec les variadic templates](articles/fr/2020/variadic_templates.md) `c++` `c++11` `templates`
 - `2020/05/08`: [(FR) EXPRESS #2 - Du bon usage de godoc](articles/fr/2020/express2_godoc.md) `go` `golang`
@@ -11,7 +12,6 @@
 - `2020/01/24`: [(FR) Réflexion - Implémentation d'un singleton en C++](articles/fr/2020/singleton_cpp.md) `oop` `c++` `good-practices`
 - `2019/11/18`: [(FR) Analysons le microprocesseur MOS Technology 6502](articles/fr/2019/6502.md) `asm`
 - `2019/10/16`: [(FR) Le RAII, qu'est-ce que c'est ?](articles/fr/2019/raii.md) `oop` `c++` `good-practices`
-- `2019/08/17`: [(FR) La const-correctness appliquée au C++ moderne](articles/fr/2019/constexpr.md) `c++` `modern-c++` `good-practices`
 
 
 [More...](articles.md)
