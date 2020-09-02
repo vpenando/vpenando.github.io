@@ -3,6 +3,7 @@
 ### All posts:
 
 #### 2020
+- `2020/09/02`: [(FR) La gestion des flags en Go](articles/fr/2020/flag_go.md) `go` `golang`
 - `2020/07/17`: [(FR) La fonction `recover()` en Go](articles/fr/2020/golang_recover.md) `go` `golang`
 - `2020/06/26`: [(FR) C++ - Amusons-nous avec les variadic templates](articles/fr/2020/variadic_templates.md) `c++` `c++11` `templates`
 - `2020/05/08`: [(FR) EXPRESS #2 - Du bon usage de godoc](articles/fr/2020/express2_godoc.md) `go` `golang`
