@@ -99,7 +99,7 @@ func main() {
 
 Que s'est-il passé !? Nous n'avons pas appelé `init()`, et pourtant, elle s'est exécutée ? En effet, cette fonction, si elle est déclarée, est appelée automatiquement. Mieux encore, tout fichier source peut déclarer une fonction `init()`... et même plusieurs ! Davantage d'informations [ici](https://golang.org/doc/effective_go.html#init).
 
-Cette fonction est donc très utile pour effectuer des traitements divers en amont de la logique du programme. Des traitement tels que, disons, la lecture de flags, par exemple ! Et en prime, c'est là qu'entre sérieusement en jeu nos fonctions `IntVar`, `StringVar` et leurs cousines !
+Cette fonction est donc très utile pour effectuer des traitements divers en amont de la logique du programme. Des traitement tels que, disons, la lecture de flags, par exemple ! Et en prime, c'est là qu'entrent sérieusement en jeu nos fonctions `IntVar`, `StringVar` et leurs cousines !
 
 Exemple :
 ```go
