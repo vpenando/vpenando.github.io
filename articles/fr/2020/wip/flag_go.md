@@ -56,7 +56,7 @@ De plus, comme vous l'aurez constaté, les fonctions `Bool`, `Int` et `String` o
 
 Une autre fonction clé du package `flag` est la fonction `Parse()`. C'est elle qui est chargée d'interpréter les différents flags fournis à notre application.
 
-Au vu de la manière dont fonctionnent, les diverses fonctions présentées ci-dessus, une première tentative pourrait être la suivante :
+Au vu de la manière dont fonctionnent les diverses fonctions présentées ci-dessus, une première tentative pourrait être la suivante :
 ```go
 func main() {
     n := flag.Int("n", 0, "description de ce super flag")
