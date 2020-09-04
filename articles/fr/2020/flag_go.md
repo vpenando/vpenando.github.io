@@ -68,7 +68,7 @@ func main() {
 ```
 Essayons de passer un flag à notre application : `go run main.go -n 5`... Et ça marche ! Excellent ! Une syntaxe alternative existe, à savoir `go run main.go -n=5`. De plus, pour les booléens, nul besoin de spécifier une valeur ; en effet, celle-ci est par défaut conditionnée par la présence ou l'absence du flag.
 
-Revenons à présent sur les fonctions `BoolVar`, `IntVar` et leurs équivalents. Leurs fonctionnement est (très) légèrement différent. Plutôt que de renvoyer une valeur, elles prennent un argument supplémentaire en première position et suivent la logique suivante :
+Revenons à présent sur les fonctions `BoolVar`, `IntVar` et leurs équivalents. Leur fonctionnement est (très) légèrement différent. Plutôt que de renvoyer une valeur, elles prennent un argument supplémentaire en première position et suivent la logique suivante :
 ```go
 func NomDuTypeVar(<Adresse du résultat>, <Nom du flag>, <Valeur par défaut>, <Description>)
 ```
