@@ -47,7 +47,7 @@ Rien ne vaut un test concret, avec de vrais outils et un environnement de travai
 
 Attention, je rappelle que cela correspond à mon avis personnel ; tout le monde n'a pas le même ressenti vis-à-vis de ce type de test.
 
-Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 45 minutes, en une heure, ou autre ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. En plus de n'avoir que peu d'intérêt (mélanger C et C++ sans couche RAII-conform est une erreur), il est difficilement réalisable sans connaître au préalable l'API SQLite. 
+Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 45 minutes, en une heure, ou autre ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. En plus de n'avoir que peu d'intérêt (mélanger C et C++ sans couche RAII-conform est une erreur), il est difficilement réalisable sans connaître au préalable l'API SQLite. De plus, quel intérêt d'avoir un chronomètre quand on code ? Cela ressemble-t-il à une mise en situation réaliste ?
 J'ai appris après coup, via recruteurs prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
 
 ---
@@ -55,4 +55,4 @@ J'ai appris après coup, via recruteurs prestataires, que l'entreprise en questi
 ### Du coup, un bon test, c'est quoi ?
 À mon sens, la piste du mini projet à faire *-sans chronomètre-* est la meilleure option. Que ce soit chez soi ou en live face à un ou plusieurs développeurs, l'intérêt de l'exercice réside avant tout dans les échanges après (ou pendant) l'exercice, entre candidat et développeurs. En effet, des échanges techniques sont une garantie de l'honnêteté du candidat, là où un bête score ne prouve rien.
 
-Une autre alternative est la mise en situation face à une portion de code et où l'on doit expliquer pourquoi on validerait (ou non) ce code dans une merge request. L'idée est de tester les connaissances du candidat, aussi bien au niveau du langage que des bonnes pratiques en programmation.
+Une autre alternative est la mise en situation face à une portion de code où l'on doit expliquer pourquoi on validerait (ou non) ce code dans une merge request. L'idée est de tester les connaissances du candidat, aussi bien au niveau du langage que des bonnes pratiques en programmation.
