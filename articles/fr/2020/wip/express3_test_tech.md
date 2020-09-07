@@ -53,6 +53,6 @@ J'ai appris après coup, via recruteurs prestataires, que l'entreprise en questi
 ---
 
 ### Du coup, un bon test, c'est quoi ?
-À mon sens, la piste du mini projet à faire *-sans chronomètre-* est la meilleure option. Que ce soit chez soi ou en live avec un ou plusieurs dévelopeurs, l'intérêt de l'exercice réside avant tout dans les échanges entre candidats et développeurs. En effet, des échanges techniques sont une garantie de l'honnêteté du candidat, là où un bête score ne prouve rien.
+À mon sens, la piste du mini projet à faire *-sans chronomètre-* est la meilleure option. Que ce soit chez soi ou en live face à un ou plusieurs développeurs, l'intérêt de l'exercice réside avant tout dans les échanges entre candidat et développeurs. En effet, des échanges techniques sont une garantie de l'honnêteté du candidat, là où un bête score ne prouve rien.
 
-En complément, un QCM peut être viable afin de valider certains acquis.
+Une autre alternative est la mise en situation face à une portion de code et où l'on doit expliquer pourquoi on validerait (ou non) ce code dans une merge request.
