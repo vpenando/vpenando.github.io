@@ -57,4 +57,4 @@ J'ai appris après coup, via recruteurs prestataires, que l'entreprise en questi
 
 Une autre alternative est la mise en situation face à une portion de code où l'on doit expliquer pourquoi on validerait (ou non) ce code dans une merge request. L'idée est de tester les connaissances du candidat, aussi bien au niveau du langage que des bonnes pratiques en programmation.
 
-Ces deux méthodes permettent de tester les connaissances et la logique d'un candidat, tandis qu'un test noté n'a *-à mon sens-* aucun intérêt.
+Ces deux méthodes permettent de tester de manière fiable les connaissances et la logique d'un candidat, tandis qu'un test noté sur une plateforme en ligne n'a *-à mon sens-* aucun intérêt.
