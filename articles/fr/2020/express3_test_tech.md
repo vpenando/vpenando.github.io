@@ -56,3 +56,5 @@ J'ai appris après coup, via recruteurs prestataires, que l'entreprise en questi
 À mon sens, la piste du mini projet à faire *-sans chronomètre-* est la meilleure option. Que ce soit chez soi ou en live face à un ou plusieurs développeurs, l'intérêt de l'exercice réside avant tout dans les échanges après (ou pendant) l'exercice, entre candidat et développeurs. En effet, des échanges techniques sont une garantie de l'honnêteté du candidat, là où un bête score ne prouve rien.
 
 Une autre alternative est la mise en situation face à une portion de code où l'on doit expliquer pourquoi on validerait (ou non) ce code dans une merge request. L'idée est de tester les connaissances du candidat, aussi bien au niveau du langage que des bonnes pratiques en programmation.
+
+Ces deux méthodes permettent de tester les connaissances et la logique d'un candidat, tandis qu'un test noté n'a *-à mon sens-* aucun intérêt.
