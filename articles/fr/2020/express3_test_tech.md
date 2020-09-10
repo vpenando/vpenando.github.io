@@ -16,7 +16,7 @@ Si vous êtes ici, c'est que vous avez lu la note en début de page (a priori ju
 ### Introduction
 Dans un processus de recrutement, il y a dans la plupart des cas une évaluation technique. Elle peut avoir différentes formes, mais a toujours le même but : jauger le niveau d'un candidat. Bien souvent, la personne en face de vous n'a pas les connaissances techniques nécessaires, et c'est tout à fait normal. Ainsi, votre interlocuteur passera par un test rédigé par des personnes ayant un profil plus technique.
 
-Avant d'aborder le "bon" test technique, je souhaiterais parler de ce que je pense être de mauvais test technique. J'en distingue plusieurs cas.
+Avant d'aborder le "bon" test technique, je souhaiterais parler de ce que je pense être un mauvais test technique. J'en distingue plusieurs cas.
 Avant toute chose, posons-nous les bonnes questions : que veut-on évaluer ? Veut-on un candidat qui connait un langage du bout des doigts ? Ou plutôt un profil qui, à défaut de connaître un langage par coeur, va exercer sa logique ?
 
 Enfin, je rappelle que j'emploierai un ton plus léger qu'à l'accoutumée, ainsi vous risquez de lire çà et là quelques expressions familières.
@@ -48,7 +48,7 @@ Rien ne vaut un test concret, avec de vrais outils et un environnement de travai
 Attention, je rappelle que cela correspond à mon avis personnel ; tout le monde n'a pas le même ressenti vis-à-vis de ce type de test.
 
 Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 45 minutes, en une heure, ou autre ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. En plus de n'avoir que peu d'intérêt (mélanger C et C++ sans couche RAII-conform est une erreur), il est difficilement réalisable sans connaître au préalable l'API SQLite. De plus, quel intérêt d'avoir un chronomètre quand on code ? Cela ressemble-t-il à une mise en situation réaliste ?
-J'ai appris après coup, via recruteurs prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
+J'ai appris après coup, via des recruteurs d'entreprises prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
 
 ---
 
