@@ -37,7 +37,8 @@ int main() {
 ```
 
 Compiler : `gcc -g pass.c`
-Tester avec GDB :
+
+Voyons avec GDB ce à quoi ressemble l'assembleur généré :
 ```
 $ gdb -q ./a.out
 (gdb) disass main
@@ -68,3 +69,21 @@ Dump of assembler code for function main:
    0x00000000004015b0 <+96>:    ret
 End of assembler dump.
 ```
+Les trois premières lignes sont le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
+```asm
+push   rbp      ; on met rbp (base pointer) sur la pile
+mov    rbp, rsp  ; on stocke rsp (stack pointer) dans rbp
+sub    rsp, 0x60 ; on alloue 0x60 (96) octets sur la pile
+```
+Les trois dernières, quant à elles, sont l'*épilogue* de la fonction. Elles restaurent la pile à son état d'origine.
+```asm
+add    rsp, 0x60 ; on restaure rsp après avoir alloué 0x60 octets sur la pile
+pop    rbp      ; on restaure rbp, qui contenait la valeur de rsp
+ret             ; on retourne de main()
+ ```
+ En 32 bits, l'épilogue ressemblerait à ceci :
+ ```asm
+mov    esp, ebp ; on restitue l'ancienne valeur de esp
+pop    ebp      ; on restaure ebp
+ret             ; on retourne de main()
+ ```
