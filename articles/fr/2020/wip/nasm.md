@@ -11,6 +11,7 @@
 
 ### Introduction
 
+---
 
 ### Exemple de programme à désassembler
 ```c
@@ -69,6 +70,37 @@ Dump of assembler code for function main:
    0x00000000004015b0 <+96>:    ret
 End of assembler dump.
 ```
+Le code assembleur ressemble donc à ceci :
+```asm
+; prologue
+push   rbp
+mov    rbp,rsp
+sub    rsp,0x60
+
+call   0x401670 <__main>
+lea    rcx,[rip+0x2a9c]        # 0x404000
+call   0x402ab0 <puts>
+lea    rax,[rbp-0x40]
+mov    rcx,rax
+call   0x402aa8 <scanf>
+lea    rax,[rbp-0x40]
+lea    rdx,[rip+0x2a8a]        # 0x40400a
+mov    rcx,rax
+call   0x402a98 <strcmp>
+test   eax,eax
+jne    0x40159a <main+74>
+lea    rcx,[rip+0x2a80]        # 0x404013
+call   0x402ab8 <printf>
+jmp    0x4015a6 <main+86>
+lea    rcx,[rip+0x2a7a]        # 0x40401b
+call   0x402ab8 <printf>
+mov    eax,0x0
+
+; épilogue
+add    rsp,0x60
+pop    rbp
+ret
+ ```
 Les trois premières lignes sont le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
 ```asm
 push   rbp      ; on met rbp (base pointer) sur la pile
