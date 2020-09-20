@@ -120,3 +120,16 @@ mov    esp, ebp ; on restitue l'ancienne valeur de esp
 pop    ebp      ; on restaure ebp
 ret             ; on retourne de main()
  ```
+
+
+
+Note sur `test eax, eax` et `je` :
+* Si `eax & eax == 0`, alors le "zero flag" est setté à 1 ;
+* L'instruction `je` exécute le *jump* si le "zero flag" vaut 1. `jne` fait le test inverse, à savoir si le "zero flag" vaut 0.
+
+Cela équivaut donc à :
+```c
+if (eax != 0) {
+    jmp <main+74>;
+}
+```
