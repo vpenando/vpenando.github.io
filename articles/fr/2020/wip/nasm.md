@@ -10,6 +10,7 @@
 ---
 
 ### Introduction
+* Note sur x86 / x64 : rax/eax, rbx/ebx, ...
 
 ---
 
