@@ -130,6 +130,6 @@ Note sur `test eax, eax` et `je` :
 Cela équivaut donc à :
 ```c
 if (eax != 0) {
-    jmp <main+74>;
+    goto <main+74>;
 }
 ```
