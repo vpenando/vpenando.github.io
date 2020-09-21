@@ -41,7 +41,7 @@ int main() {
 Compiler : `gcc -g pass.c`
 
 Voyons avec GDB ce à quoi ressemble l'assembleur généré :
-```
+```asm
 $ gdb -q ./a.out
 (gdb) disass main
 Dump of assembler code for function main:
@@ -71,7 +71,55 @@ Dump of assembler code for function main:
    0x00000000004015b0 <+96>:    ret
 End of assembler dump.
 ```
-Le code assembleur ressemble donc à ceci :
+ Mieux encore, en passant l'option `/m` à `disass`, on peut afficher le code C correspondant !
+```asm
+(gdb) disass /m main
+Dump of assembler code for function main:
+warning: Source file is more recent than executable.
+6       int main() {
+   0x0000000000401550 <+0>:     push   rbp
+   0x0000000000401551 <+1>:     mov    rbp,rsp
+   0x0000000000401554 <+4>:     sub    rsp,0x60
+   0x0000000000401558 <+8>:     call   0x401670 <__main>
+
+7           char input[INPUT_SIZE];
+8           int allowed = 0;
+   0x000000000040155d <+13>:    lea    rcx,[rip+0x2a9c]        # 0x404000
+   0x0000000000401564 <+20>:    call   0x402ab0 <puts>
+
+9           printf("Password?\n");
+   0x0000000000401569 <+25>:    lea    rax,[rbp-0x40]
+   0x000000000040156d <+29>:    mov    rcx,rax
+   0x0000000000401570 <+32>:    call   0x402aa8 <scanf>
+
+10          scanf("%s", input);
+   0x0000000000401575 <+37>:    lea    rax,[rbp-0x40]
+   0x0000000000401579 <+41>:    lea    rdx,[rip+0x2a8a]        # 0x40400a
+   0x0000000000401580 <+48>:    mov    rcx,rax
+   0x0000000000401583 <+51>:    call   0x402a98 <strcmp>
+   0x0000000000401588 <+56>:    test   eax,eax
+   0x000000000040158a <+58>:    jne    0x40159a <main+74>
+
+11          if (! strcmp(input, "PASSWORD")) {
+   0x000000000040158c <+60>:    lea    rcx,[rip+0x2a80]        # 0x404013
+   0x0000000000401593 <+67>:    call   0x402ab8 <printf>
+   0x0000000000401598 <+72>:    jmp    0x4015a6 <main+86>
+
+12              printf("Granted");
+13          } else {
+   0x000000000040159a <+74>:    lea    rcx,[rip+0x2a7a]        # 0x40401b
+   0x00000000004015a1 <+81>:    call   0x402ab8 <printf>
+   0x00000000004015a6 <+86>:    mov    eax,0x0
+
+14              printf("Denied");
+15          }
+   0x00000000004015ab <+91>:    add    rsp,0x60
+   0x00000000004015af <+95>:    pop    rbp
+   0x00000000004015b0 <+96>:    ret
+
+End of assembler dump.
+```
+Le code assembleur peut donc être segmenté ainsi :
 ```asm
 ; prologue
 push   rbp
