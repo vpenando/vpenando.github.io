@@ -120,36 +120,36 @@ pass.c:
 Le code assembleur peut donc être segmenté ainsi :
 ```asm
 ; prologue
-push   rbp
-mov    rbp,rsp
-sub    rsp,0x60
-call   0x401670 <__main>
-
+   0x0000000000401550 <+0>:     push   rbp
+   0x0000000000401551 <+1>:     mov    rbp,rsp
+   0x0000000000401554 <+4>:     sub    rsp,0x60
+   0x0000000000401558 <+8>:     call   0x401670 <__main>
+   
 ; on demande un mot de passe à l'utilisateur
-lea    rcx,[rip+0x2a9c]        # 0x404000
-call   0x402ab0 <puts>
-lea    rax,[rbp-0x40]
-mov    rcx,rax
-call   0x402aa8 <scanf>
-lea    rax,[rbp-0x40]
-lea    rdx,[rip+0x2a8a]        # 0x40400a
-mov    rcx,rax
+   0x000000000040155d <+13>:    lea    rcx,[rip+0x2a9c]        # 0x404000
+   0x0000000000401564 <+20>:    call   0x402ab0 <puts>
+   0x0000000000401569 <+25>:    lea    rax,[rbp-0x40]
+   0x000000000040156d <+29>:    mov    rcx,rax
+   0x0000000000401570 <+32>:    call   0x402aa8 <scanf>
+   0x0000000000401575 <+37>:    lea    rax,[rbp-0x40]
+   0x0000000000401579 <+41>:    lea    rdx,[rip+0x2a8a]        # 0x40400a
+   0x0000000000401580 <+48>:    mov    rcx,rax
 
 ; c'est ici qu'on teste le mot de passe entré !
-call   0x402a98 <strcmp>
-test   eax,eax
-jne    0x40159a <main+74>      ; ce saut correspond au 'else'
-lea    rcx,[rip+0x2a80]        # 0x404013
-call   0x402ab8 <printf>       ; ici, nous sommes dans le 'if' : on affiche "Granted" !
-jmp    0x4015a6 <main+86>      ; on sort du bloc 'if/else' 
-lea    rcx,[rip+0x2a7a]        # 0x40401b
-call   0x402ab8 <printf>
-mov    eax,0x0                 ; on assigne 0 à eax pour retourner 0
+   0x0000000000401583 <+51>:    call   0x402a98 <strcmp>
+   0x0000000000401588 <+56>:    test   eax,eax
+   0x000000000040158a <+58>:    jne    0x40159a <main+74>      ; ce saut correspond au 'else'
+   0x000000000040158c <+60>:    lea    rcx,[rip+0x2a80]        # 0x404013
+   0x0000000000401593 <+67>:    call   0x402ab8 <printf>       ; ici, nous sommes dans le 'if' : on affiche "Granted" !
+   0x0000000000401598 <+72>:    jmp    0x4015a6 <main+86>      ; on sort du bloc 'if/else' 
+   0x000000000040159a <+74>:    lea    rcx,[rip+0x2a7a]        # 0x40401b
+   0x00000000004015a1 <+81>:    call   0x402ab8 <printf>
+   0x00000000004015a6 <+86>:    mov    eax,0x0                 ; on assigne 0 à eax pour retourner 0
 
 ; épilogue
-add    rsp,0x60
-pop    rbp
-ret
+   0x00000000004015ab <+91>:    add    rsp,0x60
+   0x00000000004015af <+95>:    pop    rbp
+   0x00000000004015b0 <+96>:    ret
  ```
 Les trois premières lignes sont le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
 ```asm
