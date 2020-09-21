@@ -71,11 +71,11 @@ Dump of assembler code for function main:
    0x00000000004015b0 <+96>:    ret
 End of assembler dump.
 ```
- Mieux encore, en passant l'option `/m` à `disass`, on peut afficher le code C correspondant !
+ Mieux encore, en passant l'option `/s` à `disass`, on peut afficher le code C correspondant !
 ```asm
-(gdb) disass /m main
+(gdb) disass /s main
 Dump of assembler code for function main:
-warning: Source file is more recent than executable.
+pass.c:
 6       int main() {
    0x0000000000401550 <+0>:     push   rbp
    0x0000000000401551 <+1>:     mov    rbp,rsp
@@ -116,8 +116,6 @@ warning: Source file is more recent than executable.
    0x00000000004015ab <+91>:    add    rsp,0x60
    0x00000000004015af <+95>:    pop    rbp
    0x00000000004015b0 <+96>:    ret
-
-End of assembler dump.
 ```
 Le code assembleur peut donc être segmenté ainsi :
 ```asm
