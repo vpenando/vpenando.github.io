@@ -123,8 +123,9 @@ Le code assembleur peut donc être segmenté ainsi :
 push   rbp
 mov    rbp,rsp
 sub    rsp,0x60
-
 call   0x401670 <__main>
+
+; on demande un mot de passe à l'utilisateur
 lea    rcx,[rip+0x2a9c]        # 0x404000
 call   0x402ab0 <puts>
 lea    rax,[rbp-0x40]
@@ -133,15 +134,17 @@ call   0x402aa8 <scanf>
 lea    rax,[rbp-0x40]
 lea    rdx,[rip+0x2a8a]        # 0x40400a
 mov    rcx,rax
+
+; c'est ici qu'on teste le mot de passe entré !
 call   0x402a98 <strcmp>
 test   eax,eax
-jne    0x40159a <main+74>
+jne    0x40159a <main+74>      ; ce saut correspond au 'else'
 lea    rcx,[rip+0x2a80]        # 0x404013
-call   0x402ab8 <printf>
-jmp    0x4015a6 <main+86>
+call   0x402ab8 <printf>       ; ici, nous sommes dans le 'if' : on affiche "Granted" !
+jmp    0x4015a6 <main+86>      ; on sort du bloc 'if/else' 
 lea    rcx,[rip+0x2a7a]        # 0x40401b
 call   0x402ab8 <printf>
-mov    eax,0x0
+mov    eax,0x0                 ; on assigne 0 à eax pour retourner 0
 
 ; épilogue
 add    rsp,0x60
