@@ -51,9 +51,9 @@ void foo(T&& value) {
 }
 
 template<class T, class ...TArgs>
-void foo(T&& value, TArgs&& ...args) {
+void foo(T&& first, TArgs&& ...args) {
     // version récursive
-    foo(std::forward<T>(value));        // on appelle foo<T>
+    foo(std::forward<T>(first));        // on appelle foo<T>
     foo(std::forward<TArgs>(args)...);  // on rappelle foo sans T
 }
 
@@ -67,8 +67,6 @@ foo(".", 14);
 foo(14);
 ```
 À chacun de ceux-ci, un appel unitaire à `foo` est effectué.
-
-
 
 ---
 
