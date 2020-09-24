@@ -143,7 +143,9 @@ add    rsp,0x60 ; on restaure rsp après avoir alloué 0x60 octets sur la pile
 pop    rbp      ; on restaure rbp, qui contenait la valeur de rsp
 ret             ; on retourne de main()
  ```
- 
+
+---
+
 ### Analyse du code
 
 Le code assembleur peut donc être segmenté ainsi :
