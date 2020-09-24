@@ -4,13 +4,14 @@
 
 ---
 
-### Sommaire
+### Introduction
 
 
 ---
 
-### Introduction
-* Note sur x86 / x64 : rax/eax, rbx/ebx, ...
+### Sommaire
+
+
 
 ---
 
@@ -39,6 +40,10 @@ int main() {
 ```
 
 Compiler : `gcc -g pass.c`
+
+---
+
+### En avant avec GDB !
 
 Voyons avec GDB ce à quoi ressemble l'assembleur généré :
 ```asm
