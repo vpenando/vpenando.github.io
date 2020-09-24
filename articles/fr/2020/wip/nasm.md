@@ -6,6 +6,7 @@
 
 ### Introduction
 Au cours de ce bref article, nous allons nous amuser avec NASM. Pour ce faire, nous allons compiler un code C très basique, et étudier le code assembleur correspondant.
+Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence.
 
 ---
 
@@ -39,7 +40,9 @@ int main() {
 }
 ```
 
-Pour compiler, nous utiliserons GCC : `gcc -g pass.c`.
+Ce code affiche "Granted" si le mot de passe entré est valide, et "Denied" dans les autres cas.
+
+Pour le compiler, nous utiliserons GCC : `gcc -g pass.c`.
 Tentons à présent d'étudier le code assembleur correspondant.
 
 ---
@@ -140,6 +143,9 @@ add    rsp,0x60 ; on restaure rsp après avoir alloué 0x60 octets sur la pile
 pop    rbp      ; on restaure rbp, qui contenait la valeur de rsp
 ret             ; on retourne de main()
  ```
+ 
+### Analyse du code
+
 Le code assembleur peut donc être segmenté ainsi :
 ```asm
 ; prologue
