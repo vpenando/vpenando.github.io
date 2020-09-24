@@ -170,7 +170,8 @@ Le code assembleur peut donc être segmenté ainsi :
    0x00000000004015b2 <+98>:    add    rsp,0x60
    0x00000000004015b6 <+102>:   pop    rbp
    0x00000000004015b7 <+103>:   ret
- ```Note sur `test eax, eax` :
+ ```
+ Note sur `test eax, eax` :
 * Si `eax & eax == 0`, alors le "zero flag" est setté à 1 ;
 * L'instruction `je` exécute le *jump* si le "zero flag" vaut 1. `jne` fait le test inverse, à savoir si le "zero flag" vaut 0.
 
