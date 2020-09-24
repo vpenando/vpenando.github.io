@@ -135,7 +135,7 @@ Parmis les résultats, nous voyons ceci :
 ```
 0000000000404000 <.rdata>:
 ```
-Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`.
+Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" !
 
 **Note² :** Sur un système 32 bits, ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres)
 Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
