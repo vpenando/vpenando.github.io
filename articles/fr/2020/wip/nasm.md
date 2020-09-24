@@ -5,7 +5,7 @@
 ---
 
 ### Introduction
-
+Au cours de ce bref article, nous allons nous amuser avec NASM. Pour ce faire, nous allons compiler un code C très basique, et étudier le code assembleur correspondant.
 
 ---
 
@@ -39,7 +39,8 @@ int main() {
 }
 ```
 
-Compiler : `gcc -g pass.c`
+Pour compiler, nous utiliserons GCC : `gcc -g pass.c`.
+Tentons à présent d'étudier le code assembleur correspondant.
 
 ---
 
@@ -47,8 +48,8 @@ Compiler : `gcc -g pass.c`
 
 Voyons avec GDB ce à quoi ressemble l'assembleur généré :
 ```asm
-$ gdb -q a.exe
-Reading symbols from a.exe...done.
+$ gdb -q a.out
+Reading symbols from a.out...done.
 (gdb) disass main
 Dump of assembler code for function main:
    0x0000000000401550 <+0>:     push   rbp
