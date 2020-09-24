@@ -18,8 +18,8 @@
 ```c
 // pass.c
 
-#include <stdio.h>   // printf, scanf
 #include <string.h>  // memcpy, strcmp
+#include <stdio.h>   // printf, scanf
 
 #define INPUT_SIZE 50
 
