@@ -163,24 +163,21 @@ Le code assembleur peut donc être segmenté ainsi :
    0x000000000040159a <+74>:    call   0x402ab8 <printf>       ; ici, nous sommes dans le 'if' : on affiche "Granted" !
    0x000000000040159f <+79>:    jmp    0x4015ad <main+93>      ; on sort du bloc 'if/else' 
    0x00000000004015a1 <+81>:    lea    rcx,[rip+0x2a76]        # 0x40401e
-   0x00000000004015a8 <+88>:    call   0x402ab8 <printf>
+   0x00000000004015a8 <+88>:    call   0x402ab8 <printf>       ; on affiche "Granted"
    0x00000000004015ad <+93>:    mov    eax,0x0                 ; on assigne 0 à eax pour retourner 0
 
 ; épilogue
    0x00000000004015b2 <+98>:    add    rsp,0x60
    0x00000000004015b6 <+102>:   pop    rbp
    0x00000000004015b7 <+103>:   ret
- ```
-
-
-
-Note sur `test eax, eax` et `je` :
+ ```Note sur `test eax, eax` :
 * Si `eax & eax == 0`, alors le "zero flag" est setté à 1 ;
 * L'instruction `je` exécute le *jump* si le "zero flag" vaut 1. `jne` fait le test inverse, à savoir si le "zero flag" vaut 0.
 
 Cela équivaut donc à :
 ```c
 if (eax != 0) {
-    goto <main+74>;
+    goto <main+81>;
 }
 ```
+**Note :** Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne` par `je` à la ligne `<main+65>`. Ce faisant, toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" !
