@@ -116,12 +116,13 @@ pass.c:
 
 19          }
 20      }
-   0x00000000004015b2 <+98>:   add    rsp,0x60
+   0x00000000004015b2 <+98>:    add    rsp,0x60
    0x00000000004015b6 <+102>:   pop    rbp
    0x00000000004015b7 <+103>:   ret
 End of assembler dump.
 ```
-Les trois premières lignes sont le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
+**Note :** Sur un système 32 bits, ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres)
+Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
 ```asm
 push   rbp      ; on met rbp (base pointer) sur la pile
 mov    rbp,rsp  ; on stocke rsp (stack pointer) dans rbp
