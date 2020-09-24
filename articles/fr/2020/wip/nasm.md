@@ -41,7 +41,7 @@ int main() {
 Compiler : `gcc -g pass.c`
 
 Voyons avec GDB ce à quoi ressemble l'assembleur généré :
-```asm
+```nasm
 $ gdb -q a.exe
 Reading symbols from a.exe...done.
 (gdb) disass main
@@ -160,7 +160,7 @@ Le code assembleur peut donc être segmenté ainsi :
  ```
  Une première chose qui m'a frappé à la lecture de ce code est l'appel à `__main` : de quoi s'agit-il ? Allons voir ça  de plus près :
  ```asm
-$ objdump -M intel -D --no-show-raw-insn a.exe | grep "<__main>:" -A9
+$ objdump -M intel -D --no-show-raw-insn a.exe | grep "<__main>:" -A20
 0000000000401670 <__main>:
   401670:       mov    eax,DWORD PTR [rip+0x59ba]        # 407030 <initialized>
   401676:       test   eax,eax
@@ -170,8 +170,7 @@ $ objdump -M intel -D --no-show-raw-insn a.exe | grep "<__main>:" -A9
   401680:       mov    DWORD PTR [rip+0x59a6],0x1        # 407030 <initialized>
   40168a:       jmp    401600 <__do_global_ctors>
   40168f:       nop
-
-
+; fin de __main
  ```
 Les trois premières lignes sont le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
 ```asm
