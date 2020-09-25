@@ -195,6 +195,8 @@ Le code assembleur peut donc être segmenté ainsi :
    0x00000000004015b6 <+102>:   pop    rbp
    0x00000000004015b7 <+103>:   ret
  ```
+ Il est intéressant de constater que le premier appel à `printf` est remplacé par un appel à `puts`. Ce dernier rajoutant un saut de ligne (caractère `\n`), le compilateur a optimisé l'appel à `printf("Password?\n")` en le remplaçant par `puts("Password?")`.
+ 
  Note sur `test eax, eax` :
 * Si `eax & eax == 0`, alors le "zero flag" est setté à 1 ;
 * L'instruction `je` exécute le *jump* si le "zero flag" vaut 1. `jne` fait le test inverse, à savoir si le "zero flag" vaut 0.
