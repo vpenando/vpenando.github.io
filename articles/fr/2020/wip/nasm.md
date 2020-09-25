@@ -188,12 +188,12 @@ Le code assembleur peut donc être segmenté ainsi :
    0x000000000040159f <+79>:    jmp    0x4015ad <main+93>      ; on sort du bloc 'if/else' 
    0x00000000004015a1 <+81>:    lea    rcx,[rip+0x2a76]        # 0x40401e
    0x00000000004015a8 <+88>:    call   0x402ab8 <printf>       ; on affiche "Granted"
-   0x00000000004015ad <+93>:    mov    eax,0x0                 ; on assigne 0 à eax pour retourner 0
+   0x00000000004015ad <+93>:    mov    eax,0x0                 ; on assigne 0 à eax (avec l'appel à 'ret' ci-après, équivaut à 'return 0')
 
 ; épilogue
    0x00000000004015b2 <+98>:    add    rsp,0x60
    0x00000000004015b6 <+102>:   pop    rbp
-   0x00000000004015b7 <+103>:   ret
+   0x00000000004015b7 <+103>:   ret                            ; on assigne 0 à eax (avec l'appel à 'ret' ci-après, équivaut à 'return 0')
  ```
  Il est intéressant de constater que le premier appel à `printf` est remplacé par un appel à `puts`. Ce dernier rajoutant un saut de ligne (caractère `\n`), le compilateur a optimisé l'appel à `printf("Password?\n")` en le remplaçant par `puts("Password?")`.
  
