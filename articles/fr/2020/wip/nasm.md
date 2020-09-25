@@ -137,7 +137,8 @@ Parmis les résultats, nous voyons ceci :
 ```
 Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" !
 
-**Note² :** Sur un système 32 bits, ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres)
+**Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
+
 Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles servent à mettre en place le contexte d'exécution de la fonction.
 ```asm
 push   rbp      ; on met rbp (base pointer) sur la pile
