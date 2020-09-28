@@ -82,6 +82,8 @@ Dump of assembler code for function main:
    0x00000000004015b7 <+103>:   ret
 End of assembler dump.
 ```
+***Note :** Cet output correspond à ce qui a été compilé sur ma machine, qui tourne sous Windows. Pour voir l'équivalent sur Linux, c'est [par ici](https://gist.github.com/vpenando/70f7cd4189f1f49143c7a12f73f53894) !*
+
  Mieux encore, en passant l'option `/s` à `disass`, on peut afficher le code C correspondant !
 ```asm
 (gdb) disass /s main
