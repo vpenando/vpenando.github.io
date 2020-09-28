@@ -217,4 +217,4 @@ Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de r
 
 ### Conclusion
 
-Au cours de cet article, nous avons analysé en surface un code assembleur basique. Nous avons même déterminé où se trouve la lecture du mot de passe demandé ! Ainsi, nous sommes théoriquement capables d'ignorer sa vérification ! À l'aide d'outils tels que objdump ou exdump, il est certainement possible d'aller remplacer l'appel à `jne` par une suite de `nop` !
+Au cours de cet article, nous avons analysé en surface un code assembleur basique. Nous avons même déterminé où se trouve la lecture du mot de passe demandé ! Ainsi, nous sommes théoriquement capables d'ignorer sa vérification ! À l'aide d'outils tels que objdump ou hexdump, il est certainement possible d'aller remplacer l'appel à `jne` par une suite de `nop` !
