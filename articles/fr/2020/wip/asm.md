@@ -1,18 +1,19 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) Amusons-nous avec NASM !
+## (FR) Amusons-nous avec un peu d'assembleur !
 
 ---
 
 ### Introduction
-Au cours de ce bref article, nous allons nous amuser avec NASM. Pour ce faire, nous allons compiler un code C très basique, et étudier le code assembleur correspondant.
+Au cours de ce bref article, nous allons nous amuser à analyser du code assembleur. Pour ce faire, nous allons compiler un code C très basique, et étudier le code assembleur correspondant.
 Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence.
 
 ---
 
 ### Sommaire
-
-
+* [Exemple de programme à désassembler](#exemple-de-programme-à-désassembler)
+* [En avant avec GDB !](#en-avant-avec-gdb-)
+* [Analyse du code](#analyse-du-code)
 
 ---
 
