@@ -210,10 +210,10 @@ if (eax != 0) {
     goto <main+81>;
 }
 ```
-Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne` par une NO-OP (`nop`) à la ligne `<main+65>`. Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" ! Nous entrerons donc dans le corps du `if` quoi qu'il arrive, et le code du `else` sera toujours ignoré.
+Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne`. Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" ! Nous entrerons donc dans le corps du `if` quoi qu'il arrive, et le code du `else` sera toujours ignoré.
 
 ---
 
 ### Conclusion
 
-Au cours de cet article, nous avons analysé en surface un code assembleur basique. Nous avons même déterminé où se trouve la lecture du mot de passe demandé ! Ainsi, nous sommes théoriquement capables d'ignorer sa vérification ! 
+Au cours de cet article, nous avons analysé en surface un code assembleur basique. Nous avons même déterminé où se trouve la lecture du mot de passe demandé ! Ainsi, nous sommes théoriquement capables d'ignorer sa vérification ! À l'aide d'outils tels que objdump ou exdump, il est certainement possible d'aller remplacer l'appel à `jne` par une suite de `nop` !
