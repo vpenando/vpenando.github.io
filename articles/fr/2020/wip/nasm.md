@@ -137,7 +137,7 @@ Parmis les résultats, nous voyons ceci :
 ```
 0000000000404000 <.rdata>:
 ```
-Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" !
+Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" ! Il y a donc fort à parier que le texte "Granted" se trouve à l'adresse `0x404016` et que "Denied" est quant à lui à l'adresse `0x40401e`. En effet, on charge ces adresses dans `rcx` avant les appels à `printf`, et leur différence est de 8, soit la longueur de `Granted\0`, `\0` étant le caractère de fin de chaîne.
 
 **Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
 
