@@ -44,7 +44,7 @@ int main() {
 Ce code affiche "Granted" si le mot de passe entré est valide, et "Denied" dans les autres cas.
 
 Pour le compiler, nous utiliserons GCC : `gcc -g pass.c`.
-Tentons à présent d'étudier le code assembleur correspondant. Amusons-nous même à regarder si l'on ne peut pas, par hasard, lui faire afficher "Granted" même sans connaître le mot de passe attendu !
+Tentons à présent d'étudier le code assembleur correspondant. En bonus, amusons-nous à regarder comment, par hasard, lui faire afficher "Granted" même sans connaître le mot de passe attendu !
 
 ---
 
