@@ -216,4 +216,4 @@ Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de r
 
 ### Conclusion
 
-Au cours de cet article, nous avons analysé en surface un code assembleur basique. En bonus, nous avons même déterminé où se trouve la lecture du mot de passe demandé !
+Au cours de cet article, nous avons analysé en surface un code assembleur basique. Nous avons même déterminé où se trouve la lecture du mot de passe demandé ! Ainsi, nous sommes théoriquement capables d'ignorer sa vérification ! 
