@@ -147,6 +147,7 @@ Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment 
 | `0x40400d` | `PASSWORD` |
 | `0x404016` | `Granted` |
 | `0x40401e` | `Denied` |
+
 Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
 
 **Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
