@@ -210,4 +210,10 @@ if (eax != 0) {
     goto <main+81>;
 }
 ```
-**Note :** Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne` par une NO-OP (`nop`) à la ligne `<main+65>`. Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" !
+Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne` par une NO-OP (`nop`) à la ligne `<main+65>`. Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" ! Nous entrerons donc dans le corps du `if` quoi qu'il arrive, et le code du `else` sera toujours ignoré.
+
+---
+
+### Conclusion
+
+Au cours de cet article, nous avons analysé en surface un code assembleur basique. En bonus, nous avons même déterminé où se trouve la lecture du mot de passe demandé !
