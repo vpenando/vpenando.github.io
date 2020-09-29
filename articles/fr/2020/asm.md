@@ -19,6 +19,7 @@ Le petit programme, très simple, demande un mot de passe et affiche un résulta
 ---
 
 ### Exemple de programme à désassembler
+Dans le cadre de ce petit exercice, voici le code que nous allons compiler :
 ```c
 // pass.c
 
@@ -41,8 +42,7 @@ int main() {
     }
 }
 ```
-
-Ce code affiche "Granted" si le mot de passe entré est valide, et "Denied" dans les autres cas.
+Une fois compilé, le programme demande un mot de passe et affiche "Granted" si le mot de passe entré est valide, et "Denied" dans les autres cas.
 
 Pour le compiler, nous utiliserons GCC : `gcc -g pass.c`.
 Tentons à présent d'étudier le code assembleur correspondant. En bonus, amusons-nous à regarder comment, par hasard, lui faire afficher "Granted" même sans connaître le mot de passe attendu !
