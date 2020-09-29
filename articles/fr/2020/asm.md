@@ -8,6 +8,9 @@
 Au cours de ce bref article, nous allons nous amuser à analyser du code assembleur. Pour ce faire, nous allons compiler un code C très basique, et étudier le code assembleur correspondant.
 Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence.
 
+###### Note importante
+> Pour appréhender cet article dans les meilleures conditions possibles, il est conseillé d'avoir des bases en C et en assembleur.
+
 ---
 
 ### Sommaire
