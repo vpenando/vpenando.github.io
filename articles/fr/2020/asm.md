@@ -221,7 +221,7 @@ if (eax != 0) {
     goto <main+81>;
 }
 ```
-Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne`. Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" ! Nous entrerons donc dans le corps du `if` quoi qu'il arrive, et le code du `else` sera toujours ignoré.
+Ainsi, pour accéder à la portion de code qui affiche "Granted", il suffit de remplacer `jne`, par exemple par une suite de no-op (`nop`) ! Ce faisant, aucun saut ne sera effectué, et toute entrée ne correspondant pas au mot de passe attendu exécutera l'affichage de "Granted" ! Nous entrerons donc dans le corps du `if` quoi qu'il arrive, et le code du `else` sera toujours ignoré.
 
 ---
 
