@@ -140,13 +140,14 @@ Parmis les résultats, nous voyons ceci :
 0000000000404000 <.rdata>:
 ```
 Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" ! Il y a donc fort à parier que le texte "Granted" se trouve à l'adresse `0x404016` et que "Denied" est quant à lui à l'adresse `0x40401e`. En effet, on charge ces adresses dans `rcx` avant les appels à `printf`, et la différence entre leurs adresses est de 8, soit la longueur de `Granted\0`, `\0` étant le caractère de fin de chaîne. A priori, il est possible d'établir la table de correspondance suivante :
+
 |  Adresse   |   Chaîne    | 
 |------------|-------------|
-| `0x404000` | "Password?" |
-| `0x40400a` | "%s"        |
-| `0x40400d` | "PASSWORD"  |
-| `0x404016` | "Granted"   |
-| `0x40401e` | "Denied"    |
+| `0x404000` | `Password?` |
+| `0x40400a` | `%s`        |
+| `0x40400d` | `PASSWORD`  |
+| `0x404016` | `Granted`   |
+| `0x40401e` | `Denied`    |
 
 Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
 
