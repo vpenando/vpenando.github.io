@@ -135,7 +135,7 @@ pass.c:
 End of assembler dump.
 ```
 **Note :** À quoi correspond l'adresse `0x404000` et les adresses voisines ? Regardons ça : `objdump -M intel -D --no-show-raw-insn a.out | grep 404000`.
-Parmis les résultats, nous voyons ceci :
+Parmi les résultats, nous voyons ceci :
 ```
 0000000000404000 <.rdata>:
 ```
