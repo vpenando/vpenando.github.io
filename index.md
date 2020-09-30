@@ -4,7 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
-- `2020/09/28`: [(FR) Amusons-nous avec un peu d'assembleur !](articles/fr/2020/asm.md) `c` `asm` `gdb`
+- `2020/09/28`: [(FR) Etudions l'assembleur avec GDB !](articles/fr/2020/asm.md) `c` `asm` `gdb`
 - `2020/09/08`: [(FR) EXPRESS #3 - Un bon test technique, c'est quoi ?](articles/fr/2020/express3_test_tech.md)
 - `2020/09/02`: [(FR) La gestion des flags en Go](articles/fr/2020/flag_go.md) `go` `golang`
 - `2020/07/17`: [(FR) La fonction `recover()` en Go](articles/fr/2020/golang_recover.md) `go` `golang`
