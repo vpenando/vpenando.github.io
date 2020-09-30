@@ -8,7 +8,7 @@
 Au cours de ce bref article, nous allons nous amuser à décortiquer le code assembleur d'une application très basique. Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence. Pour ce faire, nous allons compiler un code C et étudier ce qu'il se passe "sous le capot".
 
 ###### Note importante
-> Pour appréhender cet article dans les meilleures conditions possibles, il est conseillé d'avoir des bases en C et en assembleur.
+> Pour appréhender cet article dans les meilleures conditions possibles, il est conseillé d'avoir des bases en C et en assembleur. Connaître GDB n'est pas indispensable, mais cela reste recommandé.
 
 ---
 
@@ -49,7 +49,7 @@ Une fois compilé, le programme demande un mot de passe et affiche "Granted" si 
 Pour le compiler, nous utiliserons GCC : `gcc -g pass.c`.
 Tentons à présent d'étudier le code assembleur correspondant. En bonus, amusons-nous à regarder comment, par hasard, lui faire afficher "Granted" même sans connaître le mot de passe attendu !
 
-***Note :** Si vous voulez le code source complet dans un fichier, vous pouvez compiler avec l'opion `-S` : `gcc -S -masm=intel pass.c`. Le code assembleur correspondant à `main.c` sera écrit dans le fichier `main.s`.* 
+***Note :** Si vous voulez le code source complet dans un fichier, vous pouvez compiler avec l'opion `-S` : `gcc -S -masm=intel pass.c`. Le code assembleur correspondant à `main.c` sera écrit dans le fichier `main.s`.*
 
 ---
 
