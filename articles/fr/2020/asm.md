@@ -166,9 +166,8 @@ sub    rsp,0x60 ; on alloue 0x60 (96) octets sur la pile
 Les trois dernières, quant à elles, sont l'*épilogue* de la fonction. Elles restaurent la pile à son état d'origine.
 ```asm
 add    rsp,0x60 ; on restaure rsp après avoir alloué 0x60 octets sur la pile
-; autre possibilité :
-; mov  rsp,rbp
 pop    rbp      ; on restaure rbp, qui contenait la valeur de rsp
+; une autre option est d'utiliser l'opérande 'leave'
 ret             ; on retourne de main()
  ```
 
