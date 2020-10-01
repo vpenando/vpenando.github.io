@@ -155,7 +155,7 @@ Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment 
 
 Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
 
-**Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant pas `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
+**Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant par `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
 
 Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles mettent de côté l'adresse actuelle du haut de la pile et allouent un espace d'une taille donnée. En somme, elles servent à mettre en place le contexte d'exécution de la fonction. 
 ```asm
