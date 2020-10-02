@@ -106,7 +106,7 @@ Pour implémenter (nous devrions dire "satisfaire") une interface, c'est donc ex
 
 Exemple :
 ```go
-type Person interface {
+type Greeter interface {
     Greet()  // nous déclarons une méthode 'Greet()'
 }
 
@@ -118,7 +118,7 @@ func (u User) Greet() {
     fmt.Printf("Hello, I'm %s!", u.Name)
 }
 ```
-Et voilà ! Notre structure `User` satisfait bel et bien `Person`.
+Et voilà ! Notre structure `User` satisfait bel et bien `Greeter`.
 
 ---
 
