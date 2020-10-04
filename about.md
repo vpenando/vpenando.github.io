@@ -8,4 +8,4 @@ In my professional life, I'm a software developer (what a surprise).
 
 I'm also an OOP (+ RAII, SOLID, ...) lover. And a C++ / Go lover too. I'm passionate about programming and new technologies.
 
-PS: Even if this blog is in English, my articles are most of the time in French (sorry guys).
+PS: Even if this blog is in English, my posts are most of the time in French (sorry guys).
