@@ -26,7 +26,7 @@ Enfin, je rappelle que j'emploierai un ton plus léger qu'à l'accoutumée, ains
 #### Cas n° 1 : le faux test
 Le premier cas est ce que je considère être un "faux" test, j'ai nommé le QCM. Pour être tout à fait honnête, il s'agit à mon sens d'une vaste farce, qui n'évalue en rien les compétences concrètes d'un candidat. Il n'est absolument PAS viable de se baser sur un test au résultat potentiellement aléatoire pour déterminer si un profil correspond ou non à son besoin.
 
-En effet, même sans réellement connaître la réponse à une question donnée, on peut répondre au pif et s'en sortir. De plus, de bêtes questions ne sont jamais pertinentes face à un exercice concret.
+En effet, même sans réellement connaître la réponse à une question donnée, on peut répondre au pif et s'en sortir. De plus, **de bêtes questions ne sont jamais pertinentes face à un exercice concret**.
 
 ---
 
@@ -38,7 +38,7 @@ Je vais parler ici d'un exemple parmi les plus idiots qu'il m'ait été donné d
 
 Il s'agit sans l'ombre d'un doute du pire type de test possible à mes yeux, à la fois pour le candidat, mais également pour le recruteur, qui fait perdre pas mal de crédibilité à son entreprise.
 
-Rien ne vaut un test concret, avec de vrais outils et un environnement de travail viable.
+**Rien ne vaut un test concret, avec de vrais outils et un environnement de travail viable.**
 
 ---
 
@@ -47,8 +47,10 @@ Rien ne vaut un test concret, avec de vrais outils et un environnement de travai
 
 Attention, je rappelle que cela correspond à mon avis personnel ; tout le monde n'a pas le même ressenti vis-à-vis de ce type de test.
 
-Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 45 minutes, en une heure, ou autre ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. À titre d'exemple, j'ai eu à faire un exercice où il fallait, en 30 minutes, apprendre from scratch l'API C de SQLite et écrire un ORM en C++. En plus de n'avoir que peu d'intérêt (mélanger C et C++ sans couche RAII-conform est une erreur), il est difficilement réalisable sans connaître au préalable l'API SQLite. De plus, quel intérêt d'avoir un chronomètre quand on code ? Cela ressemble-t-il à une mise en situation réaliste ?
-J'ai appris après coup, via des recruteurs d'entreprises prestataires, que l'entreprise en question avait une mauvaise réputation du fait de ses tests et peinait à recruter. Coïncidence ?
+Puisque l'on parle de test concret, nous y voilà. Votre interlocuteur ne vous a proposé ni QCM, ni test sur papier. Bingo ! Ou presque. À la place, vous devez coder quelque chose en 45 minutes, en une heure, ou autre ! Seulement, tous les candidats ne réagissent pas de la même manière face au stress d'un test chronométré. Quel intérêt d'avoir un chronomètre quand on code ? Cela ressemble-t-il à une mise en situation réaliste ?
+De plus, cela nous force à bâcler, et à produire pour produire. Le résultat ne sera que rarement un code dont nous pourrions être fiers et dont nous pourrons solidement défendre les choix techniques.
+
+**Un bon code, ça prend du temps. Point.**
 
 ---
 
