@@ -36,4 +36,10 @@ class FileManager:
 
 ---
 
+### Solutions
+* Fonctions libres (+ namespaces)
+* Scinder en plusieurs classes
+
+---
+
 ### Conclusion
