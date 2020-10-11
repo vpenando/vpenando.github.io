@@ -12,3 +12,13 @@
 
 ---
 
+### Exemple de non respect du SRP
+* `XXXManager`
+
+---
+
+### Conséquences
+
+---
+
+### Conclusion
