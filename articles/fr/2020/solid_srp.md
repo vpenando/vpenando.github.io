@@ -15,6 +15,21 @@
 ### Exemple de non respect du SRP
 * `XXXManager`
 
+```py
+class FileManager:
+    def __init__(self):
+        ...
+        
+    def create_file(self, path: str):
+        ...
+        
+    def delete_file(self, path: str):
+        ...
+        
+    def rename_file(self, path: str):
+        ...
+```
+
 ---
 
 ### Conséquences
