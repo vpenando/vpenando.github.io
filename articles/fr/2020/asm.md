@@ -138,24 +138,7 @@ pass.c:
    0x00000000004015b7 <+103>:   ret
 End of assembler dump.
 ```
-**Note :** À quoi correspond l'adresse `0x404000` et les adresses voisines ? Regardons ça : `objdump -M intel -D --no-show-raw-insn a.out | grep 404000`.
-Parmi les résultats, nous voyons ceci :
-```
-0000000000404000 <.rdata>:
-```
-Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" ! Il y a même fort à parier que le texte "Granted" se trouve à l'adresse `0x404016` et que "Denied" se situe à l'adresse `0x40401e` ! En effet, on charge ces adresses dans `rcx` avant les appels à `printf`, et la différence entre leurs adresses est de 8, soit la longueur de `Granted\0`, `\0` étant le caractère de fin de chaîne. A priori, il est possible d'établir la table de correspondance suivante :
-
-|  Adresse   |   Chaîne    | 
-|------------|-------------|
-| `0x404000` | `Password?` |
-| `0x40400a` | `%s`        |
-| `0x40400d` | `PASSWORD`  |
-| `0x404016` | `Granted`   |
-| `0x40401e` | `Denied`    |
-
-Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
-
-**Note² :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant par `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
+**Note :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant par `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
 
 Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles mettent de côté l'adresse actuelle du haut de la pile et allouent un espace d'une taille donnée. En somme, elles servent à mettre en place le contexte d'exécution de la fonction. 
 ```asm
@@ -212,6 +195,22 @@ Le code assembleur de la fonction `main` peut donc être segmenté ainsi :
    0x00000000004015b6 <+102>:   pop    rbp
    0x00000000004015b7 <+103>:   ret                            ; on retourne la valeur de eax
  ```
+À quoi correspond l'adresse `0x404000` et les adresses voisines ? Regardons ça : `objdump -M intel -D --no-show-raw-insn a.out | grep 404000`.
+Parmi les résultats, nous voyons ceci :
+```
+0000000000404000 <.rdata>:
+```
+Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment `.data`. Il s'agit donc des données constantes du programme. Nous pouvons par conséquent nous attendre à y trouver nos textes "Granted" et "Denied" ! Il y a même fort à parier que le texte "Granted" se trouve à l'adresse `0x404016` et que "Denied" se situe à l'adresse `0x40401e` ! En effet, on charge ces adresses dans `rcx` avant les appels à `printf`, et la différence entre leurs adresses est de 8, soit la longueur de `Granted\0`, `\0` étant le caractère de fin de chaîne. A priori, il est possible d'établir la table de correspondance suivante :
+
+|  Adresse   |   Chaîne    | 
+|------------|-------------|
+| `0x404000` | `Password?` |
+| `0x40400a` | `%s`        |
+| `0x40400d` | `PASSWORD`  |
+| `0x404016` | `Granted`   |
+| `0x40401e` | `Denied`    |
+
+Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
  Il est intéressant de constater que le premier appel à `printf` est remplacé par un appel à `puts`. Ce dernier rajoutant un saut de ligne (caractère `\n`), le compilateur a optimisé l'appel à `printf("Password?\n")` en le remplaçant par `puts("Password?")`.
  
  Note sur `test eax, eax` :
