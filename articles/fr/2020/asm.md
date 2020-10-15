@@ -175,7 +175,7 @@ ret             ; on retourne de main()
 
 ### Analyse du code
 
-Le code assembleur peut donc être segmenté ainsi :
+Le code assembleur de la fonction `main` peut donc être segmenté ainsi :
 ```asm
 ; prologue
    0x0000000000401550 <+0>:     push   rbp
