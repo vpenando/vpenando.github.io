@@ -1,11 +1,6 @@
 ## [Welcome here!](index.md) | [Articles](articles.md) | [Main projects](projects.md) | About me
 `c++` `go` `c#` `python` `git` `docker` `windows` `linux`
 
+I'm a software developer who likes things such as low level programming. I'm also a modern C++ and Go lover.
 
-That's a question! Who am I?
-
-In my professional life, I'm a software developer (what a surprise).
-
-I'm also an OOP (+ RAII, SOLID, ...) lover. And a C++ / Go lover too. I'm passionate about programming and new technologies.
-
-PS: Even if this blog is in English, my posts are most of the time in French (sorry guys).
+If you want to contact me, here is my email address: `c0ntact@vpenando.fr`. **/!\ WARNING /!\\** replace the `0` with a `o`, here it is just a trick to cheat the bots :)
