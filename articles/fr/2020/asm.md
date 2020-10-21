@@ -140,6 +140,8 @@ End of assembler dump.
 ```
 **Note :** Sur un système 32 bits, les registres ne seront pas `rax`, `rbx`, ... mais `eax`, `ebx` et autres. Les registres commençant par `r`, tels que `rax` sont des registres 64 bits, tandis que ceux commençant par `e` (`eax` ou autres) sont des registres 32 bits.
 
+Petite parenthèse : je m'attendais à voir passer les arguments aux diverses fonctions (`puts`, `scanf`, ...) par la pile. Néanmoins, il semble que ce code utilise la convention d'appel Microsoft x64, qui utilise certains registres (à commencer par `rcx`) plutôt que la pile.
+
 Les trois premières lignes sont ce que l'on appelle le *prologue* de la fonction. Elles mettent de côté l'adresse actuelle du haut de la pile et allouent un espace d'une taille donnée. En somme, elles servent à mettre en place le contexte d'exécution de la fonction. 
 ```asm
 push   rbp      ; on met rbp (base pointer) sur la pile
