@@ -7,8 +7,8 @@
 ### Sommaire
 * Introduction
 * Go et tests
-* Le module `testing`
-* Présentation du module `assert`
+* Le package `testing`
+* Présentation du package `assert`
 * Conclusion
 
 ---
@@ -21,13 +21,13 @@
 
 ---
 
-### Le module `testing`
+### Le package `testing`
 
 https://golang.org/pkg/testing/
 
 ---
 
-### Présentation du module `assert`
+### Présentation du package `assert`
 
 https://godoc.org/github.com/stretchr/testify/assert
 
