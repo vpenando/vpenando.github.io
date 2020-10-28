@@ -212,8 +212,7 @@ Or, `.rdata` équivaut grossièrement à la version en lecture seule du segment 
 | `0x404016` | `Granted`   |
 | `0x40401e` | `Denied`    |
 
-Nous expliquerons plus bas pourquoi la chaîne `Password?\n` a été remplacée par `Password?`.
- Il est intéressant de constater que le premier appel à `printf` est remplacé par un appel à `puts`. Ce dernier rajoutant un saut de ligne (caractère `\n`), le compilateur a optimisé l'appel à `printf("Password?\n")` en le remplaçant par `puts("Password?")`.
+Il est intéressant de constater que le premier appel à `printf` est remplacé par un appel à `puts`. Ce dernier rajoutant un saut de ligne (caractère `\n`), le compilateur a optimisé l'appel à `printf("Password?\n")` en le remplaçant par `puts("Password?")`.
  
  Note sur `test eax, eax` :
 * Si `eax & eax == 0` (soit si `eax == 0`), alors le "zero flag" est setté à 1 ;
