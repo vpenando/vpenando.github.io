@@ -32,6 +32,32 @@ Go embarque dans sa bibliothèque standard un package qui fournit un environneme
 
 ### Le package `testing`
 
+Avant de tester notre code à proprement parler, une petite précision doit être apportée. Chacun de nos tests doit être créé dans un fichier dont le nom doit suivre la forme `*_test`. Ainsi, pour tester le contenu du fichier `foo.go`, il convient de créer un fichier `foo_test.go`. De plus, chaque fonction de test doit avoir un nom commençant par `Test` suivi d'une majuscule. Enfin, chaque fonction de test doit attendre un argument de type `*testing.T`. Nous reviendrons sur cet étrange type d'ici peu.
+
+Exemple :
+```go
+// foo.go
+package foo
+
+func Foo() {
+    // ...
+}
+```
+Le fichier de test associé devrait être proche de :
+```go
+// foo_test.go
+package foo
+
+import (
+    "testing"
+)
+
+func TestFoo(t *testing.T) {
+    // ...
+}
+```
+
+
 https://golang.org/pkg/testing/
 
 ---
