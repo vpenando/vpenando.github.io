@@ -20,7 +20,7 @@ notre output fait bien ce que l'on attend de lui et que tous les cas tordus ont 
 
 Je ne connais aucun programmeur qui *aime* tester, mais tous s'accordent à dire qu'il n'y a pas de meilleure manière pour assurer la stabilité d'un programme. Cela nous rajoute du travail à court terme, mais nous permet d'éviter l'incendie au lieu de devoir l'éteindre.
 
-Ne pas tester son code, c'est comme ne tester personne lors d'une épidémie et dire que personne n'est malade.
+Affirmer qu'un code marche correctement sans l'avoir testé, c'est comme ne tester personne lors d'une épidémie et dire que personne n'est malade.
 
 <img src="this_is_fine_go.png" align="center" />
 
