@@ -56,9 +56,7 @@ func TestFoo(t *testing.T) {
     // ...
 }
 ```
-
-
-https://golang.org/pkg/testing/
+Le type `testing.T` expose diverses méthodes permettant de tester à proprement parler notre code. Rendez-vous sur la [doc officielle](https://golang.org/pkg/testing/#T) pour tous les détails.
 
 ---
 
