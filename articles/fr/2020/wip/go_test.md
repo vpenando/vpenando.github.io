@@ -60,7 +60,7 @@ func TestFoo(t *testing.T) {
     // ...
 }
 ```
-Concernant le test en lui-même, nous utiliserons différentes méthodes fournies par le type `*testing.T` afin de vérifier nos différents cas. Bien que rudimentaire, le package `testing` contient de quoi faire la plupart des tests.
+Concernant le test en lui-même, nous utiliserons différentes méthodes fournies par le type `*testing.T` afin de vérifier nos différents cas. Bien que rudimentaire, le package `testing` contient de quoi faire la plupart des tests !
 
 ---
 
@@ -87,7 +87,7 @@ func TestFoo(t *testing.T) {
     assert.Equal(t, /* une valeur */, /* une autre valeur */)
 }
 ```
-Ce package apporte également d'autres fonctions plus spécifiques, telles que `Panics`, `FileExists`, `HTTPStatusCode`... Ainsi, cela permet à la fois de réduire la quantité de code dans nos tests, mais également de gagner en expressivité lors de leur relecture !
+Ce package apporte également d'autres fonctions plus spécifiques, telles que `Panics`, `FileExists`, `HTTPStatusCode`... Ainsi, cela permet à la fois de réduire la quantité de code dans nos tests, mais également (et surtout !) de gagner en expressivité lors de leur relecture !
 
 ---
 
