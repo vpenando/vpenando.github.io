@@ -20,7 +20,7 @@ notre output fait bien ce que l'on attend de lui et que tous les cas tordus ont 
 
 Je ne connais aucun programmeur qui *aime* tester, mais tous s'accordent à dire qu'il n'y a pas de meilleure manière pour assurer la stabilité d'un programme. Cela nous rajoute du travail à court terme, mais nous permet d'éviter l'incendie au lieu de devoir l'éteindre.
 
-Affirmer qu'un code marche correctement sans l'avoir testé, c'est comme ne tester personne lors d'une épidémie et dire que personne n'est malade.
+Affirmer qu'un code marche correctement sans l'avoir testé, c'est comme ne tester personne lors d'une épidémie et dire que personne n'est malade. Invraisemblable, non ?
 
 <img src="this_is_fine_go.png" align="center" />
 
@@ -65,7 +65,27 @@ Concernant le test en lui-même, nous utiliserons différentes méthodes fournie
 
 ### Présentation du package `assert`
 
-https://godoc.org/github.com/stretchr/testify/assert
+Le package `assert` ([source](https://godoc.org/github.com/stretchr/testify/assert)) permet d'enrichir nos tests en apportant de nouvelles fonctions de test, telles que `Equal`, `True`, `False`, `Nil`, ... et leurs versions suffixées de `f`.
+
+Exemple :
+```go
+// foo_test.go
+package foo
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
+
+func TestFoo(t *testing.T) {
+    err := Foo()
+    assert.Nilf(t, err, "Something bad happened: %s", err)
+    assert.True(t, /* une expression booléenne */)
+    assert.False(t, /* une autre expression booléenne */)
+    assert.Equal(t, /* une valeur */, /* une autre valeur */)
+}
+```
 
 ---
 
