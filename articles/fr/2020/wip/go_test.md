@@ -64,7 +64,7 @@ Concernant le test en lui-même, nous utiliserons différentes méthodes fournie
 
 ### Présentation du package `assert`
 
-Le package `assert` ([source](https://godoc.org/github.com/stretchr/testify/assert)) permet d'enrichir nos tests en apportant de nouvelles fonctions de test, telles que `Equal`, `True`, `False`, `Nil`, ... et leurs versions suffixées de `f`.
+Le package `assert` ([source](https://godoc.org/github.com/stretchr/testify/assert)) permet d'enrichir nos tests en apportant de nouvelles fonctions, telles que `Equal`, `True`, `False`, `Nil`, ... et, bien entendu, leurs versions suffixées de `f`.
 
 Exemple :
 ```go
@@ -85,6 +85,7 @@ func TestFoo(t *testing.T) {
     assert.Equal(t, /* une valeur */, /* une autre valeur */)
 }
 ```
+Ce package apporte également d'autres fonctions plus spécifiques, telles que `Panics`, `FileExists`, `HTTPStatusCode`... Ainsi, cela permet à la fois de réduire la quantité de code dans nos tests, mais également de gagner en expressivité lors de leur relecture.
 
 ---
 
