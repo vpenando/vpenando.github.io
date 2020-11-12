@@ -5,10 +5,10 @@
 ---
 
 ### Sommaire
-* Introduction
-* Le package `testing`
-* Présentation du package `assert`
-* Conclusion
+* [Introduction](#introduction)
+* [Le package `testing`](#le-package-testing)
+* [Présentation du package `assert`](#présentation-du-package-assert)
+* [Conclusion](#conclusion)
 
 ---
 
