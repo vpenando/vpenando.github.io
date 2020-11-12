@@ -12,7 +12,6 @@
 - `2020/06/26`: [(FR) C++ - Amusons-nous avec les variadic templates](articles/fr/2020/variadic_templates.md) `c++` `c++11` `templates`
 - `2020/05/08`: [(FR) EXPRESS #2 - Du bon usage de godoc](articles/fr/2020/express2_godoc.md) `go` `golang`
 - `2020/02/11`: [(FR) Les interfaces en Go](articles/fr/2020/interfaces_go.md) `go` `golang`
-- `2020/01/24`: [(FR) Réflexion - Implémentation d'un singleton en C++](articles/fr/2020/singleton_cpp.md) `oop` `c++` `good-practices`
 
 
 [More...](articles.md)
