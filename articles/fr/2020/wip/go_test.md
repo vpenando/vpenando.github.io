@@ -31,7 +31,7 @@ Go embarque dans sa bibliothèque standard un package qui fournit un environneme
 
 ### Le package `testing`
 
-Avant de tester notre code à proprement parler, une petite précision doit être apportée. Chacun de nos tests doit être créé dans un fichier dont le nom doit suivre la forme `*_test`. Ainsi, pour tester le contenu du fichier `foo.go`, il convient de créer un fichier `foo_test.go`. De plus, chaque fonction de test doit avoir un nom commençant par `Test` suivi d'une majuscule. Enfin, chaque fonction de test doit attendre un argument de type `*testing.T`. Le type `testing.T` expose diverses méthodes permettant de tester à proprement parler notre code. Rendez-vous sur la [doc officielle](https://golang.org/pkg/testing/#T) pour tous les détails.
+Avant de tester notre code à proprement parler, une petite précision doit être apportée. Chacun de nos tests doit être créé dans un fichier dont le nom doit suivre la forme `*_test`. Ainsi, pour tester le contenu du fichier `foo.go`, il convient de créer un fichier `foo_test.go`. De plus, chaque fonction de test doit avoir un nom commençant par `Test` suivi d'une majuscule. Enfin, chaque fonction de test doit attendre un argument de type `*testing.T`. Le type `*testing.T` expose diverses méthodes permettant de tester à proprement parler notre code. Rendez-vous sur la [doc officielle](https://golang.org/pkg/testing/#T) pour tous les détails.
 
 Exemple :
 ```go
@@ -64,7 +64,7 @@ Concernant le test en lui-même, nous utiliserons différentes méthodes fournie
 
 ### Présentation du package `assert`
 
-Le package `assert` ([source](https://godoc.org/github.com/stretchr/testify/assert)) permet d'enrichir nos tests en apportant de nouvelles fonctions, telles que `Equal`, `True`, `False`, `Nil`, ... et, bien entendu, leurs versions suffixées de `f`.
+Le package `assert` ([source](https://godoc.org/github.com/stretchr/testify/assert)) permet d'enrichir nos tests en apportant de nouvelles fonctions, telles que `Equal`, `True`, `False`, `Nil`, et, bien entendu, leurs versions suffixées de `f` !
 
 Exemple :
 ```go
@@ -85,7 +85,7 @@ func TestFoo(t *testing.T) {
     assert.Equal(t, /* une valeur */, /* une autre valeur */)
 }
 ```
-Ce package apporte également d'autres fonctions plus spécifiques, telles que `Panics`, `FileExists`, `HTTPStatusCode`... Ainsi, cela permet à la fois de réduire la quantité de code dans nos tests, mais également de gagner en expressivité lors de leur relecture.
+Ce package apporte également d'autres fonctions plus spécifiques, telles que `Panics`, `FileExists`, `HTTPStatusCode`... Ainsi, cela permet à la fois de réduire la quantité de code dans nos tests, mais également de gagner en expressivité lors de leur relecture !
 
 ---
 
