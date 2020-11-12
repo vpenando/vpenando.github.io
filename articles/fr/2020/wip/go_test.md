@@ -6,7 +6,6 @@
 
 ### Sommaire
 * Introduction
-* Go et tests
 * Le package `testing`
 * Présentation du package `assert`
 * Conclusion
