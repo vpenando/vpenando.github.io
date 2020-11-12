@@ -90,3 +90,5 @@ Ce package apporte également d'autres fonctions plus spécifiques, telles que `
 ---
 
 ### Conclusion
+
+Go est un langage extrêmement bien outillé. En tant que tel, il met à disposition un moteur de test très puissant, et surtout très complet. Au-delà des tests classiques, il permet aisément de mesurer les performances d'un code via le type [`*testing.B`](https://golang.org/pkg/testing/#B), que nous aborderons dans un prochain article.
