@@ -42,6 +42,8 @@ func Foo() error {
     // ...
 }
 ```
+Nous ne nous intéresserons pas à l'implémentation de `Foo` ; tout ce que l'on doit savoir est qu'elle renvoie une erreur si quelque chose s'est mal passé, et `nil` dans les autres cas.
+
 Le fichier de test associé devrait être proche de :
 ```go
 // foo_test.go
@@ -58,7 +60,7 @@ func TestFoo(t *testing.T) {
     // ...
 }
 ```
-Concernant le test en lui-même, nous utiliserons différentes méthodes fournies par le type `*testing.T` afin de vérifier nos différents cas. Rien de bien sorcier !
+Concernant le test en lui-même, nous utiliserons différentes méthodes fournies par le type `*testing.T` afin de vérifier nos différents cas. Bien que rudimentaire, le package `testing` contient de quoi faire la plupart des tests.
 
 ---
 
