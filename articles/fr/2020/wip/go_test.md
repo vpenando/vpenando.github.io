@@ -25,7 +25,7 @@ Affirmer qu'un code marche correctement sans l'avoir testé, c'est comme ne test
 
 *([Source](https://github.com/ashleymcnamara/gophers))*
 
-Go embarque dans sa bibliothèque standard un package qui fournit un environnement de test clés en main et très simple d'utilisation. Au cours de cet article, nous verrons comment l'utiliser, et comment enrichir nos tests grâce à un package tiers.
+Go embarque dans sa bibliothèque standard un package qui fournit un environnement de test clés en main et très simple d'utilisation. Au cours de cet article, nous verrons comment l'utiliser, et comment enrichir nos tests grâce à un package tiers, `assert`.
 
 ---
 
