@@ -72,9 +72,9 @@ Exemple :
 package foo
 
 import (
-	"testing"
+    "testing"
 
-	"github.com/stretchr/testify/assert"
+    "github.com/stretchr/testify/assert"
 )
 
 func TestFoo(t *testing.T) {
