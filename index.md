@@ -4,6 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
+- `2020/11/12`: [(FR) Introduction à `go test`](articles/fr/2020/go_test.md) `go` `golang` `testing`
 - `2020/09/28`: [(FR) Etudions l'assembleur avec GDB !](articles/fr/2020/asm.md) `c` `asm` `gdb`
 - `2020/09/08`: [(FR) EXPRESS #3 - Un bon test technique, c'est quoi ?](articles/fr/2020/express3_test_tech.md)
 - `2020/09/02`: [(FR) La gestion des flags en Go](articles/fr/2020/flag_go.md) `go` `golang`
