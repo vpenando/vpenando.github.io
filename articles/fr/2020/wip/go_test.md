@@ -32,14 +32,14 @@ Go embarque dans sa bibliothèque standard un package qui fournit un environneme
 
 ### Le package `testing`
 
-Avant de tester notre code à proprement parler, une petite précision doit être apportée. Chacun de nos tests doit être créé dans un fichier dont le nom doit suivre la forme `*_test`. Ainsi, pour tester le contenu du fichier `foo.go`, il convient de créer un fichier `foo_test.go`. De plus, chaque fonction de test doit avoir un nom commençant par `Test` suivi d'une majuscule. Enfin, chaque fonction de test doit attendre un argument de type `*testing.T`. Nous reviendrons sur cet étrange type d'ici peu.
+Avant de tester notre code à proprement parler, une petite précision doit être apportée. Chacun de nos tests doit être créé dans un fichier dont le nom doit suivre la forme `*_test`. Ainsi, pour tester le contenu du fichier `foo.go`, il convient de créer un fichier `foo_test.go`. De plus, chaque fonction de test doit avoir un nom commençant par `Test` suivi d'une majuscule. Enfin, chaque fonction de test doit attendre un argument de type `*testing.T`. Le type `testing.T` expose diverses méthodes permettant de tester à proprement parler notre code. Rendez-vous sur la [doc officielle](https://golang.org/pkg/testing/#T) pour tous les détails.
 
 Exemple :
 ```go
 // foo.go
 package foo
 
-func Foo() {
+func Foo() error {
     // ...
 }
 ```
@@ -53,10 +53,13 @@ import (
 )
 
 func TestFoo(t *testing.T) {
+    if err := Foo(); err != nil {
+        t.Fatalf("Something bad happened: %s", err)
+    }
     // ...
 }
 ```
-Le type `testing.T` expose diverses méthodes permettant de tester à proprement parler notre code. Rendez-vous sur la [doc officielle](https://golang.org/pkg/testing/#T) pour tous les détails.
+Concernant le test en lui-même, nous utiliserons différentes méthodes fournies par le type `*testing.T` afin de vérifier nos différents cas. Rien de bien sorcier !
 
 ---
 
