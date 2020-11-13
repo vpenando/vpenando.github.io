@@ -21,7 +21,7 @@ Je ne connais aucun programmeur qui *aime* tester, mais tous s'accordent à dire
 
 Affirmer qu'un code marche correctement sans l'avoir testé, c'est comme ne tester personne lors d'une épidémie et dire que personne n'est malade. Invraisemblable, non ?
 
-<img src="this_is_fine_go.png" align="center" />
+<img src="images/this_is_fine_go.png" align="center" />
 
 *([Source](https://github.com/ashleymcnamara/gophers))*
 
