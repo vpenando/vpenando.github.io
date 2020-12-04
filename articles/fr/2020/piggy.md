@@ -27,5 +27,4 @@ Cette petite application était essentiellement utilisée par mes proches, pour 
 * *Je veux pouvoir exporter mon bilan du mois vers Excel !*
 * *Je veux des graphiques par mois/année/catégories !*
 * *Je veux [insérez ce que vous voulez ici]* !
-
 Sauf que... mon PC d'étudiant a rendu l'âme, emportant avec lui les sources du projet, que je n'avais bien évidemment pas hébergée sur un repo distant.
