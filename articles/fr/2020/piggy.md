@@ -25,9 +25,9 @@ Il s'agit alors d'une petite application sans prétention, faite en C#. Côté c
 Cette petite application était essentiellement utilisée par mes proches, pour leurs besoins personnels. C'est encore le cas aujourd'hui, et de nouveaux besoins émergent :
 * *Je veux pouvoir créer de nouvelles catégories ! Sinon, dans quoi je range les dépenses pour le chat ?*
 * *Je veux pouvoir exporter mon bilan du mois vers Excel !*
-* *Je veux des graphiques par mois/année/catégories !
+* *Je veux des graphiques par mois/année/catégories !*
 * *Je veux rechercher une dépense !*
-* *Je veux [insérez ce que vous voulez ici]* !
+* *Je veux [insérez ce que vous voulez ici] !*
 
 Sauf que... mon PC d'étudiant a rendu l'âme, emportant avec lui les sources du projet, que je n'avais bien évidemment pas hébergées sur un repo distant. Quel génie.
 Honnêtement, je dois reconnaître que ça m'a pas mal découragé. J'ai clairement laissé tombé le projet pendant plusieurs années, malgré plusieurs tentatives de le reprendre from scratch.
@@ -46,4 +46,6 @@ Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur m
 
 Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à implémenter, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un résultat !
 
-<p style="text-align:center;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
+<p style="text-align:center;" style="font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
+
+La plupart des fonctionnalités sont opérationnelles : on peut créer/modifier/supprimer des opérations, télécharger un rapport Excel, et le visuel est plus propre qu'avant.
