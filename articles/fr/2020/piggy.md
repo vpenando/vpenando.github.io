@@ -11,7 +11,7 @@ Il ne s'agit donc pas d'un article classique où je présente une techno ou fais
 
 ---
 
-### Contexte.
+### Contexte
 
 <p style="text-align:center;"><img src="images/contexte.png" width="350"  height="240" /></p>
 
