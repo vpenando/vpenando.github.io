@@ -15,12 +15,12 @@ Aujourd'hui, je vais faire le bilan à propos d'un petit projet que j'ai dévelo
 
 ### Contexte.
 
-<img src="images/contexte.png" />
+<p style="text-align:center;"><<img src="images/contexte.png" width="350"  height="240" /></p>
 
 En 2017 (plus exactement en février, d'après les archives que j'ai retrouvées), alors que j'étais étudiant, j'ai commencé le développement d'un outil permettant de suivre catégoriser ses dépenses.
 Il s'agissait alors d'une petite application sans prétention, faite en C#.
 
-<img src="images/piggy_2017.png" />
+img src="images/piggy_2017.png" />
 
 Cette petite application était essentiellement utilisée par mes proches, pour leurs besoins personnels. C'est encore le cas aujourd'hui, et de nouveaux besoins émergent :
 * *Je veux pouvoir créer de nouvelles catégories ! Sinon, dans quoi je range les dépenses pour le chat ?*
