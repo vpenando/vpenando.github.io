@@ -54,4 +54,4 @@ Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open sour
 
 ---
 
-### Bilan
+### Côté technique
