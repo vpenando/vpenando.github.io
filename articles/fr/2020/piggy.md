@@ -48,4 +48,10 @@ Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnal
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
 
-La plupart des fonctionnalités sont opérationnelles : on peut créer/modifier/supprimer des opérations, télécharger un rapport Excel, et le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais je pense avoir fait le plus gros.
+La plupart des fonctionnalités sont opérationnelles : on peut créer/modifier/supprimer des opérations, filtrer par catégorie/description, télécharger un rapport Excel, et le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
+
+Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open source ! Il sera donc disponible pour tout le monde !
+
+---
+
+### Bilan
