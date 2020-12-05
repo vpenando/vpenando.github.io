@@ -40,7 +40,7 @@ Retour en 2020, le présent à l'heure où je rédige ces lignes, probablement l
 
 Face à de nouvelles demandes et profitant de mon temps libre, je décide de travailler "vite fait" sur un prototype d'une espèce de Piggy nouvelle génération. Rien de bien fou, à ce moment-là c'est juste pour me faire la main sur Go. L'idée est alors de me "challenger" un peu sur mes compétences en Go et voir jusqu'où je peux les pousser. Très rapidement, je m'oriente vers du web afin de pouvoir pleinement exploiter la puissance de Go (et pas du tout parce que le langage n'est pas taillé pour des applis de bureau ^^"). J'arrive donc à la conclusion suivante :
 * Le back sera fait en Go ;
-* Le front sera fait en HTML/CSS/JS (je reviendrai sur ce point plus bas dans l'article).
+* Le front sera fait en HTML/CSS/JS (je reviendrai sur ce choix plus bas dans l'article).
 
 Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur la Rapberry Pi de la maison ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Mais je reviendrai sur la partie purement technique dans une autre section.
 
@@ -55,3 +55,8 @@ Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open sour
 ---
 
 ### Côté technique
+
+Comme brièvement évoqué plus haut, l'un des objectifs premiers de ce projet était de m'améliorer en Go. En effet, il s'agit d'un langage que j'affectionne énormément, et sur lequel je cherche à me perfectionner. Ainsi, ce petit projet, aussi mince soit-il, a été l'occasion d'utiliser pour la première fois `gorilla/mux` et `gorm`, par exemple.
+
+Côté front, c'était en revanche un poil plus compliqué. J'ai notamment pour contrainte de n'avoir aucune dépendance tierce à faire installer aux utilisateurs, problème qui ne se pose pas en Go, où l'exécutable compilé n'a *aucune* dépendance. En effet, je veux que le projet soit utilisable tel quel lorsqu'un utilisateur *-notamment un utilisateur sans aucune connaissance technique-* le télécharge. C'est actuellement le cas avec l'ancienne version : on télécharge l'application, on la lance et ça marche.
+Là où une application réellement orientée SaaS ne s'impose, par essence, pas de telles contrainte, je me dois de maintenir une certaine accessibilité auprès de chacun.
