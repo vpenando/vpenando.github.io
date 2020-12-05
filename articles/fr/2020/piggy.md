@@ -44,7 +44,7 @@ Face à de nouvelles demandes et profitant de mon temps libre, je décide de tra
 
 <p style="text-align:center;font-style: italic;"><img src="images/gopher.png" /><br />Gopher, la mascotte du langage.</p>
 
-Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur la Rapberry Pi de la maison ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Mais je reviendrai sur la partie purement technique dans une autre section.
+Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur la Rapberry Pi de la maison ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente.
 
 Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à implémenter, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un résultat !
 
