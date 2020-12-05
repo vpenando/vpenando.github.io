@@ -7,7 +7,7 @@
 ### Introduction
 
 D'ordinaire, je ne présente pas de projet perso ici. Néanmoins, je fais aujourd'hui une petite exception et en profite pour inaugurer la série "HS".
-Il ne s'agit donc pas d'un article classique où je présente une techno ou fais part d'avis/conseils, mais plutôt un bilan, un ressenti général sur un petit projet que je mène sur mon temps libre. Par ailleurs, j'emploierai un ton un peu plus léger que d'habitude, à la manière d'un article "EXPRESS".
+Il ne s'agit donc pas d'un article classique où je présente une techno ou autre, mais plutôt d'un bilan, d'un ressenti général sur un petit projet que je mène sur mon temps libre. Par ailleurs, j'emploierai un ton un peu plus léger que d'habitude, à la manière d'un article "EXPRESS".
 
 ---
 
