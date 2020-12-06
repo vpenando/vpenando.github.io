@@ -46,7 +46,7 @@ Face à de nouvelles demandes et profitant de mon temps libre, je décide de tra
 
 Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur ma Rapberry Pi ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Pour les utilisateurs tiers, il suffira de télécharger le serveur et de l'ajouter à la liste des programmes se lançant au démarrage, puis d'ajouter l'url qui va bien à ses favoris ! (Bon, pour la mise à jour auto, ça sera en revanche un peu plus compliqué)
 
-Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à implémenter, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un résultat !
+Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à implémenter, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un premier résultat !
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
 
@@ -60,5 +60,12 @@ Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open sour
 
 Comme brièvement évoqué plus haut, l'un des objectifs premiers de ce projet était de m'améliorer en Go. En effet, il s'agit d'un langage que j'affectionne énormément, et sur lequel je cherche à monter en compétence. Ainsi, ce petit projet, aussi mince soit-il, a été l'occasion d'utiliser pour la première fois [`gorilla/mux`](https://github.com/gorilla/mux) et [`gorm`](https://gorm.io/), par exemple.
 
-Côté front, c'était en revanche un poil plus compliqué. J'ai notamment pour contrainte de n'avoir aucune dépendance tierce à faire installer aux utilisateurs, problème qui ne se pose pas en Go, où l'exécutable compilé n'a *aucune* dépendance. En effet, je veux que le projet soit utilisable tel quel lorsqu'un utilisateur *-notamment un utilisateur sans aucune connaissance technique-* le télécharge. C'est actuellement le cas avec l'ancienne version : on télécharge l'application, on la lance et ça marche.
-Là où une application réellement orientée SaaS ne s'impose, par essence, pas de telles contrainte, je me dois de maintenir une certaine accessibilité auprès de chacun.
+Côté front, c'était en revanche un poil plus compliqué. J'ai notamment pour contrainte de n'avoir aucune dépendance tierce à faire installer aux utilisateurs, problème qui ne se pose pas en Go, où l'exécutable compilé n'a *aucune* dépendance. En effet, je veux que le projet soit utilisable tel quel lorsqu'un utilisateur *-notamment un utilisateur sans aucune connaissance technique-* le télécharge. C'est actuellement le cas avec l'ancienne version : on télécharge l'application, on la lance et ça marche. Or, en Go, l'exécutable final embarque toutes ses dépendances ; ça fait des binaires plus lourds, mais ils n'ont besoin de rien pour fonctionner.
+Là où une application réellement orientée SaaS ne s'impose, par essence, pas de telles contrainte, je me dois de maintenir une certaine accessibilité auprès de chacun. Ainsi, je pars sur du JS natif avec quelques rustines persos histoire de me faciliter la tâche.
+
+Point qui a son importance, je suis essentiellement dev orienté *back* ; la dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
+
+
+---
+
+### FAQ
