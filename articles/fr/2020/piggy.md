@@ -38,7 +38,9 @@ Honnêtement, je dois reconnaître que ça m'a pas mal découragé. J'ai clairem
 
 Retour en 2020, le présent à l'heure où je rédige ces lignes, probablement le passé pour vous. Nous sommes alors en décembre, et tout le monde attend la venue du Père Noël.
 
-Face à de nouvelles demandes et profitant de mon temps libre, je décide de travailler "vite fait" sur un prototype d'une espèce de Piggy nouvelle génération. Rien de bien fou, à ce moment-là c'est juste pour me faire la main sur Go. L'idée est alors de me "challenger" un peu sur mes compétences en Go et voir jusqu'où je peux les pousser. Très rapidement, je m'oriente vers du web afin de pouvoir pleinement exploiter la puissance de Go (et pas du tout parce que le langage n'est pas taillé pour des applis de bureau ^^"). J'arrive donc à la conclusion suivante :
+Face à de nouvelles demandes et profitant de mon temps libre, je décide de travailler "vite fait" sur un prototype d'une espèce de Piggy nouvelle génération. Rien de bien fou, à ce moment-là c'est juste pour me faire la main sur Go. L'idée est alors de me "challenger" un peu sur mes compétences en Go et voir jusqu'où je peux les pousser ; c'est un langage que j'utilise depuis environ deux ans pour de tout petits projets (notamment des bots Discord), et que je voulais mettre à profit dans d'autres contextes.
+
+Très rapidement, je m'oriente vers du web afin de pouvoir pleinement exploiter la puissance de Go (et pas du tout parce que le langage n'est pas taillé pour des applis de bureau ^^"). J'arrive donc à la conclusion suivante :
 * Le back sera fait en Go ;
 * Le front sera fait en HTML/CSS/JS (je reviendrai sur ce choix plus bas dans l'article).
 
@@ -50,7 +52,12 @@ Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnal
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
 
-La plupart des fonctionnalités sont opérationnelles : on peut créer/modifier/supprimer des opérations, filtrer par catégorie/description, télécharger un rapport Excel, et le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
+La plupart des fonctionnalités sont opérationnelles ! On peut :
+* Créer/modifier/supprimer des opérations ;
+* Filtrer par catégorie/description (la liste se met à jour en temps réel lorsque l'on tape dans la barre de recherche) ;
+* Télécharger un rapport Excel de l'année en cours, à raison d'une feuille par mois.
+
+Enfin, le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
 
 Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open source ! Il sera donc disponible pour tout le monde !
 
@@ -58,7 +65,7 @@ Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open sour
 
 ### Côté technique
 
-Point qui a son importance, je suis essentiellement dev orienté *back* ; la dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
+Point qui a son importance, je suis essentiellement un dev orienté *back* ; la dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
 
 Comme brièvement évoqué plus haut, l'un des objectifs premiers de ce projet était de m'améliorer en Go. En effet, il s'agit d'un langage que j'affectionne énormément, et sur lequel je cherche à monter en compétence. Ainsi, ce petit projet, aussi mince soit-il, a été l'occasion d'utiliser pour la première fois [`gorilla/mux`](https://github.com/gorilla/mux) et [`gorm`](https://gorm.io/), par exemple.
 
@@ -72,3 +79,4 @@ Là où une application réellement orientée SaaS ne s'impose, par essence, pas
 Dans cette section, je vais tâcher de répondre par avance à la plupart des questions que je m'attends à rencontrer :)
 
 #### Quelles difficultés as-tu rencontrées ?
+Si la partie serveur a été très simple à développer, il 
