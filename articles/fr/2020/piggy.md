@@ -56,6 +56,7 @@ La plupart des fonctionnalités sont opérationnelles ! On peut pour le moment :
 * Créer/modifier/supprimer des opérations ;
 * Filtrer par catégorie/description (la liste se met à jour en temps réel lorsque l'on tape dans la barre de recherche) ;
 * Trier le tableau en cliquant sur les entêtes de colonnes ;
+* Voyager d'un mois à l'autre ;
 * Télécharger un rapport Excel de l'année en cours, à raison d'une feuille par mois.
 
 Enfin, le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
@@ -86,10 +87,11 @@ L'ancienne application stockait les données dans de bêtes fichiers CSV, à rai
 Partiellement. Il y a un fichier `config.ini` qui permet de modifier certaines choses. À l'heure où j'écris ces lignes, on peut modifier le port, la base de données et la langue du projet (actuellement français ou anglais). À terme, il y aura je l'espère plus d'éléments paramétrables, ainsi qu'une section dédiée dans l'application, plus user friendly !
 
 #### Quels outils utilises-tu ?
-Pour l'écriture du code, j'utilise [Visual Studio Code](https://code.visualstudio.com/). C'est un très bon outil qui offre de quoi écrire et déboguer son code très simplement. Pour vraiment faire le café, j'y ai ajouté quelques extensions, notamment l'extension Go créée par Google, qui permet notamment de voyager dans le code via Ctrl+clic ou F12, comme le propose Visual Studio. Pour déboguer le code du front, j'utilise les [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/).
+Pour l'écriture du code, j'utilise [Visual Studio Code](https://code.visualstudio.com/). C'est un très bon outil qui offre de quoi écrire et déboguer son code très simplement. Pour vraiment faire le café, j'y ai ajouté quelques extensions, notamment l'extension Go créée par Google, qui permet entre autres de voyager dans le code via Ctrl+clic ou F12, comme le propose Visual Studio. Pour déboguer le code du front, j'utilise les [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/).
 Pour consulter et modifier le contenu de la base de données, j'utilise [DB Browser for SQLite](https://sqlitebrowser.org/). Enfin, pour la CI, j'utilise [Travis CI](https://travis-ci.org/).
 
 #### Quelles difficultés as-tu rencontrées ?
 Si la partie serveur a été très simple à développer, le côté front m'a demandé un peu plus de travail, notamment pour me remettre dans le bain. Par ailleurs, j'ai eu quelques soucis avec l'extension Go de VSCode (un petit bug de rien du tout qui dupliquait mes lignes :D), mais c'est un outil open source alors c'est pardonné. (J'en profite pour remercier l'équipe du projet, notamment Rebecca Stambler de chez Google qui m'a aidé à régler le soucis, même si elle ne lira jamais cet article)
+
 
 #### 
