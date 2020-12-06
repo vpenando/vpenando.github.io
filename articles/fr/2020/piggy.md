@@ -91,6 +91,6 @@ Pour l'écriture du code, j'utilise [Visual Studio Code](https://code.visualstud
 
 #### Quelles difficultés as-tu rencontrées ?
 Si la partie serveur a été très simple à développer, le côté front m'a demandé un peu plus de travail, notamment pour me remettre dans le bain. J'ai néanmoins, au cours de mes recherches préliminaires, pu tester TypeScript et Elm, que j'ai beaucoup appréciés. Je les utiliserai sûrement pour de prochains projets. C'est assez frustrant de faire du JS après avoir goûté à TypeScript. Par ailleurs, j'ai eu quelques soucis avec l'extension Go de VSCode (un petit bug de rien du tout qui dupliquait mes lignes :D), mais c'est un outil open source alors c'est pardonné. J'en profite pour remercier l'équipe du plugin (notamment Rebecca Stambler de chez Google qui m'a aidé à régler le soucis, même si elle ne lira jamais cet article :D).
-Enfin, étant habitué à C++ et C# (notamment C#, que j'utilise dans ma vie professionnelle), certains aspects de la POO m'ont pas mal manqué.
+Enfin, étant habitué à C++ et C# (surtout C#, que j'utilise dans ma vie professionnelle), certains aspects de la POO m'ont pas mal manqué.
 
 #### 
