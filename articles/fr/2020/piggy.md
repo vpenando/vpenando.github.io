@@ -61,7 +61,7 @@ La plupart des fonctionnalités sont opérationnelles ! On peut pour le moment :
 
 Enfin, le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
 
-Cerise sur le gâteau, le projet est hébergé sur GitHub, et bientôt open source ! Il sera donc disponible pour tout le monde !
+Cerise sur le gâteau, le projet est hébergé sur un repo Git, et bientôt open source ! Il sera donc disponible pour tout le monde !
 
 ---
 
@@ -80,14 +80,19 @@ Là où une application réellement orientée SaaS ne s'impose, par essence, pas
 
 Dans cette section, je vais tâcher de répondre par avance à la plupart des questions que je m'attends à rencontrer :)
 
-#### Où sont stockées les diverses données de l'utilisateur ?
-L'ancienne application stockait les données dans de bêtes fichiers CSV, à raison d'un fichier par mois (ça faisait les rapports Excel tout seul comme ça :D). Aujourd'hui, cette nouvelle version utilise une vraie base de donnée, ici SQLite. N'ayant nul besoin de la protéger par un login/mot de passe, j'ai opté pour la solution la plus simple. Il serait néanmoins très simple de modifier le code de façon à faire pointer le serveur vers une base Postgre, MySQL/MariaDB ou autre.
+#### Pourquoi un tel attrait pour Go ?
+Cette question est tout à fait légitime : il existe une pléthore de langages de programmation, et chacun a ses domaines d'applications, alors pourquoi choisir Go ? Difficile de trouver un langage alliant expressivité, performances, stabilité et outils intégrés. Par exemple, C++ propose d'excellentes performances, mais est très lourd syntaxiquement, n'a pas d'outil de tests ou de documentation intégré, et certaines erreurs sont parfois difficiles à déceler.
+
+Go offre la simplicité d'un langage de script, tout en offrant un système de types robuste et les performances d'un langage compilé. Par ailleurs, il fournit nativement [un environnement de test](https://vpenando.github.io/articles/fr/2020/go_test.html) et [un moteur de génération de documentation](https://vpenando.github.io/articles/fr/2020/express2_godoc.html). De plus, Go propose de nombreux outils tels que le fameux système de *goroutines*, et une bibliothèque standard très complète. Enfin, le binaire compilé n'a besoin d'aucune dépendance tierce.
+
+#### Quels outils utilises-tu ?
+Pour l'écriture du code, j'utilise [Visual Studio Code](https://code.visualstudio.com/). C'est un très bon outil qui offre de quoi écrire et déboguer son code très simplement. Pour vraiment faire le café, j'y ai ajouté quelques extensions, notamment l'extension Go créée par Google, qui permet entre autres de voyager dans le code via Ctrl+clic ou F12, comme le propose Visual Studio. Pour déboguer le code du front, j'utilise les [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/). Pour consulter et modifier le contenu de la base de données, j'utilise [DB Browser for SQLite](https://sqlitebrowser.org/). Côté tests, j'utilise le package [`assert`](https://godoc.org/github.com/stretchr/testify/assert) en complément du package de tests standard de Go, ainsi que [Postman](https://www.postman.com/) pour les différentes requêtes. Enfin, pour la CI, j'utilise [Travis CI](https://travis-ci.org/).
 
 #### L'application est-elle configurable ?
 Partiellement. Il y a un fichier `config.ini` qui permet de modifier certaines choses. À l'heure où j'écris ces lignes, on peut modifier le port, la base de données et la langue du projet (actuellement français ou anglais). À terme, il y aura je l'espère plus d'éléments paramétrables, ainsi qu'une section dédiée dans l'application, plus user friendly !
 
-#### Quels outils utilises-tu ?
-Pour l'écriture du code, j'utilise [Visual Studio Code](https://code.visualstudio.com/). C'est un très bon outil qui offre de quoi écrire et déboguer son code très simplement. Pour vraiment faire le café, j'y ai ajouté quelques extensions, notamment l'extension Go créée par Google, qui permet entre autres de voyager dans le code via Ctrl+clic ou F12, comme le propose Visual Studio. Pour déboguer le code du front, j'utilise les [Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/). Pour consulter et modifier le contenu de la base de données, j'utilise [DB Browser for SQLite](https://sqlitebrowser.org/). Côté tests, j'utilise le package de tests standard de Go, le package [`assert`](https://godoc.org/github.com/stretchr/testify/assert) ainsi que Postman pour les différentes requêtes. Enfin, pour la CI, j'utilise [Travis CI](https://travis-ci.org/).
+#### Où sont stockées les diverses données de l'utilisateur ?
+L'ancienne application stockait les données dans de bêtes fichiers CSV, à raison d'un fichier par mois (ça faisait les rapports Excel tout seul comme ça :D). Aujourd'hui, cette nouvelle version utilise une vraie base de donnée, ici SQLite. N'ayant nul besoin de la protéger par un login/mot de passe, j'ai opté pour la solution la plus simple. Il serait néanmoins très simple de modifier le code de façon à faire pointer le serveur vers une base Postgre, MySQL/MariaDB ou autre.
 
 #### Quelles difficultés as-tu rencontrées ?
 Si la partie serveur a été très simple à développer, le côté front m'a demandé un peu plus de travail, notamment pour me remettre dans le bain. J'ai néanmoins, au cours de mes recherches préliminaires, pu tester TypeScript et Elm, que j'ai beaucoup appréciés. Je les utiliserai sûrement pour de prochains projets. C'est assez frustrant de faire du JS après avoir goûté à TypeScript. Par ailleurs, j'ai eu quelques soucis avec l'extension Go de VSCode (un petit bug de rien du tout qui dupliquait mes lignes :D), mais c'est un outil open source alors c'est pardonné. J'en profite pour remercier l'équipe du plugin (notamment Rebecca Stambler de chez Google qui m'a aidé à régler le soucis, même si elle ne lira jamais cet article :D).
