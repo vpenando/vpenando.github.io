@@ -46,9 +46,9 @@ Très rapidement, je m'oriente vers du web afin de pouvoir pleinement exploiter 
 
 <p style="text-align:center;font-style: italic;"><img src="images/gopher.png" /><br />Gopher, la mascotte du langage.</p>
 
-Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur ma Rapberry Pi ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Pour les utilisateurs tiers, il suffira de télécharger le serveur et de l'ajouter à la liste des programmes se lançant au démarrage, puis d'ajouter l'url qui va bien à ses favoris ! (Bon, pour la mise à jour auto, ça sera en revanche un peu plus compliqué)
+Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur ma Rapberry Pi ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Pour les utilisateurs tiers, il suffira de télécharger le serveur et de l'ajouter à la liste des programmes se lançant au démarrage, puis d'ajouter l'url qui va bien à ses favoris ! (Bon, pour la mise à jour auto, ça sera en revanche un poil plus compliqué)
 
-Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à implémenter, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un premier résultat !
+Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à intégrer, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un premier résultat !
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
 
