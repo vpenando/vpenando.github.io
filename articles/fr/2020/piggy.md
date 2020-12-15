@@ -67,7 +67,7 @@ Cerise sur le gâteau, le projet est hébergé sur un repo Git, et bientôt open
 
 ### Côté technique
 
-Point qui a son importance, je suis essentiellement un dev orienté *back* ; la dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
+Point qui a son importance, je suis essentiellement un dev orienté back et applicatif. La dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
 
 Comme brièvement évoqué plus haut, l'un des objectifs premiers de ce projet était de m'améliorer en Go. En effet, il s'agit d'un langage que j'affectionne énormément, et sur lequel je cherche à monter en compétence. Ainsi, ce petit projet, aussi mince soit-il, a été l'occasion d'utiliser pour la première fois des bibliothèques telles que [`gorilla/mux`](https://github.com/gorilla/mux) et [`gorm`](https://gorm.io/), par exemple.
 
