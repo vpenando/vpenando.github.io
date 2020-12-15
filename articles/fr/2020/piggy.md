@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) HS #1 - Création d'un outil de suivi de dépenses
+## (FR) HS #1 - Refonte d'un vieux projet from scratch
 
 ---
 
@@ -18,7 +18,7 @@ Il ne s'agit donc pas d'un article classique où je présente une techno ou autr
 Prenons notre DeLorean et envolons-nous en l'an de grâce 2017.
 
 En 2017 (plus exactement en février, d'après les archives que j'ai retrouvées sur Discord), alors que je suis encore étudiant, je commence le développement d'un outil permettant de suivre et catégoriser ses dépenses.
-Il s'agit alors d'une petite application sans prétention, faite en C#. Côté charte graphique, il a été décidé de partir sur un visuel rappelant les vieilles tirelires en forme de cochon. Je ne sais plus pourquoi, mais ça rendait bien. L'orientation visuelle générale était alors toute trouvée : l'icône, les couleurs, tout était évident à partir du moment où l'idée de la tirelire a émergé. Même le nom du projet, Piggy, vient de l'anglais "piggy bank".
+Il s'agit alors d'une petite application sans prétention, faite en C# (Winforms). Côté charte graphique, il a été décidé de partir sur un visuel rappelant les vieilles tirelires en forme de cochon. Je ne sais plus pourquoi, mais ça rendait bien. L'orientation visuelle générale était alors toute trouvée : l'icône, les couleurs, tout était évident à partir du moment où l'idée de la tirelire a émergé. Même le nom du projet, Piggy, vient de l'anglais "piggy bank".
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2017.png" /><br />Screen de l'application datant de 2017. C'est flashy, mais ça marche, c'est déjà ça !</p>
 
@@ -40,11 +40,11 @@ Retour en 2020, le présent à l'heure où je rédige ces lignes, probablement l
 
 Face à de nouvelles demandes et profitant de mon temps libre, je décide de travailler "vite fait" sur un prototype d'une espèce de Piggy nouvelle génération. Rien de bien fou, à ce moment-là c'est juste pour me faire la main sur Go. C'est un langage que j'utilise depuis environ deux ans pour de tout petits projets (notamment des bots Discord), et que je voulais mettre à profit dans d'autres contextes. L'idée est alors de me "challenger" un peu sur mes compétences en Go et voir ce que j'arrive à faire avec. 
 
+<p style="text-align:center;font-style: italic;"><img src="images/gopher.png" /><br />Gopher, la mascotte du langage.</p>
+
 Très rapidement, je m'oriente vers du web afin de pouvoir pleinement exploiter la puissance de Go (et pas du tout parce que le langage n'est pas taillé pour des applis de bureau ^^"). J'arrive donc à la conclusion suivante :
 * Le back sera fait en Go ;
 * Le front sera fait en HTML/CSS/JS (je reviendrai sur ce choix plus bas dans l'article).
-
-<p style="text-align:center;font-style: italic;"><img src="images/gopher.png" /><br />Gopher, la mascotte du langage.</p>
 
 Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur mon poste perso ou sur ma Rapberry Pi ; ainsi, je peux mettre à jour l'application sans déranger les utilisateurs/trices, tout se fait de manière transparente. Pour les utilisateurs tiers, il suffira de télécharger le serveur et de l'ajouter à la liste des programmes se lançant au démarrage, puis d'ajouter l'url qui va bien à ses favoris ! (Bon, pour la mise à jour auto, ça sera en revanche un poil plus compliqué)
 
