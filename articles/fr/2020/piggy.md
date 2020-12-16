@@ -50,7 +50,7 @@ Cela revêt plusieurs avantages, notamment de pouvoir héberger le serveur sur m
 
 Alors, en avant ! Je commence à écrire sur papier les différentes fonctionnalités à intégrer, réfléchir à leur implémentation, et développer un petit prototype. Heureux, j'arrive très rapidement (entre une demi journée et une journée) à un premier résultat !
 
-<p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, décembre 2020 (WIP).</p>
+<p style="text-align:center;font-style: italic;"><img src="images/piggy_2020.png" /><br />Screen de l'application, début décembre 2020 (WIP).</p>
 
 La plupart des fonctionnalités sont opérationnelles ! On peut pour le moment :
 * Créer/modifier/supprimer des opérations ;
