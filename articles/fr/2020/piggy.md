@@ -102,6 +102,12 @@ L'ancienne application stockait les données dans de bêtes fichiers CSV, à rai
 
 #### Difficultés rencontrées
 Si la partie serveur a été très simple à développer, le côté front m'a demandé un peu plus de travail, notamment pour me remettre dans le bain. J'ai néanmoins, au cours de mes recherches préliminaires, pu tester TypeScript et Elm, que j'ai beaucoup appréciés. Je les utiliserai sûrement pour de prochains projets. C'est assez frustrant de faire du JS après avoir goûté à TypeScript. Par ailleurs, j'ai eu quelques soucis avec l'extension Go de VSCode (un petit bug de rien du tout qui dupliquait mes lignes :D), mais c'est un outil open source alors c'est pardonné. J'en profite pour remercier l'équipe du plugin (notamment Rebecca Stambler de chez Google qui m'a aidé à régler le soucis, même si elle ne lira probablement jamais cet article).
+Par ailleurs, c'est un détail, mais la création de nouvelles catégories (plus spécifiquement l'upload de l'icône) m'a fait essuyer pas mal de plâtre.
 Enfin, étant habitué à C++ et C# (surtout C#, que j'utilise dans ma vie professionnelle), certains aspects de la POO m'ont pas mal manqué.
 
-#### 
+#### Quel intérêt par rapport à un bon vieux document Excel ?
+Avant tout, il ne s'agit aucunement d'un comparatif dans un cadre pro (et je doute sincèrement de la pertinence de Piggy dans un contexte professionnel). Néanmoins, pour mes proches (soit les utilisateurs principaux :D), Piggy revêt plusieurs intérêts, à commencer par sa simplicité et sa clarté. En effet, la prise en main de la bête est quasi immédiate sitôt l'application ouverte. Aucune fonctionnalité n'est compliquée à appréhender, et le visuel est extrêmement simple à interpréter, notamment grâce aux catégories.
+
+---
+
+### Fonctionnalités à venir
