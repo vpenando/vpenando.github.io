@@ -12,7 +12,7 @@ Il ne s'agit donc pas d'un article classique où je présente une techno ou autr
 Spoiler : le projet en question.
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020_2.png" /><br />Screen de l'application, mi décembre.</p>
 
-Vous l'aurez deviné, il s'agit là d'un petit outil visant à suivre ses dépenses.
+Vous l'aurez deviné, il s'agit là d'un petit outil visant à suivre ses dépenses. Mais avant de passer aux présentations, un peu d'histoire.
 
 ---
 
