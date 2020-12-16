@@ -9,6 +9,9 @@
 D'ordinaire, je ne présente pas de projet perso ici. Néanmoins, je fais aujourd'hui une petite exception et en profite pour inaugurer la série "HS".
 Il ne s'agit donc pas d'un article classique où je présente une techno ou autre, mais plutôt d'un bilan, d'un ressenti général sur un petit projet que je mène sur mon temps libre. Par ailleurs, j'emploierai ici un ton un peu plus léger que d'habitude.
 
+Spoiler : le projet en question.
+<p style="text-align:center;font-style: italic;"><img src="images/piggy_2020_2.png" /><br />Screen de l'application, mi décembre.</p>
+
 ---
 
 ### Contexte
