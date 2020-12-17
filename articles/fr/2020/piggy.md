@@ -12,7 +12,8 @@ Il ne s'agit donc pas d'un article classique où je présente une techno ou autr
 Spoiler : le projet en question.
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020_2.png" /><br />Screen de l'application, mi décembre.</p>
 
-Vous l'aurez deviné, il s'agit là d'un petit outil visant à suivre ses dépenses. Mais avant de passer aux présentations, un peu d'histoire.
+Il s'agit d'un petit outil visant à suivre ses dépenses, et qui propose quelques fonctionnalités sympa telles que des bilans annuels, par catégorie, ou encore des exports vers Excel.
+Mais avant de passer aux présentations, un peu d'histoire.
 
 ---
 
@@ -22,7 +23,7 @@ Vous l'aurez deviné, il s'agit là d'un petit outil visant à suivre ses dépen
 
 Prenons notre DeLorean et envolons-nous en l'an de grâce 2017.
 
-En 2017 (plus exactement en février, d'après les archives que j'ai retrouvées sur Discord), alors que je suis encore étudiant, je commence le développement d'un logiciel permettant de suivre et catégoriser ses dépenses.
+En 2017 (plus exactement en février, si je me fie aux archives que j'ai retrouvées sur Discord), alors que je suis encore étudiant, je commence le développement d'un logiciel permettant de suivre et catégoriser ses dépenses.
 Il s'agit alors d'une petite application sans prétention, faite en C# (Winforms). Côté charte graphique, il a été décidé de partir sur un visuel rappelant les vieilles tirelires en forme de cochon. Je ne sais plus pourquoi, mais ça rendait bien. L'orientation visuelle générale était alors toute trouvée : l'icône, les couleurs, tout était évident à partir du moment où l'idée de la tirelire a émergé. Même le nom du projet, Piggy, vient de l'anglais "piggy bank".
 
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2017.png" /><br />Screen de l'application datant de 2017. C'est flashy, mais ça marche, c'est déjà ça !</p>
@@ -111,3 +112,11 @@ Avant tout, il ne s'agit aucunement d'un comparatif dans un cadre pro (et je dou
 ---
 
 ### Fonctionnalités à venir
+Certaines fonctionnalités majeures m'ont d'ores et déjà été demandées. Parmi elles, les plus attendues sont :
+* Création / édition unitaire depuis la page d'accueil (sans besoin de passer par la page d'édition puis rechercher l'occurence à modifier) ;
+* Ajout d'une page de bilan par catégorie sur un mois / une année ;
+* Ajout de graphiques pour avoir une comparaison visuelle entre chaque mois ou catégorie.
+
+En parallèle, d'autres fonctionnalités, moindres, sont également en attente :
+* Mise en évidence et déplacement du bouton "Edition" pour éviter les "missclicks" ;
+* Mise à disposition d'un jeu d'icônes "toutes faites" lors de la création de nouvelles catégories.
