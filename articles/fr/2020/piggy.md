@@ -120,3 +120,5 @@ Certaines fonctionnalités majeures m'ont d'ores et déjà été demandées. Par
 En parallèle, d'autres fonctionnalités, moindres, sont également en attente :
 * Mise en évidence et déplacement du bouton "Edition" pour éviter les "missclicks" ;
 * Mise à disposition d'un jeu d'icônes "toutes faites" lors de la création de nouvelles catégories.
+
+Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet.
