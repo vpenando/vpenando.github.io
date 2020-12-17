@@ -88,8 +88,9 @@ Là où une application réellement orientée SaaS ne s'impose, par essence, pas
 Dans cette section, je vais tâcher de répondre par avance à la plupart des interrogations que je m'attends à rencontrer :)
 
 #### Quel intérêt par rapport à l'application fournie par ma banque ?
-Tout dépend de votre besoin. Toutes les banques ne fournissent pas les mêmes applications, mais elles ont pour la plupart des défauts communs. À titre d'exemple, ma banque (que je ne citerai bien évidemment pas), ne permet pas de rechercher simplement une opération. Il y a tout un formulaire (très lent à charger) à remplir avant de lancer la recherche. Par ailleurs, si vous avez par exemple un compte commun et un compte courant perso, cela vous oblige à potentiellement effectuer deux recherches pour retrouver une dépense.
-De plus, je ne connais aucune application qui permettent de classifier et ajouter une description personnalisée à une dépense (ou à un gain). Mais encore une fois, c'est votre besoin qui détermine si telle ou telle application y est ou non adaptée.
+Toutes les banques ne fournissent pas les mêmes applications, mais elles ont pour la plupart des défauts communs. À titre d'exemple, ma banque (que je ne citerai bien évidemment pas), ne permet pas de rechercher simplement une opération. Il y a tout un formulaire (très lent à charger) à remplir avant de lancer la recherche. Par ailleurs, si vous avez par exemple un compte commun et un compte courant perso, cela vous oblige à potentiellement effectuer deux recherches pour retrouver une dépense.
+De plus, je ne connais aucune application qui permettent de classifier et ajouter une description personnalisée à une dépense (ou à un gain). Enfin, Piggy est amené à évoluer au fil des différentes demandes des utilisateurs, le rendant théoriquement de plus en plus viable au fil du temps.
+Quoi qu'il en soit, c'est avant tout votre besoin qui détermine si telle ou telle application y est ou non adaptée.
 
 #### Pourquoi un tel attrait pour Go ?
 Cette question est tout à fait légitime : il existe une pléthore de langages de programmation, et chacun a ses domaines d'applications, alors pourquoi choisir Go ? Difficile de trouver un langage alliant expressivité, performances, stabilité et outils intégrés. Par exemple, C++ propose d'excellentes performances, mais est très lourd syntaxiquement, n'a pas d'outil de tests ou de documentation intégré, et certaines erreurs sont parfois difficiles à déceler.
@@ -125,4 +126,4 @@ En parallèle, d'autres fonctionnalités, moindres, sont également en attente :
 * Mise en évidence et déplacement du bouton "Edition" pour éviter les "missclicks" ;
 * Mise à disposition d'un jeu d'icônes "toutes faites" lors de la création de nouvelles catégories.
 
-Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet.
+Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet. Toutefois, travaillant seul sur le projet et uniquement sur mon temps libre, il est probable que les nouvelles fonctionnalités mettent un certains temps avant de faire leur apparition.
