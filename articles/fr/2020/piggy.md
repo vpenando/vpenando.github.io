@@ -67,7 +67,7 @@ La plupart des fonctionnalités sont opérationnelles ! On peut pour le moment :
 
 Enfin, le visuel est plus propre qu'avant. Le reste à faire est encore conséquent, mais ça avance !
 
-Cerise sur le gâteau, le projet est hébergé sur un repo Git, et open source ([lien](https://github.com/vpenando/piggy)) ! Il sera donc disponible pour tout le monde !
+Cerise sur le gâteau, le projet est hébergé sur un repo Git, et open source ([lien](https://github.com/vpenando/piggy)) ! Il est donc disponible pour tout le monde !
 
 ---
 
