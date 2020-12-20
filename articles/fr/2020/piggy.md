@@ -128,3 +128,19 @@ En parallèle, d'autres fonctionnalités, moindres, sont également en attente :
 * Mise à disposition d'un jeu d'icônes "toutes faites" lors de la création de nouvelles catégories.
 
 Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet. Toutefois, travaillant seul sur le projet et uniquement sur mon temps libre, il est probable que les nouvelles fonctionnalités mettent un certains temps avant de faire leur apparition.
+
+---
+
+### Code source du projet
+Le repo Git du projet est disponible [ici](https://github.com/vpenando/piggy).
+Il contient les dossiers suivants :
+* `categories/` : là où sont stockées les images de chaque catégorie, avec des images "par défaut" pour vos catégories ;
+* `css/` : les fichiers CSS du projet ;
+* `images/` : les images "fixes" du projet : icône, boutons, ... ;
+* `piggy/` : le package (au sens Go) principal du projet, où sont les principales fonctionnalités du projet (\*) ;
+* `reports/` : là où sont stockés les rapports Excel avant export ;
+* `scripts/` : les scripts JS du projet ;
+* `test/` : les tests tiers du projet (stresstests, ...) ;
+* `views/` : les pages HTML (templates mux) du projet.
+
+**\*** L'intérêt d'en faire un package à part entière permet une meilleure réusabilité du coeur de l'appli pour des projets futurs. 
