@@ -137,7 +137,7 @@ Il contient les dossiers suivants :
 * `categories/` : là où sont stockées les images de chaque catégorie, avec des images "par défaut" pour vos catégories ;
 * `css/` : les fichiers CSS du projet ;
 * `images/` : les images "fixes" du projet : icône, boutons, ... ;
-* `piggy/` : le package (au sens Go) principal du projet, où sont les principales fonctionnalités du projet (\*) ;
+* `piggy/` : le package (au sens Go) principal du projet, où sont les principales fonctionnalités du projet (\*) ainsi que leurs tests ;
 * `reports/` : là où sont stockés les rapports Excel avant export ;
 * `scripts/` : les scripts JS du projet ;
 * `test/` : les tests tiers du projet (stresstests, ...) ;
