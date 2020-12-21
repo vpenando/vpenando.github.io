@@ -90,7 +90,7 @@ Dans cette section, je vais tâcher de répondre par avance à la plupart des in
 
 #### Quel intérêt par rapport à l'application fournie par ma banque ?
 Toutes les banques ne fournissent pas les mêmes applications, mais elles ont pour la plupart des défauts communs. À titre d'exemple, ma banque (que je ne citerai bien évidemment pas), ne permet pas de rechercher simplement une opération. Il y a tout un formulaire (très lent à charger) à remplir avant de lancer la recherche. Par ailleurs, si vous avez par exemple un compte commun et un compte courant perso, cela vous oblige à potentiellement effectuer deux recherches pour retrouver une dépense.
-De plus, je ne connais aucune application qui permettent de classifier et ajouter une description personnalisée à une dépense (ou à un gain). Enfin, Piggy est amené à évoluer au fil des différentes demandes des utilisateurs, le rendant théoriquement de plus en plus viable au fil du temps.
+De plus, je ne connais aucune application qui permet de classifier et ajouter une description personnalisée à une dépense (ou à un gain). Enfin, Piggy est amené à évoluer au fil des différentes demandes des utilisateurs, le rendant théoriquement de plus en plus viable au fil du temps.
 Quoi qu'il en soit, c'est avant tout votre besoin qui détermine si telle ou telle application y est ou non adaptée.
 
 #### Pourquoi un tel attrait pour Go ?
