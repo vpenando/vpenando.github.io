@@ -13,7 +13,7 @@ Il ne s'agit donc pas d'un article classique où je présente une techno ou autr
 Spoiler : le projet en question.
 <p style="text-align:center;font-style: italic;"><img src="images/piggy_2020_2.png" /><br />Screen de l'application, mi décembre.</p>
 
-Il s'agit d'un petit outil visant à suivre ses dépenses, et qui propose quelques fonctionnalités sympa telles que des bilans annuels, par catégorie, ou encore des exports vers Excel.
+Il s'agit d'un petit outil visant à suivre ses dépenses, et qui propose quelques fonctionnalités sympa telles que des bilans annuels, des catégories, ou encore des exports vers Excel.
 Mais avant de passer aux présentations, un peu d'histoire.
 
 ---
