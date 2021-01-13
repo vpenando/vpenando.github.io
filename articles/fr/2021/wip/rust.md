@@ -41,6 +41,12 @@ fn main() {
 }             // fin du scope : 'a' est détruite.
 ```
 
+Parallèlement, bien qu'il n'existe pas de classes et d'héritage en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
+```rust
+trait Speaker {
+  fn speak(&self);
+}
+```
 
 ---
 
