@@ -1,6 +1,6 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## 2021, l'année de Rust ?
+## (FR) 2021, l'année de Rust ?
 
 ---
 
@@ -36,7 +36,7 @@ Toutefois, la spécificité la plus connue de Rust est son système d'*ownership
 En somme, une valeur est associée à un propriétaire, et sa durée de vie dépend de celle de ce dernier. Imaginons le programme suivant :
 ```rust
 fn main() {
-  let a = 42; // 'a' est ici seul propriétaire de sa valeur, ici 42.
+  let a = 42; // 'a' est seul propriétaire de sa valeur, ici 42.
   // ...
 }             // fin du scope : 'a' est détruite.
 ```
