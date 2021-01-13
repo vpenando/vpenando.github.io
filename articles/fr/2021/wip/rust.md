@@ -18,6 +18,12 @@ fn main() {
   println!("Hello, world!");
 }
 ```
+Rust propose des mécanismes communs à de nombreux langages (tels que les stuctures, les énumérations, etc...), mais également d'autres outils, comme le pattern matching, ou encore les types somme !
+
+Toutefois, la spécificité la plus connue de Rust est son système d'*ownership*. Le principe d'*ownership* en Rust est fondamental et énonce trois règles cruciales :
+> * Each value in Rust has a variable that’s called its *owner*.
+> * There can only be one owner at a time.
+> * When the owner goes out of scope, the value will be dropped.
 
 ---
 
