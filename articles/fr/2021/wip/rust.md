@@ -13,6 +13,12 @@ Il s'agit d'un langage extrêmement populaire ces derniers temps, notamment grâ
 
 ### Présentation de Rust
 
+```rust
+fn main() {
+  println!("Hello, world!");
+}
+```
+
 ---
 
 ### Une popularité croissante
