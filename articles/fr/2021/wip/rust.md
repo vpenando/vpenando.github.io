@@ -9,6 +9,8 @@
 Créé par Mozilla, Rust est un langage de programmation orienté système, proposant également quelques aspects fonctionnels.
 Il s'agit d'un langage extrêmement populaire ces derniers temps, notamment grâce à sa sûreté.
 
+Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et apprécie les deux langages.
+
 ---
 
 ### Présentation de Rust
@@ -24,6 +26,8 @@ Toutefois, la spécificité la plus connue de Rust est son système d'*ownership
 > * Each value in Rust has a variable that’s called its *owner*.
 > * There can only be one owner at a time.
 > * When the owner goes out of scope, the value will be dropped.
+
+
 
 ---
 
