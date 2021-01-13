@@ -28,13 +28,6 @@ let a = 42;     // 'a' est constante.
 let mut b = 12; // 'b' est mutable.
 ```
 
-Exemple de programme Rust basique :
-```rust
-struct Color {
-  r: u8,
-}
-```
-
 Toutefois, la spécificité la plus connue de Rust est son système d'*ownership*. Le principe d'*ownership* en Rust est fondamental et énonce trois règles cruciales. Pour citer [la doc](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html) :
 > * Each value in Rust has a variable that’s called its *owner*.
 > * There can only be one owner at a time.
@@ -44,6 +37,7 @@ En somme, une valeur est associée à un propriétaire, et sa durée de vie dép
 ```rust
 fn main() {
   let a = 42; // 'a' est ici seul propriétaire de sa valeur, ici 42.
+  // ...
 }             // fin du scope : 'a' est détruite.
 ```
 
