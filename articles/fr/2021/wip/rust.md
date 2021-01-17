@@ -83,6 +83,7 @@ struct Cat {
 
 impl Cat for Speaker
   fn speak(&self) {
+    println!("meow");
   }
 }
 ```
