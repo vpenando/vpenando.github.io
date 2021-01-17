@@ -66,7 +66,7 @@ Pour implémenter les méthodes d'une structure, il est nécessaire de se situer
 Bonne question ! Vous vous rappelez de la notion d'*ownership* ? Chaque valeur a *un et un seul* propriétaire ; ainsi, Rust utilise la sémantique de mouvement pour assurer cela. Toute variable transmise à une fonction est déplacée et ne sera alors *plus utilisable*, à la manière de `std::move` en C++. Or, on ne veut pas que notre instance soit déplacée, car on peut en avoir encore besoin après ! Pour ce faire, on *emprunte* la valeur de `self` ; il s'agit de la notion de *borrowing*. Pour ce faire, on utilise des références. Tout comme en C++, une référence est matérialisée par le symbole `&`.
 
 
-Parallèlement, bien qu'il n'existe pas de classes et d'héritage en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
+Parallèlement, bien qu'il n'existe pas de classes en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
 ```rust
 trait Speaker {
   fn speak(&self);
@@ -81,12 +81,19 @@ trait Speaker {
 struct Cat {
 }
 
-impl Cat for Speaker
+impl Speaker for Cat { // notez la syntaxe différente du 'impl' !
   fn speak(&self) {
     println!("meow");
   }
 }
 ```
+Et à l'usage :
+```rust
+fn make_speak<T: Speaker>(speaker: &T) {
+  speaker.speak();
+}
+```
+Nous aurions pu utiliser
 
 ---
 
