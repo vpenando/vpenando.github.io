@@ -85,6 +85,7 @@ impl Cat for Speaker
   fn speak(&self) {
   }
 }
+```
 
 ---
 
