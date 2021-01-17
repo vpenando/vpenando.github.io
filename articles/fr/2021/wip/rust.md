@@ -14,12 +14,14 @@ Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et app
 ---
 
 ### Présentation de Rust
-
+Abordons sa syntaxe avec un traditionnel hello world :
 ```rust
 fn main() {
   println!("Hello, world!");
 }
 ```
+On remarque que l'on déclare une fonction grâce au mot-clé `fn`. Pour afficher du texte, on utilise la *macro* `println`. Pour le moment, considérez qu'une macro est similaire à une fonction, à ceci près qu'il faut la suffixer d'un point d'exclamation pour l'appeler.
+
 Rust propose des mécanismes communs à de nombreux langages (tels que les stuctures, les énumérations, etc...), mais également d'autres outils, comme le pattern matching, ou encore les types sommes ! De plus, toute variable est par défaut constante mais peut être déclarée mutable grâce au mot-clé `mut`.
 
 Exemple :
@@ -36,9 +38,24 @@ Toutefois, la spécificité la plus connue de Rust est son système d'*ownership
 En somme, une valeur est associée à un propriétaire, et sa durée de vie dépend de celle de ce dernier. Imaginons le programme suivant :
 ```rust
 fn main() {
-  let a = 42; // 'a' est seul propriétaire de sa valeur, ici 42.
-  // ...
-}             // fin du scope : 'a' est détruite.
+  let a = 42;            // 'a' est seul propriétaire de sa valeur, ici 42.
+  println!("a = {}", a); // on fait des super trucs
+}                        // fin du scope : 'a' est détruite.
+```
+On peut également créer des structures grâce au mot-clé `struct`. Il est même possible de leur créer des méthodes ! Génial, non ?
+```rust
+struct Foo {
+}
+
+impl Foo {
+  fn bar(&self) {
+    // ...
+  }
+  
+  fn baz(&self) {
+    // ...
+  }
+}
 ```
 
 Parallèlement, bien qu'il n'existe pas de classes et d'héritage en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
