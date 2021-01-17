@@ -89,11 +89,12 @@ impl Speaker for Cat { // notez la syntaxe différente du 'impl' !
 ```
 Et à l'usage :
 ```rust
+// on attend un type T qui implémente Speaker
 fn make_speak<T: Speaker>(speaker: &T) {
   speaker.speak();
 }
 ```
-Nous aurions pu utiliser
+Notons qu'un trait peut proposer une implémentation par défaut des méthodes qu'il contient.
 
 ---
 
