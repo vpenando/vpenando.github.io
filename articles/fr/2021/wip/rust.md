@@ -11,6 +11,8 @@ Il s'agit d'un langage extrêmement populaire ces derniers temps, notamment grâ
 
 Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et apprécie les deux langages.
 
+Au cours de cet article, nous présenterons brièvement Rust et aborderons les raisons de sa popularité croissante.
+
 ---
 
 ### Présentation de Rust
@@ -57,6 +59,12 @@ impl Foo {
   }
 }
 ```
+Pour implémenter les méthodes d'une structure, il est nécessaire de se situer dans un bloc `impl`. Personnellement, je trouve cela très verbeux, en plus de créer un niveau d'imbrication superflu. Cela a néanmoins l'intérêt de savoir clairement quel type nous implémentons. Tout comme en Python, les méthodes non-statiques prennent un premier argument, `self`.
+
+> Que sont ces `&` présents devant `self` ?
+
+Bonne question ! Vous vous rappelez de la notion d'*ownership* ? Chaque valeur a *un et un seul* propriétaire ; ainsi, Rust utilise la sémantique de mouvement pour assurer cela. Toute variable transmise à une fonction est déplacée et ne sera alors *plus utilisable*, à la manière de `std::move` en C++. Or, on ne veut pas que notre instance soit déplacée, car on peut en avoir encore besoin après ! Pour ce faire, on *emprunte* la valeur de `self` ; il s'agit de la notion de *borrowing*. Pour ce faire, on utilise des références. Tout comme en C++, une référence est matérialisée par le symbole `&`.
+
 
 Parallèlement, bien qu'il n'existe pas de classes et d'héritage en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
 ```rust
@@ -64,6 +72,19 @@ trait Speaker {
   fn speak(&self);
 }
 ```
+Ainsi, il est possible de profiter du polymorphisme au sein d'un programme Rust :
+```rust
+trait Speaker {
+  fn speak(&self);
+}
+
+struct Cat {
+}
+
+impl Cat for Speaker
+  fn speak(&self) {
+  }
+}
 
 ---
 
