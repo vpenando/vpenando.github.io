@@ -32,7 +32,7 @@ let a = 42;     // 'a' est constante.
 let mut b = 12; // 'b' est mutable.
 ```
 
-Toutefois, la spécificité la plus connue de Rust est son système d'*ownership*. Le principe d'*ownership* en Rust est fondamental et énonce trois règles cruciales. Pour citer [la doc](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html) :
+De plus, la spécificité la plus connue de Rust est son système d'*ownership*. Le principe d'*ownership* en Rust est fondamental et énonce trois règles cruciales. Pour citer [la doc](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html) :
 > * Each value in Rust has a variable that’s called its *owner*.
 > * There can only be one owner at a time.
 > * When the owner goes out of scope, the value will be dropped.
@@ -94,6 +94,8 @@ fn make_speak<T: Speaker>(speaker: &T) {
   speaker.speak();
 }
 ```
+On peut remplacer `T` par `dyn Speaker` (type "dynamique" déduit au runtime), mais cela est déconseillé. Plus d'infos [par ici](https://stackoverflow.com/questions/27567849/what-makes-something-a-trait-object).
+
 Notons qu'un trait peut proposer une implémentation par défaut des méthodes qu'il contient.
 
 ---
