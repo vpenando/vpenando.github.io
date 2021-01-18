@@ -94,8 +94,6 @@ fn make_speak<T: Speaker>(speaker: &T) {
   speaker.speak();
 }
 ```
-On peut remplacer `T` par `dyn Speaker` (type "dynamique" déduit au runtime), mais cela est déconseillé. Plus d'infos [par ici](https://stackoverflow.com/questions/27567849/what-makes-something-a-trait-object).
-
 Notons qu'un trait peut proposer une implémentation par défaut des méthodes qu'il contient.
 
 ---
