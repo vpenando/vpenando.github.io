@@ -19,7 +19,7 @@ Au cours de cet article, nous présenterons brièvement Rust et aborderons les r
 Abordons sa syntaxe avec un traditionnel hello world :
 ```rust
 fn main() {
-  println!("Hello, world!");
+    println!("Hello, world!");
 }
 ```
 On remarque que tout programme Rust a comme point d'entrée la fonction `main`, et que l'on déclare une fonction grâce au mot-clé `fn`. Pour afficher du texte, on utilise la *macro* `println`. Pour le moment, considérez qu'une macro est similaire à une fonction, à ceci près qu'il faut la suffixer d'un point d'exclamation pour l'appeler.
@@ -40,8 +40,8 @@ De plus, la spécificité la plus connue de Rust est son système d'*ownership*.
 En somme, une valeur est associée à un propriétaire, et sa durée de vie dépend de celle de ce dernier. Imaginons le programme suivant :
 ```rust
 fn main() {
-  let a = 42;            // 'a' est seul propriétaire de sa valeur, ici 42.
-  println!("a = {}", a); // on fait des super trucs
+    let a = 42;            // 'a' est seul propriétaire de sa valeur, ici 42.
+    println!("a = {}", a); // on fait des super trucs
 }                        // fin du scope : 'a' est détruite.
 ```
 On peut également créer des structures grâce au mot-clé `struct`. Il est même possible de leur créer des méthodes ! Génial, non ?
@@ -50,13 +50,13 @@ struct Foo {
 }
 
 impl Foo {
-  fn bar(&self) {
-    // ...
-  }
+    fn bar(&self) {
+        // ...
+    }
   
-  fn baz(&self) {
-    // ...
-  }
+    fn baz(&self) {
+        // ...
+    }
 }
 ```
 Pour implémenter les méthodes d'une structure, il est nécessaire de se situer dans un bloc `impl`. Personnellement, je trouve cela très verbeux, en plus de créer un niveau d'imbrication superflu. Cela a néanmoins l'intérêt de savoir clairement quel type nous implémentons. Tout comme en Python, les méthodes non-statiques prennent un premier argument, `self`.
@@ -69,29 +69,29 @@ Bonne question ! Vous vous rappelez de la notion d'*ownership* ? Chaque valeur a
 Parallèlement, bien qu'il n'existe pas de classes en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
 ```rust
 trait Speaker {
-  fn speak(&self);
+    fn speak(&self);
 }
 ```
 Ainsi, il est possible de profiter du polymorphisme au sein d'un programme Rust :
 ```rust
 trait Speaker {
-  fn speak(&self);
+    fn speak(&self);
 }
 
 struct Cat {
 }
 
 impl Speaker for Cat { // notez la syntaxe différente du 'impl' !
-  fn speak(&self) {
-    println!("meow");
-  }
+    fn speak(&self) {
+        println!("meow");
+    }
 }
 ```
 Et à l'usage :
 ```rust
 // on attend un type T qui implémente Speaker
 fn make_speak<T: Speaker>(speaker: &T) {
-  speaker.speak();
+    speaker.speak();
 }
 ```
 Notons qu'un trait peut proposer une implémentation par défaut des méthodes qu'il contient.
@@ -100,7 +100,7 @@ Résumons toutes ces notions avec un code simple :
 ```rust
 // on crée un trait Speaker comme plus haut
 trait Speaker {
-  fn speak(&self);
+    fn speak(&self);
 }
 
 // on crée deux structures qui implémenteront
@@ -110,29 +110,29 @@ struct Dog {}
 
 // implémentation de Speaker
 impl Speaker for Cat {
-  fn speak(&self) {
-    println!("meow");
-  }
+    fn speak(&self) {
+        println!("meow");
+    }
 }
 
 // implémentation de Speaker
 impl Speaker for Dog {
-  fn speak(&self) {
-    println!("woof");
-  }
+    fn speak(&self) {
+        println!("woof");
+    }
 }
 
 // une fonction attendant un Speaker, peu importe
 // le type concret
 fn make_speak<T: Speaker>(speaker: &T) {
-  speaker.speak();
+    speaker.speak();
 }
 
 fn main() {
-  let cat = Cat{};     // on crée une variable constante
-  let mut dog = Dog{}; // on crée une variable mutable
-  make_speak(&cat);    // on appelle notre fonction 'make_speak'
-  make_speak(&dog);    // idem
+    let cat = Cat{};     // on crée une variable constante
+    let mut dog = Dog{}; // on crée une variable mutable
+    make_speak(&cat);    // on appelle notre fonction 'make_speak'
+    make_speak(&dog);    // idem
 }
 ```
 
