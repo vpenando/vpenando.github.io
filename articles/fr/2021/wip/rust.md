@@ -22,7 +22,7 @@ fn main() {
   println!("Hello, world!");
 }
 ```
-On remarque que l'on déclare une fonction grâce au mot-clé `fn`. Pour afficher du texte, on utilise la *macro* `println`. Pour le moment, considérez qu'une macro est similaire à une fonction, à ceci près qu'il faut la suffixer d'un point d'exclamation pour l'appeler.
+On remarque que tout programme Rust a comme point d'entrée la fonction `main`, et que l'on déclare une fonction grâce au mot-clé `fn`. Pour afficher du texte, on utilise la *macro* `println`. Pour le moment, considérez qu'une macro est similaire à une fonction, à ceci près qu'il faut la suffixer d'un point d'exclamation pour l'appeler.
 
 Rust propose des mécanismes communs à de nombreux langages (tels que les stuctures, les énumérations, etc...), mais également d'autres outils, comme le pattern matching, ou encore les types sommes ! De plus, toute variable est par défaut constante mais peut être déclarée mutable grâce au mot-clé `mut`.
 
@@ -95,6 +95,46 @@ fn make_speak<T: Speaker>(speaker: &T) {
 }
 ```
 Notons qu'un trait peut proposer une implémentation par défaut des méthodes qu'il contient.
+
+Résumons toutes ces notions avec un code simple :
+```rust
+// on crée un trait Speaker comme plus haut
+trait Speaker {
+  fn speak(&self);
+}
+
+// on crée deux structures qui implémenteront
+// ce trait
+struct Cat {}
+struct Dog {}
+
+// implémentation de Speaker
+impl Speaker for Cat {
+  fn speak(&self) {
+    println!("meow");
+  }
+}
+
+// implémentation de Speaker
+impl Speaker for Dog {
+  fn speak(&self) {
+    println!("woof");
+  }
+}
+
+// une fonction attendant un Speaker, peu importe
+// le type concret
+fn make_speak<T: Speaker>(speaker: &T) {
+  speaker.speak();
+}
+
+fn main() {
+  let cat = Cat{};     // on crée une variable constante
+  let mut dog = Dog{}; // on crée une variable mutable
+  make_speak(&cat);    // on appelle notre fonction 'make_speak'
+  make_speak(&dog);    // idem
+}
+```
 
 ---
 
