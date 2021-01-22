@@ -42,7 +42,7 @@ En somme, une valeur est associée à un propriétaire, et sa durée de vie dép
 fn main() {
     let a = 42;            // 'a' est seul propriétaire de sa valeur, ici 42.
     println!("a = {}", a); // on fait des super trucs
-}                        // fin du scope : 'a' est détruite.
+}                          // fin du scope : 'a' est détruite.
 ```
 On peut également créer des structures grâce au mot-clé `struct`. Il est même possible de leur créer des méthodes ! Génial, non ?
 ```rust
