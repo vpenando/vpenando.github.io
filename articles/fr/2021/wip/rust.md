@@ -48,7 +48,7 @@ On peut également créer des structures grâce au mot-clé `struct`. Il est mê
 ```rust
 struct Foo {
     i: i32,     // membre 'i', privé (= inaccessible en dehors du module)
-    pub j: f32, // membre j, public
+    pub j: f32, // membre 'j', public
 }
 
 impl Foo {
