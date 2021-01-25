@@ -10,7 +10,7 @@
 
 ### Exemple
 
-```ml
+```ocaml
 (*
  * on attend trois paramètres :
  * func, la fonction qui "zippe" nos listes
@@ -35,6 +35,6 @@ let zip func list1 list2 =
   in zip_acc [] func list1 list2
 ```
 Et à l'usage :
-```fs
+```fsharp
 let sum_lists = zip (fun x y -> x + y)
 ```
