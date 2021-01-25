@@ -61,6 +61,6 @@ Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonctio
 Exemple :
 ```fsharp
 // on appelle zip avec seulement un argument !
-let sum_lists = zip (fun x y -> x + y)
 // sum_lists est une fonction n'attendant plus que deux arguments
+let sum_lists = zip (fun x y -> x + y)
 ```
