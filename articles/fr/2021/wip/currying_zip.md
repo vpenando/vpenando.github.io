@@ -56,7 +56,7 @@ let zip func list1 list2 =
       zip_acc (acc@[zipped]) fn tail1 tail2
   in zip_acc [] func list1 list2
 ```
-On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus réutilisable que la première.
+On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
 Exemple :
