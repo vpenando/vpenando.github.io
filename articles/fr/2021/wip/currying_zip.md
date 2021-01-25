@@ -9,6 +9,11 @@
 ---
 
 ### Exemple
+Explication :
+
+`zip` est une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
+Pour chacun des éléments de ces listes, on appelle une fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
+
 Implémentation version impérative :
 ```js
 function zip(func, list1, list2) {
@@ -21,7 +26,7 @@ function zip(func, list1, list2) {
   return result;
 }
 ```
-Implémentation version fonctionnelle :
+Implémentation version fonctionnelle, ici en F# :
 ```fsharp
 let zip func list1 list2 =
   let rec zip_acc acc fn l1 l2 =
@@ -33,7 +38,7 @@ let zip func list1 list2 =
       zip_acc (acc@[zipped]) fn tail1 tail2
   in zip_acc [] func list1 list2
 ```
-
+Et avec quelques commentaires :
 ```fsharp
 let zip func list1 list2 =
   // on déclare ici une seconde fonction,
@@ -50,11 +55,12 @@ let zip func list1 list2 =
       zip_acc (acc@[zipped]) fn tail1 tail2
   in zip_acc [] func list1 list2
 ```
-Explication :
+On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus réutilisable que la première.
+Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
-`zip` est une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes. Pour chacun 
-
-Et à l'usage :
+Exemple :
 ```fsharp
+// on appelle zip avec seulement un argument !
 let sum_lists = zip (fun x y -> x + y)
+// sum_lists est une fonction n'attendant plus que deux arguments
 ```
