@@ -10,8 +10,16 @@
 
 ### Exemple
 
-```fs
+```ml
+(* on attend trois paramètres :
+ * func, la fonction qui 'zippe' nos listes
+ * list1, la première liste
+ * list2, la deuxième liste
+ *)
 let zip func list1 list2 =
+  (* on déclare ici une seconde fonction,
+   * similaire à la première
+   *)
   let rec zip_acc acc fn l1 l2 =
     if l1 = [] || l2 = [] then acc
     else
