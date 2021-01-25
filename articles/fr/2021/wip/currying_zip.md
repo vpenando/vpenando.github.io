@@ -40,17 +40,18 @@ let zip func list1 list2 =
 ```
 Et avec quelques commentaires :
 ```fsharp
+// notre fonction zip
 let zip func list1 list2 =
   // on déclare ici une seconde fonction,
-  // similaire à la première mais avec un
+  // similaire à la première mais récursive et avec un
   // "accumulateur" qui stockera nos résultats
   let rec zip_acc acc fn l1 l2 =
     // si on a atteint la fin d'une liste, on retourne acc
     if l1 = [] || l2 = [] then acc
-    // sinon, on "zippe" le prochain élément
+    // sinon, on "zippe" le prochain élément...
     else
       let head1, head2 = List.head l1, List.head l2 in
-      let zipped = fn head1 head2 in
+      let zipped = fn head1 head2 in                    // ... ici !
       let tail1, tail2 = List.tail l1, List.tail l2 in
       zip_acc (acc@[zipped]) fn tail1 tail2
   in zip_acc [] func list1 list2
