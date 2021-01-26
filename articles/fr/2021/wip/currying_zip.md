@@ -28,8 +28,7 @@ Et à l'usage :
 let zipped = zip [1; 2; 3] [4; 5; 6]
 // zipped : [(1, 4); (2, 5); (3, 6)]
 ```
-
-Les appels successifs à `zip_acc` contiendront les paramètres suivants :
+Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 * Premier appel : `acc` vaut `[]`, `l1` vaut `[1; 2; 3]` et `l2` vaut `[4; 5; 6]` ;
   * Aucune liste n'est vide, on continue les appels à `zip_acc`.
 * Second appel : `acc` vaut `[(1, 4)]`, `l1` vaut `[2; 3]` et `l2` vaut `[5; 6]` ;
