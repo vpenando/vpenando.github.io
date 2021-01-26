@@ -101,7 +101,7 @@ let add_lists = apply_on_lists (fun x y -> x + y)
 let added = add_lists [1; 2; 3] [4; 5; 6]
 // added : [5; 8; 9]
 ```
-De plus, cette fonction *-ainsi que ses applications partielles-* est générique :
+De plus, cette fonction *-ainsi que ses applications partielles !-* est générique :
 ```fsharp
 let hello_world = add_lists ["Hello, "] ["world!"]
 // hello_world : ["Hello, world!"]
