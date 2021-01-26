@@ -22,7 +22,7 @@ function apply2(func, list1, list2) {
   let results = [];
   for (let i = 0; i < minLength; i++) {
     const result = func(list1[i], list2[i]);
-    results.push(zipped);
+    results.push(result);
   }
   return results;
 }
@@ -34,9 +34,9 @@ let apply2 func list1 list2 =
     if l1 = [] || l2 = [] then acc
     else
       let head1, head2 = List.head l1, List.head l2 in
-      let zipped = fn head1 head2 in
+      let result = fn head1 head2 in
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      apply2_acc (acc@[zipped]) fn tail1 tail2
+      apply2_acc (acc@[result]) fn tail1 tail2
   in apply2_acc [] func list1 list2
 ```
 Et avec quelques commentaires :
@@ -49,13 +49,12 @@ let apply2 func list1 list2 =
   let rec apply2_acc acc fn l1 l2 =
     // si on a atteint la fin d'une liste, on retourne acc
     if l1 = [] || l2 = [] then acc
-    // sinon, on "zippe" le prochain élément
     else
       let head1, head2 = List.head l1, List.head l2 in // on récupère les premiers éléments...
       let result = fn head1 head2 in                   // ...que l'on utilise pour calculer le résultat
       let tail1, tail2 = List.tail l1, List.tail l2 in // et on ne conserve que la suite des listes
-      apply2_acc (acc@[result]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped aux résultats !
-  // ici, on effectue le premier appel à zip_acc :
+      apply2_acc (acc@[result]) fn tail1 tail2 // on rappelle apply2_acc en rajoutant result aux résultats !
+  // ici, on effectue le premier appel à apply2_acc :
   // une fois toutes les récursions résolues, on renvoie le résultat
   in apply2_acc [] func list1 list2
 ```
