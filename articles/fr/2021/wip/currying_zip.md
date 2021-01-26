@@ -93,6 +93,10 @@ let apply2 func list1 list2 =
   // une fois toutes les récursions résolues, on renvoie le résultat
   in apply2_acc [] func list1 list2
 ```
+De prime abord, on constate que nous utilisons la récursivité plutôt qu'une boucle.
+En effet, en fonctionnel, nous ne cherchons pas à modifier une variable ; c'est l'un des principes clés du paradigme. Tout est par défaut constant.
+Ainsi, le débogage de nos programmes est plus simple car nous n'avons nul besoin de chercher où nos variables seront modifiées.
+
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
