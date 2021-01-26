@@ -38,8 +38,8 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 * Quatrième appel : `acc` vaut `[(1, 4); (2, 5); (3, 6)]`, `l1` vaut `[]` et `l2` vaut `[]` ;
   * Au moins l'une des deux listes `l1` et `l2` est vide : fin de récursion.
 
-La fonction `zip` ci-dessus n'est absolument pas générique.
-Si l'on veut créer une nouvelle fonction faisant par exemple, la somme de deux listes, 98% du code seront similaires.
+La fonction `zip` ci-dessus pose un petit problème.
+En effet, si l'on veut créer une nouvelle fonction faisant par exemple, la somme de deux listes, 98% du code seront similaires.
 Il serait donc intéressant d'avoir une partie générique, que l'on spécialiserait en fonction de nos différents cas d'usage.
 
 ---
