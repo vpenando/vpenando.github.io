@@ -67,5 +67,6 @@ Exemple :
 // exemple :
 // zip est une fonction n'attendant plus que deux arguments
 let zip = apply2 (fun x y -> (x, y))
-
+let zipped = zip [1; 2; 3] [4; 5; 6]
+// zipped : [(1, 4); (2, 5); (3, 6)]
 ```
