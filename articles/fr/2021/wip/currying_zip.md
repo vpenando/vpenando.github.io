@@ -53,7 +53,9 @@ let zip func list1 list2 =
       let head1, head2 = List.head l1, List.head l2 in // on récupère les premiers éléments...
       let zipped = fn head1 head2 in                   // ... que l'on utilise pour calculer le résultat
       let tail1, tail2 = List.tail l1, List.tail l2 in // et on ne conserve que la suite des listes
-      zip_acc (acc@[zipped]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped à la liste de résultats !
+      zip_acc (acc@[zipped]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped aux résultats !
+  // ici, on effectue le premier appel à zip_acc :
+  // une fois toutes les récursions résolues, on renvoie le résultat
   in zip_acc [] func list1 list2
 ```
 La ligne la plus obscure est sans aucun doute la suivante :
