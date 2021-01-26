@@ -101,9 +101,8 @@ Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonctio
 
 Exemple :
 ```fsharp
-// on peut appeller apply2 avec seulement un argument pour faire de nouvelles fonctions !
+// on peut appeler apply2 avec seulement un argument pour faire de nouvelles fonctions !
 // exemple :
 // zip est une fonction n'attendant plus que deux arguments
 let zip = apply2 (fun x y -> (x, y))
-
 ```
