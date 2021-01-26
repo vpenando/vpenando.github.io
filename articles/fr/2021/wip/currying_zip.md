@@ -39,11 +39,13 @@ Les appels successifs à `zip_acc` contiendront les paramètres suivants :
 * Quatrième appel : `acc` vaut `[(1, 4); (2, 5); (3, 6)]`, `l1` vaut `[]` et `l2` vaut `[]` ;
   * Au moins l'une des deux listes `l1` et `l2` est vide : fin de récursion.
 
+La fonction `zip` ci-dessus n'est absolument pas générique.
+Si l'on veut créer une nouvelle fonction faisant par exemple, la somme de deux listes, 98% du code seront similaires.
+
 ---
 
-### Exemple
-Explication :
-
+### Résolution
+Solution :
 Imaginons une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
 Pour chacun des éléments de ces listes, on appelle une fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
 
