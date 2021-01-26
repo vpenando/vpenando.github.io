@@ -11,59 +11,62 @@
 ### Exemple
 Explication :
 
-`zip` est une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
+Imaginons une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
 Pour chacun des éléments de ces listes, on appelle une fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
 
 Implémentation version impérative :
 ```js
-function zip(func, list1, list2) {
+// on applique une fonction à deux listes
+function apply2(func, list1, list2) {
   const minLength = Math.min(list1.length, list2.length);
-  let result = [];
+  let results = [];
   for (let i = 0; i < minLength; i++) {
-    const zipped = func(list1[i], list2[i]);
-    result.push(zipped);
+    const result = func(list1[i], list2[i]);
+    results.push(zipped);
   }
-  return result;
+  return results;
 }
 ```
 Implémentation version fonctionnelle, ici en F# :
 ```fsharp
-let zip func list1 list2 =
-  let rec zip_acc acc fn l1 l2 =
+let apply2 func list1 list2 =
+  let rec apply2_acc acc fn l1 l2 =
     if l1 = [] || l2 = [] then acc
     else
       let head1, head2 = List.head l1, List.head l2 in
       let zipped = fn head1 head2 in
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      zip_acc (acc@[zipped]) fn tail1 tail2
-  in zip_acc [] func list1 list2
+      apply2_acc (acc@[zipped]) fn tail1 tail2
+  in apply2_acc [] func list1 list2
 ```
 Et avec quelques commentaires :
 ```fsharp
-// notre fonction zip
-let zip func list1 list2 =
+// notre fameuse fonction
+let apply2 func list1 list2 =
   // on déclare ici une seconde fonction,
   // similaire à la première mais récursive et avec un
   // "accumulateur" qui stockera nos résultats
-  let rec zip_acc acc fn l1 l2 =
+  let rec apply2_acc acc fn l1 l2 =
     // si on a atteint la fin d'une liste, on retourne acc
     if l1 = [] || l2 = [] then acc
     // sinon, on "zippe" le prochain élément
     else
       let head1, head2 = List.head l1, List.head l2 in // on récupère les premiers éléments...
-      let zipped = fn head1 head2 in                   // ...que l'on utilise pour calculer le résultat
+      let result = fn head1 head2 in                   // ...que l'on utilise pour calculer le résultat
       let tail1, tail2 = List.tail l1, List.tail l2 in // et on ne conserve que la suite des listes
-      zip_acc (acc@[zipped]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped aux résultats !
+      apply2_acc (acc@[result]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped aux résultats !
   // ici, on effectue le premier appel à zip_acc :
   // une fois toutes les récursions résolues, on renvoie le résultat
-  in zip_acc [] func list1 list2
+  in apply2_acc [] func list1 list2
 ```
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
 Exemple :
 ```fsharp
-// on appelle zip avec seulement un argument !
-// sum_lists est une fonction n'attendant plus que deux arguments
-let sum_lists = zip (fun x y -> x + y)
+// on peut appeller apply2 avec seulement un argument pour faire de nouvelles fonctions !
+// exemple :
+// zip est une fonction n'attendant plus que deux arguments
+let zip = apply2 (fun x y -> (x, y))
+
 ```
