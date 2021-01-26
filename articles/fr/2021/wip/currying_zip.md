@@ -51,7 +51,7 @@ Pour chacun des éléments de ces listes, on appelle une fonction intermédiaire
 Implémentation version impérative :
 ```js
 // on applique une fonction à deux listes
-function apply2(func, list1, list2) {
+function applyOnLists(func, list1, list2) {
   const minLength = Math.min(list1.length, list2.length);
   let results = [];
   for (let i = 0; i < minLength; i++) {
@@ -63,34 +63,22 @@ function apply2(func, list1, list2) {
 ```
 Implémentation version fonctionnelle, ici en F# :
 ```fsharp
-let apply2 func list1 list2 =
-  let rec apply2_acc acc fn l1 l2 =
+let apply_on_lists func list1 list2 =
+  // fonction interne, car on ne veut pas l'exposer
+  // à d'autres potentiels appelants
+  let rec apply_on_lists_acc acc fn l1 l2 =
+    // si au moins une liste est vide, on renvoie acc
     if l1 = [] || l2 = [] then acc
     else
+      // on récupère les premiers éléments...
       let head1, head2 = List.head l1, List.head l2 in
+      // ...que l'on utilise pour calculer le résultat
       let result = fn head1 head2 in
+      // et on ne conserve que la suite des listes
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      apply2_acc (acc@[result]) fn tail1 tail2
-  in apply2_acc [] func list1 list2
-```
-Et avec quelques commentaires :
-```fsharp
-// notre fameuse fonction
-let apply2 func list1 list2 =
-  // on déclare ici une seconde fonction,
-  // similaire à la première mais récursive et avec un
-  // "accumulateur" qui stockera nos résultats
-  let rec apply2_acc acc fn l1 l2 =
-    // si on a atteint la fin d'une liste, on retourne acc
-    if l1 = [] || l2 = [] then acc
-    else
-      let head1, head2 = List.head l1, List.head l2 in // on récupère les premiers éléments...
-      let result = fn head1 head2 in                   // ...que l'on utilise pour calculer le résultat
-      let tail1, tail2 = List.tail l1, List.tail l2 in // et on ne conserve que la suite des listes
-      apply2_acc (acc@[result]) fn tail1 tail2 // on rappelle apply2_acc en rajoutant result aux résultats !
-  // ici, on effectue le premier appel à apply2_acc :
-  // une fois toutes les récursions résolues, on renvoie le résultat
-  in apply2_acc [] func list1 list2
+      // on rappelle apply_on_lists_acc en rajoutant result aux résultats !
+      apply_on_lists_acc (acc@[result]) fn tail1 tail2
+  in apply_on_lists_acc [] func list1 list2
 ```
 De prime abord, on constate que nous utilisons la récursivité plutôt qu'une boucle.
 En effet, en fonctionnel, nous ne cherchons pas à modifier une variable ; c'est l'un des principes clés du paradigme. Tout est par défaut constant.
@@ -99,10 +87,22 @@ Ainsi, le débogage de nos programmes est plus simple car nous n'avons nul besoi
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
-Exemple :
+Vous ne me croyez pas ? Démonstration :
 ```fsharp
-// on peut appeler apply2 avec seulement un argument pour faire de nouvelles fonctions !
-// exemple :
-// zip est une fonction n'attendant plus que deux arguments
-let zip = apply2 (fun x y -> (x, y))
+// on peut appeler apply_on_lists avec seulement un argument pour faire de nouvelles fonctions !
+
+// notre fonction zip, comme vue plus haut
+let zip = apply_on_lists (fun x y -> (x, y))
+let zipped = zip [1; 2; 3] [4; 5; 6]
+// zipped : [(1, 4); (2, 5); (3, 6)]
+
+let add_lists = apply_on_lists (fun x y -> x + y)
+// à l'usage :
+let added = add_lists [1; 2; 3] [4; 5; 6]
+// added : [5; 8; 9]
+```
+De plus, cette fonction *-ainsi que ses applications partielles-* est générique :
+```fsharp
+let hello_world = add_lists ["Hello, "] ["world!"]
+// hello_world : ["Hello, world!"]
 ```
