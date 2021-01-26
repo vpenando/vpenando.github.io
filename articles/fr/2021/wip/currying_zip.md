@@ -8,6 +8,29 @@
 
 ---
 
+### Le problème
+
+Implémentation naïve de `zip` :
+
+```fsharp
+let zip list1 list2 =
+  let rec zip_acc acc l1 l2 =
+    if l1 = [] || l2 = [] then acc
+    else
+      let head1, head2 = List.head l1, List.head l2 in
+      let result = (head1, head2) in
+      let tail1, tail2 = List.tail l1, List.tail l2 in
+      zip_acc (acc@[result]) tail1 tail2
+  in zip_acc [] list1 list2
+```
+Et à l'usage :
+```fsharp
+let zipped = zip [1; 2; 3] [4; 5; 6]
+// zipped : [(1, 4); (2, 5); (3, 6)]
+```
+
+---
+
 ### Exemple
 Explication :
 
@@ -67,6 +90,5 @@ Exemple :
 // exemple :
 // zip est une fonction n'attendant plus que deux arguments
 let zip = apply2 (fun x y -> (x, y))
-let zipped = zip [1; 2; 3] [4; 5; 6]
-// zipped : [(1, 4); (2, 5); (3, 6)]
+
 ```
