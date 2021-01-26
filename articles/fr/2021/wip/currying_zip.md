@@ -58,9 +58,6 @@ let zip func list1 list2 =
   // une fois toutes les récursions résolues, on renvoie le résultat
   in zip_acc [] func list1 list2
 ```
-La ligne la plus obscure est sans aucun doute la suivante :
-
-
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
