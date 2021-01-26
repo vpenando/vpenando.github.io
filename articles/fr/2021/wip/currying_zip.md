@@ -53,9 +53,12 @@ let zip func list1 list2 =
       let head1, head2 = List.head l1, List.head l2 in
       let zipped = fn head1 head2 in                    // ... ici !
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      zip_acc (acc@[zipped]) fn tail1 tail2
+      zip_acc (acc@[zipped]) fn tail1 tail2 // on rappelle zip_acc en rajoutant zipped à la liste de résultats !
   in zip_acc [] func list1 list2
 ```
+La ligne la plus obscure est sans aucun doute la suivante :
+
+
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 
