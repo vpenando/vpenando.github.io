@@ -29,6 +29,16 @@ let zipped = zip [1; 2; 3] [4; 5; 6]
 // zipped : [(1, 4); (2, 5); (3, 6)]
 ```
 
+Les appels successifs à `zip_acc` contiendront les paramètres suivants :
+* Premier appel : `acc` vaut `[]`, `l1` vaut `[1; 2; 3]` et `l2` vaut `[4; 5; 6]` ;
+  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+* Second appel : `acc` vaut `[(1, 4)]`, `l1` vaut `[2; 3]` et `l2` vaut `[5; 6]` ;
+  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+* Troisième appel : `acc` vaut `[(1, 4); (2, 5)]`, `l1` vaut `[3]` et `l2` vaut `[6]` ;
+  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+* Quatrième appel : `acc` vaut `[(1, 4); (2, 5); (3, 6)]`, `l1` vaut `[]` et `l2` vaut `[]` ;
+  * Au moins l'une des deux listes `l1` et `l2` est vide : fin de récursion.
+
 ---
 
 ### Exemple
