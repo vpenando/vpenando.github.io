@@ -40,13 +40,13 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 
 La fonction `zip` ci-dessus n'est absolument pas générique.
 Si l'on veut créer une nouvelle fonction faisant par exemple, la somme de deux listes, 98% du code seront similaires.
+Il serait donc intéressant d'avoir une partie générique, que l'on spécialiserait en fonction de nos différents cas d'usage.
 
 ---
 
 ### Résolution
-Solution :
 Imaginons une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
-Pour chacun des éléments de ces listes, on appelle une fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
+Pour chacun des éléments de ces listes, on appelle cette fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
 
 Implémentation version impérative :
 ```js
@@ -61,7 +61,10 @@ function applyOnLists(func, list1, list2) {
   return results;
 }
 ```
-Implémentation version fonctionnelle, ici en F# :
+L'implémentation impérative est très simple à comprendre : on itère sur nos listes jusqu'à avoir atteint la fin de l'une d'elles.
+À chaque itération, on stocke le résultat de notre calcul dans une troisième liste, que l'on renvoie.
+
+L'implémentation version fonctionnelle, ici en F#, diffère quelque peu :
 ```fsharp
 let apply_on_lists func list1 list2 =
   // fonction interne, car on ne veut pas l'exposer
