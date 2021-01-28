@@ -28,6 +28,9 @@ Et à l'usage :
 let zipped = zip [1; 2; 3] [4; 5; 6]
 // zipped : [(1, 4); (2, 5); (3, 6)]
 ```
+***Note -** La fonction `List.head` renvoie le premier élément d'une liste.
+`List.tail` renvoie quant à elle tous les élements d'une liste à l'exception du premier.*
+
 Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 * Premier appel :
   * `acc` vaut `[]` ;
