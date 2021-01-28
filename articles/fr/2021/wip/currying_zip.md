@@ -93,6 +93,8 @@ Il serait donc intéressant d'avoir une partie générique, que l'on spécialise
 ---
 
 ### Résolution
+Si vous avez lu le titre de l'article (:D), vous avez une idée de la solution.
+
 Imaginons une fonction d'ordre supérieur attendant trois arguments : une fonction et deux listes.
 Pour chacun des éléments de ces listes, on appelle cette fonction intermédiaire et on stocke le résultat de cet appel dans une liste, que l'on retournera.
 
