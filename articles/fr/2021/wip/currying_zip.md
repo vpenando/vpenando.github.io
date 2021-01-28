@@ -29,13 +29,25 @@ let zipped = zip [1; 2; 3] [4; 5; 6]
 // zipped : [(1, 4); (2, 5); (3, 6)]
 ```
 Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
-* Premier appel : `acc` vaut `[]`, `l1` vaut `[1; 2; 3]` et `l2` vaut `[4; 5; 6]` ;
+* Premier appel :
+  * `acc` vaut `[]` ;
+  * `l1` vaut `[1; 2; 3]` ;
+  * `l2` vaut `[4; 5; 6]`
   * Aucune liste n'est vide, on continue les appels à `zip_acc`.
-* Second appel : `acc` vaut `[(1, 4)]`, `l1` vaut `[2; 3]` et `l2` vaut `[5; 6]` ;
+* Second appel :
+  * `acc` vaut `[(1, 4)]` ;
+  * `l1` vaut `[2; 3]` ;
+  * `l2` vaut `[5; 6]` ;
   * Aucune liste n'est vide, on continue les appels à `zip_acc`.
-* Troisième appel : `acc` vaut `[(1, 4); (2, 5)]`, `l1` vaut `[3]` et `l2` vaut `[6]` ;
+* Troisième appel :
+  * `acc` vaut `[(1, 4); (2, 5)]` ;
+  * `l1` vaut `[3]` ;
+  * `l2` vaut `[6]`
   * Aucune liste n'est vide, on continue les appels à `zip_acc`.
-* Quatrième appel : `acc` vaut `[(1, 4); (2, 5); (3, 6)]`, `l1` vaut `[]` et `l2` vaut `[]` ;
+* Quatrième appel :
+  * `acc` vaut `[(1, 4); (2, 5); (3, 6)]` ;
+  * `l1` vaut `[]` ;
+  * `l2` vaut `[]` ;
   * Au moins l'une des deux listes `l1` et `l2` est vide : fin de récursion.
 
 La fonction `zip` ci-dessus pose un petit problème.
@@ -63,6 +75,10 @@ function applyOnLists(func, list1, list2) {
 ```
 L'implémentation impérative est très simple à comprendre : on itère sur nos listes jusqu'à avoir atteint la fin de l'une d'elles.
 À chaque itération, on stocke le résultat de notre calcul dans une troisième liste, que l'on renvoie.
+
+La signature de notre fonction serait donc :
+```fsharp
+(fun 'a list -> 'a list -> 'a list) -> 'a list -> 'a list
 
 L'implémentation version fonctionnelle, ici en F#, diffère quelque peu :
 ```fsharp
