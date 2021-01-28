@@ -24,6 +24,25 @@ let result = zip [a; c; e] [b; d; f]
 // result = [(a, b); (c, d); (e, f)]
 ```
 Une implémentation naïve de `zip` pourrait être la suivante :
+```js
+function tuple(x, y) {
+  // l'implémentation ne nous intéressera pas ici
+  // disons juste qu'elle renvoie un tuple
+}
+
+function zip(list1, list2) {
+  const minLength = Math.min(list1.length, list2.length);
+  let results = [];
+  for (let i = 0; i < minLength; i++) {
+    const result = tuple(list1[i], list2[i]);
+    results.push(result);
+  }
+  return results;
+}
+```
+L’implémentation impérative est très simple à comprendre : on itère sur nos listes jusqu’à avoir atteint la fin de l’une d’elles. À chaque itération, on stocke le résultat de notre calcul dans une troisième liste, que l’on renvoie.
+
+L’implémentation version fonctionnelle diffère quelque peu :
 ```fsharp
 let zip list1 list2 =
   let rec zip_acc acc l1 l2 =
@@ -35,6 +54,8 @@ let zip list1 list2 =
       zip_acc (acc@[result]) tail1 tail2
   in zip_acc [] list1 list2
 ```
+De prime abord, on constate que nous utilisons la récursivité plutôt qu’une boucle. En effet, en fonctionnel, nous ne cherchons pas à modifier une variable ; c’est l’un des principes clés du paradigme. Tout est par défaut constant. Ainsi, le débogage de nos programmes est plus simple car nous n’avons nul besoin de chercher où nos variables seront modifiées.
+
 Et à l'usage :
 ```fsharp
 let zipped = zip [1; 2; 3] [4; 5; 6]
@@ -65,7 +86,7 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
   * `l2` vaut `[]` ;
   * Au moins l'une des deux listes `l1` et `l2` est vide : fin de récursion.
 
-La fonction `zip` ci-dessus pose un petit problème.
+Néanmoins, la fonction `zip` ci-dessus pose un petit problème.
 En effet, si l'on veut créer une nouvelle fonction faisant par exemple, la somme de deux listes, 98% du code seront similaires.
 Il serait donc intéressant d'avoir une partie générique, que l'on spécialiserait en fonction de nos différents cas d'usage.
 
@@ -88,10 +109,7 @@ function applyOnLists(func, list1, list2) {
   return results;
 }
 ```
-L'implémentation impérative est très simple à comprendre : on itère sur nos listes jusqu'à avoir atteint la fin de l'une d'elles.
-À chaque itération, on stocke le résultat de notre calcul dans une troisième liste, que l'on renvoie.
-
-L'implémentation version fonctionnelle, ici en F#, diffère quelque peu :
+Implémentation version F# :
 ```fsharp
 let apply_on_lists func list1 list2 =
   // fonction interne, car on ne veut pas l'exposer
@@ -110,10 +128,6 @@ let apply_on_lists func list1 list2 =
       apply_on_lists_acc (acc@[result]) fn tail1 tail2
   in apply_on_lists_acc [] func list1 list2
 ```
-De prime abord, on constate que nous utilisons la récursivité plutôt qu'une boucle.
-En effet, en fonctionnel, nous ne cherchons pas à modifier une variable ; c'est l'un des principes clés du paradigme. Tout est par défaut constant.
-Ainsi, le débogage de nos programmes est plus simple car nous n'avons nul besoin de chercher où nos variables seront modifiées.
-
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 L'application partielle consiste à appeler une fonction avec seulement *une partie* de ses arguments.
