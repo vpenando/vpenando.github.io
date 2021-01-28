@@ -5,13 +5,25 @@
 ---
 
 ### Introduction
+En complément de mon apprentissage de Rust, je m'exerce en programmation fonctionnelle.
+Il s'agit d'un paradigme très intéressant, qui offre de nombreuses fonctionnalités extrêmement puissantes.
+Parmi elles, il existe *l'application partielle* de fonction.
+
+Cette fonctionnalité permet de résoudre certains problèmes, et c'est précisément ce que nous allons voir dans cet article.
+J'emploierai le langage F#, qui est un dérivé d'OCaml, lui-même un excellent langage.
 
 ---
 
 ### Le problème
+Le problème posé sera le suivant : quelle est la "meilleure" façon d'implémenter la fonction `zip` ?
 
-Implémentation naïve de `zip` :
-
+Pour rappel, la fonction `zip` attend deux listes et renvoie une liste de tuples contenant les éléments des deux arguments regroupés deux à deux.
+Son comportement est proche de :
+```fsharp
+let result = zip [a; c; e] [b; d; f]
+// result = [(a, b); (c, d); (e, f)]
+```
+Une implémentation naïve de `zip` pourrait être la suivante :
 ```fsharp
 let zip list1 list2 =
   let rec zip_acc acc l1 l2 =
@@ -126,3 +138,7 @@ let hello_world = add_lists ["Hello, "] ["world!"] // ["Hello, world!"]
 ```
 La currification est très utile dans ce genre de cas, car elle permet de centraliser un comportement au sein d'une seule et même fonction, qui sera spécialisée par la suite.
 Cela permet d'éviter de dupliquer du code, tout en gagnant en lisibilité ; une fois que l'on a compris ce que fait `apply_on_lists `, l'usage de `zip ` et `add_lists ` devient limpide.
+
+---
+
+### Conclusion
