@@ -89,23 +89,23 @@ Ainsi, le débogage de nos programmes est plus simple car nous n'avons nul besoi
 
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
+L'application partielle consiste à appeler une fonction avec seulement *une partie* de ses arguments.
+En résulte *une nouvelle fonction*, qui attend le reste des arguments.
 
-Vous ne me croyez pas ? Démonstration :
+Démonstration :
 ```fsharp
-// on peut appeler apply_on_lists avec seulement un argument pour faire de nouvelles fonctions !
-
 // notre fonction zip, comme vue plus haut
 let zip = apply_on_lists (fun x y -> (x, y))
-let zipped = zip [1; 2; 3] [4; 5; 6]
-// zipped : [(1, 4); (2, 5); (3, 6)]
+// à l'usage :
+let zipped = zip [1; 2; 3] [4; 5; 6] // [(1, 4); (2, 5); (3, 6)]
 
 // une fonction qui ajoute les éléments d'une liste deux à deux
 let add_lists = apply_on_lists (fun x y -> x + y)
-let added = add_lists [1; 2; 3] [4; 5; 6]
-// added : [5; 8; 9]
+// à l'usage :
+let added = add_lists [1; 2; 3] [4; 5; 6] // [5; 8; 9]
 ```
 De plus, cette fonction *-ainsi que ses applications partielles !-* est générique :
 ```fsharp
-let hello_world = add_lists ["Hello, "] ["world!"]
-// hello_world : ["Hello, world!"]
+// on l'appelle avec une "string list" plutôt qu'une "int list"
+let hello_world = add_lists ["Hello, "] ["world!"] // ["Hello, world!"]
 ```
