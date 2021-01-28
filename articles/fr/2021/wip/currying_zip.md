@@ -33,17 +33,17 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
   * `acc` vaut `[]` ;
   * `l1` vaut `[1; 2; 3]` ;
   * `l2` vaut `[4; 5; 6]`
-  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+  * Ni `l1` ni `l2` n'est vide, on continue les appels à `zip_acc`.
 * Second appel :
   * `acc` vaut `[(1, 4)]` ;
   * `l1` vaut `[2; 3]` ;
   * `l2` vaut `[5; 6]` ;
-  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+  * Ni `l1` ni `l2` n'est vide, on continue les appels à `zip_acc`.
 * Troisième appel :
   * `acc` vaut `[(1, 4); (2, 5)]` ;
   * `l1` vaut `[3]` ;
   * `l2` vaut `[6]`
-  * Aucune liste n'est vide, on continue les appels à `zip_acc`.
+  * Ni `l1` ni `l2` n'est vide, on continue les appels à `zip_acc`.
 * Quatrième appel :
   * `acc` vaut `[(1, 4); (2, 5); (3, 6)]` ;
   * `l1` vaut `[]` ;
@@ -75,10 +75,6 @@ function applyOnLists(func, list1, list2) {
 ```
 L'implémentation impérative est très simple à comprendre : on itère sur nos listes jusqu'à avoir atteint la fin de l'une d'elles.
 À chaque itération, on stocke le résultat de notre calcul dans une troisième liste, que l'on renvoie.
-
-La signature de notre fonction serait donc :
-```fsharp
-(fun 'a list -> 'a list -> 'a list) -> 'a list -> 'a list
 
 L'implémentation version fonctionnelle, ici en F#, diffère quelque peu :
 ```fsharp
