@@ -124,3 +124,5 @@ De plus, cette fonction *-ainsi que ses applications partielles !-* est généri
 // on l'appelle avec une "string list" plutôt qu'une "int list"
 let hello_world = add_lists ["Hello, "] ["world!"] // ["Hello, world!"]
 ```
+La currification est très utile dans ce genre de cas, car elle permet de centraliser un comportement au sein d'une seule et même fonction, qui sera spécialisée par la suite.
+Cela permet d'éviter de dupliquer du code, tout en gagnant en lisibilité ; une fois que l'on a compris ce que fait `apply_on_lists `, l'usage de `zip ` et `add_lists ` devient limpide.
