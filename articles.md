@@ -1,5 +1,7 @@
 ## [Welcome here!](index.md) | Articles | [Main projects](projects.md) | [About me](about.md)
 
+By category: [`go`](/articles/categories/go.md) | [`c++`](/articles/categories/c++.md)
+
 ### All posts:
 
 #### 2021
