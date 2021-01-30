@@ -6,12 +6,12 @@
 
 ### Introduction
 
-Créé par Mozilla, Rust est un langage de programmation orienté système, proposant également quelques aspects fonctionnels.
+Soutenu par Mozilla, Rust est un langage de programmation orienté système, proposant également quelques aspects fonctionnels.
 Il s'agit d'un langage extrêmement populaire ces derniers temps, notamment grâce à sa sûreté.
 
 Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et apprécie les deux langages.
 
-Au cours de cet article, nous présenterons brièvement Rust et aborderons les raisons de sa popularité croissante.
+Au cours de cet article, nous présenterons brièvement Rust et nous pencherons sur les raisons de sa popularité croissante.
 
 ---
 
@@ -65,7 +65,7 @@ Pour implémenter les méthodes d'une structure, il est nécessaire de se situer
 
 > Que sont ces `&` présents devant `self` ?
 
-Bonne question ! Vous vous rappelez de la notion d'*ownership* ? Chaque valeur a *un et un seul* propriétaire ; ainsi, Rust utilise la sémantique de mouvement pour assurer cela. Toute variable transmise à une fonction est déplacée et ne sera alors *plus utilisable*, à la manière de `std::move` en C++. Or, on ne veut pas que notre instance soit déplacée, car on peut en avoir encore besoin après ! Pour ce faire, on *emprunte* la valeur de `self` ; il s'agit de la notion de *borrowing*. Pour ce faire, on utilise des références. Tout comme en C++, une référence est matérialisée par le symbole `&`.
+Bonne question ! Vous vous rappelez de la notion d'*ownership* ? Chaque valeur a *un et un seul* propriétaire ; ainsi, Rust utilise la sémantique de mouvement pour assurer cela. Toute variable transmise à une fonction est déplacée et ne sera alors *plus utilisable*, à la manière de `std::move` en C++. Or, on ne veut pas que notre instance soit déplacée, car on peut en avoir encore besoin après ! Pour ce faire, on *emprunte* la valeur de `self` ; il s'agit de la notion de *borrowing*, qui se matérialise par le biais de l'utilisation de références. Tout comme en C++, une référence est symbolisée par le caractère `&`.
 
 Parallèlement, bien qu'il n'existe pas de classes en Rust, ce dernier propose la notion de *trait*, semblable aux interfaces dans d'autres langages :
 ```rust
