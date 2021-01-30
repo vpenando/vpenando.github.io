@@ -5,7 +5,7 @@
 ---
 
 ### Introduction
-Au cours de ce bref article, nous allons nous amuser à décortiquer le code assembleur d'une application très basique. Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence. Pour ce faire, nous allons compiler un code C et étudier ce qu'il se passe "sous le capot".
+Au cours de ce bref article, nous allons nous amuser à décortiquer le code assembleur d'une application très basique. Le petit programme, très simple, demande un mot de passe et affiche un résultat en conséquence. Pour ce faire, nous allons compiler un code C et étudier ce qu'il se passe "sous le capot". Nous utiliserons un processeur de la famille Intel, qui correspond à ma machine.
 
 ###### Note importante
 > Pour appréhender cet article dans les meilleures conditions possibles, il est conseillé d'avoir des bases en C et en assembleur. Connaître GDB n'est pas indispensable, mais cela reste recommandé.
