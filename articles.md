@@ -3,7 +3,7 @@
 ### All posts:
 
 #### 2021
-- `2021/01/30`: [(FR) Un peu de fonctionnel : application partielle et zip](articles/fr/2021/zip.md) - `f#` `ocaml` `functional-programming`
+- `2021/01/30`: [(FR) Un peu de fonctionnel : application partielle et zip](articles/fr/2021/zip.md) - `f#` `functional-programming`
 
 ---
 
