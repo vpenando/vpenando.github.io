@@ -1,13 +1,13 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) Un peu de fonctionnel : curryfication et zip
+## (FR) Un peu de fonctionnel : application partielle et zip
 
 ---
 
 ### Introduction
 En complément de mon apprentissage de Rust, je m'exerce en programmation fonctionnelle.
 Il s'agit d'un paradigme très intéressant, qui offre de nombreuses fonctionnalités extrêmement puissantes.
-Parmi elles, il existe *l'application partielle* de fonction.
+Parmi elles, il existe la notion d'*application partielle* de fonction.
 
 Cette fonctionnalité permet de résoudre certains problèmes, et c'est précisément ce que nous allons voir dans cet article.
 J'emploierai le langage F#, qui est un dérivé d'OCaml, lui-même un excellent langage.
@@ -152,9 +152,12 @@ De plus, cette fonction *-ainsi que ses applications partielles !-* est généri
 // on l'appelle avec une "string list" plutôt qu'une "int list"
 let hello_world = add_lists ["Hello, "] ["world!"] // ["Hello, world!"]
 ```
-La currification est très utile dans ce genre de cas, car elle permet de centraliser un comportement au sein d'une seule et même fonction, qui sera spécialisée par la suite.
+L'application partielle est très utile dans ce genre de cas, car elle permet de centraliser un comportement au sein d'une seule et même fonction, qui sera spécialisée par la suite.
 Cela permet d'éviter de dupliquer du code, tout en gagnant en lisibilité ; une fois que l'on a compris ce que fait `apply_on_lists `, l'usage de `zip ` et `add_lists` devient limpide.
 
 ---
 
 ### Conclusion
+Tout développeur le sait, il est crucial d'éviter de dupliquer du code. En effet, cela pose plusieurs problèmes, comme par exemple du côté de la maintenabilité. Toutefois, il est difficile de ne pas dupliquer du code quand on doit écrire deux fonctions très similaires.
+
+En programmation fonctionnelle, l'application partielle de fonction permet de résoudre ce problème sans ajouter une couche de complexité supplémentaire.
