@@ -4,7 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
-- `2021/01/30`: [(FR) Un peu de fonctionnel : application partielle et zip](articles/fr/2021/zip.md) - `f#` `ocaml` `functional-programming`
+- `2021/01/30`: [(FR) Un peu de fonctionnel : application partielle et zip](articles/fr/2021/zip.md) - `f#` `functional-programming`
 - `2020/12/19`: [(FR) HS #1 - Refonte d'un vieux projet from scratch](articles/fr/2020/piggy.md) - `go` `golang` `open-source`
 - `2020/11/12`: [(FR) Introduction à `go test`](articles/fr/2020/go_test.md) - `go` `golang` `testing`
 - `2020/09/28`: [(FR) Etudions l'assembleur avec GDB !](articles/fr/2020/asm.md) - `c` `asm` `gdb`
