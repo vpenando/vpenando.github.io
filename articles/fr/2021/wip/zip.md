@@ -158,6 +158,7 @@ Cela permet d'éviter de dupliquer du code, tout en gagnant en lisibilité ; une
 ---
 
 ### Conclusion
-Tout développeur le sait, il est crucial d'éviter de dupliquer du code. En effet, cela pose plusieurs problèmes, comme par exemple du côté de la maintenabilité. Toutefois, il est difficile de ne pas dupliquer du code quand on doit écrire deux fonctions très similaires.
+Tout développeur le sait, il est crucial d'éviter de dupliquer du code. En effet, cela pose plusieurs problèmes, comme par exemple du côté de la maintenabilité (principe [DRY](https://fr.wikipedia.org/wiki/Ne_vous_r%C3%A9p%C3%A9tez_pas)).
+Toutefois, il est difficile de ne pas dupliquer du code quand on doit écrire deux fonctions très similaires.
 
-En programmation fonctionnelle, l'application partielle de fonction permet de résoudre ce problème sans ajouter une couche de complexité supplémentaire.
+En programmation fonctionnelle, l'application partielle de fonction permet de résoudre ce problème sans ajouter une couche de complexité supplémentaire ; une fois notre fonction d'ordre supérieur définie, déclarer chaque spécialisation prend littéralement *une* ligne !
