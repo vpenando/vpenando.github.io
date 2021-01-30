@@ -51,7 +51,8 @@ let zip list1 list2 =
       let head1, head2 = List.head l1, List.head l2 in
       let result = (head1, head2) in
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      zip_acc (acc@[result]) tail1 tail2
+      let new_acc = acc @ [result] in
+      zip_acc new_acc tail1 tail2
   in zip_acc [] list1 list2
 ```
 De prime abord, on constate que nous utilisons la récursivité plutôt qu’une boucle. En effet, en fonctionnel, nous ne cherchons pas à modifier une variable ; c’est l’un des principes clés du paradigme. Tout est par défaut constant. Ainsi, le débogage de nos programmes est plus simple car nous n’avons nul besoin de chercher où nos variables seront modifiées.
@@ -126,8 +127,10 @@ let apply_on_lists func list1 list2 =
       let result = fn head1 head2 in
       // et on ne conserve que la suite des listes
       let tail1, tail2 = List.tail l1, List.tail l2 in
-      // on rappelle apply_on_lists_acc en rajoutant result aux résultats !
-      apply_on_lists_acc (acc@[result]) fn tail1 tail2
+      // on ajoute 'result' au nouvel accumulateur
+      let new_acc = acc @ [result] in
+      // et enfin, on rappelle apply_on_lists_acc !
+      apply_on_lists_acc new_acc fn tail1 tail2
   in apply_on_lists_acc [] func list1 list2
 ```
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
