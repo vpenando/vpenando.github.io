@@ -28,6 +28,7 @@ aborder ses points forts, ses points faibles, et dresser un modeste bilan sur ce
 - conventions de nommage
 - simplicité = limitations
 - gc ?
+- `nil`
 
 ---
 
