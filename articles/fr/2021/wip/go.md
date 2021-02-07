@@ -26,7 +26,7 @@ aborder ses points forts, ses points faibles, et dresser un modeste bilan sur ce
 
 - syntaxe ?
 - conventions de nommage
-- simplicité = limitations
+- simplicité = limitations (génériques, const correctness, ...)
 - gc ?
 - `nil`
 
