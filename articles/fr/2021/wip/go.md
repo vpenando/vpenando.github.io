@@ -90,7 +90,6 @@ msg := <-ch             // on bloque et récupère la valeur écrite dans ch
 fmt.Println(msg)
 ```
 ([Lien](https://play.golang.org/p/jaUhGBPi3PP)).
-Ce mécanisme est extrêmement léger
 
 ---
 
