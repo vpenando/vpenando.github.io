@@ -52,20 +52,15 @@ import (
     "strings"
     
     // package distant
-	"github.com/path/to/repo"
+    "github.com/path/to/repo"
 )
 ```
 Si la syntaxe est de prime abord assez déroutante, force est de reconnaître que le mécanisme est extrêmement puissant.
 
 #### 5. Le tooling
 Que serait un langage de programmation sans bons outils ?
-Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html)
-
-* go get
-* go test
-* go vet
-
-
+Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), et même un outil d'analyse de code ([`go vet`](https://golang.org/cmd/vet/)) !
+De plus, l'équipe de développement propose un super [plugin pour VS Code](https://code.visualstudio.com/docs/languages/go) !
 
 #### 6. Les goroutines
 
