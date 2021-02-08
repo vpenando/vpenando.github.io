@@ -13,7 +13,7 @@ aborder ses points forts, ses points faibles, et dresser un modeste bilan sur mo
 ### Points forts de Go
 Avant tout, quels sont les points forts de Go ? Ces derniers ne manquent pas, et sont pour certains plus que significatifs.
 
-**1. Go, un langage compilé**
+#### 1. Go, un langage compilé
 Go est non seulement un langage compilé (à différencier de langages *interprétés*, comme la plupart des langages de script par exemple).
 En tant que tel, il apporte certaines vérifications au *compile time*, permettant ainsi d'offrir des garanties supplémentaires plutôt que de planter de manière inattendue à l'exécution.
 De plus, étant compilé en langage machine, il offre des performances presque comparables à du C ou du C++.
@@ -21,14 +21,14 @@ La compilation d'un programme Go est quasiment instantanée ; ce faisant, certai
 
 Enfin, en jouant avec les variables d'environnement `GOOS` et `GOARCH`, [il est possible de compiler vers un OS différent de la machine courante](https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures) !
 
-**2. Go, un langage statiquement typé**
+#### 2. Go, un langage statiquement typé
 Go est dit statiquement typé. Cela signifie qu'une variable a *un et un seul* type.
 Il n'est théoriquement (\*) pas possible d'assigner à une même variable des valeurs de différents types.
 Ainsi, pas de risque de surprise à l'évaluation d'une variable.
 
 *(**\***) Il existe une exception, le type `interface{}`, détaillée dans la partie "points faibles de Go".*
 
-**3. Une syntaxe simple et lisible**
+#### 3. Une syntaxe simple et lisible
 Go a une syntaxe à la fois simple et très lisible.
 La lecture d'un code Go est extrêmement fluide et sa compréhension se fait sans aucune difficulté.
 À titre personnel, je n'ai au aucun problème à comprendre le code source de langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
@@ -40,7 +40,7 @@ func foo(a int, b int) int {
 ```
 On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` attend un paramètre `a` de type `int`, un paramètre `b` de type `int` et renvoie un `int`"*.
 
-**4. La gestion des dépendances**
+#### 4. La gestion des dépendances
 Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
 La commande `go get` permet de télécharger un package distant.
 En rajoutant l'option `-u` (pour "update"), elle met à jour le package en installant la dernière version.
@@ -57,7 +57,7 @@ import (
 ```
 Si la syntaxe est de prime abord assez déroutante, force est de reconnaître que le mécanisme est extrêmement puissant.
 
-**5. Le tooling**
+#### 5. Le tooling
 Que serait un langage de programmation sans bons outils ?
 Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html)
 
@@ -67,7 +67,7 @@ Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et p
 
 
 
-**6. Les goroutines**
+#### 6. Les goroutines
 
 
 
