@@ -31,8 +31,8 @@ Ainsi, pas de risque de surprise à l'évaluation d'une variable.
 #### 3. Une syntaxe simple et lisible
 Go a une syntaxe à la fois simple et très lisible.
 La lecture d'un code Go est extrêmement fluide et sa compréhension se fait sans aucune difficulté.
-À titre personnel, je n'ai au aucun problème à comprendre le code source de langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
-Ce qui peut paraître anodin est l'ordre dans lequel on va lire un du code Go :
+À titre personnel, je n'ai jamais eu aucun problème à comprendre le code source de langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
+Un autre avantage, bien qu'il puisse paraître anodin, est l'ordre dans lequel on va lire un du code Go :
 ```go
 func foo(a int, b int) int {
     // ...
