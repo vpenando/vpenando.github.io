@@ -31,8 +31,7 @@ Ainsi, pas de risque de surprise à l'évaluation d'une variable.
 
 #### 3. Une syntaxe simple et lisible
 Go a une syntaxe à la fois simple et très lisible.
-La lecture d'un code Go est extrêmement fluide et sa compréhension se fait sans aucune difficulté.
-À titre personnel, je n'ai jamais eu aucun problème à comprendre le code source de langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
+La lecture d'un code Go est extrêmement fluide et sa compréhension se fait sans aucune difficulté : à titre personnel, je n'ai jamais eu aucun problème à comprendre le code source de langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
 Un autre avantage, bien qu'il puisse paraître anodin, est l'ordre dans lequel on va lire un du code Go :
 ```go
 func foo(a int, b int) int {
@@ -40,6 +39,8 @@ func foo(a int, b int) int {
 }
 ```
 On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` attend un paramètre `a` de type `int`, un paramètre `b` de type `int` et renvoie un `int`"*.
+
+Enfin, Go n'a que [très peu de mots-clés](https://golang.org/ref/spec#Keywords), ce qui contribue grandement à sa simplicité.
 
 #### 4. La gestion des dépendances
 Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
@@ -65,8 +66,8 @@ De plus, l'équipe de développement propose un super [plugin pour VS Code](http
 
 #### 6. Les goroutines
 Nous ne pouvions pas parler des atouts de Go sans aborder les *goroutines*, et, par extension, des *channels*.
-Il s'agit de la manière dont Go gère le parallélisme et la concurrence.
-Là où en C# (par exemple), une méthode `async` est nécessairement asynchrone, n'importe quelle fonction Go peut appeler *n'importe quelle fonction* de manière asynchrone. Pour ce faire, on préfixe l'appel du mot-clé `go` :
+Il s'agit de la manière dont Go gère la programmation asynchrone.
+Là où en C# (par exemple), une méthode `async` est nécessairement asynchrone, *n'importe quelle fonction* Go peut être appelée de manière asynchrone. Pour ce faire, on préfixe l'appel du mot-clé `go` :
 ```go
 func foo() {
     // ...
@@ -78,18 +79,18 @@ go foo()
 Pour communiquer avec une goroutine, on passe par des *channels*, dans lesquels on peut lire et écrire. Exemple :
 ```go
 func foo(ch chan string) {
-    ch <- "Hello, world!"
+    ch <- "Hello, world!" // on écrit dans un channel
 }
  
 // ...
 
-ch := make(chan string)
-go foo(ch)
-msg := <-ch
+ch := make(chan string) // ch est un channel
+go foo(ch)              // on appelle foo de manière asynchrone
+msg := <-ch             // on bloque et récupère la valeur écrite dans ch
 fmt.Println(msg)
-}
 ```
 ([Lien](https://play.golang.org/p/jaUhGBPi3PP)).
+Ce mécanisme est extrêmement léger
 
 ---
 
