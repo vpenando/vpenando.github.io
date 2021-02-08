@@ -129,6 +129,43 @@ Erreur :
 ```
 
 #### 3. Le type `interface{}`
+Nous avons vu précédemment que Go proposait un système de types *statiques*.
+C'est *presque* vrai. En effet, Go permet de *satisfaire implicitement* une interface : tout type qui intègre les méthodes d'une interface peut être considéré comme tel :
+```go
+type I interface {
+    foo()
+}
+
+type S struct {}
+
+func (s S) foo() {
+    // ...
+}
+
+func something(i I) {
+    i.foo()
+}
+
+// ...
+s := S{}
+something(s) // ok !
+```
+Ainsi, si l'on déclare une interface vide, on peut passer n'importe quelle valeur :
+```go
+type I interface {}
+
+// ou plus simplement :
+// func something(i interface{})
+func something(i I) {
+    // ...
+}
+
+// ...
+something(42)              // ok !
+something("Hello, world!") // ok !
+something(true)            // ok !
+```
+Cette faiblesse fait que l'on peut simuler un type générique, mais sans n'avoir aucune garantie.
 
 #### 4. La valeur `nil`
 
