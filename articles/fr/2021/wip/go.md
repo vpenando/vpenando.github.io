@@ -128,10 +128,9 @@ Erreur :
 ./prog.go:XXX:YYY: syntax error: unexpected semicolon or newline before {
 ```
 
+#### Le type `interface{}`
 
-- gc ?
-- le type `interface{}`
-- `nil`
+#### La valeur `nil`
 
 ---
 
