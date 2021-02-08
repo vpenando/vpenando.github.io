@@ -17,7 +17,7 @@ Avant tout, quels sont les points forts de Go ? Ces derniers ne manquent pas, et
 #### 1. Go, un langage compilé
 Go est non seulement un langage compilé (à différencier de langages *interprétés*, comme la plupart des langages de script par exemple).
 En tant que tel, il apporte certaines vérifications au *compile time*, permettant ainsi d'offrir des garanties supplémentaires plutôt que de planter de manière inattendue à l'exécution.
-De plus, étant compilé en langage machine, il offre des performances presque comparables à du C ou du C++.
+De plus, étant compilé en langage machine, il n'a nul besoin d'une VM (contrairement aux langages .NET ou au Java) et offre des performances presque comparables à du C ou du C++.
 La compilation d'un programme Go est quasiment instantanée ; ce faisant, certains utilisent Go comme langage de script en lieu et place de Bash ou Python via la commande `go run`.
 
 Enfin, en jouant avec les variables d'environnement `GOOS` et `GOARCH`, [il est possible de compiler vers un OS différent de la machine courante](https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures) !
@@ -61,7 +61,7 @@ Si la syntaxe est de prime abord assez déroutante, force est de reconnaître qu
 
 #### 5. Le tooling
 Que serait un langage de programmation sans bons outils ?
-Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), et même un outil d'analyse de code ([`go vet`](https://golang.org/cmd/vet/)) !
+Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), [un outil d'analyse de code](https://golang.org/cmd/vet/)) et même [un outil de formattage de code](https://golang.org/cmd/gofmt/) !
 De plus, l'équipe de développement propose un super [plugin pour VS Code](https://code.visualstudio.com/docs/languages/go) !
 
 #### 6. Les goroutines
@@ -89,15 +89,46 @@ go foo(ch)              // on appelle foo de manière asynchrone
 msg := <-ch             // on bloque et récupère la valeur écrite dans ch
 fmt.Println(msg)
 ```
-([Lien](https://play.golang.org/p/jaUhGBPi3PP)).
+([Lien](https://play.golang.org/p/jaUhGBPi3PP))
 
 ---
 
 ### Points faibles de Go
+Malgré ses nombreuses qualités, Go n'est pour autant pas exempt de points faibles, que nous allons aborder dans cette section.
 
-- syntaxe ?
-- conventions de nommage
-- simplicité = limitations (génériques, const correctness, ...)
+#### 1. Simplicité = limitations
+La simplicité de Go apporte quelques limitations.
+Il n'est par exemple par possible de déclarer des variables immutables : le mot-clé `const` est ici similaire au `const` de C# et ne sert qu'à déclarer des constantes de compilation.
+
+Par ailleurs, le langage de dispose pas de types génériques. Cette fonctionnalité est toutefois en cours de développement.
+
+#### 2. Les conventions de nommage & le formattage
+Les conventions de nommage de Go sont également assez déroutantes. En effet, l'utilisation de lettres minuscules et majuscules a une incidence directe avec la visibilité des variables, fonctions et types :
+```go
+// commence par une minuscule = privée
+func someFunction() {
+    // ...
+}
+
+// commence par une majuscule = publique
+func SomeOtherFunction() {
+    // ...
+}
+```
+De plus, un code non formatté "à la Go" ne compilera pas :
+```go
+func foo()
+{
+    // ...
+}
+```
+Erreur :
+```
+./file.go:XXX:YYY: missing function body
+./prog.go:XXX:YYY: syntax error: unexpected semicolon or newline before {
+```
+
+
 - gc ?
 - le type `interface{}`
 - `nil`
