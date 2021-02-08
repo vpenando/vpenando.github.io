@@ -7,6 +7,7 @@
 ### Introduction
 Après quelques années de pratique sur Go, et quasi quotidiennement ces derniers mois, je souhaiterais faire un petit retour d'expérience sur Go ;
 aborder ses points forts, ses points faibles, et dresser un modeste bilan sur mon utilisation de ce langage.
+Nous n'entrerons pas dans les détails de chacun des différents points abordés, aussi n'hésitez pas à mener vos propres recherches si vous souhaitez approfondir vos connaissances sur l'un (ou plusieurs !) des différents sujets abordés.
 
 ---
 
@@ -63,8 +64,32 @@ Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et p
 De plus, l'équipe de développement propose un super [plugin pour VS Code](https://code.visualstudio.com/docs/languages/go) !
 
 #### 6. Les goroutines
+Nous ne pouvions pas parler des atouts de Go sans aborder les *goroutines*, et, par extension, des *channels*.
+Il s'agit de la manière dont Go gère le parallélisme et la concurrence.
+Là où en C# (par exemple), une méthode `async` est nécessairement asynchrone, n'importe quelle fonction Go peut appeler *n'importe quelle fonction* de manière asynchrone. Pour ce faire, on préfixe l'appel du mot-clé `go` :
+```go
+func foo() {
+    // ...
+}
 
+// ...
+go foo()
+```
+Pour communiquer avec une goroutine, on passe par des *channels*, dans lesquels on peut lire et écrire. Exemple :
+```go
+func foo(ch chan string) {
+    ch <- "Hello, world!"
+}
+ 
+// ...
 
+ch := make(chan string)
+go foo(ch)
+msg := <-ch
+fmt.Println(msg)
+}
+```
+([Lien](https://play.golang.org/p/jaUhGBPi3PP)).
 
 ---
 
