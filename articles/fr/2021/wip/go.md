@@ -168,6 +168,30 @@ something(true)            // ok !
 Cette faiblesse fait que l'on peut simuler un type générique, mais sans n'avoir aucune garantie.
 
 #### 4. La valeur `nil`
+Go intègre une valeur nulle, `nil`. Si elle ne peut pas être appliquée à n'importe quel type (seulement aux pointeurs et aux interfaces), elle peut par nature faire paniquer le programme lors de l'exécution. Là où de nombreux langages ne supportent pas de valeur nulle et intègrent un type `Option`, `Maybe` ou autre, Go permet de déréférencer un pointeur nul et, par extension, de planter de manière inattendue.
+
+Cette valeur est essentiellement utilisée dans la gestion des erreurs (pour signifier l'absence d'erreur), mais pose à mon sens plus de problèmes qu'elle n'en résout. L'utilisation d'une valeur `None` typée aurait peut-être été plus appropriée :
+```go
+import (
+    "errors"
+)
+
+// foo renvoie une erreur si quelque chose s'est mal passé
+func foo() error {
+    // ...
+}
+
+// ...
+// comportement actuel :
+if err := foo(); err != nil {
+    // ...
+}
+
+// avec une hypothétique valeur "None" :
+if err := foo(); err != errors.None {
+    // ...
+}
+```
 
 ---
 
