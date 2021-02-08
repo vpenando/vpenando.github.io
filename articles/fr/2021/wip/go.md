@@ -37,8 +37,19 @@ func foo(a int, b int) int {
 ```
 On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` attend un paramètre `a` de type `int`, un paramètre `b` de type `int` et renvoie un `int`"*.
 
-- goroutines
-- gestion des dépendances
+**4. La gestion des dépendances**
+Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
+
+**5. Le tooling**
+* go get
+* go test
+* go vet
+* go build (+ `GOOS=windows go build` / `GOARCH=ppc64` https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures)
+
+
+**6. Les goroutines**
+
+
 
 ---
 
