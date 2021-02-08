@@ -17,6 +17,9 @@ Avant tout, quels sont les points forts de Go ? Ces derniers ne manquent pas, et
 Go est non seulement un langage compilé (à différencier de langages *interprétés*, comme la plupart des langages de script par exemple).
 En tant que tel, il apporte certaines vérifications au *compile time*, permettant ainsi d'offrir des garanties supplémentaires plutôt que de planter de manière inattendue à l'exécution.
 De plus, étant compilé en langage machine, il offre des performances presque comparables à du C ou du C++.
+La compilation d'un programme Go est quasiment instantanée ; ce faisant, certains utilisent Go comme langage de script en lieu et place de Bash ou Python via la commande `go run`.
+
+Enfin, en jouant avec les variables d'environnement `GOOS` et `GOARCH`, [il est possible de compiler vers un OS différent de la machine courante](https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures) !
 
 **2. Go, un langage statiquement typé**
 Go est dit statiquement typé. Cela signifie qu'une variable a *un et un seul* type.
@@ -39,12 +42,29 @@ On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` 
 
 **4. La gestion des dépendances**
 Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
+La commande `go get` permet de télécharger un package distant.
+En rajoutant l'option `-u` (pour "update"), elle met à jour le package en installant la dernière version.
+On peut directement importer dans notre code des packages en provenance d'un repo GitHub, GitLab, ou autre :
+```go
+import (
+    // stdlib
+    "fmt"
+    "strings"
+    
+    // package distant
+	"github.com/path/to/repo"
+)
+```
+Si la syntaxe est de prime abord assez déroutante, force est de reconnaître que le mécanisme est extrêmement puissant.
 
 **5. Le tooling**
+Que serait un langage de programmation sans bons outils ?
+Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html)
+
 * go get
 * go test
 * go vet
-* go build (+ `GOOS=windows go build` / `GOARCH=ppc64` https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures)
+
 
 
 **6. Les goroutines**
