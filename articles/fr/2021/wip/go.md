@@ -106,7 +106,7 @@ Il n'est par exemple par possible de déclarer des variables immutables : le mot
 Par ailleurs, le langage de dispose pas de types génériques. Cette fonctionnalité est toutefois en cours de développement.
 
 #### 2. Les conventions de nommage & le formattage
-Les conventions de nommage de Go sont également assez déroutantes. En effet, l'utilisation de lettres minuscules et majuscules a une incidence directe avec la visibilité des variables, fonctions et types :
+Les conventions de nommage de Go sont également assez déroutantes. En effet, l'utilisation de lettres minuscules et majuscules a une incidence directe sur la visibilité des variables, fonctions et types :
 ```go
 // commence par une minuscule = privée
 func someFunction() {
