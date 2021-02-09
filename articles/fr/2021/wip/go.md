@@ -7,7 +7,7 @@
 ### Introduction
 Après quelques années de pratique sur Go, et quasi quotidiennement ces derniers mois, je souhaiterais faire un petit retour d'expérience sur Go ;
 aborder ses points forts, ses points faibles, et dresser un modeste bilan sur mon utilisation de ce langage.
-Nous n'entrerons pas dans les détails de chacun des différents points abordés, aussi n'hésitez pas à mener vos propres recherches si vous souhaitez approfondir vos connaissances sur l'un (ou plusieurs !) des différents sujets abordés.
+Nous n'entrerons pas dans les détails de chacun des différents points, aussi n'hésitez pas à mener vos propres recherches si vous souhaitez approfondir vos connaissances sur l'un (ou plusieurs !) des différents sujets abordés.
 
 ---
 
@@ -27,11 +27,10 @@ Go est dit statiquement typé. Cela signifie qu'une variable a *un et un seul* t
 Il n'est théoriquement (\*) pas possible d'assigner à une même variable des valeurs de différents types.
 Ainsi, pas de risque de surprise à l'évaluation d'une variable.
 
-*(**\***) Il existe une exception, le type `interface{}`, détaillée dans la partie "points faibles de Go".*
+*(**\***) Il existe toutefois une exception, le type `interface{}`, détaillée dans la partie "points faibles de Go".*
 
 #### 3. Une syntaxe simple et lisible
 Go a une syntaxe à la fois simple et très lisible.
-En découle une productivité accrue, bien plus difficile à atteindre dans d'autres langages, plus verbeux.
 
 La lecture d'un code Go est également très fluide et sa compréhension se fait sans aucune difficulté : à titre personnel, je n'ai jamais eu aucun problème à comprendre le code source du langage ou de certaines bibliothèques tierces lorsque j'en ai eu besoin.
 
@@ -44,6 +43,7 @@ func foo(a int, b int) int {
 On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` attend un paramètre `a` de type `int`, un paramètre `b` de type `int` et renvoie un `int`"*.
 
 Enfin, Go n'a que [très peu de mots-clés](https://golang.org/ref/spec#Keywords), ce qui contribue grandement à sa simplicité.
+En découle une productivité accrue, bien plus difficile à atteindre dans d'autres langages, plus verbeux.
 
 #### 4. La gestion des dépendances
 Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
@@ -64,7 +64,7 @@ Si la syntaxe est de prime abord assez déroutante, force est de reconnaître qu
 
 #### 5. Le tooling
 Que serait un langage de programmation sans bons outils ?
-Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), [un outil d'analyse de code](https://golang.org/cmd/vet/)) et même [un outil de formattage de code](https://golang.org/cmd/gofmt/) !
+Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), [un outil d'analyse de code](https://golang.org/cmd/vet/) et même [un outil de formattage de code](https://golang.org/cmd/gofmt/) !
 De plus, l'équipe de développement propose un super [plugin pour VS Code](https://code.visualstudio.com/docs/languages/go) !
 
 #### 6. Les goroutines
