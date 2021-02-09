@@ -43,7 +43,7 @@ func foo(a int, b int) int {
 On peut aisément lire (dans le sens de lecture occidental) *"la fonction `foo` attend un paramètre `a` de type `int`, un paramètre `b` de type `int` et renvoie un `int`"*.
 
 Enfin, Go n'a que [très peu de mots-clés](https://golang.org/ref/spec#Keywords), ce qui contribue grandement à sa simplicité.
-En découle une productivité accrue, bien plus difficile à atteindre dans d'autres langages, plus verbeux.
+En découle une productivité accrue, bien plus difficile à atteindre dans d'autres langages, généralement plus verbeux.
 
 #### 4. La gestion des dépendances
 Go embarque un gestionnaire de packages extrêmement puissant permettant d'installer et gérer les dépendances de nos programmes.
@@ -201,3 +201,7 @@ if err := foo(); err != errors.None {
 ---
 
 ### Conclusion
+Tout langage a ses forces et ses inconvénients.
+Go n'échappe pas à cette règle, et ses principaux défauts sont dûs à sa simplicité, qui apportent leur lot de faiblesses et de contraintes.
+
+Toutefois, le langage apporte des avantages variés, ainsi que des outils très performants.
