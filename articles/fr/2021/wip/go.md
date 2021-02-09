@@ -205,3 +205,5 @@ Tout langage a ses forces et ses inconvénients.
 Go n'échappe pas à cette règle, et ses principaux défauts sont dûs à sa simplicité, qui apportent leur lot de faiblesses et de contraintes.
 
 Toutefois, le langage apporte des avantages variés, ainsi que des outils très performants.
+
+Personnellement, je pense que Go pourrait à terme remplacer JavaScript côté serveur ; sa syntaxe est assez proche, et le langage est très orienté web / backend, tout en apportant les avantages d'un langage compilé.
