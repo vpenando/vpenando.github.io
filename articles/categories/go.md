@@ -2,6 +2,7 @@
 
 ### All `go` posts:
 
+- `2021/02/09`: [(FR) Retour d'expérience sur Go](../fr/2021/go.md) - `go` `golang`
 - `2020/12/19`: [(FR) HS #1 - Refonte d'un vieux projet from scratch](../fr/2020/piggy.md) - `go` `golang` `open-source`
 - `2020/11/12`: [(FR) Introduction à `go test`](../fr/2020/go_test.md) - `go` `golang` `testing`
 - `2020/09/02`: [(FR) La gestion des flags en Go](../fr/2020/flag_go.md) - `go` `golang`
