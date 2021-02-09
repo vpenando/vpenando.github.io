@@ -10,6 +10,7 @@
 ---
 
 #### 2020
+- `2021/02/09`: [(FR) Retour d'expérience sur Go](articles/fr/2021/go.md) - `go` `golang`
 - `2020/12/19`: [(FR) HS #1 - Refonte d'un vieux projet from scratch](articles/fr/2020/piggy.md) - `go` `golang` `open-source`
 - `2020/11/12`: [(FR) Introduction à `go test`](articles/fr/2020/go_test.md) - `go` `golang` `testing`
 - `2020/09/28`: [(FR) Etudions l'assembleur avec GDB !](articles/fr/2020/asm.md) - `c` `asm` `gdb`
