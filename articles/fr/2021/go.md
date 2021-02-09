@@ -64,7 +64,7 @@ Si la syntaxe est de prime abord assez déroutante, force est de reconnaître qu
 
 #### 5. Le tooling
 Que serait un langage de programmation sans bons outils ?
-Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), [un outil d'analyse de code](https://golang.org/cmd/vet/) et même [un outil de formattage de code](https://golang.org/cmd/gofmt/) !
+Si beaucoup de langages offrent de très bons outils, Go n'est pas en reste et propose, en plus de son gestionnaire de dépendances, [un outil de génération de doc](https://vpenando.github.io/articles/fr/2020/express2_godoc.html), [un framework de tests unitaires](https://vpenando.github.io/articles/fr/2020/go_test.html), [un outil d'analyse de code](https://golang.org/cmd/vet/) et même [un outil de formattage de code](https://golang.org/cmd/gofmt/) !
 De plus, l'équipe de développement propose un super [plugin pour VS Code](https://code.visualstudio.com/docs/languages/go) !
 
 #### 6. Les goroutines
@@ -206,4 +206,4 @@ Go n'échappe pas à cette règle, et ses principaux défauts sont dûs à sa si
 
 Toutefois, le langage apporte des avantages variés, ainsi que des outils très performants.
 
-Personnellement, je pense que Go pourrait à terme remplacer JavaScript côté serveur ; sa syntaxe est assez proche, et le langage est très orienté web / backend, tout en apportant les avantages d'un langage compilé.
+Personnellement, je pense que Go pourrait à terme remplacer JavaScript côté serveur ; sa syntaxe est assez proche, et le langage est très orienté web / backend, tout en apportant les avantages d'un langage compilé et la sûreté apportée par le typage statique.
