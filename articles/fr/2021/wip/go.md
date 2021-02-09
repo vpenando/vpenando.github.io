@@ -130,6 +130,8 @@ Erreur :
 ./file.go:XXX:YYY: missing function body
 ./prog.go:XXX:YYY: syntax error: unexpected semicolon or newline before {
 ```
+Go impose donc une convention de nommage et un formattage particulier.
+Cela a certes pour intérêt de standardiser le code, mais peut être un peu trop contraignant pour certains développeurs.
 
 #### 3. Le type `interface{}`
 Nous avons vu précédemment que Go proposait un système de types *statiques*.
