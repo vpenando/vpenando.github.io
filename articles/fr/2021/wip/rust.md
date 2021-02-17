@@ -140,6 +140,9 @@ fn main() {
 ---
 
 ### Une popularité croissante
+Language [préféré des développeurs en 2020](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-loved) sur Stack Overflow ainsi [qu'en 2019](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages), Rust bénéficie d'une popularité de plus en plus importante au sein de la communauté.
+
+De nombreuses entreprises commencent à l'adopter, et l'intérêt croissant porté sur Rust par des mastodontes tels qu'Amazon, Google et Microsoft témoignent d'eux-mêmes.
 
 ---
 
