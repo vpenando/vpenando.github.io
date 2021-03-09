@@ -15,7 +15,7 @@ Nous n'entrerons pas dans les détails de chacun des différents points, aussi n
 Avant tout, quels sont les points forts de Go ? Ces derniers ne manquent pas, et sont pour certains plus que significatifs.
 
 #### 1. Go, un langage compilé
-Go est non seulement un langage compilé (à différencier de langages *interprétés*, comme la plupart des langages de script par exemple).
+Go est un langage compilé (à différencier de langages *interprétés*, comme la plupart des langages de script par exemple).
 En tant que tel, il apporte certaines vérifications au *compile time*, permettant ainsi d'offrir des garanties supplémentaires plutôt que de planter de manière inattendue à l'exécution.
 De plus, étant compilé en langage machine, il n'a nul besoin d'une VM (contrairement aux langages .NET ou au Java) et offre des performances presque comparables à du C ou du C++.
 La compilation d'un programme Go est quasiment instantanée ; ce faisant, certains utilisent Go comme langage de script en lieu et place de Bash ou Python via la commande `go run`.
