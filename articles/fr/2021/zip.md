@@ -69,7 +69,7 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 * Premier appel :
   * `acc` vaut `[]` ;
   * `l1` vaut `[1; 2; 3]` ;
-  * `l2` vaut `[4; 5; 6]`
+  * `l2` vaut `[4; 5; 6]` ;
   * Ni `l1` ni `l2` n'est vide, on continue les appels à `zip_acc`.
 * Second appel :
   * `acc` vaut `[(1, 4)]` ;
@@ -79,7 +79,7 @@ Dans cet exemple, les appels successifs à `zip_acc` seront les suivants :
 * Troisième appel :
   * `acc` vaut `[(1, 4); (2, 5)]` ;
   * `l1` vaut `[3]` ;
-  * `l2` vaut `[6]`
+  * `l2` vaut `[6]` ;
   * Ni `l1` ni `l2` n'est vide, on continue les appels à `zip_acc`.
 * Quatrième appel :
   * `acc` vaut `[(1, 4); (2, 5); (3, 6)]` ;
