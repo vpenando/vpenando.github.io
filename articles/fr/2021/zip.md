@@ -148,7 +148,7 @@ let zipped = zip [1; 2; 3] [4; 5; 6] // [(1, 4); (2, 5); (3, 6)]
 // une fonction qui ajoute les éléments d'une liste deux à deux
 let add_lists = apply_on_lists (fun x y -> x + y)
 // à l'usage :
-let added = add_lists [1; 2; 3] [4; 5; 6] // [5; 8; 9]
+let added = add_lists [1; 2; 3] [4; 5; 6] // [5; 7; 9]
 ```
 De plus, cette fonction *-ainsi que ses applications partielles !-* est générique :
 ```fsharp
