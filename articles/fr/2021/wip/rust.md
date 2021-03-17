@@ -1,13 +1,16 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) 2021, l'année de Rust ?
+## (FR) Introduction à Rust
 
 ---
 
 ### Introduction
 
 Soutenu par Mozilla, Rust est un langage de programmation orienté système, proposant également quelques aspects fonctionnels.
-Il s'agit d'un langage extrêmement populaire ces derniers temps, notamment grâce à sa sûreté.
+
+Langage [préféré des développeurs en 2020](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-loved) sur Stack Overflow ainsi [qu'en 2019](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages), Rust bénéficie d'une popularité de plus en plus importante au sein des différentes communautés.
+
+De nombreuses entreprises commencent à l'adopter, et l'intérêt croissant porté sur Rust par des mastodontes tels qu'Amazon, Google et Microsoft contribue à fédérer les développeurs autour du langage.
 
 Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et apprécie les deux langages.
 
@@ -136,13 +139,6 @@ fn main() {
     make_speak(&dog);    // idem
 }
 ```
-
----
-
-### Une popularité croissante
-Langage [préféré des développeurs en 2020](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-loved) sur Stack Overflow ainsi [qu'en 2019](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages), Rust bénéficie d'une popularité de plus en plus importante au sein des différentes communautés.
-
-De nombreuses entreprises commencent à l'adopter, et l'intérêt croissant porté sur Rust par des mastodontes tels qu'Amazon, Google et Microsoft contribue à fédérer les développeurs autour du langage.
 
 ---
 
