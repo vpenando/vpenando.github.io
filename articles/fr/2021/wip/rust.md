@@ -64,7 +64,7 @@ impl Foo {
     }
 }
 ```
-Pour implémenter les méthodes d'une structure, il est nécessaire de se situer dans un bloc `impl`. Personnellement, je trouve cela très verbeux, en plus de créer un niveau d'imbrication superflu. Cela a néanmoins l'intérêt de savoir clairement quel type nous implémentons. Tout comme en Python, les méthodes non-statiques prennent un premier argument, `self`.
+Pour implémenter les méthodes d'une structure, il est nécessaire de se situer dans un bloc `impl`. Tout comme en Python, les méthodes non statiques prennent un premier argument, `self`.
 
 > Que sont ces `&` présents devant `self` ?
 
