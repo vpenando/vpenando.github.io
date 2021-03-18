@@ -10,7 +10,7 @@ Soutenu par Mozilla, Rust est un langage de programmation orienté système, pro
 
 Langage [préféré des développeurs en 2020](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-languages-loved) sur Stack Overflow ainsi [qu'en 2019](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages), Rust bénéficie d'une popularité de plus en plus importante au sein des différentes communautés.
 
-De nombreuses entreprises commencent à l'adopter, et l'intérêt croissant porté sur Rust par des mastodontes tels qu'Amazon, Google et Microsoft contribue à fédérer les développeurs autour du langage.
+De nombreuses entreprises commencent à l'adopter, et l'intérêt croissant porté sur Rust par des mastodontes tels qu'Amazon, Google et Microsoft contribue à fédérer les développeurs autour du langage. Il se veut être un remplaçant de C dans des domaines tels que la programmation système, offrant des performances presque équivalentes tout en s'affranchissant de la gestion manuelle de la mémoire.
 
 Rust est souvent opposé à Go ; personnellement je n'ai aucun parti pris et apprécie les deux langages.
 
@@ -139,7 +139,11 @@ fn main() {
     make_speak(&dog);    // idem
 }
 ```
+Ce code, très simple, permet de mettre en pratique les différents points abordés au cours de cette section.
 
 ---
 
 ### Conclusion
+Il existe bien d'autres concepts que nous n'avons pas présentés ici, tels que les modules, la gestion des dépendances, le code `unsafe` ou encore l'asynchronisme avec `async`/`await`. Cela fera très certainement l'objet de prochains articles !
+
+En attendant, je ne peux que vous orienter vers [la documentation officielle](https://www.rust-lang.org/learn), qui est bien structurée et très bien écrite.
