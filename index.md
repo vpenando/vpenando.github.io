@@ -4,6 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
+- `2021/04/13`: [(FR) Introduction à Rust](articles/fr/2021/rust.md) - `rust`
 - `2021/02/09`: [(FR) Retour d'expérience sur Go](articles/fr/2021/go.md) - `go` `golang`
 - `2021/01/30`: [(FR) Un peu de fonctionnel : application partielle et zip](articles/fr/2021/zip.md) - `f#` `functional-programming`
 - `2020/12/19`: [(FR) HS #1 - Refonte d'un vieux projet from scratch](articles/fr/2020/piggy.md) - `go` `golang` `open-source`
