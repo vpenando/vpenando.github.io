@@ -13,7 +13,17 @@ Ne pas manipuler de types abstraits au plus bas niveau d'implémentation (pas de
 ```cs
 IEnumerable<string> myStrings = new List<string>();
 ```
-Ici, ce n'est pas utile, c'est même pénalisant ! Pas de `myStrings.Add` dispo dans `IEnumerable` !
+Ici, ce n'est **pas utile**, c'est même pénalisant ! Pas de `myStrings.Add` dispo dans `IEnumerable` !
+À cet effet, ne pas renvoyer de type abstrait :
+```cs
+IEnumerable<string> Foo() {
+    // ...
+ }
+ 
+ // ...
+ var myStrings = this.Foo(); // Non !
+ ```
+ Un cast est alors nécessaire pour correctement manipuler `myStrings` !
 
 ---
 
