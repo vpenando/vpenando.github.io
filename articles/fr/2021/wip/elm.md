@@ -34,7 +34,7 @@ Une fois définie, il est **impossible de la modifier**. Cela peut sembler péna
 En effet, cela induit que :
 * Aucun effet de bord ne peut modifier une variable ;
 * Toute variable est thread-safe ;
-* Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où elle est modifiée !
+* Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
 
 **Todo - Types de variables (Int, Float, ... + List, Maybe, ...)**
 
