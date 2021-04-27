@@ -17,7 +17,6 @@
 - Pas de valeur nulle/undefined (`Maybe` à la place, comme en Haskell, équivalent à `Option` en OCaml, Rust, etc)
 - Pas d'erreur au runtime
 - Interopérabilité avec JS
-- Atouts de la programmation fonctionnelle (application partielle, pattern matching, types sommes, ...)
 - Performances
 
 ---
