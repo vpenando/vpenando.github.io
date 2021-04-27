@@ -7,7 +7,9 @@
 ### Introduction
 
 
-Functions are pure (i.e. there are no side-effects). The language is strongly and statically typed, so you have to make sure that all pieces neatly fit together before you can run your code. All data is immutable.
+- Functions are pure (i.e. there are no side-effects).
+- The language is strongly and statically typed, so you have to make sure that all pieces neatly fit together before you can run your code.
+- All data is immutable.
 
 
 ---
