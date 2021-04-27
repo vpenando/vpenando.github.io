@@ -6,10 +6,8 @@
 
 ### Introduction
 
-
-- Functions are pure (i.e. there are no side-effects).
-- The language is strongly and statically typed, so you have to make sure that all pieces neatly fit together before you can run your code.
-- All data is immutable.
+- Langage orienté front
+- Compilé / transpilé
 
 
 ---
@@ -20,12 +18,13 @@
 - Pas d'erreur au runtime
 - Interopérabilité avec JS
 - Atouts de la programmation fonctionnelle (application partielle, pattern matching, types sommes, ...)
+- Performances
 
 ---
 
 ### Présentation
 
-#### Fonctions et variables
+#### Variables
 Déclarer une variable en Elm est on ne peut plus simple :
 ```elm
 hello = "Hello, world!"
@@ -38,6 +37,9 @@ En effet, cela induit que :
 * Toute variable est thread-safe ;
 * Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où elle est modifiée !
 
+**Todo - Types de variables (Int, Float, ... + List, Maybe, ...)**
+
+#### Fonctions
 En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
 ```elm
 add x y = x + y
