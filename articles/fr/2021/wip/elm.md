@@ -36,7 +36,15 @@ En effet, cela induit que :
 * Toute variable est thread-safe ;
 * Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
 
-**Todo - Types de variables (Int, Float, ... + List, Maybe, ...)**
+Elm dispose non seulement des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String`, mais également de types tels que `Maybe a`, `List a`, où `a` désigne un type quelconque. Le type `Maybe`désigne une valeur optionnelle et est l'équivalent de `Option` en OCaml ou Rust (entre autres), et est similaire au type éponyme existant en Haskell. Il s'agit de la meilleure réponse possible aux problèmes posés par des valeurs telles que `null` ou `undefined`.
+
+`Maybe a` propose les variants `Just a` et `Nothing`, correspondant respectivement à la présence et l'absence de valeur :
+```elm
+a = Just 42  -- on a une valeur, ici 42
+b = Nothing  -- pas de valeur !
+```
+
+
 
 #### Fonctions
 En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
