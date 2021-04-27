@@ -46,8 +46,11 @@ Il est également possible *-et recommandé-* d'annoter une fonction de sa signa
 ```elm
 add : Int -> Int -> Int
 add x y = x + y
+
+-- et à l'usage :
+five = add 2 3 -- pas de parenthèses nécessaires !
 ```
 L'annotation de `add` peut à première vue sembler confuse. En effet, cette fonction attend deux variables de types `Int` et renvoie un résultat, lui-même de type `Int`.
-Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, il faut plutôt voir `add` comme une fonction attendant un argument de type `Int` et renvoyant une autre fonction. Exemple : `add2 = add 2`, dont la signature est `Int -> Int`.
-Vous l'aurez donc compris, on peut profiter de l'*application partielle* en Elm !
+Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, `add` est une fonction attendant un argument et renvoyant une autre fonction attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
+Vous l'aurez donc probablement compris, on peut profiter de l'*application partielle de fonction* en Elm !
 
