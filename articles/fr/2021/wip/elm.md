@@ -43,7 +43,7 @@ En Elm, toute fonction est également une variable. Ainsi, déclarer une fonctio
 add x y = x + y
 ```
 Il est également possible *-et recommandé-* d'annoter une fonction de sa signature, comme suit :
-```
+```elm
 add : Int -> Int -> Int
 add x y = x + y
 ```
