@@ -54,3 +54,13 @@ L'annotation de `add` peut à première vue sembler confuse. En effet, cette fon
 Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, `add` est une fonction attendant un argument et renvoyant une autre fonction attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
 Vous l'aurez donc probablement compris, on peut profiter de l'*application partielle de fonction* en Elm !
 
+#### Application partielle de fonction
+Conceptuellement, l'application partielle de fonction consiste à appeler une fonction avec seulement une partie de ses arguments.
+En résulte une nouvelle fonction, qui attend le reste des arguments.
+```elm
+add : Int -> Int -> Int
+add x y = x + y
+
+add2 : Int -> Int
+add2 x = add 2
+```
