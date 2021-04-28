@@ -81,3 +81,4 @@ add2 x = add 2
 ```
 En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialiées et réutilisables !
 
+#### 
