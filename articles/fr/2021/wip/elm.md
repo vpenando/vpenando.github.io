@@ -113,10 +113,11 @@ type Bool
 ```
 Mais, les types sommes sont bien plus riches que de bêtes énumérations ! Voyez plutôt :
 ```elm
+-- une donnée de type int, float ou string
 type DataType
   = Integer Int
   | Boolean Bool
-  | Text    String
+  | Text    String  
 ```
 Bien entendu, les types sommes peuvent être utilisés conjointement avec le pattern matching !
 ```elm
@@ -127,7 +128,7 @@ type Operation a
   | Div a a
   
 -- et à l'usage :
-applyOperation: Operation Int -> Int
+applyOperation : Operation Int -> Int
 applyOperation op =
   case op of
     Add x y -> x + y
