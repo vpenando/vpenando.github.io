@@ -55,7 +55,20 @@ b = Nothing  -- pas de valeur !
 #### Fonctions
 En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
 ```elm
-add x y = x + y
+add x y = x + y  -- pas besoin de mot-clé 'return'
+```
+Pour déclarer des variables *à l'intérieur* d'une fonction, il faut utiliser les mots-clés `let` et `in` :
+```elm
+add x y =
+  let first = x in
+  let second = y in
+  first + second
+  
+-- ou plus simplement :
+add x y =
+  let first = x
+      second = y
+  in first + second
 ```
 Il est également possible *-et recommandé-* d'annoter une fonction de sa signature, comme suit :
 ```elm
