@@ -85,6 +85,8 @@ En combinaison avec des fonctions telles que [`List.map`](https://package.elm-la
 
 **Todo**
 
+`switch`/`case` amélioré
+
 #### Définir ses propres types
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
 Tout d'abord, il est possible de définir un alias de type existant :
@@ -111,7 +113,8 @@ type Bool
   = True
   | False
 ```
-Mais, les types sommes sont bien plus riches que de bêtes énumérations ! Voyez plutôt :
+Mais, les types sommes sont bien plus riches que de bêtes énumérations !
+Voyez plutôt :
 ```elm
 -- une donnée de type int, float ou string
 type DataType
@@ -119,14 +122,14 @@ type DataType
   | Boolean Bool
   | Text    String  
 ```
-Bien entendu, les types sommes peuvent être utilisés conjointement avec le pattern matching !
+Bien entendu, ils peuvent également être utilisés conjointement avec le pattern matching !
 ```elm
 type Operation a
   = Add a a
   | Sub a a
   | Mul a a
   | Div a a
-  
+
 -- et à l'usage :
 applyOperation : Operation Int -> Int
 applyOperation op =
@@ -135,5 +138,8 @@ applyOperation op =
     Sub x y -> x - y
     Mul x y -> x * y
     Div x y -> x // y  -- la division d'entiers s'effectue via l'opérateur //
+
+add23 = Add 2 3
+five = applyOperation add23
 ```
 
