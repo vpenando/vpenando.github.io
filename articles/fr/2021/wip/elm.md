@@ -153,7 +153,7 @@ type Bool
 Les types sommes sont cependant bien plus riches que de bêtes énumérations ! Rappelez-vous du type `Maybe`, qui attend un type en paramètre et expose le variant `Just` permettant d'accéder à la valeur sous-jacente !
 Il est possible d'implémenter un comportement similaire !
 ```elm
--- une donnée de type int, float ou string
+-- une donnée quelconque de type int, bool ou string
 type DataType
   = Integer Int
   | Boolean Bool
