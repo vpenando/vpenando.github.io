@@ -146,10 +146,12 @@ five = applyOperation add23
 -- on peut évidemment complexifier les choses !
 two = applyOperation (Div (applyOperation (Mul 5 2)) (applyOperation (Add 2 3)))
 ```
-Enfin, il existe les "records", très similaires aux `struct`s dans d'autres langages. Par convention, on les déclare en tant que `type alias`.
+Enfin, il existe les "records", très similaires aux `struct`s dans d'autres langages. Par convention, on les déclare en tant que `type alias`. Tout "record" dispose d'un constructeur de type afin de faciliter la création de ses instances.
 ```elm
 type alias User = { nickname : String, email : String }
+myUser = User "Toto" "toto@toto.com"
 
 type alias KeyValue a b = { key : a, value : b }
+keyValue = KeyValue Int String 0 "Zero"  -- KeyValue Int String
 ```
 
