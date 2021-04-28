@@ -18,6 +18,7 @@
 - Pas d'erreur au runtime
 - Interopérabilité avec JS
 - Performances
+- Sûreté (exemple avec pattern matching sans tous les cas)
 
 ---
 
