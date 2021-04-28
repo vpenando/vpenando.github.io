@@ -141,5 +141,8 @@ applyOperation op =
 
 add23 = Add 2 3
 five = applyOperation add23
+
+-- on peut évidemment complexifier les choses !
+two = applyOperation (Div (applyOperation (Mul 5 2)) (applyOperation (Add 2 3)))
 ```
 
