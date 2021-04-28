@@ -31,7 +31,7 @@ hello = "Hello, world!"
 ```
 Et c'est tout !
 Cette variable est fortement typée et surtout, elle est immutable !
-Une fois définie, il est **impossible de la modifier**. Cela peut sembler pénalisant au premier abord, mais c'est en réalité un atout majeur.
+Une fois définie, il est **impossible de la modifier**. Cela peut sembler contraignant au premier abord, mais c'est en réalité un atout majeur.
 En effet, cela induit que :
 * Aucun effet de bord ne peut modifier une variable ;
 * Toute variable est thread-safe ;
