@@ -91,7 +91,8 @@ En combinaison avec des fonctions telles que [`List.map`](https://package.elm-la
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
 Tout d'abord, il est possible de définir un alias de type existant :
 ```elm
-type alias MyInt = Int
+type alias MyInt1 = Int -- MyInt1 == Int
+type       MyInt2 = Int -- MyInt2 != Int
 ```
 Ici, `MyInt` est "juste" un alias du type `Int`. Il s'agit littéralement du *même* type.
 Sans le mot-clé `alias`, on crée un nouveau type, distinct du type `Int`.
@@ -144,5 +145,11 @@ five = applyOperation add23
 
 -- on peut évidemment complexifier les choses !
 two = applyOperation (Div (applyOperation (Mul 5 2)) (applyOperation (Add 2 3)))
+```
+Enfin, il existe les "records", très similaires aux `struct`s dans d'autres langages. Par convention, on les déclare en tant que `type alias`.
+```elm
+type alias User = { nickname : String, email : String }
+
+type alias KeyValue a b = { key : a, value : b }
 ```
 
