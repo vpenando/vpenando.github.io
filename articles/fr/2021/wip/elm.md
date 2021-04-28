@@ -152,6 +152,6 @@ type alias User = { nickname : String, email : String }
 myUser = User "Toto" "toto@toto.com"
 
 type alias KeyValue a b = { key : a, value : b }
-keyValue = KeyValue Int String 0 "Zero"  -- KeyValue Int String
+keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ```
 
