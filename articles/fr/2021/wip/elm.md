@@ -129,8 +129,9 @@ Tout d'abord, il est possible de définir un alias de type existant :
 type alias MyInt1 = Int -- MyInt1 == Int
 type       MyInt2 = Int -- MyInt2 != Int
 ```
-Ici, `MyInt` est "juste" un alias du type `Int`. Il s'agit littéralement du *même* type.
-Sans le mot-clé `alias`, on crée un nouveau type, distinct du type `Int`.
+Ici, `MyInt1` est "juste" un alias du type `Int`. Il s'agit littéralement du *même* type.
+Sans le mot-clé `alias`, on crée un nouveau type, distinct du type `Int`, comme le type `MyInt2`.
+
 Ensuite, il existe les types sommes, à la manière du type `Maybe` vu plus haut.
 À titre d'exemple, ce même type `Maybe` est implémenté ainsi :
 ```elm
