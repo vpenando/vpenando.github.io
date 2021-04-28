@@ -81,4 +81,58 @@ add2 x = add 2
 ```
 En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialiées et réutilisables !
 
-#### 
+#### Pattern matching
+
+**Todo**
+
+#### Définir ses propres types
+En Elm, il existe trois façons de définir un type, en fonction des besoins.
+Tout d'abord, il est possible de définir un alias de type existant :
+```elm
+type alias MyInt = Int
+```
+Ici, `MyInt` est "juste" un alias du type `Int`. Il s'agit littéralement du *même* type.
+Sans le mot-clé `alias`, on crée un nouveau type, distinct du type `Int`.
+Ensuite, il existe les types sommes, à la manière du type `Maybe` vu plus haut.
+À titre d'exemple, ce même type `Maybe` est implémenté ainsi :
+```elm
+type Maybe a
+  = Just a
+  | Nothing
+```
+On peut implémenter des énumérations classiques de cette manière :
+```elm
+type Switch
+  = On
+  | Off
+
+-- exemple : le type Bool
+type Bool
+  = True
+  | False
+```
+Mais, les types sommes sont bien plus riches que de bêtes énumérations ! Voyez plutôt :
+```elm
+type DataType
+  = Integer Int
+  | Boolean Bool
+  | Text    String
+```
+Bien entendu, les types sommes peuvent être utilisés conjointement avec le pattern matching !
+```elm
+type Operation a
+  = Add a a
+  | Sub a a
+  | Mul a a
+  | Div a a
+  
+-- et à l'usage :
+applyOperation: Operation Int -> Int
+applyOperation op =
+  case op of
+    Add x y -> x + y
+    Sub x y -> x - y
+    Mul x y -> x * y
+    Div x y -> x // y  -- la division d'entiers s'effectue via l'opérateur //
+```
+
