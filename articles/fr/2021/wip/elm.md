@@ -45,7 +45,7 @@ someBool = True
 someChar = 'A'
 someString = "Hello, world!"
 ```
-De plus, il existe des types tels que `Maybe a` ou `List a`, où `a` désigne un type quelconque. Le type `Maybe`désigne une valeur optionnelle et est l'équivalent de `Option` en OCaml ou Rust (entre autres), et est similaire au type éponyme existant en Haskell. Il s'agit de la meilleure réponse possible aux problèmes posés par des valeurs telles que `null` ou `undefined`.
+De plus, il existe des types tels que `Maybe a` ou `List a`, où `a` désigne un type quelconque. Le type `Maybe` désigne une valeur optionnelle et est l'équivalent de `Option` en OCaml ou Rust (entre autres), et est similaire au type éponyme existant en Haskell. Il s'agit de la meilleure réponse possible aux problèmes posés par des valeurs telles que `null` ou `undefined`.
 
 `Maybe a` propose les variants `Just a` et `Nothing`, correspondant respectivement à la présence et l'absence de valeur :
 ```elm
@@ -81,7 +81,7 @@ add x y = x + y
 five = add 2 3 -- pas de parenthèses nécessaires !
 ```
 L'annotation de `add` peut à première vue sembler confuse. En effet, cette fonction attend deux variables de types `Int` et renvoie un résultat, lui-même de type `Int`.
-Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, `add` est une fonction attendant un argument et renvoyant une autre fonction attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
+Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, en programmation fonctionnelle, `add` est une fonction attendant un argument et *renvoyant une autre fonction* attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
 Vous l'aurez donc probablement compris, on peut profiter de l'*application partielle de fonction* en Elm !
 
 #### Application partielle de fonction
@@ -97,10 +97,30 @@ add2 x = add 2
 En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialiées et réutilisables !
 
 #### Pattern matching
+Le pattern matching est une sorte de `switch`/`case`, mais avec quelques stéroïdes en plus.
+En effet, en plus de tester différentes valeurs possibles, il est possible de *déstructurer une variable*.
+Par exemple, comment implémenter une fonction renvoyant la valeur contenue dans une variable de type `Maybe Int`, ou une valeur par défaut si cette variable vaut `Nothing` ?
+Je vous le donne en mille, c'est très facile en utilisant le pattern matching !
+```elm
+valueOrDefault : Maybe Int -> Int -> Int
+valueOrDefault maybe default =
+  case maybe of
+    Just x  -> x       -- il y a une valeur : on la renvoie !
+    Nothing -> default -- pas de valeur : on renvoie celle par défaut
+```
+On peut également l'utiliser pour décomposer une liste. À titre d'exemple, voici comment calculer la somme d'une liste d'entiers :
+```elm
+sumWithBase : Int -> List Int -> Int
+sumWithBase base list =
+  case list of
+    []     -> base
+    hd::tl -> sumWithBase (hd+base) tl
+    
+sum = sumWithBase 0 -- on utilise l'application partielle pour définir notre fonction 'sum'
+```
+Ici, on a décomposé notre liste en `hd`, son premier élément, et `tl`, qui correspond au reste !
 
 **Todo**
-
-`switch`/`case` amélioré
 
 #### Définir ses propres types
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
@@ -136,7 +156,7 @@ Il est possible d'implémenter un comportement similaire !
 type DataType
   = Integer Int
   | Boolean Bool
-  | Text    String  
+  | Text    String
 ```
 Bien entendu, ils peuvent également être utilisés conjointement avec le pattern matching !
 ```elm
