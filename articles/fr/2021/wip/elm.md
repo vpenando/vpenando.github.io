@@ -206,6 +206,7 @@ Enfin, il existe les "records", très similaires aux `struct`s dans d'autres lan
 type alias User = { nickname : String, email : String }
 myUser = User "Toto" "toto@toto.com"
 
+-- et en prime, un record peut être générique !
 type alias KeyValue a b = { key : a, value : b }
 keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ```
