@@ -30,7 +30,7 @@
 Personnellement, je ne suis pas un grand adepte de développement web. À vrai dire, cela est essentiellement dû au fait que je n'apprécie pas JS.
 En effet, JavaScript est un langage ayant de nombreux problèmes, comme le typage dynamique, ses valeurs `null` et `undefined`, et j'en passe. 
 
-Bien qu'il existe des alternatives (je pense notamment à TypeScript + Angular), celles-ci ne sont pas exemptes de failles.
+Bien qu'il existe des alternatives (je pense notamment à TypeScript + Angular), celles-ci ne sont pas exemptes de faiblesses, notamment concernant [la fameuse erreur à un milliard](https://www.developpez.com/actu/195314/Retour-sur-une-proposition-pour-C-8-les-references-nullables-quels-sont-les-avantages-de-cette-fonctionnalite/).
 
 Elm est un langage orienté front-end s'affranchissant de la plupart des problèmes posés par JS. Au contraire, Elm **impose** de la sûreté via divers mécanismes, à tel point qu'il est quasiment *impossible* de rencontrer des erreurs au runtime. La quasi totalité de celles-ci est détectée dès la compilation.
 
