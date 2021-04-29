@@ -4,7 +4,20 @@
 
 ---
 
-### Introduction
+### Sommaire
+* [Introduction](#introduction)
+* [Pourquoi choisir Elm ?](#pourquoi-elm)
+* [Présentation](#presentation)
+  - [Variables](#variables)
+  - [Fonctions](#fonctions)
+  - [Application partielle de fonction](#application-partielle)
+  - [Pattern matching](#pattern-matching)
+  - [Définir ses propres types](#definir-types)
+  
+
+---
+
+### <a name="introduction">Introduction</a>
 
 - Langage orienté front
 - Compilé / transpilé
@@ -12,7 +25,7 @@
 
 ---
 
-### Pourquoi choisir Elm ?
+### <a name="pourquoi-elm">Pourquoi choisir Elm ?</a>
 
 - Pas de valeur nulle/undefined (`Maybe` à la place, comme en Haskell, équivalent à `Option` en OCaml, Rust, etc)
 - Pas d'erreur au runtime
@@ -22,9 +35,9 @@
 
 ---
 
-### Présentation
+### <a name="presentation">Présentation</a>
 
-#### Variables
+#### <a name="variables">Variables</a>
 Déclarer une variable en Elm est on ne peut plus simple :
 ```elm
 hello = "Hello, world!"
@@ -54,7 +67,7 @@ b = Nothing  -- pas de valeur !
 ```
 ***Note -** Si vous êtes étranger·ère à la programmation fonctionnelle, considérez simplement le type `Maybe` comme une forme d'`enum` améliorée.*
 
-#### Fonctions
+#### <a name="fonctions">Fonctions</a>
 En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
 ```elm
 add x y = x + y  -- pas besoin de mot-clé 'return'
@@ -84,7 +97,7 @@ L'annotation de `add` peut à première vue sembler confuse. En effet, cette fon
 Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, en programmation fonctionnelle, `add` est une fonction attendant un argument et *renvoyant une autre fonction* attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
 Vous l'aurez donc probablement compris, on peut profiter de l'*application partielle de fonction* en Elm !
 
-#### Application partielle de fonction
+#### <a name="application-partielle">Application partielle de fonction</a>
 Conceptuellement, l'application partielle de fonction consiste à appeler une fonction avec seulement une partie de ses arguments.
 En résulte une nouvelle fonction, qui attend le reste des arguments.
 ```elm
@@ -96,7 +109,7 @@ add2 x = add 2
 ```
 En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialiées et réutilisables !
 
-#### Pattern matching
+#### <a name="pattern-matching">Pattern matching</a>
 Le pattern matching est une sorte de `switch`/`case`, mais avec quelques stéroïdes en plus.
 En effet, en plus de tester différentes valeurs possibles, il est possible de *déstructurer une variable*.
 Par exemple, comment implémenter une fonction renvoyant la valeur contenue dans une variable de type `Maybe Int`, ou une valeur par défaut si cette variable vaut `Nothing` ?
@@ -108,6 +121,8 @@ valueOrDefault maybe default =
     Just x  -> x       -- il y a une valeur : on la renvoie !
     Nothing -> default -- pas de valeur : on renvoie celle par défaut
 ```
+***Note -** Dans le cadre d'une vraie application, nous utiliserions plutôt [`Maybe.withDefault`](https://package.elm-lang.org/packages/elm/core/latest/Maybe#withDefault) pour couvrir ce genre de cas.*
+
 On peut également l'utiliser pour décomposer une liste. À titre d'exemple, voici comment calculer la somme d'une liste d'entiers :
 ```elm
 sumWithBase : Int -> List Int -> Int
@@ -120,7 +135,7 @@ sum = sumWithBase 0 -- on utilise l'application partielle pour définir notre fo
 ```
 Ici, on a décomposé notre liste en `hd`, son premier élément, et `tl`, qui correspond au reste !
 
-#### Définir ses propres types
+#### <a name="definir-types">Définir ses propres types</a>
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
 Tout d'abord, il est possible de définir un alias de type existant :
 ```elm
