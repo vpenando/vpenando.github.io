@@ -133,7 +133,7 @@ sumWithBase base list =
     
 sum = sumWithBase 0 -- on utilise l'application partielle pour définir notre fonction 'sum'
 ```
-Ici, on a décomposé notre liste en `hd`, son premier élément, et `tl`, qui correspond au reste !
+Ici, on a décomposé notre liste en `hd`, son premier élément, et `tl`, qui correspond au reste ! Conventionnellement, son premier élément est appelé la tête (d'où le nom `hd`, pour "head") et le reste est appelé la queue (d'où le nom `tl`, pour "tail").
 
 #### <a name="definir-types">Définir ses propres types</a>
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
