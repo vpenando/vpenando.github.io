@@ -189,7 +189,7 @@ applyOperation op =
     Mul x y -> x * y
     Div x y -> x // y  -- la division d'entiers s'effectue via l'opérateur //
 
-add23 = Add 2 3
+add23 = Add 2 3  -- 'add23' est ici de type Operation Int
 five = applyOperation add23
 
 -- on peut évidemment complexifier les choses !
