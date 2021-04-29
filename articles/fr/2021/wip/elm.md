@@ -19,9 +19,10 @@
 
 ### <a name="introduction">Introduction</a>
 
-- Langage orienté front
-- Compilé / transpilé
+Initialement apparu en 2012, Elm est un langage de programmation orienté front-end.
+Il s'agit d'un langage fonctionnel, syntaxiquement très proche de Haskell, se veuillant sûr et performant. Elm est un langage transpilé en JavaScript afin de s'intégrer dans une page HTML.
 
+Vous pouvez tester Elm dans votre navigateur [à cette adresse](https://elm-lang.org/try).
 
 ---
 
