@@ -22,6 +22,8 @@
 Initialement apparu en 2012, Elm est un langage de programmation orienté front-end.
 Il s'agit d'un langage fonctionnel, syntaxiquement très proche de Haskell, se veuillant sûr et performant. Elm est un langage transpilé en JavaScript afin de s'intégrer dans une page HTML.
 
+Dans cet article, nous n'aborderons pas Elm en profondeur ; nous verrons assez succinctement sa syntaxe et ses fonctionnalités. Si vous souhaitez approfondir vos connaissances sur le sujet, la documentation est disponible [ici](https://guide.elm-lang.org/).
+
 Vous pouvez tester Elm dans votre navigateur [à cette adresse](https://elm-lang.org/try).
 
 ---
