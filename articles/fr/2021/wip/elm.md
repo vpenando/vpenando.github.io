@@ -37,7 +37,7 @@ En effet, cela induit que :
 * Toute variable est thread-safe ;
 * Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
 
-Elm dispose non seulement des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String` :
+Elm dispose des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String` :
 ```elm
 someInt = 42
 someFloat = 3.14
@@ -119,8 +119,6 @@ sumWithBase base list =
 sum = sumWithBase 0 -- on utilise l'application partielle pour définir notre fonction 'sum'
 ```
 Ici, on a décomposé notre liste en `hd`, son premier élément, et `tl`, qui correspond au reste !
-
-**Todo**
 
 #### Définir ses propres types
 En Elm, il existe trois façons de définir un type, en fonction des besoins.
