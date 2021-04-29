@@ -71,7 +71,7 @@ De plus, il existe des types tels que `Maybe a` ou `List a`, où `a` désigne un
 a = Just 42  -- on a une valeur, ici 42
 b = Nothing  -- pas de valeur !
 ```
-***Note -** Si vous êtes étranger·ère à la programmation fonctionnelle, considérez simplement le type `Maybe` comme une forme d'`enum` améliorée.*
+***Note -** Si vous êtes étranger·ère à la programmation fonctionnelle, considérez simplement le type `Maybe` comme une forme d' `enum` améliorée.*
 
 #### <a name="fonctions">Fonctions</a>
 En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
