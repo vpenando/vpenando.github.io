@@ -35,7 +35,7 @@ En effet, JavaScript est un langage ayant de nombreux problèmes, comme le typag
 
 Bien qu'il existe des alternatives (je pense notamment à TypeScript + Angular), celles-ci ne sont pas exemptes de faiblesses, notamment concernant [la fameuse erreur à un milliard](https://www.developpez.com/actu/195314/Retour-sur-une-proposition-pour-C-8-les-references-nullables-quels-sont-les-avantages-de-cette-fonctionnalite/).
 
-Elm est un langage orienté front-end s'affranchissant de la plupart des problèmes posés par JS. Au contraire, Elm **impose** de la sûreté via divers mécanismes, à tel point qu'il est quasiment *impossible* de rencontrer des erreurs au runtime. La quasi totalité de celles-ci est détectée dès la compilation.
+Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de la sûreté via divers mécanismes, à tel point qu'il est quasiment *impossible* de rencontrer des erreurs au runtime. La quasi totalité de celles-ci est détectée dès la compilation.
 
 Par ailleurs, [Elm propose d'excellentes performances](https://www.freecodecamp.org/news/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-e1cb62fd526c/), bien au-dessus de la plupart des solutions concurrentes.
 
