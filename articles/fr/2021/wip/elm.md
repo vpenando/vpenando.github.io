@@ -217,6 +217,10 @@ type alias KeyValue a b = { key : a, value : b }
 keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ```
 
+#### Modules
+
+**Todo**
+
 ---
 
 ### La gestion des erreurs
@@ -243,7 +247,7 @@ case head of
   Just x  -> ... -- on peut utiliser le premier élément, ici 'x'
   Nothing -> ... -- aucune valeur
 ```
-Mieux encore, nous pouvons utiliser la fonction `map` sur notre variable `head` si nous voulons y appliquer une fonction :
+Mieux encore, nous pouvons utiliser la fonction [`Maybe.map`](https://package.elm-lang.org/packages/elm/core/latest/Maybe#map) sur notre variable `head` si nous voulons y appliquer une fonction :
 ```elm
 list = []
 head = List.head list
