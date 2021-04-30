@@ -78,8 +78,9 @@ b = Nothing  -- pas de valeur !
 ***Note -** Si vous êtes étranger·ère à la programmation fonctionnelle, considérez simplement le type `Maybe` comme une forme d' `enum` améliorée.*
 
 #### <a name="fonctions">Fonctions</a>
-En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait ainsi :
+En Elm, toute fonction est également une variable. Ainsi, déclarer une fonction se fait de la même manière, en y ajoutant les paramètres :
 ```elm
+-- fonction faisant la somme de deux nombres x et y
 add x y = x + y  -- pas besoin de mot-clé 'return'
 ```
 Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante et n'est pas sans rappeler les *arrow functions* en JS :
