@@ -290,8 +290,6 @@ Cerise sur le gâteau, il existe les fonctions [`Result.toMaybe`](https://packag
 
 ### <a name="conclusion">Conclusion</a>
 
-Dans cet article, nous avons abordé Elm en surface.
+Dans cet article, nous avons abordé Elm en surface. Nous avons vu sa syntaxe basique et une partie des mécanismes du langages, sans pour autant aborder l'architecture d'une application Elm. Ce point pourrait cependant faire l'objet d'un article futur, car il y a matière à traiter sur le sujet !
 
-* Elm server side
-* Elm architecture
-* ? 
+Ce billet avait avant tout pour but de vous présenter les multiples intérêt d'Elm, à commencer par sa sûreté, que l'on ne retrouve pas dans la plupart des autres langages, notamment dans le domaine du développement web.
