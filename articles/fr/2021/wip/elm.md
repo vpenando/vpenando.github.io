@@ -14,7 +14,7 @@
   - [Pattern matching](#pattern-matching)
   - [Définir ses propres types](#definir-types)
   - [Modules](#modules)
-- [La gestion des erreurs)(#gestion-erreurs)
+- [La gestion des erreurs](#gestion-erreurs)
   
 
 ---
