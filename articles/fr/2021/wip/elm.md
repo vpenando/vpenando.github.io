@@ -13,6 +13,8 @@
   - [Application partielle de fonction](#application-partielle)
   - [Pattern matching](#pattern-matching)
   - [Définir ses propres types](#definir-types)
+  - [Modules](#modules)
+- [La gestion des erreurs)(#gestion-erreurs)
   
 
 ---
@@ -217,13 +219,13 @@ type alias KeyValue a b = { key : a, value : b }
 keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ```
 
-#### Modules
+#### <a name="modules">Modules</a>
 
 **Todo**
 
 ---
 
-### La gestion des erreurs
+### <a name="gestion-erreurs">La gestion des erreurs</a>
 Elm ne dispose pas de système d'exceptions. Par nature, une exception rompt le flux d'exécution du programme et, si elle n'est pas correctement rattrapée, peut le faire crasher.
 Il s'agit d'un concept inacceptable en Elm ; à la place, tout cas d'erreur est *prévu* en amont. En effet, toute fonction susceptible d'échouer renverra un résultat en conséquence.
 Prenons un exemple extrêmement simple :
