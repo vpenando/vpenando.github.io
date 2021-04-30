@@ -251,4 +251,14 @@ head = List.head list
 -- imaginons que nous voulons multiplier 'head' par 2 si cette valeur existe :
 head2 = Maybe.map (\x -> x * 2) head
 ```
-La fonction `Maybe.map` est très bien faite : si le dernier argument vaut `Nothing`, alors elle renvoie... `Nothing` ! Il n'y a donc aucun risque de plantage !
+La fonction `Maybe.map` est très bien faite : si nous lui passons une variable valant `Just x`, alors elle renverra `Just (func x)`.
+Sinon, si le dernier argument vaut `Nothing`, alors elle renvoie... `Nothing` ! Il n'y a donc aucun risque de plantage !
+
+Par ailleurs, Elm propose le type `Result`, implémenté ainsi :
+```elm
+type Result error value
+  = Ok value
+  | Err error
+```
+Il s'agit d'un type somme proposant les variants `Ok` et `Err`, qui n'est pas sans rappeler [le type éponyme en Rust](https://doc.rust-lang.org/std/result/enum.Result.html) ! Ainsi, si une fonction est susceptible de renvoyer une erreur, alors nous utiliserons le type `Result`. Tout comme pour `Maybe`, il nous est imposé d'en vérifier le contenu !
+Cerise sur le gâteau, il existe les fonctions [`Result.toMaybe`](https://package.elm-lang.org/packages/elm/core/latest/Result#toMaybe) et [`Result.fromMaybe`](https://package.elm-lang.org/packages/elm/core/latest/Result#fromMaybe) afin de transposer une variable d'un type à l'autre !
