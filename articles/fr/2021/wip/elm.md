@@ -224,11 +224,11 @@ keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ---
 
 ### La gestion des erreurs
-Elm ne dispose pas de système d'exceptions. Par nature, une exception rompt le flot d'exécution du programme et, si elle n'est pas correctement rattrapée, peut faire crasher le programme.
-Il s'agit d'une logique qui est inconcevable en Elm ; à la place, tout cas d'erreur doit être *prévu* en amont par le développeur. En effet, toute fonction susceptible d'échouer renverra un résultat en conséquence.
+Elm ne dispose pas de système d'exceptions. Par nature, une exception rompt le flux d'exécution du programme et, si elle n'est pas correctement rattrapée, peut le faire crasher.
+Il s'agit d'un concept inacceptable en Elm ; à la place, tout cas d'erreur est *prévu* en amont. En effet, toute fonction susceptible d'échouer renverra un résultat en conséquence.
 Prenons un exemple extrêmement simple :
 ```elm
-list = []             -- une liste vide
+list = []  -- une liste vide
 
 -- List.head renvoie le premier élément d'une liste
 head = List.head list -- ???
@@ -247,7 +247,7 @@ case head of
   Just x  -> ... -- on peut utiliser le premier élément, ici 'x'
   Nothing -> ... -- aucune valeur
 ```
-Mieux encore, nous pouvons utiliser la fonction [`Maybe.map`](https://package.elm-lang.org/packages/elm/core/latest/Maybe#map) sur notre variable `head` si nous voulons y appliquer une fonction :
+Mieux encore, nous pouvons utiliser la fonction [`Maybe.map`](https://package.elm-lang.org/packages/elm/core/latest/Maybe#map) ou [`Maybe.andThen`](https://package.elm-lang.org/packages/elm/core/latest/Maybe#andThen) sur notre variable `head` si nous voulons y appliquer une fonction :
 ```elm
 list = []
 head = List.head list
