@@ -80,6 +80,10 @@ En Elm, toute fonction est également une variable. Ainsi, déclarer une fonctio
 ```elm
 add x y = x + y  -- pas besoin de mot-clé 'return'
 ```
+Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante :
+```elm
+anonymousFunc = \x -> x * 2
+```
 Pour déclarer des variables *à l'intérieur* d'une fonction, il faut utiliser les mots-clés `let` et `in` :
 ```elm
 add x y =
@@ -213,3 +217,38 @@ type alias KeyValue a b = { key : a, value : b }
 keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 ```
 
+---
+
+### La gestion des erreurs
+Elm ne dispose pas de système d'exceptions. Par nature, une exception rompt le flot d'exécution du programme et, si elle n'est pas correctement rattrapée, peut faire crasher le programme.
+Il s'agit d'une logique qui est inconcevable en Elm ; à la place, tout cas d'erreur doit être *prévu* en amont par le développeur. En effet, toute fonction susceptible d'échouer renverra un résultat en conséquence.
+Prenons un exemple extrêmement simple :
+```elm
+list = []             -- une liste vide
+
+-- List.head renvoie le premier élément d'une liste
+head = List.head list -- ???
+```
+Dans cet exemple, que vaut `head` ? Rappelons-nous qu'il n'y a ni exceptions, ni valeur nulle en Elm.
+Jetons un oeil à la [signature de `List.head`](https://package.elm-lang.org/packages/elm/core/latest/List#head) :
+```elm
+head : List a -> Maybe a
+```
+Nous constatons que cette fonction, susceptible d'échouer si la liste est vide, renvoie une variable de type `Maybe a`. Ainsi, il est aisé de déduire que notre variable `head` dans l'exemple ci-dessus vaut `Nothing`. Nous ne pouvons donc pas l'utiliser sans vérifier ce qu'elle vaut, par exemple via du pattern matching :
+```elm
+list = []
+head = List.head list
+
+case head of
+  Just x  -> ... -- on peut utiliser le premier élément, ici 'x'
+  Nothing -> ... -- aucune valeur
+```
+Mieux encore, nous pouvons utiliser la fonction `map` sur notre variable `head` si nous voulons y appliquer une fonction :
+```elm
+list = []
+head = List.head list
+
+-- imaginons que nous voulons multiplier 'head' par 2 si cette valeur existe :
+head2 = Maybe.map (\x -> x * 2) head
+```
+La fonction `Maybe.map` est très bien faite : si le dernier argument vaut `Nothing`, alors elle renvoie... `Nothing` ! Il n'y a donc aucun risque de plantage !
