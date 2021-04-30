@@ -221,7 +221,23 @@ keyValue = KeyValue 0 "Zero"  -- KeyValue Int String
 
 #### <a name="modules">Modules</a>
 
-**Todo**
+Les différentes fonctionnalités d'Elm sont réparties dans des *modules*. Nous avons évoqué plus haut les fonctions `List.map` et `List.filter`. Ces fonctions, relatives au type `List`, sont stockées dans le module du même nom ; pratique pour s'y retrouver ! Il en va de même pour les fonctions relatives au type `Maybe`, par exemple !
+
+D'une manière générale, tout fichier source *est* un module. Pour importer et utiliser un module en Elm, il suffit d'utiliser le mot-clé `import` :
+```elm
+import MyModule
+
+result = MyModule.myFunction
+```
+Si l'on veut directement importer une fonctionnalité d'un module dans le module courant (sans avoir besoin de préfixer ses appels par le nom du module), on utilise le mot-clé `exposing` :
+```elm
+import MyModule exposing (myFunction)
+-- si l'on veut importer TOUT le contenu d'un module :
+-- import MyModule exposing (..)
+
+result = myFunction
+```
+Enfin, [certains modules sont directement importés en Elm](https://package.elm-lang.org/packages/elm/core/latest/), expliquant pourquoi certains types sont directement disponibles dans tout fichier source !
 
 ---
 
