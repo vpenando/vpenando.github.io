@@ -80,7 +80,7 @@ En Elm, toute fonction est également une variable. Ainsi, déclarer une fonctio
 ```elm
 add x y = x + y  -- pas besoin de mot-clé 'return'
 ```
-Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante :
+Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante et n'est pas sans rappeler les *arrow functions* en JS :
 ```elm
 anonymousFunc = \x -> x * 2
 ```
