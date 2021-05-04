@@ -87,7 +87,7 @@ Il existe également la notion de fonction anonyme (ou expression lambda) ; c'es
 ```elm
 anonymousFunc = \x -> x * 2
 ```
-***Note -** Le caractère `\` est employé en référence au symbole lambda (λ), pour faire référence au terme "expression lambda" !*
+***Note -** Le caractère `\` est employé en référence au symbole lambda (λ), relativement au terme "expression lambda" !*
 
 Pour déclarer des variables *à l'intérieur* d'une fonction, il faut utiliser les mots-clés `let` et `in` :
 ```elm
