@@ -175,7 +175,7 @@ type Switch
   = On
   | Off
 
--- exemple : le type Bool
+-- l'implémentation du type Bool
 type Bool
   = True
   | False
