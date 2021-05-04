@@ -37,7 +37,7 @@ En effet, JavaScript est un langage ayant de nombreux problèmes, comme le typag
 
 Bien qu'il existe des alternatives (je pense notamment à TypeScript + Angular), celles-ci ne sont pas exemptes de faiblesses, notamment concernant [la fameuse erreur à un milliard](https://www.developpez.com/actu/195314/Retour-sur-une-proposition-pour-C-8-les-references-nullables-quels-sont-les-avantages-de-cette-fonctionnalite/).
 
-Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de la sûreté via divers mécanismes, à tel point qu'il est quasiment *impossible* de rencontrer des erreurs au runtime. La quasi totalité de celles-ci est détectée dès la compilation.
+Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de la sûreté via divers mécanismes, à tel point qu'il est *impossible* de rencontrer des erreurs au runtime qui ne soient pas gérées. La quasi totalité de celles-ci est détectée dès la compilation.
 
 Par ailleurs, [Elm propose d'excellentes performances](https://www.freecodecamp.org/news/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-e1cb62fd526c/), bien au-dessus de la plupart des solutions concurrentes.
 
@@ -55,10 +55,10 @@ hello = "Hello, world!"
 Et c'est tout !
 Cette variable est fortement typée et surtout, elle est immutable !
 Une fois définie, il est **impossible de la modifier**. Cela peut sembler contraignant au premier abord, mais c'est en réalité un atout majeur.
-En effet, cela induit que :
-* Aucun effet de bord ne peut modifier une variable ;
-* Toute variable est thread-safe ;
-* Facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
+En effet, une variable constante induit :
+* Qu'aucun effet de bord ne peut la modifier ;
+* Que cette variable est thread-safe ;
+* Qu'elle est facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
 
 Elm dispose des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String` :
 ```elm
@@ -83,7 +83,7 @@ En Elm, toute fonction est également une variable. Ainsi, déclarer une fonctio
 -- fonction faisant la somme de deux nombres x et y
 add x y = x + y  -- pas besoin de mot-clé 'return'
 ```
-Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante et n'est pas sans rappeler les *arrow functions* en JS :
+Il existe également la notion de fonction anonyme (ou expression lambda) ; c'est très utile pour passer une fonction en argument sans devoir la déclarer préalablement ! Déclarer une fonction anonyme se fait de la manière suivante et n'est pas sans rappeler les *arrow functions* en JS ou C# :
 ```elm
 anonymousFunc = \x -> x * 2
 ```
@@ -124,7 +124,7 @@ add x y = x + y
 add2 : Int -> Int
 add2 x = add 2
 ```
-En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialiées et réutilisables !
+En combinaison avec des fonctions telles que [`List.map`](https://package.elm-lang.org/packages/elm/core/latest/List#map) ou [`List.filter`](https://package.elm-lang.org/packages/elm/core/latest/List#filter), il devient alors aisé de créer des fonctions spécialisées et réutilisables !
 
 #### <a name="pattern-matching">Pattern matching</a>
 Le pattern matching est une sorte de `switch`/`case`, mais avec quelques stéroïdes en plus.
