@@ -58,7 +58,7 @@ Une fois définie, il est **impossible de la modifier**. Cela peut sembler contr
 En effet, une variable constante induit :
 * Qu'aucun effet de bord ne peut la modifier ;
 * Que cette variable est thread-safe ;
-* Qu'elle est facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où une variable est modifiée !
+* Qu'elle est facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où elle est modifiée !
 
 Elm dispose des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String` :
 ```elm
