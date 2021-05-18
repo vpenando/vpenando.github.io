@@ -41,7 +41,7 @@ soit se retrouver dans un `try`/`catch` d'une couche supérieure où elle n'a pl
 À titre personnel, je rencontre régulièrement des exceptions provenant de couches logicielles bien plus basses que le code où je me trouve (notamment avec des bibliothèques tierces).
 Ainsi, il faut aller fouiller dans le code source (quand il est disponible) pour comprendre le problème d'origine.
 
-C'est une perte de temps sans intérêt due au fait que l'on emploie des exceptions pour tout et n'importe quoi. Il y a des cas où l'on n'a pas d'autre choix (en C# par exemple, où c'est la seule option disponible), et d'autres où ce n'est aucunement pertinent. Toujours en C#, [`string.Replace`](https://docs.microsoft.com/fr-fr/dotnet/api/system.string.replace?view=net-5.0) est un excellent cas :
+C'est une perte de temps sans intérêt due au fait que l'on emploie des exceptions pour tout et n'importe quoi. Il y a des cas où l'on n'a pas d'autre choix, et d'autres où ce n'est aucunement pertinent. En C#, [`string.Replace`](https://docs.microsoft.com/fr-fr/dotnet/api/system.string.replace?view=net-5.0) est un excellent cas :
 ```cs
 var result = "Hello, world!".Replace("", "foo");
 ```
