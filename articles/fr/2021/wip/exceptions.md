@@ -79,6 +79,13 @@ match result {
   Ok(content) => // on fait quelque chose du contenu
   Err(error)  => // on fait quelque chose de l'erreur
 }
+
+// en étant joueur, on peut même imaginer un résultat personnalisé !
+enum FileError {
+  Unexisting,
+  Locked,
+}
+type FileResult = Result<String, FileError>;
 ```
 ***Note -** La structure `match` est un peu comme un `switch`/`case` ([mais en mieux](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html)).*
 
