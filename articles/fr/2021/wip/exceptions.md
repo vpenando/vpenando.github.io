@@ -59,6 +59,7 @@ En Go, nous avons le type `error`. Combiné à la possibilité de retourner plus
 - Si une fonction renvoie une `error`, alors on *sait* qu'elle est susceptible d'échouer : il n'y a alors aucun doute possible ;
 - Cela nous incite à traiter l'erreur *immédiatement*, car c'est notre *seule* opportunité pour le faire : elle ne remontera pas la call stack !
 
+Exemple :
 ```go
 func ReadFromFile(path string) (string, error) {
     // l'implémentation ne nous intéresse pas ici
