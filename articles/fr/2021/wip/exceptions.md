@@ -125,7 +125,7 @@ On peut ensuite tester sa valeur avec un `match`, comme vu préalablement.
 ---
 
 ### Conclusion
-Les exceptions sont utiles pour gérer certains cas, tels que l'appel d'une méthode sur une instance nulle par exemple.
+Les exceptions sont utiles pour gérer certains cas inattendus, tels que l'appel d'une méthode sur une instance nulle, par exemple.
 Néanmoins, leur utilisation à outrance est souvent la source de longues heures de debugging pour débusquer la source d'une exception provenant des tréfonds de l'application.
 
 Fort heureusement, beaucoup de langages exposent des mécanismes proposant (ou imposant !) un circuit plus court entre l'apparition d'une erreur et son traitement. De prime abord, cela nous rajoute du boulot (car on *doit*) gérer l'erreur, mais en définitive nous épargne du temps de debug ! Ce faisant, on peut le mettre à profit de manière plus productive !
