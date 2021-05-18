@@ -121,3 +121,9 @@ fn divide(a: i32, b: i32) -> Option<i32> {
 }
 ```
 On peut ensuite tester sa valeur avec un `match`, comme vu préalablement.
+
+---
+
+### Conclusion
+Les exceptions sont utiles pour gérer certains cas, tels que l'appel d'une méthode sur une instance nulle par exemple.
+Néanmoins, leur utilisation à outrance est souvent la source de longues heures de debugging pour débusquer la source d'une exception provenant des tréfonds de l'application.
