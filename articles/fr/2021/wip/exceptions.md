@@ -1,14 +1,13 @@
 ## [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) Les exceptions, vraiment la meilleure solution ?
+## (FR) EXPRESS #4 - Les exceptions, vraiment la meilleure solution ?
+
+###### Note importante
+> Cet article fait partie de la série "EXPRESS". Il s'agit d'une série d'articles relativement courts et moins formels, axés autour d'un point sur lequel je ne me voyais pas écrire un article complet. Le ton y est volontairement plus léger afin d'en faciliter la lecture (et l'écriture !).
 
 ---
 
-### Sommaire
-
----
-
-### <a name="introduction">Introduction</a>
+### Introduction
 
 Dans la plupart des langages courants, il existe la notion d'exception. Il s'agit d'un mécanisme destiné à "gérer" les cas inattendus, comme par exemple :
 ```cs
@@ -36,9 +35,25 @@ Car rien ne nous oblige à "catcher" une exception ; c'est là une des failles d
 
 ### Les problèmes posés par les exceptions
 Le problème d'une exception, c'est que si l'on ne la "catche" pas, elle peut soit faire crasher le programme,
-soit se retrouver dans un `try`/`catch` d'une couche supérieur où elle n'a plus aucun sens.
+soit se retrouver dans un `try`/`catch` d'une couche supérieure où elle n'a plus aucun sens.
 À titre personnel, je rencontre régulièrement des exceptions provenant de couches logicielles bien plus basses que le code où je me trouve (notamment avec des bibliothèques tierces).
 Ainsi, il faut aller fouiller dans le code source (quand il est disponible) pour comprendre le problème d'origine.
+
+C'est une perte de temps sans intérêt due au fait que l'on emploie des exceptions pour tout et n'importe quoi. Il y a des cas où cela fait sens quand on n'a pas d'autre choix (en C# par exemple), mais d'autres où ce n'est aucunement pertinent. Toujours en C#, [`string.Replace`](https://docs.microsoft.com/fr-fr/dotnet/api/system.string.replace?view=net-5.0) est un excellent cas :
+```cs
+var result = "Hello, world!".Replace("", "foo");
+```
+Ce code lèvera une `ArgumentException` alors qu'il pourrait juste... ne rien faire.
+Cela induit que l'on *doit* prévoir *le* cas où la chaîne de caractères est vide ; ainsi, si elle provient d'un fichier, d'une entrée utilisateur ou autre, il *faut* préalablement prévoir *ce cas précis* pour ne pas lever d'exception. Alors que, je le rappelle, l'appel à `Replace` pourrait juste ne *rien* faire si la chaîne est vide ou nulle. C'est là l'un des nombreux cas d'usage excessif d'une exception.
+
+Par ailleurs, lever une exception nécessite d'en faire quelque chose par la suite. Pour ce faire, on utilise un bloc `try`/`catch` qui, en plus d'être syntaxiquement lourd, est... facultatif. Ainsi, si l'on ne sait pas qu'une portion de code peut lever une exception (un appel à `string.Replace` par exemple ?), alors on s'expose à voir notre petite exception remonter sagement toutes les couches d'appels de notre code jusqu'à être rattrapée (ou pas). Ainsi, s'il s'agit d'une bibliothèque tierce dont le code est fermé... amusez-vous bien.
+
+
+---
+
+### Solutions
+- `error` en Go
+- `Result` en OCaml, Rust, Haskell, Elm...
 
 - lourd (try/catch/finally)
 - solution par défaut pour tout et n'importe quoi
