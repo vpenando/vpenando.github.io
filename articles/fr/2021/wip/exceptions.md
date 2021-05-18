@@ -30,7 +30,7 @@ try {
 }
 ```
 Ainsi, si une erreur survient, nous sommes capables de l'écrire quelque part (un fichier de log, par exemple), d'utiliser une valeur par défaut, ou encore... de ne rien faire.
-Car rien ne nous oblige à "catcher" une exception ; c'est là une des failles du système.
+C'est la philosophie du "on verra plus tard". Car en effet, rien ne nous oblige à "catcher" une exception ; c'est là une des failles du système.
 
 ---
 
@@ -111,7 +111,7 @@ let divide a = function
   | 0 -> None
   | b -> Some(a/b)
 ```
-Clair comme de l'eau de roche, non ? Bon, trève de plaisanteries, voici une implémentation plus lisible (en Rust du coup) :
+Clair comme de l'eau de roche, non ? D'accord, trève de plaisanteries, voici une implémentation plus lisible (en Rust du coup) :
 ```rust
 fn divide(a: i32, b: i32) -> Option<i32> {
   if b == 0 {
@@ -127,3 +127,5 @@ On peut ensuite tester sa valeur avec un `match`, comme vu préalablement.
 ### Conclusion
 Les exceptions sont utiles pour gérer certains cas, tels que l'appel d'une méthode sur une instance nulle par exemple.
 Néanmoins, leur utilisation à outrance est souvent la source de longues heures de debugging pour débusquer la source d'une exception provenant des tréfonds de l'application.
+
+Fort heureusement, beaucoup de langages exposent des mécanismes proposant (ou imposant !) un circuit plus court entre l'apparition d'une erreur et son traitement. De prime abord, cela nous rajoute du boulot (car on *doit*) gérer l'erreur, mais en définitive nous épargne du temps de debug ! Ce faisant, on peut le mettre à profit de manière plus productive !
