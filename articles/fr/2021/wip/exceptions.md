@@ -97,11 +97,12 @@ let some_int: Option<i32> = Some(42);
 let none_int: Option<i32> = None;
 
 match some_int {
-  Some(x) => // on peut utiliser la valeur x !
-  None    => // la boite est vide :(
+  Some(x) => println!("x vaut {}", x),
+  None    => println!("rien :("),
 }
 ```
-La fonction `divide` abordée au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception :
+La fonction `divide` abordée au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception !
+
 Implémentation en OCaml (pour changer de Rust) :
 ```ml
 let divide a = function
