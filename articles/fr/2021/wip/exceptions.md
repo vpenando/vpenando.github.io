@@ -36,6 +36,7 @@ Car rien ne nous oblige à "catcher" une exception ; c'est là une des failles d
 ### Les problèmes posés par les exceptions
 Le problème d'une exception, c'est que si l'on ne la "catche" pas, elle peut soit faire crasher le programme,
 soit se retrouver dans un `try`/`catch` d'une couche supérieure où elle n'a plus aucun sens.
+
 À titre personnel, je rencontre régulièrement des exceptions provenant de couches logicielles bien plus basses que le code où je me trouve (notamment avec des bibliothèques tierces).
 Ainsi, il faut aller fouiller dans le code source (quand il est disponible) pour comprendre le problème d'origine.
 
@@ -79,9 +80,9 @@ match result {
   Err(error)  => // on fait quelque chose de l'erreur
 }
 ```
-Là encore, le type `Result` implique que nous *devons* traiter le cas immédiatement.
+***Note -** La structure `match` est un peu comme un `switch`/`case` ([mais en mieux](https://doc.rust-lang.org/book/ch18-03-pattern-syntax.html)).*
 
-***Note -** Cela n'est pas tout à fait vrai en Rust à cause de [l'opérateur `?`](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html). Celui-ci doit toutefois être employé à bon escient !*
+Là encore, le type `Result` implique que nous *devons* traiter le cas immédiatement.
 
 Le type `Option` a un comportement relativement proche. Il propose deux variants, `Some` et `None` pour matérialiser la présence ou l'absence de valeur. Voyez-le comme une boite : vous devez d'abord l'ouvrir pour voir ce qu'il y a dedans ! Le type `Option` est similaire :
 ```rust
@@ -93,4 +94,20 @@ match some_int {
   None    => // la boite est vide :(
 }
 ```
-
+La fonction `divide` abordée au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception :
+Implémentation en OCaml (pour changer de Rust) :
+```ml
+let divide a = function
+  | 0 -> None
+  | b -> Some(a/b)
+```
+Clair comme de l'eau de roche, non ? Bon, trève de plaisanteries, voici une implémentation plus lisible (en Rust du coup) :
+```rust
+fn divide(a: i32, b: i32) -> Option<i32> {
+  if b == 0 {
+    return None;
+  }
+  Some(a/b)
+}
+```
+On peut ensuite tester sa valeur avec un `match`, comme vu préalablement.
