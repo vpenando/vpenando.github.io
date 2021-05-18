@@ -103,7 +103,7 @@ match some_int {
   None    => println!("rien :("),
 }
 ```
-La fonction `divide` abordée au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception !
+Une fonction `divide`, telle que l'exemple au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception !
 
 Implémentation en OCaml (pour changer de Rust) :
 ```ml
