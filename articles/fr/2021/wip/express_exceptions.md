@@ -23,7 +23,7 @@ Cela implique que le code appelant devrait théoriquement être proche de :
 ```cs
 try {
     // ...
-    int result = divide(a, b);
+    int result = Divide(a, b);
     // ...
 } catch (Exception e) {
     // gestion de l'erreur
