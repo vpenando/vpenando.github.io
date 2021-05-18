@@ -58,17 +58,25 @@ En Go, nous avons le type `error`. Combiné à la possibilité de retourner plus
 - Cela nous incite à traiter l'erreur *immédiatement*, car c'est notre *seule* opportunité pour le faire : elle ne remontera pas la call stack !
 Exemple :
 ```go
-func WriteToFile(path string, content string) error {
+func ReadFromFile(path string) (string, error) {
     // l'implémentation ne nous intéresse pas ici
 }
 
 // et à l'usage :
-err := WriteToFile("output.txt", "Salut à toi qui liras ce fichier !")
+content, err := ReadFromFile("input.txt")
 if err != nil {
     // gestion de l'erreur...
 }
 ```
-
+Dans d'autres langages (je pense notamment aux langages fonctionnels), il existe les types `Result` et `Option` (ou `Maybe`, son équivalent en Haskell, Elm, ...).
+Ainsi, si l'on voulait réécrire notre lecture de fichier en Rust (par exemple), cela pourrait être proche de :
+```rust
+let result = read_from_file("input.txt");
+match result {
+  Ok(content) => // on fait quelque chose du contenu
+  Err(error)  => // on fait quelque chose de l'erreur
+}
+```
 - `error` en Go
 - `Result` en OCaml, Rust, Haskell, Elm...
 
