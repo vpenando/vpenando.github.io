@@ -56,7 +56,7 @@ Sans pour autant revenir aux code d'erreurs utilisés en C, il existe d'autres s
 En Go, nous avons le type `error`. Combiné à la possibilité de retourner plusieurs valeurs, il apporte plusieurs avantages :
 - Si une fonction renvoie une `error`, alors on *sait* qu'elle est susceptible d'échouer : il n'y a alors aucun doute possible ;
 - Cela nous incite à traiter l'erreur *immédiatement*, car c'est notre *seule* opportunité pour le faire : elle ne remontera pas la call stack !
-Exemple :
+
 ```go
 func ReadFromFile(path string) (string, error) {
     // l'implémentation ne nous intéresse pas ici
@@ -69,7 +69,9 @@ if err != nil {
 }
 ```
 Dans d'autres langages (je pense notamment aux langages fonctionnels), il existe les types `Result` et `Option` (ou `Maybe`, son équivalent en Haskell, Elm, ...).
-Ainsi, si l'on voulait réécrire notre lecture de fichier en Rust (par exemple), cela pourrait être proche de :
+Le type `Result` expose deux variants, `Ok` et `Err`, pour gérer les différents cas possibles.
+
+Si l'on voulait réécrire notre lecture de fichier en Rust (par exemple), cela pourrait être proche de :
 ```rust
 let result = read_from_file("input.txt");
 match result {
@@ -77,10 +79,18 @@ match result {
   Err(error)  => // on fait quelque chose de l'erreur
 }
 ```
-- `error` en Go
-- `Result` en OCaml, Rust, Haskell, Elm...
+Là encore, le type `Result` implique que nous *devons* traiter le cas immédiatement.
 
-- lourd (try/catch/finally)
-- solution par défaut pour tout et n'importe quoi
-- aucune sûreté
+***Note -** Cela n'est pas tout à fait vrai en Rust à cause de [l'opérateur `?`](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html). Celui-ci doit toutefois être employé à bon escient !*
+
+Le type `Option` a un comportement relativement proche. Il propose deux variants, `Some` et `None` pour matérialiser la présence ou l'absence de valeur. Voyez-le comme une boite : vous devez d'abord l'ouvrir pour voir ce qu'il y a dedans ! Le type `Option` est similaire :
+```rust
+let some_int: Option<i32> = Some(42);
+let none_int: Option<i32> = None;
+
+match some_int {
+  Some(x) => // on peut utiliser la valeur x !
+  None    => // la boite est vide :(
+}
+```
 
