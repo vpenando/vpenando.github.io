@@ -21,9 +21,10 @@ int divide(int a, int b) {
 ```
 Cela implique que le code appelant devrait théoriquement être proche de :
 ```cs
-// ...
 try {
+    // ...
     int result = divide(a, b);
+    // ...
 } catch (Exception e) {
     // gestion de l'erreur
 }
