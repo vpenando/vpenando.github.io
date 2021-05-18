@@ -9,10 +9,10 @@
 
 ### Introduction
 
-Dans la plupart des langages courants, il existe la notion d'exception. Il s'agit d'un mécanisme destiné à "gérer" les cas inattendus, comme par exemple :
+Dans la plupart des langages courants, il existe la notion d'exception. Il s'agit d'un mécanisme destiné à "gérer" les cas inattendus, comme par exemple en C# :
 ```cs
 // simple fonction visant à diviser deux nombres
-int divide(int a, int b) {
+int Divide(int a, int b) {
     if (b == 0) {
         throw new DivideByZeroException();
     }
