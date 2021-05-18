@@ -129,3 +129,5 @@ Les exceptions sont utiles pour gérer certains cas inattendus, tels que l'appel
 Néanmoins, leur utilisation à outrance est souvent la source de longues heures de debugging pour débusquer la source d'une exception provenant des tréfonds de l'application.
 
 Fort heureusement, beaucoup de langages exposent des mécanismes proposant (ou imposant !) un circuit plus court entre l'apparition d'une erreur et son traitement. De prime abord, cela nous rajoute du boulot (car on *doit* gérer l'erreur), mais en définitive nous épargne du temps de debug ! Ce faisant, on peut le mettre à profit de manière plus productive !
+
+Je suis conscient qu'en réalité, c'est bien plus complexe que cela. En entreprise, les développeurs sont contraints de respecter des deadlines afin de livrer dans les temps, parfois (souvent ?) au détriment de la qualité. Dans un monde idéal, il incomberait aux décideurs de donner davantage de temps en amont afin d'en économiser. Oui, ça paraît contre-intuitif dit comme ça, mais ça ne l'est pas tant que ça, car un produit correctement conçu fera l'objet de gains de temps considérables en debug !
