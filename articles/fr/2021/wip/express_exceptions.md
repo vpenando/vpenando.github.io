@@ -19,7 +19,8 @@ int Divide(int a, int b) {
     return a / b;
 }
 ```
-Cela implique que le code appelant devrait théoriquement être proche de :
+L'usage d'une exception se fait de manière claire, et son type (ici `DivideByZeroException`) est souvent suffisamment expressif pour avoir une idée du problème sous-jacent.
+Toutefois, cela implique que le code appelant devrait théoriquement être proche de :
 ```cs
 try {
     // ...
