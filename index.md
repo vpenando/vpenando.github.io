@@ -4,7 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
-- `2021/05/19`: [(FR) EXPRESS #4 - Les exceptions, vraiment la meilleure solution ?](articles/fr/2021/express_exceptions.md) - `c#` `good-practices`
+- `2021/05/19`: [(FR) EXPRESS #4 - Les exceptions, vraiment la meilleure solution ?](articles/fr/2021/express_exceptions.md) - `good-practices`
 - `2021/04/30`: [(FR) À la découverte du langage Elm !](articles/fr/2021/elm.md) - `elm` `functional-programming`
 - `2021/04/13`: [(FR) Introduction à Rust](articles/fr/2021/rust.md) - `rust`
 - `2021/02/09`: [(FR) Retour d'expérience sur Go](articles/fr/2021/go.md) - `go` `golang`
