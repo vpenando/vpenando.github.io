@@ -25,7 +25,7 @@ Dans le cadre de ce petit exercice, voici le code que nous allons compiler :
 ```c
 // pass.c
 
-#include <string.h>  // memcpy, strcmp
+#include <string.h>  // strcmp
 #include <stdio.h>   // printf, scanf
 
 #define INPUT_SIZE 50
