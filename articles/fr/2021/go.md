@@ -5,7 +5,7 @@
 ---
 
 ### Introduction
-Après quelques années de pratique sur Go, et quasi quotidiennement ces derniers mois, je souhaiterais faire un petit retour d'expérience sur Go ;
+Après quelques années de pratique, et quasi quotidiennement ces derniers mois, je souhaiterais faire un petit retour d'expérience sur Go ;
 aborder ses points forts, ses points faibles, et dresser un modeste bilan sur mon utilisation de ce langage.
 Nous n'entrerons pas dans les détails de chacun des différents points, aussi n'hésitez pas à mener vos propres recherches si vous souhaitez approfondir vos connaissances sur l'un (ou plusieurs !) des différents sujets abordés.
 
