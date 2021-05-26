@@ -43,6 +43,8 @@ C'est une perte de temps sans intérêt due au fait que l'on emploie des excepti
 ```cs
 var result = "Hello, world!".Replace("", "foo");
 ```
+***Note -** L'exemple de `string.Replace` a été trouvé en fouillant dans la doc pendant, environ... une minute. Il y a donc très probablement bien d'autres cas, mais celui-ci est à la fois évocateur et simple.*
+
 Ce code lèvera une `ArgumentException` alors qu'il pourrait juste... ne rien faire.
 Cela induit que l'on *doit* prévoir *le* cas où la chaîne de caractères est vide ; ainsi, si elle provient d'un fichier, d'une entrée utilisateur ou autre, il *faut* préalablement prévoir *ce cas précis* pour ne pas lever d'exception. Alors que, je le rappelle, l'appel à `Replace` pourrait juste ne *rien* faire si la chaîne est vide ou nulle. C'est là l'un des nombreux cas d'usage excessif d'une exception.
 
