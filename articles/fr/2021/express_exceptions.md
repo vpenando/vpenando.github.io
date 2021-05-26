@@ -43,10 +43,10 @@ C'est une perte de temps sans intérêt due au fait que l'on emploie des excepti
 ```cs
 var result = "Hello, world!".Replace("", "foo");
 ```
-***Note -** L'exemple de `string.Replace` a été trouvé en fouillant dans la doc pendant, environ... une minute. Il y a donc très probablement bien d'autres cas, mais celui-ci est à la fois évocateur et simple.*
-
 Ce code lèvera une `ArgumentException` alors qu'il pourrait juste... ne rien faire.
 Cela induit que l'on *doit* prévoir *le* cas où la chaîne de caractères est vide ; ainsi, si elle provient d'un fichier, d'une entrée utilisateur ou autre, il *faut* préalablement prévoir *ce cas précis* pour ne pas lever d'exception. Alors que, je le rappelle, l'appel à `Replace` pourrait juste ne *rien* faire si la chaîne est vide ou nulle. C'est là l'un des nombreux cas d'usage excessif d'une exception.
+
+***Note -** L'exemple de `string.Replace` a été trouvé en fouillant dans la doc pendant, environ... une minute. Il y a donc très probablement bien d'autres cas, mais celui-ci est à la fois évocateur et simple.*
 
 Par ailleurs, lever une exception nécessite d'en faire quelque chose par la suite. Pour ce faire, on utilise un bloc `try`/`catch` qui, en plus d'être syntaxiquement lourd, est... facultatif. Ainsi, si l'on ne sait pas qu'une portion de code peut lever une exception (un appel à `string.Replace` par exemple ?), alors on s'expose à voir notre petite exception remonter sagement toutes les couches d'appels de notre code jusqu'à être rattrapée (ou pas !).
 Et s'il s'agit d'une bibliothèque tierce dont le code est fermé... amusez-vous bien.
