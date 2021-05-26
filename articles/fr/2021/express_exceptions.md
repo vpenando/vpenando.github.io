@@ -10,7 +10,7 @@
 ### Avant-propos
 
 Je sais d'avance que je m'aventure sur un terrain glissant en écrivant cet article.
-Etant conscient que beaucoup de développeurs n'aiment pas voir leurs langages préférés ou leurs habitudes critiqués, je m'attends à ce que beaucoup soient en désaccord partiel avec cet article.
+Etant conscient que beaucoup de développeurs n'aiment pas voir leurs langages préférés critiqués ou leurs habitudes bousculées, je m'attends à ce que beaucoup soient en désaccord partiel avec cet article.
 
 Par ailleurs, ce dernier n'expose en rien une vérité absolue, mais plutôt un avis personnel et purement individuel.
 
