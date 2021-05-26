@@ -7,6 +7,17 @@
 
 ---
 
+### Avant-propos
+
+Je sais d'avance que je m'aventure sur un terrain glissant en écrivant cet article.
+Etant conscient que beaucoup de développeurs n'aiment pas voir leurs langages préférés ou leurs habitudes critiqués, je m'attends à ce que beaucoup soient en désaccord partiel avec cet article.
+
+Par ailleurs, ce dernier n'expose en rien une vérité absolue, mais plutôt un avis personnel et purement individuel.
+
+Enfin, à tous les défenseurs de C# (que je vais prendre comme "mauvais" exemple) : soyez ouverts ! Je suis moi-même développeur C# de métier, cela ne me dispense pas d'avoir un avis critique sur ce langage !
+
+---
+
 ### Introduction
 
 Dans la plupart des langages courants, il existe la notion d'exception. Il s'agit d'un mécanisme destiné à "gérer" les cas inattendus, comme par exemple en C# :
@@ -50,6 +61,8 @@ Cela induit que l'on *doit* prévoir *le* cas où la chaîne de caractères est 
 
 Par ailleurs, lever une exception nécessite d'en faire quelque chose par la suite. Pour ce faire, on utilise un bloc `try`/`catch` qui, en plus d'être syntaxiquement lourd, est... facultatif. Ainsi, si l'on ne sait pas qu'une portion de code peut lever une exception (un appel à `string.Replace` par exemple ?), alors on s'expose à voir notre petite exception remonter sagement toutes les couches d'appels de notre code jusqu'à être rattrapée (ou pas !).
 Et s'il s'agit d'une bibliothèque tierce dont le code est fermé... amusez-vous bien.
+
+Car un autre des soucis d'une exception est qu'elle peut survenir *n'importe quand* : toute fonction ou méthode (selon le langage) peut théoriquement lever une exception. Or, pour des questions évidentes de debugging, il semble déjà plus intéressant de jouer sur la valeur de retour.
 
 Sans pour autant revenir aux code d'erreurs utilisés en C, il existe d'autres solutions, à mon sens bien plus appropriées, à la gestion des cas inattendus.
 
