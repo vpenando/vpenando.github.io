@@ -14,7 +14,7 @@ Etant conscient que beaucoup de développeurs n'aiment pas voir leurs langages p
 
 Par ailleurs, ce dernier n'expose en rien une vérité absolue, mais plutôt un avis personnel et purement individuel.
 
-Enfin, à tous les défenseurs de C# (que je vais prendre comme "mauvais" exemple) : soyez ouverts ! Je suis moi-même développeur C# de métier, cela ne me dispense pas d'avoir un avis critique sur ce langage !
+Enfin, à tous les amateurs de C# (que je vais prendre comme "mauvais" exemple) : soyez ouverts ! Je suis moi-même développeur C# de métier, cela ne me dispense pas d'avoir un avis critique sur ce langage !
 
 ---
 
