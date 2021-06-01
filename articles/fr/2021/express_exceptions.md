@@ -41,8 +41,7 @@ try {
     // gestion de l'erreur
 }
 ```
-Ainsi, si une erreur survient, nous sommes capables de l'écrire quelque part (un fichier de log, par exemple), d'utiliser une valeur par défaut, ou encore... de ne rien faire.
-C'est la philosophie du "on verra plus tard". Car en effet, rien ne nous oblige à "catcher" une exception ; c'est là une des failles du système.
+Ainsi, si une erreur survient, nous sommes capables de l'écrire quelque part (un fichier de log, par exemple), d'utiliser une valeur par défaut, ou encore... de ne rien faire (vous savez, le fameux "bof, on verra plus tard" :D). Car en effet, rien ne nous oblige à "catcher" une exception ; c'est là une des failles du système.
 
 ---
 
