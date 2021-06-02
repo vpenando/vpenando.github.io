@@ -51,24 +51,55 @@ Les intérêts du SRP sont multiples :
 Pour illustrer un non-respect du SRP, voici un exemple de **mauvais** code :
 ```cs
 // ATTENTION : Cet exemple est réalisé par un professionnel.
-// Ne tentez pas de le reproduire chez vous, et laissez-le hors de la portée des enfants.
+// Ne tentez pas de le reproduire chez vous, et laissez-le hors de portée des enfants.
 
-class HttpManager { // "XXXManager" -> NON !!!
-    public HttpResponse Get(string url) {
+class Serializer { // Le nom n'en dit pas assez !
+    JsonContent ToJson<T>(T value) {     // 1ère responsabilité
         // ...
     }
     
-    public HttpResponse Post(string url, HttpBody body) {
+    T FromJson<T>(JsonContent content) { // 2ème responsabilité
         // ...
     }
     
-    // Pareil pour PUT, DELETE et compagnie...
+    XmlContent ToXml<T>(T value) {       // 3ème responsabilité 
+        // ...
+    }
     
-    // Et là, c'est le drame :
-    public void Listen(short port) { // Non, non et NON !!!
+    T FromXml<T>(XmlContent content) {   // 4ème responsabilité !?
         // ...
     }
 }
+```
+Dans cet exemple, `Serializer` endosse au moins trois responsabilités de trop.
+En effet, tel qu'il est écrit ici, il peut :
+* Transformer un objet en JSON ;
+* Transformer du JSON en un objet ;
+* Transformer un objet en XML ;
+* Transformer du XML en un objet.
+
+De plus, l'aspect générique n'arrange vraiment pas les choses.
+Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes sûrs de ne pas respecter le SRP.
+
+> Mais dis donc Jamy ! Est-ce que c'est pas plus pratique comme ça ?
+
+Avoir un seul objet pour faire plein de trucs, c'est super pratique ! Sauf pour la maintenance, les tests, la relecture...
+
+La solution ici est évidente : créer quatre entités distinctes :
+```cs
+class JsonSerializer<T> {
+    JsonContent ToJson(T value) {
+        // ...
+    }
+}
+
+class JsonDeserializer<T> {
+    T FromJson(JsonContent content) {
+        // ...
+    }
+}
+
+// Etc
 ```
 
 ---
