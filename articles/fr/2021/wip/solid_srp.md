@@ -108,7 +108,17 @@ class JsonDeserializer<T> {
     }
 }
 
-// Etc
+class XmlSerializer<T> {
+    XmlContent ToJson(T value) {
+        // ...
+    }
+}
+
+class XmlDeserializer<T> {
+    T FromXml(XmlContent content) {
+        // ...
+    }
+}
 ```
 Dans l'idéal, il peut même faire sens d'avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
