@@ -31,4 +31,8 @@ Au cours de cet article, nous présenterons le premier de ces principes, à savo
 
 ---
 
-### 
+### La théorie
+
+En théorie, le SRP pourrait être énoncé ainsi :
+> Toute entité *-qu'il s'agisse d'une classe, d'une fonction, ...-* doit avoir **une et une seule** responsabilité. Elle doit rendre **un** service, et **bien** le rendre.
+
