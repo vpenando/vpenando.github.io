@@ -39,13 +39,10 @@ En théorie, le SRP pourrait être énoncé ainsi :
 Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
 
 Les intérêts du SRP sont multiples :
-* Réduction de la complexité du code ;
-* Meilleure lisibilité des différentes entités ;
-* Meilleure réutilisation d'une même entité ;
-* Meilleure testabilité ;
-* Moins de dépendances.
-
-**TODO** - Détailler
+* Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture la sera tout autant ;
+* Meilleure réutilisation d'une même entité : on n'embarque que ce dont on a réellement besoin, sans fonctionnalités non désirées ;
+* Meilleure testabilité : on peut se concentrer à tester les différents cas d'*une* fonctionnalité ;
+* Moins de dépendances : une entité ne dépendra que du strict nécessaire.
 
 --- 
 
