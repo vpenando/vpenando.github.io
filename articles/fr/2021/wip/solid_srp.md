@@ -14,18 +14,18 @@ Bon, pour être plus précis, il s'agit de cinq grands principes à respecter en
 Ils ne garantissent à eux seuls absolument pas une architecture exemplaire, mais offrent de bonnes bases pour concevoir quelque chose de viable.
 
 Ces fameux principes sont les suivants :
-* SRP (**S**ingle **R**esponsibility **P**rinciple) ;
-* OCP (**O**pen/**C**losed **P**rinciple) ;
-* LSP (**L**iskov **S**ubstitution **P**rinciple) ;
-* ISP (**I**nterface **S**egregation **P**rinciple) ;
-* DIP (**D**ependency **I**nversion **P**rinciple).
+* Le SRP (**S**ingle **R**esponsibility **P**rinciple) ;
+* Le OCP (**O**pen/**C**losed **P**rinciple) ;
+* Le LSP (**L**iskov **S**ubstitution **P**rinciple) ;
+* Le ISP (**I**nterface **S**egregation **P**rinciple) ;
+* Le DIP (**D**ependency **I**nversion **P**rinciple).
 
 Soit, dans la langue de Kev Adams :
-* Principe de responsabilité unique ;
-* Principe ouvert/fermé ;
-* Principe de substitution de Liskov ;
-* Principe de ségrégation des interfaces ;
-* Principe d'investion de dépendances.
+* Le principe de responsabilité unique ;
+* Le principe ouvert/fermé ;
+* Le principe de substitution de Liskov ;
+* Le principe de ségrégation des interfaces ;
+* Le principe d'inversion de dépendances.
 
 Au cours de cet article, nous présenterons le premier de ces principes, à savoir le principe de responsabilité unique.
 Pour les différents exemples, j'emploierai le langage C#.
