@@ -85,9 +85,10 @@ Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes s�
 
 > Mais dis donc Jamy ! Est-ce que c'est pas plus pratique comme ça ?
 
-Avoir un seul objet pour faire plein de trucs, c'est super pratique ! Sauf pour la maintenance, les tests, la relecture...
+Avoir un seul objet pour faire plein de trucs, c'est super pratique !
+Enfin, en apparence, car pour la maintenance, les tests, la relecture... Les choses se compliquent.
 
-La solution ici est évidente : créer quatre entités distinctes :
+Pour un cas aussi simple, la solution est évidente : il suffit de créer quatre entités distinctes.
 ```cs
 class JsonSerializer<T> {
     JsonContent ToJson(T value) {
