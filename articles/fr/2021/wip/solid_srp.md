@@ -100,7 +100,7 @@ Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes s�
 > Mais dis donc Jamy ! Est-ce que c'est pas plus pratique comme ça ?
 
 Avoir un seul objet pour faire plein de trucs, c'est super pratique !
-Enfin, en apparence, car pour la maintenance, les tests, la relecture... Les choses se compliquent.
+Enfin, en apparence, car pour la maintenance, les tests, la relecture... Les choses se compliquent très rapidement.
 
 Pour un cas aussi simple, la solution est évidente : il suffit de créer quatre entités distinctes.
 ```cs
@@ -131,9 +131,16 @@ class XmlDeserializer<T> {
 Dans l'idéal, il peut même faire sens d'avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
+Il fait néanmoins sens de parfois volontairement aller à l'encontre du SRP.
+Par exemple, pour le cas d'un serveur HTTP, il fait tout à fait sens d'avoir des logs afin de retracer l'historique d'un éventuel crash.
+Ainsi, le serveur endossera une responsabilité implicite, mais cruciale.
+
 ---
 
 ### En résumé
-* Eviter les classes type `XXXManager`
-* Penser service
-* Définir clairement **la** responsabilité d'une entité
+
+Voici quelques astuces afin de tenter de respecter au mieux le SRP :
+* Définir clairement **la** responsabilité d'une entité ;
+* Eviter les classes type `XXXManager`, un nom trop flou montre notre entité est probablement mal découpée ;
+
+
