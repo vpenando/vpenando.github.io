@@ -26,3 +26,9 @@ Soit, dans la langue de Kev Adams :
 * Principe de substitution de Liskov ;
 * Principe de ségrégation des interfaces ;
 * Principe d'investion de dépendances.
+
+Au cours de cet article, nous présenterons le premier de ces principes, à savoir le principe de responsabilité unique.
+
+---
+
+### 
