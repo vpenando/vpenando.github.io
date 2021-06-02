@@ -35,7 +35,7 @@ Pour les différents exemples, j'emploierai le langage C#.
 ### La théorie
 
 En théorie, le SRP pourrait être énoncé ainsi :
-> Toute entité *-qu'il s'agisse d'une classe, d'une fonction, ...-* doit avoir **une et une seule** responsabilité. Elle doit rendre **un** service, et **bien** le rendre.
+> Toute entité *-qu'il s'agisse d'une classe, d'une fonction, ...-* doit avoir **une et une seule** responsabilité, c'est à dire qu'elle doit rendre **un** service, et **bien** le rendre.
 
 Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
 
@@ -44,6 +44,9 @@ Les intérêts du SRP sont multiples :
 * Meilleure réutilisation d'une même entité : on n'embarque que ce dont on a réellement besoin, sans fonctionnalités non désirées ;
 * Meilleure testabilité : on peut se concentrer à tester les différents cas d'*une* fonctionnalité ;
 * Moins de dépendances : une entité ne dépendra que du strict nécessaire.
+
+En somme, cela permet d'éviter complexifier le code à tel point qu'il devienne pratiquement impossible à maintenir.
+J'ai eu à travailler sur un projet de ce type par le passé, et modifier ou ajouter une fonctionnalité était si lourd qu'il me fallait environ trois fois le temps estimé pour le faire.
 
 --- 
 
