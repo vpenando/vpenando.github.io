@@ -46,7 +46,7 @@ Les intérêts du SRP sont multiples :
 * Moins de dépendances : une entité ne dépendra que du strict nécessaire.
 
 En somme, cela permet d'éviter complexifier le code à tel point qu'il devienne pratiquement impossible à maintenir.
-J'ai eu à travailler sur un projet de ce type par le passé, et modifier ou ajouter une fonctionnalité était si lourd qu'il me fallait environ trois fois le temps estimé pour le faire.
+J'ai eu à travailler sur un projet de ce type par le passé, et modifier ou ajouter une fonctionnalité était si lourd qu'il me fallait environ trois fois le temps estimé pour le faire. Chaque fonction faisait entre 50 et 500 lignes, et il fallait parfois les scinder en de nombreuses sous-fonctions pour n'extraire que ce dont j'avais besoin ; cela ajoutait une tâche de refactoring monstrueuse à *chaque fois* que l'on devait toucher à ce projet.
 
 --- 
 
