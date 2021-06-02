@@ -78,7 +78,8 @@ En effet, tel qu'il est écrit ici, il peut :
 * Transformer un objet en XML ;
 * Transformer du XML en un objet.
 
-De plus, l'aspect générique n'arrange vraiment pas les choses.
+De plus, l'aspect générique n'arrange vraiment pas les choses, car il induit qu'une seule instance peut (dé)sérialiser plusieurs objets de plusieurs types différents !
+
 Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes sûrs de ne pas respecter le SRP.
 
 > Mais dis donc Jamy ! Est-ce que c'est pas plus pratique comme ça ?
@@ -101,7 +102,8 @@ class JsonDeserializer<T> {
 
 // Etc
 ```
-Dans l'idéal, il fait même sens d'avoir une fonction libre (càd qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
+Dans l'idéal, il fait même sens d'avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
+Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
 ---
 
