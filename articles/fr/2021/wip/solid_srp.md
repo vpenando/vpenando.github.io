@@ -54,7 +54,7 @@ Pour illustrer un non-respect du SRP, voici un exemple de **mauvais** code :
 // ATTENTION : Cet exemple est réalisé par un professionnel.
 // Ne tentez pas de le reproduire chez vous, et laissez-le hors de portée des enfants.
 
-class Serializer { // Le nom n'en dit pas assez !
+class Serializer { // Un indice : le nom n'en dit pas assez !
     JsonContent ToJson<T>(T value) {     // 1ère responsabilité
         // ...
     }
