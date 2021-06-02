@@ -58,22 +58,22 @@ Pour illustrer un non-respect du SRP, voici un exemple de **mauvais** code :
 class Serializer {
 
     // 1ère responsabilité
-    JsonContent ToJson<T>(T value) {
+    public JsonContent ToJson<T>(T value) {
         // ...
     }
     
     // 2ème responsabilité
-    T FromJson<T>(JsonContent content) {
+    public T FromJson<T>(JsonContent content) {
         // ...
     }
     
     // 3ème responsabilité 
-    XmlContent ToXml<T>(T value) {
+    public XmlContent ToXml<T>(T value) {
         // ...
     }
     
     // 4ème responsabilité !?
-    T FromXml<T>(XmlContent content) {
+    public T FromXml<T>(XmlContent content) {
         // ...
     }
 }
@@ -86,6 +86,14 @@ En effet, tel qu'il est écrit ici, il peut :
 * Transformer du XML en un objet.
 
 De plus, l'aspect générique n'arrange vraiment pas les choses, car il induit qu'une seule instance peut (dé)sérialiser plusieurs objets de plusieurs types différents !
+En effet, à l'usage, c'est vraiment la fête !
+```cs
+// Toujours à laisser hors de portée des enfants.
+
+var serializer = new Serializer();
+var json = serializer.ToJson<MonSuperType1>(maSuperInstance1);
+var maSuperInstance2 = serializer.FromXml<MonSuperType2>(monSuperXml);
+```
 
 Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes sûrs de ne pas respecter le SRP.
 
@@ -97,25 +105,25 @@ Enfin, en apparence, car pour la maintenance, les tests, la relecture... Les cho
 Pour un cas aussi simple, la solution est évidente : il suffit de créer quatre entités distinctes.
 ```cs
 class JsonSerializer<T> {
-    JsonContent ToJson(T value) {
+    public JsonContent ToJson(T value) {
         // ...
     }
 }
 
 class JsonDeserializer<T> {
-    T FromJson(JsonContent content) {
+    public T FromJson(JsonContent content) {
         // ...
     }
 }
 
 class XmlSerializer<T> {
-    XmlContent ToJson(T value) {
+    public XmlContent ToJson(T value) {
         // ...
     }
 }
 
 class XmlDeserializer<T> {
-    T FromXml(XmlContent content) {
+    public T FromXml(XmlContent content) {
         // ...
     }
 }
