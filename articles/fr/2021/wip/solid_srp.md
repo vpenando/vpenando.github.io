@@ -28,6 +28,7 @@ Soit, dans la langue de Kev Adams :
 * Principe d'investion de dépendances.
 
 Au cours de cet article, nous présenterons le premier de ces principes, à savoir le principe de responsabilité unique.
+Pour les différents exemples, j'emploierai le langage C#.
 
 ---
 
