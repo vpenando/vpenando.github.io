@@ -101,6 +101,7 @@ class JsonDeserializer<T> {
 
 // Etc
 ```
+Dans l'idéal, il fait même sens d'avoir une fonction libre (càd qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
 
 ---
 
