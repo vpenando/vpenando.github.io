@@ -55,19 +55,24 @@ Pour illustrer un non-respect du SRP, voici un exemple de **mauvais** code :
 // Ne tentez pas de le reproduire chez vous, et laissez-le hors de portée des enfants.
 
 class Serializer { // Un indice : le nom n'en dit pas assez !
-    JsonContent ToJson<T>(T value) {     // 1ère responsabilité
+
+    // 1ère responsabilité
+    JsonContent ToJson<T>(T value) {
         // ...
     }
     
-    T FromJson<T>(JsonContent content) { // 2ème responsabilité
+    // 2ème responsabilité
+    T FromJson<T>(JsonContent content) {
         // ...
     }
     
-    XmlContent ToXml<T>(T value) {       // 3ème responsabilité 
+    // 3ème responsabilité 
+    XmlContent ToXml<T>(T value) {
         // ...
     }
     
-    T FromXml<T>(XmlContent content) {   // 4ème responsabilité !?
+    // 4ème responsabilité !?
+    T FromXml<T>(XmlContent content) {
         // ...
     }
 }
