@@ -117,7 +117,7 @@ class JsonDeserializer<T> {
 }
 
 class XmlSerializer<T> {
-    public XmlContent ToJson(T value) {
+    public XmlContent ToXml(T value) {
         // ...
     }
 }
