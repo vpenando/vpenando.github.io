@@ -36,3 +36,47 @@ Au cours de cet article, nous présenterons le premier de ces principes, à savo
 En théorie, le SRP pourrait être énoncé ainsi :
 > Toute entité *-qu'il s'agisse d'une classe, d'une fonction, ...-* doit avoir **une et une seule** responsabilité. Elle doit rendre **un** service, et **bien** le rendre.
 
+Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
+
+Les intérêts du SRP sont multiples :
+* Réduction de la complexité du code ;
+* Meilleure lisibilité des différentes entités ;
+* Meilleure réutilisation d'une même entité ;
+* Meilleure testabilité ;
+* Moins de dépendances.
+
+**TODO** - Détailler
+
+--- 
+
+### Application
+
+Pour illustrer un non-respect du SRP, voici un exemple de **mauvais** code :
+```cs
+// ATTENTION : Cet exemple est réalisé par un professionnel.
+// Ne tentez pas de le reproduire chez vous, et laissez-le hors de la portée des enfants.
+
+class HttpManager { // "XXXManager" -> NON !!!
+    public HttpResponse Get(string url) {
+        // ...
+    }
+    
+    public HttpResponse Post(string url, HttpBody body) {
+        // ...
+    }
+    
+    // Pareil pour PUT, DELETE et compagnie...
+    
+    // Et là, c'est le drame :
+    public void Listen(short port) { // Non, non et NON !!!
+        // ...
+    }
+}
+```
+
+---
+
+### En résumé
+* Eviter les classes type `XXXManager`
+* Penser service
+* Définir clairement **la** responsabilité d'une entité
