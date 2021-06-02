@@ -12,3 +12,17 @@ En effet, en plus d'être toujours ponctuel (hein, comment ça je mens mal ?), j
 Mais récapitulons : SOLID, ça veut dire quoi ? Il s'agit d'un acronyme désignant... d'autres acronymes.
 Bon, pour être plus précis, il s'agit de cinq grands principes à respecter en programmation, si l'on veut avoir un code qui soit un minimum lisible, maintenable et évolutif.
 Ils ne garantissent à eux seuls absolument pas une architecture exemplaire, mais offrent de bonnes bases pour concevoir quelque chose de viable.
+
+Ces fameux principes sont les suivants :
+* SRP (**S**ingle **R**esponsibility **P**rinciple) ;
+* OCP (**O**pen/**C**losed **P**rinciple) ;
+* LSP (**L**iskov **S**ubstitution **P**rinciple) ;
+* ISP (**I**nterface **S**egregation **P**rinciple) ;
+* DIP (**D**ependency **I**nversion **P**rinciple).
+
+Soit, dans la langue de Kev Adams :
+* Principe de responsabilité unique ;
+* Principe ouvert/fermé ;
+* Principe de substitution de Liskov ;
+* Principe de ségrégation des interfaces ;
+* Principe d'investion de dépendances.
