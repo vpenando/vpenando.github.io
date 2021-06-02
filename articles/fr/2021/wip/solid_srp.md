@@ -141,6 +141,7 @@ Ainsi, le serveur endossera une responsabilité implicite, mais cruciale.
 
 Voici quelques astuces afin de tenter de respecter au mieux le SRP :
 * Définir clairement **la** responsabilité d'une entité ;
-* Eviter les classes type `XXXManager`, un nom trop flou montre notre entité est probablement mal découpée ;
+* Eviter les classes type `XXXManager`, car un nom trop flou montre que notre entité est probablement mal découpée ;
+* Bien réfléchir à l'interface publique de chaque type : certaines méthodes n'ont peut-être pas à être exposées !
 
 
