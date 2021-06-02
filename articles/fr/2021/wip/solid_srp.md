@@ -102,7 +102,7 @@ class JsonDeserializer<T> {
 
 // Etc
 ```
-Dans l'idéal, il fait même sens d'avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
+Dans l'idéal, il peut même faire sens d'avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
 ---
