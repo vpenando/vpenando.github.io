@@ -35,7 +35,7 @@ Pour les différents exemples, j'emploierai le langage C#.
 ### La théorie
 
 En théorie, le SRP pourrait être énoncé ainsi :
-> Toute entité, classe ou fonction, doit avoir **une et une seule** responsabilité, c'est à dire qu'elle doit rendre **un** service, et **bien** le rendre.
+> Toute entité (classe ou fonction) doit avoir **une et une seule** responsabilité, c'est à dire qu'elle doit rendre **un** service, et **bien** le rendre.
 
 Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
 
