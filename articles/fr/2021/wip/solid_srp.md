@@ -38,6 +38,8 @@ En théorie, le SRP pourrait être énoncé ainsi :
 > Toute entité (classe ou fonction/méthode) doit avoir **une et une seule** responsabilité, c'est à dire qu'elle doit rendre **un** service, et **bien** le rendre.
 
 Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
+Une exception au SRP est le cas particulier des *namespaces* et des modules, qui peuvent simplement être vus comme des espaces de rangement.
+Ils n'ont aucune sémantique autre que d'organiser du code. À titre d'exemple, il fait tout à fait sens de ranger des classes `List` et `Array` dans un module `Collections`.
 
 Les intérêts du SRP sont multiples :
 * Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture la sera tout autant ;
