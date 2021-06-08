@@ -42,7 +42,7 @@ Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait 
 Les intérêts du SRP sont multiples :
 * Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture la sera tout autant ;
 * Meilleure réutilisation d'une même entité : on n'embarque que ce dont on a réellement besoin, sans fonctionnalités non désirées ;
-* Meilleure testabilité : on peut se concentrer à tester les différents cas d'*une* fonctionnalité ;
+* Meilleure testabilité : on peut se concentrer à tester les différents cas d'*une* fonctionnalité à la fois ;
 * Moins de dépendances : une entité ne dépendra que du strict nécessaire.
 
 En somme, cela permet d'éviter de complexifier le code à tel point qu'il devienne pratiquement impossible à maintenir.
