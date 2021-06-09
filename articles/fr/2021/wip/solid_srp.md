@@ -37,7 +37,7 @@ Pour les différents exemples, j'emploierai le langage C#.
 En théorie, le SRP pourrait être énoncé ainsi :
 > Toute entité (classe ou fonction/méthode) doit avoir **une et une seule** responsabilité, c'est à dire qu'elle doit rendre **un** service, et **bien** le rendre.
 
-Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP peut s'appliquer à d'autres paradigmes.
+Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP est notamment applicable à des fonctions, et peut donc s'adapter à d'autres paradigmes.
 Une exception au SRP est le cas particulier des *namespaces* et des modules, qui peuvent simplement être vus comme des espaces de rangement.
 Ils n'ont aucune sémantique autre que l'organisatio du code. À titre d'exemple, il fait tout à fait sens de ranger des classes `List` et `Array` dans un module `Collections`.
 
