@@ -135,7 +135,7 @@ class XmlDeserializer<T> {
     }
 }
 ```
-Dans l'idéal, avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) est tout à fait approprié afin d'alléger le code appelant d'une instanciation superflue.
+Dans l'idéal, avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) est également tout à fait approprié afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
 Il est parfois envisageable de volontairement aller à l'encontre du SRP.
