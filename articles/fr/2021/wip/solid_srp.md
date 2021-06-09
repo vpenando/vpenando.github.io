@@ -39,7 +39,7 @@ En théorie, le SRP pourrait être énoncé ainsi :
 
 Beaucoup de définitions s'arrêtent à l'application à la POO, mais ce serait un peu réducteur ; le SRP est notamment applicable à des fonctions, et peut donc s'adapter à d'autres paradigmes.
 Une exception au SRP est le cas particulier des *namespaces* et des modules, qui peuvent simplement être vus comme des espaces de rangement.
-Ils n'ont aucune sémantique autre que l'organisatio du code. À titre d'exemple, il fait tout à fait sens de ranger des classes `List` et `Array` dans un module `Collections`.
+Ils n'ont aucune sémantique autre que l'organisation du code. À titre d'exemple, il fait tout à fait sens de ranger des classes `List` et `Array` dans un module `Collections`.
 
 Les intérêts du SRP sont multiples :
 * Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture la sera tout autant ;
