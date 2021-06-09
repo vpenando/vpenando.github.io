@@ -96,8 +96,10 @@ En effet, à l'usage, c'est vraiment la fête !
 // Toujours à laisser hors de portée des enfants.
 
 var serializer = new Serializer();
-var json = serializer.ToJson<MonSuperType1>(maSuperInstance1);
+var json = serializer.ToJson(maSuperInstance1);
 var maSuperInstance2 = serializer.FromXml<MonSuperType2>(monSuperXml);
+// Poussons le délire jusqu'au bout :
+var jsonDepuisXml = serializer.ToJson(serializer.FromXml<MonSuperType2>(monSuperXml));
 ```
 
 Ajoutons à cela que son nom n'est pas suffisamment évocateur et nous sommes sûrs de ne pas respecter le SRP.
