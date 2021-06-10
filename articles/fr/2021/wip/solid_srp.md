@@ -153,6 +153,6 @@ Voici quelques astuces afin de tenter de respecter au mieux le SRP :
 
 J'insiste surtout sur les noms de classes se terminant par "Manager", "Handler" ou autre : généralement, on a tendance à appeler `MachinManager` une classe qui "fait plein de trucs".
 Et c'est bien souvent (pour ne pas dire systématiquement) signe que l'on part dans une mauvaise direction.
-De surcroît, il est sensé de penser que si vous avez du mal à nommer une entité, il est possible qu'elle soit simplement mal conçue, car ce qui se conçoit bien s'énonce clairement.
+De surcroît, il est sensé de penser que si vous avez du mal à nommer une entité, il est possible qu'elle soit simplement mal conçue, car ce qui se conçoit bien devrait théoriquement s'énoncer clairement.
 
 Toutefois, comme dans l'exemple du serveur HTTP mentionné plus haut, il n'est pas insensé d'assumer que l'on déroge au SRP si cela a un réel intérêt.
