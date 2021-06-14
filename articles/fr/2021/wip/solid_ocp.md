@@ -8,28 +8,28 @@
 
 ```go
 type Rectangle struct {
-  width  uint
-  height uint
+    width  uint
+    height uint
 }
 
 type Circle struct {
-  radius uint
+    radius uint
 }
 
 func area(shape interface{}) uint {
-  switch shape.(type) {
-  case Rectangle:
+    switch shape.(type) {
+    case Rectangle:
+        // ...
+    case Circle:
+        // ...
+    }
     // ...
-  case Circle:
-    // ...
-  }
-  // ...
 }
 ```
 
 ```go
 type Shape interface {
-  area() uint
+    area() uint
 }
 ```
 
