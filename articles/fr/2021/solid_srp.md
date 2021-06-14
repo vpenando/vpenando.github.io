@@ -10,7 +10,7 @@ Plusieurs mois se sont écoulés depuis que j'ai annoncé travailler sur une syn
 En effet, en plus d'être toujours ponctuel (hein, comment ça je mens mal ?), j'essaie avant tout de tenir parole.
 
 Mais récapitulons : SOLID, ça veut dire quoi ? Il s'agit d'un acronyme désignant... d'autres acronymes.
-Bon, pour être plus précis, il s'agit de cinq grands principes à théoriquement respecter en programmation, si l'on veut avoir un code qui soit un minimum lisible, maintenable et évolutif.
+Bon, pour être plus précis, il s'agit de cinq grands principes à respecter en programmation, si l'on veut avoir un code qui soit un minimum lisible, maintenable et évolutif.
 Ils ne garantissent à eux seuls absolument pas une architecture exemplaire, mais offrent de bonnes bases pour concevoir quelque chose de viable.
 
 Ces fameux principes sont les suivants :
@@ -135,13 +135,58 @@ class XmlDeserializer<T> {
     }
 }
 ```
-Dans l'idéal, pour ce cas précis, avoir une fonction libre (c'est à dire qui n'appartient pas à une classe) est également tout à fait approprié afin d'alléger le code appelant d'une instanciation superflue.
+Dans l'idéal, pour ce cas précis, avoir une **fonction libre** (c'est à dire qui n'appartient pas à une classe) est également **tout à fait approprié** afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
+
+Un exemple plus probant pourrait être une fonction retournant, disons, des individus majeurs depuis une base de données :
+```cs
+class UserRepository {
+    private readonly DataBaseClient dbClient;
+    
+    public UserRepository() {
+        this.dbClient = new DataBaseClient("localhost:1234", "user", "password");
+    }
+    
+    public IEnumerable<User> GetMajorUsers() {
+        return this.dbClient.Users
+            .Where(u => u.Age >= 18)
+            .ToList();
+    }
+    
+    // ...
+}
+```
+Cet exemple, aussi mince soit-il, endosse à lui seul **trois** responsbilités :
+* Il instancie un `DataBaseClient` ;
+* Il accède aux différents utilisateurs de la base de données ;
+* Il détermine lui-même si un individu est majeur (sans parle de l'âge pouvant varier d'un pays à l'autre).
+
+Un meilleur découpage pourrait être :
+```cs
+class UserRepository {
+    private readonly DataBaseClient dbClient;
+    
+    public UserRepository(DataBaseClient client) {
+        this.dbClient = client;
+    }
+    
+    public IEnumerable<User> GetMajorUsers() {
+        return this.dbClient.Users
+            .Where(u => u.IsMajor)
+            .ToList();
+    }
+    
+    // ...
+}
+```
 
 Notons qu'il ne faut absolument pas respecter aveuglément le SRP, et qu'il est même parfois parfaitement envisageable de volontairement aller à l'encontre.
 Par exemple, pour le cas d'un serveur HTTP, il fait tout à fait sens d'avoir des logs afin de retracer l'historique d'un éventuel crash.
 Ainsi, le serveur endossera une responsabilité implicite, mais cruciale.
+
 Un autre exemple est la classe `List` en C# : cette classe endosse de multiples responsabilités (ajout / suppression d'éléments, tri, indexation, etc), mais il serait parallèlement inconfortable de ne pas les avoir, n'est-ce pas ?
+
+***Note -** L'approche fonctionnelle, [telle que proposée par Elm](https://package.elm-lang.org/packages/elm/core/latest/List) proposant des fonctions libres (telles que `map`, `filter`, `sort`, `length`, etc) dans un module `List` reste toutefois la plus "SRP-compliant".*
 
 ---
 
