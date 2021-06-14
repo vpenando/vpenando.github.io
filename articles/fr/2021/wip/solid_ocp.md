@@ -5,3 +5,31 @@
 ---
 
 ### Introduction
+
+```go
+type Rectangle struct {
+  width  uint
+  height uint
+}
+
+type Circle struct {
+  radius uint
+}
+
+func area(shape interface{}) uint {
+  switch shape.(type) {
+  case Rectangle:
+    // ...
+  case Circle:
+    // ...
+  }
+  // ...
+}
+```
+
+```go
+type Shape interface {
+  area() uint
+}
+```
+
