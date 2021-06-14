@@ -19,7 +19,7 @@ type Circle struct {
 func area(shape interface{}) uint {
     switch shape.(type) {
     case Rectangle:
-        // ...
+        return shape.width * shape.height
     case Circle:
         // ...
     }
