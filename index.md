@@ -4,6 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
+- `2021/06/14`: [(FR) SOLID 1/5 - Le SRP](articles/fr/2021/solid_srp.md) - `good-practices`
 - `2021/05/19`: [(FR) EXPRESS #4 - Les exceptions, vraiment la meilleure solution ?](articles/fr/2021/express_exceptions.md) - `good-practices`
 - `2021/04/30`: [(FR) À la découverte du langage Elm !](articles/fr/2021/elm.md) - `elm` `functional-programming`
 - `2021/04/13`: [(FR) Introduction à Rust](articles/fr/2021/rust.md) - `rust`
