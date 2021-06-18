@@ -136,10 +136,10 @@ class XmlDeserializer<T> {
     }
 }
 ```
-Dans l'idéal, pour ce cas précis, avoir une **fonction libre** (c'est à dire qui n'appartient pas à une classe) est également **tout à fait approprié** afin d'alléger le code appelant d'une instanciation superflue.
+Dans l'idéal, pour ce cas précis, avoir une **fonction libre** (c'est à dire qui n'appartient pas à une classe) pour chaque transformation est également **tout à fait approprié** afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
-Un exemple plus probant pourrait être une fonction retournant, disons, des individus majeurs depuis une base de données :
+Un autre exemple, plus probant, pourrait être une méthode (l'exemple étant en OO) retournant, disons, des individus majeurs depuis une base de données :
 ```cs
 class UserRepository {
     private readonly DataBaseClient dbClient;
