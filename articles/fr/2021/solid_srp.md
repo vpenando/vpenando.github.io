@@ -160,7 +160,7 @@ class UserRepository {
 Cet exemple, aussi mince soit-il, endosse à lui seul **trois** responsbilités :
 * Il instancie un `DataBaseClient` ;
 * Il accède aux différents utilisateurs de la base de données ;
-* Il détermine lui-même si un individu est majeur (sans parle de l'âge pouvant varier d'un pays à l'autre).
+* Il détermine lui-même si un individu est majeur (sans parler de l'âge pouvant varier d'un pays à l'autre).
 
 Un meilleur découpage pourrait être :
 ```cs
@@ -181,7 +181,7 @@ class UserRepository {
 }
 ```
 
-Notons qu'il ne faut absolument pas respecter aveuglément le SRP, et qu'il est même parfois parfaitement envisageable de volontairement aller à l'encontre.
+Notons toutefois qu'il ne faut absolument pas respecter aveuglément le SRP, et qu'il est même parfois parfaitement envisageable de volontairement aller à l'encontre.
 Par exemple, pour le cas d'un serveur HTTP, il fait tout à fait sens d'avoir des logs afin de retracer l'historique d'un éventuel crash.
 Ainsi, le serveur endossera une responsabilité implicite, mais cruciale.
 
