@@ -9,7 +9,7 @@
 Plusieurs mois se sont écoulés depuis que j'ai annoncé travailler sur une synthèse des principes SOLID.
 En effet, en plus d'être toujours ponctuel (hein, comment ça je mens mal ?), j'essaie avant tout de tenir parole.
 
-Mais récapitulons : SOLID, ça veut dire quoi ? Il s'agit d'un acronyme désignant... d'autres acronymes.
+Mais récapitulons : SOLID, ça veut dire quoi ? Eh bien, il s'agit en fait d'un acronyme désignant... d'autres acronymes.
 Bon, pour être plus précis, il s'agit de cinq grands principes à respecter en programmation, si l'on veut avoir un code qui soit un minimum lisible, maintenable et évolutif.
 Ils ne garantissent à eux seuls absolument pas une architecture exemplaire, mais offrent de bonnes bases pour concevoir quelque chose de viable.
 
