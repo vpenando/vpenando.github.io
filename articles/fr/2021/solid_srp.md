@@ -91,6 +91,7 @@ En effet, tel qu'il est écrit ici, il peut :
 * Transformer du XML en un objet.
 
 De plus, l'aspect générique n'arrange vraiment pas les choses, car il induit qu'une seule instance peut (dé)sérialiser plusieurs objets de plusieurs types différents !
+
 En effet, à l'usage, c'est vraiment la fête !
 ```cs
 // Toujours à laisser hors de portée des enfants.
