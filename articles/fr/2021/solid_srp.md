@@ -15,9 +15,9 @@ Ils ne garantissent à eux seuls absolument pas une architecture exemplaire, mai
 
 Ces fameux principes sont les suivants :
 * Le SRP (**S**ingle **R**esponsibility **P**rinciple) ;
-* Le OCP (**O**pen/**C**losed **P**rinciple) ;
+* L'OCP (**O**pen/**C**losed **P**rinciple) ;
 * Le LSP (**L**iskov **S**ubstitution **P**rinciple) ;
-* Le ISP (**I**nterface **S**egregation **P**rinciple) ;
+* L'ISP (**I**nterface **S**egregation **P**rinciple) ;
 * Le DIP (**D**ependency **I**nversion **P**rinciple).
 
 Soit, dans la langue de Kev Adams :
