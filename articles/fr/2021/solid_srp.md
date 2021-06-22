@@ -139,7 +139,7 @@ class XmlDeserializer<T> {
 Dans l'idéal, pour ce cas précis, avoir une **fonction libre** (c'est à dire qui n'appartient pas à une classe) pour chaque transformation est également **tout à fait approprié** afin d'alléger le code appelant d'une instanciation superflue.
 Tous les langages ne le permettent pas, bien que ce soit possible de tricher, même de manière peu élégante (qui a dit `static class` ?).
 
-Un autre exemple, plus probant, pourrait être une méthode (l'exemple étant en OO) retournant, disons, des individus majeurs depuis une base de données :
+Un autre exemple, plus probant, pourrait être une entité retournant, disons, des individus majeurs depuis une base de données :
 ```cs
 class UserRepository {
     private readonly DataBaseClient dbClient;
@@ -158,9 +158,9 @@ class UserRepository {
 }
 ```
 Cet exemple, aussi mince soit-il, endosse à lui seul **trois** responsbilités :
-* Il instancie un `DataBaseClient` ;
-* Il accède aux différents utilisateurs de la base de données ;
-* Il détermine lui-même si un individu est majeur (sans parler de l'âge pouvant varier d'un pays à l'autre).
+* La classe `UserRepository` instancie un `DataBaseClient` ;
+* La méthode `GetMajorUsers` accède aux différents utilisateurs de la base de données ;
+* La méthode `GetMajorUsers` détermine elle-même si un individu est majeur (sans parler de l'âge pouvant varier d'un pays à l'autre).
 
 Un meilleur découpage pourrait être :
 ```cs
