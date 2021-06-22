@@ -193,7 +193,7 @@ class UserRepository {
 }
 ```
 Ce faisant, **la** responsabilité de `UserRepository` devient juste "rechercher des utilisateurs dans une base de données".
-L'instanciation du `DataBaseClient` est effectuée par une entité tierce, et la logique concernant la majorité des utilisateurs est également déportée ailleurs.
+L'instanciation du `DataBaseClient` est effectuée par une entité tierce, et la logique inhérente à la majorité des utilisateurs est également déportée.
 
 Notons toutefois qu'il ne faut absolument pas respecter aveuglément le SRP, et qu'il est même parfois parfaitement envisageable de volontairement aller à l'encontre.
 Par exemple, pour le cas d'un serveur HTTP, il fait tout à fait sens d'avoir des logs afin de retracer l'historique d'un éventuel crash.
