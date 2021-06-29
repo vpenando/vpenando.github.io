@@ -62,7 +62,7 @@ let bind func option =
         | None    -> None
 ```
 Et à l'usage :
-```ml
+```ocaml
 let myOptionalString = Some("Hello")
 let bound = bind (fun s -> s + ", world!") myOptionalString
 
