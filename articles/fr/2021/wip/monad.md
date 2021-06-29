@@ -30,8 +30,11 @@ Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
 type MyMonad<T> {
     T value;
     
-    unit(T value) => MyMonad<T>(value);
-    bind(Func<T, MyMonad<U>> binder, MyMonad<T> input) => binder(input.value);
+    unit(T value)
+        => MyMonad<T>(value);
+    
+    bind(Func<T, MyMonad<U>> binder, MyMonad<T> input)
+        => binder(input.value);
 }
 
 let m1 = MyMonad<int>.unit(42);                                         (* m1.value == 42   *)
