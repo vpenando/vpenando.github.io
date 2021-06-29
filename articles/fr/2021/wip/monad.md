@@ -58,7 +58,7 @@ let unit v = Some(v)
 
 let bind func option =
     match option with
-        | Some(x) -> Some(func x )
+        | Some(x) -> func(x)
         | None    -> None
 ```
 Et à l'usage :
