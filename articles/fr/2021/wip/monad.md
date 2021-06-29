@@ -23,3 +23,38 @@ interface Monad<T> {                     // Type paramétré
     // Le constructeur des classes filles fera office de 'return' / 'unit'
 }
 ```
+Notons toutefois que cette représentation, très maladroite, est là uniquement à but illustratif.
+
+En somme, une monade est une sorte de boite noire, pouvant encapsuler une valeur.
+Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
+
+---
+
+### Mise en pratique
+
+```fs
+// Exemple avec une monade régissant une valeur optionnelle
+
+// Type monadique M<T>
+type Option<'T> =
+    | Some of 'T
+    | None
+     
+// Fonction 'return' / 'unit'
+let unit v = Some(v)
+
+// Fonction 'bind'
+let bind func option =
+    match option with
+        | Some(x) -> Some(func x )
+        | None    -> None
+```
+Et à l'usage :
+```fs
+let myOptionalString = Some("Hello")
+let bound = bind (fun s -> s + ", world!") myOptionalString
+
+match bound with
+    | Some(s) -> printfn "%s" s
+    | None    -> printfn "None"
+```
