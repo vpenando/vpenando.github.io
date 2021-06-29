@@ -9,15 +9,12 @@
 Concrètement, le terme monade pourrait être défini ainsi :
 > Une monade est une abstraction réunissant un *type paramétré* `M<T>`,
 > une fonction `return` (ou `unit`, selon le langage) de signature `T -> M<T>`,
-> et une fonction `bind` de signature `M<T> -> (T -> U) -> M<U>`.
-
-***Note -** La fonction `bind` peut également avoir la signature `M<T> -> (T -> M<U>) -> M<U>`.
-Bien que le résultat soit formellement identique à la définition ci-dessus, nous utiliserons la première notation.*
+> et une fonction `bind` de signature `M<T> -> (T -> M<U>) -> M<U>`.
 
 En POO, cela pourrait grossièrement être vu comme une interface :
 ```cs
-interface Monad<T> {                     // Type paramétré
-    Monad<U> Bind<U>(Func<T, U> binder); // Fonction 'bind'
+interface Monad<T> {                            // Type paramétré
+    Monad<U> Bind<U>(Func<T, Monad<U>> binder); // Fonction 'bind'
     
     // Le constructeur des classes filles fera office de 'return' / 'unit'
 }
@@ -34,15 +31,20 @@ type MyMonad<T> {
     T value;
     
     unit(T value) => MyMonad<T>(value);
-    bind(Func<T, U> binder, MyMonad<T> input) => MyMonad<U>(binder(input.value));
+    bind(Func<T, MyMonad<U>> binder, MyMonad<T> input) => binder(input.value);
 }
 
-let m1 = MyMonad<int>.unit(42);                   // m1.value == 42
-let m2 = MyMonad<int>.bind(x => toString(x), m1); // m2.value == "42"
+let m1 = MyMonad<int>.unit(42);                                         // m1.value == 42
+let m2 = MyMonad<int>.bind(x => MyMonad<string>.unit(toString(x)), m1); // m2.value == "42"
 ```
 ---
 
 ### Mise en pratique
+
+En F#, il existe le type `Option`, encapsulant une valeur optionnelle.
+Et devinez quoi ? `Option` a toutes les caractéritiques basiques d'une monade !
+
+En effet, c'est un type paramétré, exposant un constructeur de type et une fonction `bind` !
 
 ```ml
 // Exemple avec une monade encapsulant une valeur optionnelle
@@ -51,18 +53,16 @@ let m2 = MyMonad<int>.bind(x => toString(x), m1); // m2.value == "42"
 type Option<'T> =
     | Some of 'T
     | None
-     
-// Fonction 'return' / 'unit'
+
 let unit v = Some(v)
 
-// Fonction 'bind'
 let bind func option =
     match option with
         | Some(x) -> Some(func x )
         | None    -> None
 ```
 Et à l'usage :
-```fs
+```ml
 let myOptionalString = Some("Hello")
 let bound = bind (fun s -> s + ", world!") myOptionalString
 
