@@ -30,7 +30,7 @@ Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
 type MyMonad<T> {
     T value;
     
-    unit(T value)
+    return(T value)
         => MyMonad<T>(value);
     
     bind(Func<T, MyMonad<U>> binder, MyMonad<T> input)
@@ -58,7 +58,7 @@ type Option<'T> =
     | None
 
 (* Notre fonction 'unit' ! *)
-let unit v = Some(v)
+let return v = Some(v)
 
 (* Et notre fonction 'bind' ! *)
 let bind func option =
