@@ -46,7 +46,7 @@ Et devinez quoi ? `Option` a toutes les caractéritiques basiques d'une monade !
 
 En effet, c'est un type paramétré, exposant un constructeur de type et une fonction `bind` !
 
-```ml
+```ocaml
 // Exemple avec une monade encapsulant une valeur optionnelle
 
 // Type monadique M<T>
