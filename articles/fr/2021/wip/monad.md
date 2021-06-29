@@ -24,7 +24,7 @@ Notons toutefois que cette représentation, très maladroite, est là uniquement
 En somme, une monade est une sorte de boite noire, pouvant encapsuler une valeur.
 Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
 
-```fs
+```ocaml
 // Exemple en pseudo-code
 
 type MyMonad<T> {
