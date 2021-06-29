@@ -42,7 +42,7 @@ Une exception au SRP est le cas particulier des *namespaces* et des modules, qui
 Ils n'ont aucune sémantique autre que l'organisation du code. À titre d'exemple, il fait tout à fait sens de ranger des classes `List` et `Dictionary` dans un namespace `System.Collections.Generic` ;)
 
 Les intérêts du SRP sont multiples :
-* Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture la sera tout autant ;
+* Réduction de la complexité du code : si la responsabilité d'une entité est clairement définie, sa lecture le sera tout autant ;
 * Meilleure réutilisation d'une même entité : on n'embarque que ce dont on a réellement besoin, sans fonctionnalités non désirées ;
 * Meilleure testabilité : on peut se concentrer à tester les différents cas d'*une* fonctionnalité à la fois ;
 * Moins de dépendances : une entité ne dépendra que du strict nécessaire.
