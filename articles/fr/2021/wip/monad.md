@@ -47,15 +47,17 @@ Et devinez quoi ? `Option` a toutes les caractéritiques basiques d'une monade !
 En effet, c'est un type paramétré, exposant un constructeur de type et une fonction `bind` !
 
 ```ocaml
-// Exemple avec une monade encapsulant une valeur optionnelle
+(* Exemple avec une monade encapsulant une valeur optionnelle *)
 
-// Type monadique M<T>
+(* Type monadique M<T> *)
 type Option<'T> =
     | Some of 'T
     | None
 
+(* Notre fonction 'unit' ! *)
 let unit v = Some(v)
 
+(* Et notre fonction 'bind' ! *)
 let bind func option =
     match option with
         | Some(x) -> func(x)
