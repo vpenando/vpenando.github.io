@@ -201,7 +201,7 @@ Ainsi, le serveur endossera une responsabilité implicite, mais cruciale.
 
 Un autre exemple est la classe `List` en C# : cette classe endosse de multiples responsabilités (ajout / suppression d'éléments, tri, indexation, etc), mais il serait parallèlement inconfortable de ne pas les avoir, n'est-ce pas ?
 
-***Note -** L'approche fonctionnelle, [telle que proposée par Elm](https://package.elm-lang.org/packages/elm/core/latest/List) proposant des fonctions libres (telles que `map`, `filter`, `sort`, `length`, etc) dans un module `List` reste toutefois la plus "SRP-compliant".*
+***Note -** L'approche fonctionnelle, [telle que proposée par Elm](https://package.elm-lang.org/packages/elm/core/latest/List), proposant des fonctions libres (telles que `map`, `filter`, `sort`, `length`, etc) dans un module `List` reste toutefois la plus "SRP-compliant".*
 
 ---
 
