@@ -7,9 +7,10 @@
 ### Définition
 
 Concrètement, le terme monade pourrait être défini ainsi :
-> Une monade est une abstraction réunissant un *type paramétré* `M<T>`,
-> une fonction `return` (ou `unit`, selon le langage) de signature `T -> M<T>`,
-> et une fonction `bind` de signature `M<T> -> (T -> M<U>) -> M<U>`.
+> Une monade est une abstraction réunissant :
+> - un *type paramétré* `M<T>`,
+> - une fonction `return` (ou `unit`, selon le langage) de signature `T -> M<T>`,
+> - une fonction `bind` de signature `M<T> -> (T -> M<U>) -> M<U>`.
 
 En POO, cela pourrait grossièrement être vu comme une interface :
 ```cs
