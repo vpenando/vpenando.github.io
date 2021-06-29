@@ -44,7 +44,7 @@ let m2 = MyMonad<int>.bind(x => toString(x), m1); // m2.value == "42"
 
 ### Mise en pratique
 
-```fs
+```ml
 // Exemple avec une monade régissant une valeur optionnelle
 
 // Type monadique M<T>
