@@ -27,6 +27,19 @@ Notons toutefois que cette représentation, très maladroite, est là uniquement
 En somme, une monade est une sorte de boite noire, pouvant encapsuler une valeur.
 Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
 
+```fs
+// Exemple en pseudo-code
+
+type MyMonad<T> {
+    T value;
+    
+    unit(T value) => MyMonad<T>(value);
+    bind(Func<T, U> binder, MyMonad<T> input) => MyMonad<U>(binder(input.value));
+}
+
+let m1 = MyMonad<int>.unit(42);                   // m1.value == 42
+let m2 = MyMonad<int>.bind(x => toString(x), m1); // m2.value == "42"
+```
 ---
 
 ### Mise en pratique
