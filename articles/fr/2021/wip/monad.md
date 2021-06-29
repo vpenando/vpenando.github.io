@@ -25,7 +25,7 @@ En somme, une monade est une sorte de boite noire, pouvant encapsuler une valeur
 Lui appliquer la fonction `bind` renvoie une nouvelle valeur monadique.
 
 ```ocaml
-// Exemple en pseudo-code
+(* Exemple en pseudo-code *)
 
 type MyMonad<T> {
     T value;
@@ -34,8 +34,8 @@ type MyMonad<T> {
     bind(Func<T, MyMonad<U>> binder, MyMonad<T> input) => binder(input.value);
 }
 
-let m1 = MyMonad<int>.unit(42);                                         // m1.value == 42
-let m2 = MyMonad<int>.bind(x => MyMonad<string>.unit(toString(x)), m1); // m2.value == "42"
+let m1 = MyMonad<int>.unit(42);                                         (* m1.value == 42   *)
+let m2 = MyMonad<int>.bind(x => MyMonad<string>.unit(toString(x)), m1); (* m2.value == "42" *)
 ```
 ---
 
