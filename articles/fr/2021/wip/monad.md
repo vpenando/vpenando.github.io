@@ -38,8 +38,8 @@ type MyMonad<T> {
         => binder(input.value);
 }
 
-let m1 = MyMonad.unit(42);                                         (* m1.value == 42   *)
-let m2 = MyMonad.bind(x => MyMonad<string>.unit(toString(x)), m1); (* m2.value == "42" *)
+let m1 = MyMonad.return(42);                                 (* m1.value == 42   *)
+let m2 = MyMonad.bind(x => MyMonad.return(toString(x)), m1); (* m2.value == "42" *)
 ```
 ---
 
