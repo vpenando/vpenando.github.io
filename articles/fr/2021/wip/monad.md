@@ -16,7 +16,6 @@ Bien que le résultat soit formellement identique à la définition ci-dessus, n
 
 En POO, cela pourrait grossièrement être vu comme une interface :
 ```cs
-// Définition
 interface Monad<T> {                     // Type paramétré
     Monad<U> Bind<U>(Func<T, U> binder); // Fonction 'bind'
     
