@@ -119,7 +119,7 @@ match some_int {
 Une fonction `divide`, telle que l'exemple au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception !
 
 Implémentation en OCaml (pour changer de Rust) :
-```ml
+```ocaml
 let divide a = function
   | 0 -> None
   | b -> Some(a/b)
