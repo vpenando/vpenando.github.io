@@ -49,28 +49,9 @@ En F#, il existe le type `Option`, encapsulant une valeur optionnelle.
 Et devinez quoi ? `Option` a toutes les caractéritiques basiques d'une monade !
 
 En effet, c'est un type paramétré, exposant un constructeur de type et une fonction `bind` !
-
-```ocaml
-(* Exemple avec une monade encapsulant une valeur optionnelle *)
-
-(* Type monadique M<T> *)
-type Option<'T> =
-    | Some of 'T
-    | None
-
-(* Notre fonction 'unit' ! *)
-let return v = Some(v)
-
-(* Et notre fonction 'bind' ! *)
-let bind func option =
-    match option with
-        | Some(x) -> func(x)
-        | None    -> None
-```
-Et à l'usage :
 ```ocaml
 let myOptionalString = Some("Hello")
-let bound = bind (fun s -> s + ", world!") myOptionalString
+let bound = Option.bind (fun s -> Some(s + ", world!")) myOptionalString
 
 match bound with
     | Some(s) -> printfn "%s" s
