@@ -49,7 +49,7 @@ func sumAreas(values ...interface{}) float32 {
 ```
 Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'étant là qu'à but illustratif.
 
-La vérification du type de `value` est effectuée au *runtime*. Ce faisant, le code suivant est parfaitement valide :
+Par ailleurs, la vérification du type de `value` est effectuée au *runtime*. Ce faisant, le code suivant est parfaitement valide :
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
