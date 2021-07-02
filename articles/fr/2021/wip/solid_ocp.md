@@ -8,7 +8,7 @@
 
 Cet article est le second d'une série dédiée aux principes SOLID. Pour consulter le premier, c'est [par ici](/articles/fr/2021/solid_srp.html) !
 
-L'OCP (**O**pen / **C**losed **P**rinciple, principe ouvert / fermé en français) énonce la règle suivante :
+L'OCP (**O**pen / **C**losed **P**rinciple, soit "principe ouvert / fermé" en français) énonce la règle suivante :
 > Toute entité (classe, fonction, ...) doit être *ouverte aux extensions*, mais *fermée aux modifications*.
 
 Formulé comme ça, l'OCP est encore moins clair que la définition d'une monade. Pourtant, la bonne pratique derrière cette règle est extrêmement simple :
