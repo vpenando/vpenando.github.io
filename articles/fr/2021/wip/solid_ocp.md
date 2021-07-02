@@ -35,7 +35,7 @@ func area(value interface{}) float32 {
     panic("unknown shape :(")
 }
 ```
-Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'est là qu'à but illustratif.
+Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'étant là qu'à but illustratif.
 
 La vérification du type de `value` est effectuée au *runtime*. Ce faisant, le code suivant est parfaitement valide :
 ```go
@@ -46,6 +46,22 @@ fmt.Println(area(rectangle))  // OK
 fmt.Println(area(circle))     // OK
 fmt.Println(area("impostor")) // KO
 ```
+Output :
+```shell
+200
+125.66371
+panic: unknown shape :(
+
+goroutine 1 [running]:
+main.area(...)
+	/path/to/file.go:X
+main.main()
+	/path/to/file.go:Y +0x13a
+
+Program exited: status 2.
+```
+Comme prévu, notre imposteur s'est fait démasquer et l'appel à `panic()` a bien eu lieu.
+
 ***Note -** D'une manière générale, le [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information) est bien souvent une mauvaise idée et son utilisation reste par défaut à prohiber.*
 
 ```go
