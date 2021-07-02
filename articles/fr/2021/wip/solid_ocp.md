@@ -14,6 +14,8 @@ Formulé comme ça, l'OCP est encore moins clair que la définition d'une monade
 
 Mais du coup, comment étendre un code étant à la fois "ouvert" et "fermé" ?
 
+Voyons tout ça avec quelques exemples ! À cet effet, j'emploierai le langage Go ~~parce que je fais ce que je veux~~ afin de varier un peu.
+
 ---
 
 ### Cas d'école : l'aire d'une forme géométrique
