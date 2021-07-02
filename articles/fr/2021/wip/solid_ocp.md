@@ -63,6 +63,15 @@ Program exited: status 2.
 ```
 Comme prévu, notre imposteur s'est fait démasquer et l'appel à `panic()` a bien eu lieu.
 
+Outre le problème lié à la généricité trop permissive, notre fonction `area()` pose un autre problème : si l'on doit rajouter une forme, il faut la modifier.
+Cela induit que l'OCP n'est pas respecté, car `area()` n'est pas *fermée aux modifications*.
+
+--- 
+
+### Solution
+
+La solution au problème évoqué ci-dessus est évidente : il convient d'utiliser une couche d'abstraction (ici une interface) plutôt que de vérifier à la main le type de notre variable.
+
 ***Note -** D'une manière générale, le [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information) est bien souvent une mauvaise idée et son utilisation reste par défaut à prohiber.*
 
 ```go
