@@ -36,7 +36,7 @@ func area(value interface{}) float32 {
     panic("unknown shape :(")
 }
 
-func sumAreas(values []interface{}) float32 {
+func sumAreas(values ...interface{}) float32 {
     var sum float32
     for _, value := range values {
         sum += area(value)
@@ -89,9 +89,19 @@ type Shape interface {
     area() float32
 }
 ```
+Ensuite, implémentons la méthode `area()` pour nos types `Rectangle` et `Circle` !
+```go
+func (rectangle Rectangle) area() float32 {
+    return rectangle.Width * rectangle.Height
+}
+
+func (circle Circle) area() float32 {
+    return math.Pi * circle.Radius * 2
+}
+```
 S'il ne fait plus sens de garder notre fonction `area()` (devenue méthode membre de `Shape`), `sumAreas()` devient quant à elle :
 ```go
-func sumAreas(shapes []Shape) float32 {
+func sumAreas(shapes ...Shape) float32 {
     var sum float32
     for _, shape := range shapes {
         sum += shape.area()
