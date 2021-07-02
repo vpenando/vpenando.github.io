@@ -6,6 +6,13 @@
 
 ### Introduction
 
+L'OCP (**O**pen / **C**losed **P**rinciple, principe ouvert / fermé en français) énonce la règle suivante :
+> Toute entité (classe, fonction, ...) doit être *ouverte aux extensions*, mais *fermée aux modifications*.
+
+Formulé comme ça, l'OCP est encore moins clair que la définition d'une monade. Pourtant, la bonne pratique derrière cette règle est la suivante :
+> Tout code testé et validé ne doit pas être modifié afin de ne pas intégrer de régression.
+
+Pour étendre un code respectant l'OCP, il convient alors de passer par des abstractions.
 
 ---
 
