@@ -12,7 +12,7 @@
 ### Cas d'école : l'aire d'une forme géométrique
 
 L'exemple le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme.
-Pimentons un peu l'exercice en ajoutant une fonction faisant la somme d'une liste de formes géométriques.
+Pimentons un peu l'exercice en ajoutant une fonction faisant la somme des aires d'une liste de formes géométriques.
 ```go
 type Rectangle struct {
     Width  float32
