@@ -11,7 +11,8 @@
 
 ### Cas d'école : l'aire d'une forme géométrique
 
-L'exemple le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme :
+L'exemple le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme.
+Pimentons un peu l'exercice en ajoutant une fonction faisant la somme d'une liste de formes géométriques.
 ```go
 type Rectangle struct {
     Width  float32
@@ -33,6 +34,14 @@ func area(value interface{}) float32 {
     }
     // Cas d'erreur
     panic("unknown shape :(")
+}
+
+func sumAreas(values []interface{}) float32 {
+    var sum float32
+    for _, value := range values {
+        sum += area(value)
+    }
+    return sum
 }
 ```
 Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'étant là qu'à but illustratif.
@@ -80,10 +89,13 @@ type Shape interface {
     area() float32
 }
 ```
-Ensuite, la fonction `area()` devient simplement :
+S'il ne fait plus sens de garder notre fonction `area()` (devenue méthode membre de `Shape`), `sumAreas()` devient quant à elle :
 ```go
-func area(shape Shape) float32 {
-    return shape.area()
+func sumAreas(shapes []Shape) float32 {
+    var sum float32
+    for _, shape := range shapes {
+        sum += shape.area()
+    }
+    return sum
 }
 ```
-
