@@ -77,6 +77,7 @@ Comme prévu, notre imposteur s'est fait démasquer et l'appel à `panic()` a bi
 
 Outre le problème lié à la généricité trop permissive, notre fonction `sumAreas()` a une autre faille : si l'on doit rajouter une forme, il faut la modifier.
 Cela induit que l'OCP n'est pas respecté, car `sumAreas()` n'est pas *fermée aux modifications*.
+Or, la modifier induit que l'on peut introduire une régression, ce qui est précisément la problématique à laquelle répond l'OCP.
 
 --- 
 
