@@ -74,9 +74,15 @@ La solution au problème évoqué ci-dessus est évidente : il convient d'utilis
 
 ***Note -** D'une manière générale, le [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information) est bien souvent une mauvaise idée et son utilisation reste par défaut à prohiber.*
 
+Pour ce faire, il nous faut d'abord créer l'interface adéquate :
 ```go
 type Shape interface {
-    area() uint
+    area() float32
 }
+```
+Ensuite, la fonction `area()` devient simplement :
+```go
+func area(shape Shape) float32 {
+    return shape.area()
 ```
 
