@@ -11,7 +11,7 @@
 
 ### Cas d'école : l'aire d'une forme géométrique
 
-Le cas le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme :
+L'exemple le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme :
 ```go
 type Rectangle struct {
     Width  float32
