@@ -35,6 +35,8 @@ func area(value interface{}) float32 {
     panic("unknown shape :(")
 }
 ```
+Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'est là qu'à but illustratif.
+
 La vérification du type de `value` est effectuée au *runtime*. Ce faisant, le code suivant est parfaitement valide :
 ```go
 rectangle := Rectangle{Width:10, Height:20}
