@@ -52,10 +52,10 @@ rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
 impostor := "blue"
 	
-fmt.Println(area(rectangle))                      // OK
-fmt.Println(area(circle))                         // OK
-fmt.Println(area(impostor))                       // OK (mais appelle panic())
-fmt.Println(sumAreas(rectangle, circle, impostor) // Idem
+fmt.Println(area(rectangle))                       // OK
+fmt.Println(area(circle))                          // OK
+fmt.Println(area(impostor))                        // OK (mais appelle panic())
+fmt.Println(sumAreas(rectangle, circle, impostor)) // Idem
 ```
 Output :
 ```
