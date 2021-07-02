@@ -63,7 +63,7 @@ Program exited: status 2.
 ```
 Comme prévu, notre imposteur s'est fait démasquer et l'appel à `panic()` a bien eu lieu.
 
-Outre le problème lié à la généricité trop permissive, notre fonction `area()` pose un autre problème : si l'on doit rajouter une forme, il faut la modifier.
+Outre le problème lié à la généricité trop permissive, notre fonction `area()` a une autre faille : si l'on doit rajouter une forme, il faut la modifier.
 Cela induit que l'OCP n'est pas respecté, car `area()` n'est pas *fermée aux modifications*.
 
 --- 
