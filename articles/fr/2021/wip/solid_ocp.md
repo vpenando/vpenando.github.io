@@ -52,9 +52,10 @@ rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
 impostor := "blue"
 	
-fmt.Println(area(rectangle)) // OK
-fmt.Println(area(circle))    // OK
-fmt.Println(area(impostor))  // KO
+fmt.Println(area(rectangle))                      // OK
+fmt.Println(area(circle))                         // OK
+fmt.Println(area(impostor))                       // OK (mais appelle panic())
+fmt.Println(sumAreas(rectangle, circle, impostor) // Idem
 ```
 Output :
 ```
@@ -99,7 +100,7 @@ func (circle Circle) area() float32 {
     return math.Pi * circle.Radius * 2
 }
 ```
-S'il ne fait plus sens de garder notre fonction `area()` (devenue méthode membre de `Shape`), `sumAreas()` devient quant à elle :
+Enfin, s'il ne fait plus sens de garder notre fonction `area()` (devenue méthode membre de `Shape`), `sumAreas()` devient quant à elle :
 ```go
 func sumAreas(shapes ...Shape) float32 {
     var sum float32
