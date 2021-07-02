@@ -110,3 +110,8 @@ func sumAreas(shapes ...Shape) float32 {
     return sum
 }
 ```
+Cette option propose deux avantages :
+- On ne peut passer qu'un type qui satisfait l'interface `Shape` ;
+- Pour étendre `sumAreas()`, plus besoin de la modifier !
+
+Ainsi, notre fonction respecte l'OCP : elle est ouverte aux extensions (par le biais de `Shape`), mais fermée aux modifications car son code ne changera pas !
