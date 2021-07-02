@@ -103,6 +103,21 @@ func sumAreas(shapes ...Shape) float32 {
     return sum
 }
 ```
+Retentons l'exemple de la partie précédente :
+```go
+rectangle := Rectangle{Width: 10, Height: 20}
+circle := Circle{Radius: 20}
+impostor := "blue"
+
+fmt.Println(sumAreas(rectangle, circle, impostor))
+```
+Sortie :
+```
+/path/to/file.go:X:Y: cannot use impostor (type string) as type Shape in argument to sumAreas:
+	string does not implement Shape (missing area method)
+```
+Paf ! Notre imposteur ne passe pas le contrôle technique et le code ne compile pas !
+
 Cette option propose deux avantages :
 - On ne peut passer qu'un type qui satisfait l'interface `Shape` ;
 - Pour étendre `sumAreas()`, plus besoin de la modifier !
