@@ -48,7 +48,7 @@ fmt.Println(area(circle))    // OK
 fmt.Println(area(impostor))  // KO
 ```
 Output :
-```shell
+```
 200
 125.66371
 panic: unknown shape :(
