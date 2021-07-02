@@ -137,3 +137,4 @@ Cette option propose deux avantages :
 - Pour étendre `sumAreas()`, plus besoin de la modifier !
 
 Ainsi, notre fonction respecte l'OCP : elle est ouverte aux extensions (par le biais de `Shape`), mais fermée aux modifications car son code ne changera pas !
+Une fois celle-ci correctement testée, nous avons la garantie qu'elle fera bien ce que l'on attend d'elle !
