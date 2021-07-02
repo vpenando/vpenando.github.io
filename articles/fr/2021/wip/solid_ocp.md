@@ -84,5 +84,6 @@ Ensuite, la fonction `area()` devient simplement :
 ```go
 func area(shape Shape) float32 {
     return shape.area()
+}
 ```
 
