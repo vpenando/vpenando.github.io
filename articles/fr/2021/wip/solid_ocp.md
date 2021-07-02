@@ -93,7 +93,11 @@ type Shape interface {
     area() float32
 }
 ```
-Ensuite, implémentons la méthode `area()` pour nos types `Rectangle` et `Circle` !
+Cette interface apporte deux garanties :
+- Les types sous-jacents seront forcément valides ;
+- Le calcul de l'aire est déporté hors de la fonction appelante.
+
+À présent, implémentons la méthode `area()` pour nos types `Rectangle` et `Circle` !
 ```go
 func (rectangle Rectangle) area() float32 {
     return rectangle.Width * rectangle.Height
