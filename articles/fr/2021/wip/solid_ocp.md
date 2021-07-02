@@ -12,7 +12,7 @@
 ### Cas d'école : l'aire d'une forme géométrique
 
 L'exemple le plus classique, très évocateur, est celui du calcul de l'aire d'une forme géométrique sans connaître ladite forme.
-Pimentons un peu l'exercice en ajoutant une fonction faisant la somme des aires d'une liste de formes géométriques.
+Pimentons un peu l'exercice en créant plutôt une fonction faisant la somme des aires d'une liste de formes géométriques.
 ```go
 type Rectangle struct {
     Width  float32
@@ -23,23 +23,19 @@ type Circle struct {
     Radius float32
 }
 
-func area(value interface{}) float32 {
-    // Nous vérifions le type de notre forme
-    switch shape := value.(type) {
-    case Rectangle:
-        return shape.Width * shape.Height
-    case Circle:
-        return math.Pi * shape.Radius * 2
-    // ...
-    }
-    // Cas d'erreur
-    panic("unknown shape :(")
-}
-
 func sumAreas(values ...interface{}) float32 {
     var sum float32
     for _, value := range values {
-        sum += area(value)
+        // Nous vérifions le type de notre forme
+        switch shape := value.(type) {
+        case Rectangle:
+            sum += shape.Width * shape.Height
+        case Circle:
+            sum += math.Pi * shape.Radius * 2
+        // ...
+        }
+        // Cas d'erreur
+        panic("unknown shape :(")
     }
     return sum
 }
@@ -51,11 +47,8 @@ La vérification du type de `value` est effectuée au *runtime*. Ce faisant, le 
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
 impostor := "blue"
-	
-fmt.Println(area(rectangle))                       // OK
-fmt.Println(area(circle))                          // OK
-fmt.Println(area(impostor))                        // OK (mais appelle panic())
-fmt.Println(sumAreas(rectangle, circle, impostor)) // Idem
+
+fmt.Println(sumAreas(rectangle, circle, impostor)) // Compile, mais...
 ```
 Output :
 ```
@@ -73,8 +66,8 @@ Program exited: status 2.
 ```
 Comme prévu, notre imposteur s'est fait démasquer et l'appel à `panic()` a bien eu lieu.
 
-Outre le problème lié à la généricité trop permissive, notre fonction `area()` a une autre faille : si l'on doit rajouter une forme, il faut la modifier.
-Cela induit que l'OCP n'est pas respecté, car `area()` n'est pas *fermée aux modifications*.
+Outre le problème lié à la généricité trop permissive, notre fonction `sumAreas()` a une autre faille : si l'on doit rajouter une forme, il faut la modifier.
+Cela induit que l'OCP n'est pas respecté, car `sumAreas()` n'est pas *fermée aux modifications*.
 
 --- 
 
@@ -100,7 +93,7 @@ func (circle Circle) area() float32 {
     return math.Pi * circle.Radius * 2
 }
 ```
-Enfin, s'il ne fait plus sens de garder notre fonction `area()` (devenue méthode membre de `Shape`), `sumAreas()` devient quant à elle :
+Enfin, notre fonction `sumAreas()` devient quant à elle :
 ```go
 func sumAreas(shapes ...Shape) float32 {
     var sum float32
