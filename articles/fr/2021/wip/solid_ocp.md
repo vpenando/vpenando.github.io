@@ -41,10 +41,11 @@ La vérification du type de `value` est effectuée au *runtime*. Ce faisant, le 
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
+impostor := "blue"
 	
-fmt.Println(area(rectangle))  // OK
-fmt.Println(area(circle))     // OK
-fmt.Println(area("impostor")) // KO
+fmt.Println(area(rectangle)) // OK
+fmt.Println(area(circle))    // OK
+fmt.Println(area(impostor))  // KO
 ```
 Output :
 ```shell
