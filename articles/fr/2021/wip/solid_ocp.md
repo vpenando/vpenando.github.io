@@ -134,7 +134,7 @@ Sortie :
 ```
 Paf ! Notre imposteur ne passe pas le contrôle technique et le code ne compile pas !
 
-Cette option propose deux avantages :
+Mais surtout, cette option propose deux avantages :
 - On ne peut passer qu'un type qui satisfait l'interface `Shape` ;
 - Pour étendre `sumAreas()`, plus besoin de la modifier !
 
