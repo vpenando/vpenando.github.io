@@ -37,7 +37,6 @@ type Circle struct {
 func sumAreas(values ...interface{}) float32 {
     var sum float32
     for _, value := range values {
-        // Nous vérifions le type de notre forme
         switch shape := value.(type) {
         case Rectangle:
             sum += shape.Width * shape.Height
@@ -53,7 +52,8 @@ func sumAreas(values ...interface{}) float32 {
 ```
 Mettons de côté l'absence d'invariants liés au type `float32`, cet exemple n'étant là qu'à but illustratif.
 
-Par ailleurs, la vérification du type de `value` est effectuée au *runtime*. Ce faisant, le code suivant est parfaitement valide :
+L'approche de cette fonction est simple : vérifier le type de chaque forme via un `switch`, et appliquer une formule en conséquence.
+Par ailleurs, la vérification du type de `value` étant effectuée au *runtime*, le code suivant est parfaitement valide :
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
