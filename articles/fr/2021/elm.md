@@ -51,7 +51,7 @@ Enfin, il est possible d'utiliser conjointement Elm et JavaScript, facilitant so
 ### <a name="presentation">Présentation</a>
 
 #### <a name="variables">Variables</a>
-Déclarer une variable en Elm est on ne peut plus simple :
+À la manière de Python ou Ruby, déclarer une variable en Elm est on ne peut plus simple :
 ```elm
 hello = "Hello, world!"
 ```
