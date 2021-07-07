@@ -22,7 +22,9 @@
 ### <a name="introduction">Introduction</a>
 
 Initialement apparu en 2012, Elm est un langage de programmation orienté front-end.
-Il s'agit d'un langage fonctionnel, syntaxiquement très proche de Haskell, se veuillant sûr et performant. Elm est un langage transpilé en JavaScript afin de s'intégrer dans une page HTML.
+Il s'agit d'un langage fonctionnel, syntaxiquement très proche de Haskell, se veuillant sûr et performant. La promesse d'Elm est très ambitieuse : **AUCUNE erreur au runtime** !
+
+Elm est un langage transpilé en JavaScript afin de s'intégrer dans une page HTML.
 
 Dans cet article, nous n'aborderons pas Elm en profondeur ; nous verrons assez succinctement sa syntaxe et ses fonctionnalités.
 
@@ -37,7 +39,7 @@ En effet, JavaScript est un langage ayant de nombreux problèmes, comme le typag
 
 Bien qu'il existe des alternatives (je pense notamment à TypeScript + Angular), celles-ci ne sont pas exemptes de faiblesses, notamment concernant [la fameuse erreur à un milliard](https://www.developpez.com/actu/195314/Retour-sur-une-proposition-pour-C-8-les-references-nullables-quels-sont-les-avantages-de-cette-fonctionnalite/).
 
-Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de la sûreté via divers mécanismes, à tel point qu'il est *impossible* de rencontrer des erreurs au runtime qui ne soient pas gérées. La quasi totalité de celles-ci est détectée dès la compilation.
+Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de la sûreté via divers mécanismes, à tel point qu'il est *impossible* de rencontrer des erreurs inattendues au runtime. La quasi totalité de celles-ci est détectée dès la compilation.
 
 Par ailleurs, [Elm propose d'excellentes performances](https://www.freecodecamp.org/news/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-e1cb62fd526c/), bien au-dessus de la plupart des solutions concurrentes.
 
