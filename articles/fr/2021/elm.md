@@ -56,12 +56,14 @@ Déclarer une variable en Elm est on ne peut plus simple :
 hello = "Hello, world!"
 ```
 Et c'est tout !
-Cette variable est fortement typée et surtout, elle est immutable !
+Cette variable est fortement typée et surtout, **elle est immutable** !
 Une fois définie, il est **impossible de la modifier**. Cela peut sembler contraignant au premier abord, mais c'est en réalité un atout majeur.
 En effet, une variable constante induit :
 * Qu'aucun effet de bord ne peut la modifier ;
 * Que cette variable est thread-safe ;
 * Qu'elle est facile à déboguer : contrairement à d'autres langages, nul besoin de chercher où elle est modifiée !
+
+Et surtout, toutes les variables étant immutables, nul besoin d'en créer des copies, ce qui induit des performances accrues !
 
 Elm dispose des types primitifs "classiques" `Int`, `Float`, `Bool`, `Char` et `String` :
 ```elm
