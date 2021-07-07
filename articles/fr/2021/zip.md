@@ -133,6 +133,8 @@ let apply_on_lists func list1 list2 =
       apply_on_lists_acc new_acc fn tail1 tail2
   in apply_on_lists_acc [] func list1 list2
 ```
+***Note -** Cette fonction est drôlement similaire à [`map2`](https://fsharp.github.io/fsharp-core-docs/reference/fsharp-collections-listmodule.html#map2), n'est-ce pas ?*
+
 On ne dirait pas, mais la seconde version *-bien qu'apparemment plus verbeuse-* est bien plus facilement réutilisable que la première.
 Cela est dû au fait que l'on peut utiliser l'*application partielle* de fonction en F# !
 L'application partielle consiste à appeler une fonction avec seulement *une partie* de ses arguments.
