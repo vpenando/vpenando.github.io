@@ -41,6 +41,9 @@ Elm s'affranchit de la plupart des problèmes posés par JS ; il **impose** de l
 
 Par ailleurs, [Elm propose d'excellentes performances](https://www.freecodecamp.org/news/a-real-world-comparison-of-front-end-frameworks-with-benchmarks-e1cb62fd526c/), bien au-dessus de la plupart des solutions concurrentes.
 
+<p style="text-align:center;"><img src="assets/elm.png" /></p>
+<p style="text-align:center;"><a href="https://altenwald.org/2018/04/11/elm-codigo-sin-errores/">(Source)</a></p>
+
 Enfin, il est possible d'utiliser conjointement Elm et JavaScript, facilitant son intégration au sein d'un projet existant.
 
 ---
