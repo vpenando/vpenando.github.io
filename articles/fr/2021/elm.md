@@ -118,7 +118,7 @@ add x y = x + y
 five = add 2 3 -- pas de parenthèses nécessaires !
 ```
 L'annotation de `add` peut à première vue sembler confuse. En effet, cette fonction attend deux variables de types `Int` et renvoie un résultat, lui-même de type `Int`.
-Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, en programmation fonctionnelle, `add` est une fonction attendant un argument et *renvoyant une autre fonction* attendant un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
+Ainsi, on pourrait de prime abord s'attendre à une signature proche de `(Int, Int) -> Int`. Néanmoins, en programmation fonctionnelle, `add` est une fonction attendant un argument et *renvoyant une autre fonction* attendant également un argument. Plus d'informations [ici](https://guide.elm-lang.org/appendix/function_types.html).
 Vous l'aurez donc probablement compris, on peut profiter de l'*application partielle de fonction* en Elm !
 
 #### <a name="application-partielle">Application partielle de fonction</a>
