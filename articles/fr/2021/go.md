@@ -101,7 +101,7 @@ Malgré ses nombreuses qualités, Go n'est pour autant pas exempt de points faib
 
 #### 1. Simplicité = limitations
 La simplicité de Go apporte quelques limitations.
-Il n'est par exemple par possible de déclarer des variables immutables : le mot-clé `const` est ici similaire au `const` de C# et ne sert qu'à déclarer des constantes de compilation.
+Il n'est par exemple pas possible de déclarer des variables immutables : le mot-clé `const` est ici similaire au `const` de C# et ne sert qu'à déclarer des constantes de compilation.
 
 Par ailleurs, le langage de dispose pas de types génériques. Cette fonctionnalité est toutefois en cours de développement.
 
