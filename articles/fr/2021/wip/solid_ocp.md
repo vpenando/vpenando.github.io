@@ -34,6 +34,7 @@ type Circle struct {
     Radius float32
 }
 
+// Note : le type 'interface{}' signigie "n'importe quel type"
 func sumAreas(values ...interface{}) float32 {
     var sum float32
     for _, value := range values {
