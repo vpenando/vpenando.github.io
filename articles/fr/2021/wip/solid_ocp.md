@@ -143,3 +143,15 @@ Mais surtout, cette option propose deux avantages :
 
 Ainsi, notre fonction respecte l'OCP : elle est ouverte aux extensions (par le biais de `Shape`), mais fermée aux modifications car son code ne changera pas !
 Une fois celle-ci correctement testée, nous aurons alors la garantie qu'elle fera bien ce que l'on attend d'elle !
+
+--- 
+
+### Conclusion
+
+Soyons clairs : avoir un code qui respecte à 100% l'OCP n'est pas réaliste.
+Sur un projet conséquent, il n'est pas possible d'avoir un code complètement extensible sans être modifiable.
+Toutefois, il est possible d'en concevoir une partie qui, elle, respecte l'OCP.
+
+Pour ce faire, le mécanisme le plus efficace est l'héritage (l'implémentation d'interfaces étant une forme d'héritage).
+D'une part, il est possible de centraliser du code testé et validé dans une classe parente, quand cela fait sens.
+D'autre part, on peut également imposer des invariants à une entité afin d'en assurer la cohérence avec notre code, comme le type `Shape` vu ci-dessus qui impose la présence d'une méthode `area()`.
