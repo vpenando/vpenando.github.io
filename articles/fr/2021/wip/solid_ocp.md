@@ -58,7 +58,7 @@ Par ailleurs, la vérification du type de `value` étant effectuée au *runtime*
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
-impostor := "red"  // Pas une forme géométrique !
+impostor := "red" // Pas une forme géométrique !
 
 fmt.Println(sumAreas(rectangle, circle, impostor)) // Compile, mais...
 ```
