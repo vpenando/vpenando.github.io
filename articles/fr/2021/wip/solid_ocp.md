@@ -42,7 +42,7 @@ func sumAreas(values ...interface{}) float32 {
         case Rectangle:
             sum += shape.Width * shape.Height
         case Circle:
-            sum += math.Pi * shape.Radius * 2
+            sum += math.Pi * shape.Radius * circle.Radius
         // ...
         }
         // Cas d'erreur
@@ -107,7 +107,7 @@ func (rectangle Rectangle) area() float32 {
 }
 
 func (circle Circle) area() float32 {
-    return math.Pi * circle.Radius * 2
+    return math.Pi * circle.Radius * circle.Radius
 }
 ```
 Enfin, notre fonction `sumAreas()` devient quant à elle :
@@ -152,6 +152,5 @@ Soyons clairs : avoir un code qui respecte à 100% l'OCP n'est pas réaliste.
 Sur un projet conséquent, il n'est pas possible d'avoir un code complètement extensible sans être modifiable.
 Toutefois, il est possible d'en concevoir une partie qui, elle, respecte l'OCP.
 
-Pour ce faire, le mécanisme le plus efficace est l'héritage (l'implémentation d'interfaces étant une forme d'héritage).
-D'une part, il est possible de centraliser du code testé et validé dans une classe parente, quand cela fait sens.
-D'autre part, on peut également imposer des invariants à une entité afin d'en assurer la cohérence avec notre code, comme le type `Shape` vu ci-dessus qui impose la présence d'une méthode `area()`.
+Pour ce faire, le mécanisme le plus efficace est l'héritage (l'implémentation d'interfaces étant une forme d'héritage), de manière à ce que seul le code client soit modifié pour appeler une fonction ou méthode, qui elle ne changera pas.
+Par exemple, on peut imposer des invariants à une entité afin d'en assurer la cohérence avec notre code client, comme le type `Shape` vu ci-dessus qui impose la présence d'une méthode `area()` afin d'appeler `sumAreas()`. Notons toutefois qu'il est préférable d'avoir le moins de méthodes possibles au sein d'une même interface (comme le suggère l'[ISP](https://fr.wikipedia.org/wiki/Principe_de_s%C3%A9gr%C3%A9gation_des_interfaces), que nous verrons plus tard) afin de ne pas introduire de comportement inutile à un type.
