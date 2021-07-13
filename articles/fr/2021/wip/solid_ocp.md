@@ -88,7 +88,7 @@ Or, la modifier induit que l'on peut introduire une régression, ce qui est pré
 
 La solution au problème évoqué ci-dessus est évidente : utiliser une couche d'abstraction (ici une interface) plutôt que de vérifier à la main le type de notre variable.
 
-***Note -** D'une manière générale, le [RTTI](https://en.wikipedia.org/wiki/Run-time_type_information) est bien souvent une mauvaise idée et son utilisation reste par défaut à prohiber.*
+***Note -** D'une manière générale, le [RTTI](https://fr.wikipedia.org/wiki/Run-time_type_information) est bien souvent une mauvaise idée et son utilisation reste par défaut à prohiber.*
 
 Pour ce faire, il nous faut d'abord créer l'interface adéquate :
 ```go
