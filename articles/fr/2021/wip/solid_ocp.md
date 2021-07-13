@@ -42,7 +42,7 @@ func sumAreas(values ...interface{}) float32 {
         case Rectangle:
             sum += shape.Width * shape.Height
         case Circle:
-            sum += math.Pi * shape.Radius * circle.Radius
+            sum += math.Pi * shape.Radius * shape.Radius
         // ...
         }
         // Cas d'erreur
