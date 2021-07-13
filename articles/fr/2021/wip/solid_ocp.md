@@ -58,7 +58,7 @@ Par ailleurs, la vérification du type de `value` étant effectuée au *runtime*
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
-impostor := "blue"  // Pas une forme géométrique
+impostor := "red"  // Pas une forme géométrique !
 
 fmt.Println(sumAreas(rectangle, circle, impostor)) // Compile, mais...
 ```
@@ -124,7 +124,7 @@ Retentons l'exemple de la partie précédente :
 ```go
 rectangle := Rectangle{Width: 10, Height: 20}
 circle := Circle{Radius: 20}
-impostor := "blue"
+impostor := "red"
 
 fmt.Println(sumAreas(rectangle, circle, impostor))
 ```
@@ -134,6 +134,8 @@ Sortie :
 	string does not implement Shape (missing area method)
 ```
 Paf ! Notre imposteur ne passe pas le contrôle technique et le code ne compile pas !
+
+<p style="text-align:center;"><img src="assets/impostor.gif" /></p>
 
 Mais surtout, cette option propose deux avantages :
 - On ne peut passer qu'un type qui satisfait l'interface `Shape` ;
