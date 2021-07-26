@@ -152,5 +152,5 @@ Soyons clairs : avoir un code qui respecte à 100% l'OCP n'est pas réaliste.
 Sur un projet conséquent, il n'est pas possible d'avoir un code complètement extensible sans être modifiable.
 Toutefois, il est possible d'en concevoir une partie qui, elle, respecte l'OCP.
 
-Pour ce faire, une solution possible est d'employer l'héritage (l'implémentation d'interfaces étant une forme d'héritage), de manière à ce que seul le code client soit modifié pour appeler une fonction ou méthode, qui elle ne changera pas.
+Pour ce faire, une solution possible est d'employer l'héritage (l'implémentation d'interfaces étant une forme d'héritage), de manière à ce que seul le code client soit modifié pour appeler une fonction ou méthode, qui, elle, ne changera pas.
 Par exemple, on peut imposer des invariants à une entité afin d'en assurer la cohérence avec notre code client, comme le type `Shape` vu ci-dessus qui impose la présence d'une méthode `area()` afin d'appeler `sumAreas()`. Notons toutefois qu'il est préférable d'avoir le moins de méthodes possibles au sein d'une même interface (comme le suggère l'[ISP](https://fr.wikipedia.org/wiki/Principe_de_s%C3%A9gr%C3%A9gation_des_interfaces), que nous verrons plus tard) afin de ne pas introduire de comportement inutile à un type.
