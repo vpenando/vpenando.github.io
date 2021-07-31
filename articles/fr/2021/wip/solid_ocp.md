@@ -45,8 +45,7 @@ func sumAreas(values ...interface{}) float32 {
             sum += math.Pi * shape.Radius * shape.Radius
         // ...
         }
-        // Cas d'erreur
-        panic("unknown shape :(")
+        panic("unknown shape :(") // Si l'on ne connait pas la forme
     }
     return sum
 }
