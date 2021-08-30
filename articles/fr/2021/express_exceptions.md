@@ -106,7 +106,7 @@ type FileResult = Result<String, FileError>;
 
 Là encore, le type `Result` implique que nous *devons* traiter le cas immédiatement.
 
-Le type `Option` a un comportement relativement proche. Il propose deux variants, `Some` et `None` pour matérialiser la présence ou l'absence de valeur. Voyez-le comme une boite : vous devez d'abord l'ouvrir pour voir ce qu'il y a dedans ! Le type `Option` est similaire :
+Le type `Option` a un comportement relativement proche. Il propose deux variants, `Some` et `None` pour matérialiser la présence ou l'absence de valeur. Voyez-le comme une boite : vous devez d'abord l'ouvrir pour voir ce qu'il y a dedans !
 ```rust
 let some_int: Option<i32> = Some(42);
 let none_int: Option<i32> = None;
