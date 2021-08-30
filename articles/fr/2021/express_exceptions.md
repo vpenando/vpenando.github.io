@@ -112,8 +112,8 @@ let some_int: Option<i32> = Some(42);
 let none_int: Option<i32> = None;
 
 match some_int {
-  Some(x) => println!("x vaut {}", x),
-  None    => println!("rien :("),
+    Some(x) => println!("x vaut {}", x),
+    None    => println!("rien :("),
 }
 ```
 Une fonction `divide`, telle que l'exemple au début de l'article pourrait très bien renvoyer une `Option` plutôt que de lever une exception !
@@ -121,16 +121,16 @@ Une fonction `divide`, telle que l'exemple au début de l'article pourrait très
 Implémentation en OCaml (pour changer de Rust) :
 ```ocaml
 let divide a = function
-  | 0 -> None
-  | b -> Some(a/b)
+    | 0 -> None
+    | b -> Some(a/b)
 ```
 Clair comme de l'eau de roche, non ? D'accord, trève de plaisanteries, voici une implémentation plus lisible (en Rust du coup) :
 ```rust
 fn divide(a: i32, b: i32) -> Option<i32> {
-  if b == 0 {
-    return None;
-  }
-  Some(a/b)
+    if b == 0 {
+        return None;
+    }
+    Some(a/b)
 }
 ```
 On peut ensuite tester sa valeur avec un `match`, comme vu préalablement.
