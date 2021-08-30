@@ -91,14 +91,14 @@ Si l'on voulait réécrire notre lecture de fichier en Rust (par exemple), cela 
 ```rust
 let result = read_from_file("input.txt");
 match result {
-  Ok(content) => // on fait quelque chose du contenu
-  Err(error)  => // on fait quelque chose de l'erreur
+    Ok(content) => // on fait quelque chose du contenu
+    Err(error)  => // on fait quelque chose de l'erreur
 }
 
 // en étant joueur, on peut même imaginer un résultat personnalisé !
 enum FileError {
-  Unexisting,
-  Locked,
+    Unexisting,
+    Locked,
 }
 type FileResult = Result<String, FileError>;
 ```
