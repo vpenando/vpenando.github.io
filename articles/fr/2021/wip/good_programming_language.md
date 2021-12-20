@@ -54,13 +54,20 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 À présent, tentons d'établir une balance "pour / contre" au travers des question vue précédemment :
 - À quel(s) domaine(s) d'application s'applique JS ?
   - [x] JS s'applique aussi bien au développement front qu'au back par le biais de Node.js. Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
-- JS Supporte-t-il la programmation générique ?
-  - [ ] Oui... mais non. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire.
+- JS supporte-t-il la programmation générique ?
+  - [x] Oui... ou presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire.
 - JS est-il statiquement ou dynamiquement typé ?
   - [ ] JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement d'une mauvaise assignation à une mauvaise variable.
 - JS est-il fortement ou faiblement typé ?
   - [ ] JS est (très) faiblement typé : il est donc possible de comparer des choux et des carottes. Rajoutons à cela qu'il est dynamiquement et implicitement typé et vous obtenez approximativement le pire système de type possible.
 - JS est-il compilé ou interprété ?
-  - [ ] JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back (Node.js), la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère.
+  - [ ] JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back (Node.js), la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère. Par ailleurs, l'utilisation d'une variable non déclarée lèvera une exception au *runtime*, là où elle serait détectée dès la compilation dans d'autres langages.
 - Comment JS gère-t-il les erreurs ?
-  - [x] a
+  - [ ] (Oui c'est un point négatif à mes yeux) JS utilise un système d'exceptions, qui par nature rompt le flux d'exécution du programme et donc susceptible de le faire arrêter net si l'exception n'est pas rattrapée. A contrario, les langages modernes passent pour la plupart par des valeurs de retour ou des types adéquats. Ainsi, il est beaucoup moins probable que le programme plante suite à une erreur.
+
+Questions bonus :
+- Propose-t-il une valeur nulle ? (NULL, null, nil, undefined, ...)
+  - [ ] JS ne propose pas une mais bien deux valeurs nulles ! Ce faisant, le risque 
+Peut-il respecter la const-correctness ?
+Est-il facile à (re)lire ?
+Qu'en est-il du tooling ?
