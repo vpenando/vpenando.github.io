@@ -37,6 +37,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
   - Peut-il respecter la *const-correctness* ?
   - Est-il facile à (re)lire ?
+  - Qu'en est-il du *tooling* ?
 
 La question du nombre d'utilisateurs n'est en revanche pas du tout pertinente : en effet, un langage en situation de monopole sera forcément très utilisé dans son domaine, ce qui fausserait les résultats !
 
