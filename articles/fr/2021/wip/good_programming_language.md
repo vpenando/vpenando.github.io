@@ -58,5 +58,5 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
   - [ ] JS est (très) faiblement typé : il est donc possible de comparer des choux et des carottes. Rajoutons à cela qu'il est dynamiquement et implicitement typé et vous obtenez approximativement le pire système de type possible.
 - JS est-il compilé ou interprété ?
   - [ ] JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back (Node.js), la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère.
-- [x] Comment JS gère-t-il les erreurs ?
-  - a
+- Comment JS gère-t-il les erreurs ?
+  - [x] a
