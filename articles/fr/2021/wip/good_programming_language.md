@@ -23,7 +23,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Ou doit-on réécrire une version de chaque classe / fonction pour chaque type désiré ?
 - Est-il statiquement ou dynamiquement typé ?
   - Un langage statiquement typé sera beaucoup plus facile à déboguer ;
-  - Un langage dynamiquement type demandera quant à lui davantage de rigueur.
+  - Un langage dynamiquement typé demandera quant à lui davantage de rigueur.
 - Est-il fortement ou faiblement typé ?
   - À titre d'exemple, C est faiblement typé car il permet implicitement de convertir `void*` en `int*`.
   - Un langage très faiblement typé autorisera, par exemple, une comparaison entre les valeurs `1` et `"1"`.
@@ -32,13 +32,15 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Un langage compilé proposera bien souvent de meilleures performances qu'un langage interprété.
   - Un langage compilé consommera généralement moins de mémoire qu'un langage interprété.
 - Comment gère-t-il les erreurs ?
-  - Passe-t-il par une valeur de retour ?
+  - Passe-t-il par une valeur de retour, à la manière du type `error` en Go ou `Result<T, Error>` en Rust ?
   - Au contraire, doit-on prévoir de blinder le code de `try`/`catch` ?
 - En bonus :
   - Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
   - Peut-il respecter la *const-correctness* ?
   - Est-il facile à (re)lire ?
   - Qu'en est-il du *tooling* ?
+
+Ces questions abordent divers aspects de la programmation, qu'il s'agisse de sûreté (typage statique, fort, valeur nulle et gestion d'erreurs), performances (compilation), tout en abordant les domaines d'application et la maintenabilité.
 
 La question du nombre d'utilisateurs n'est en revanche pas du tout pertinente : en effet, un langage en situation de monopole sera forcément très utilisé dans son domaine, ce qui fausserait les résultats !
 
