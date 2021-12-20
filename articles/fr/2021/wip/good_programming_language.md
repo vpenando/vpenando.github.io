@@ -22,3 +22,6 @@ Sans plus tarder, passons à la suite !
 ---
 
 ### Cas d'école : JavaScript (presque au hasard)
+Pour les besoins de cet article, j'ai choisi (presque au hasard) le langage JavaScript.
+Incontournable dans le domaine du web, JS s'est imposé en tant que langage par défaut pour le développement côté client.
+Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équivalent ~~presque~~ typé.
