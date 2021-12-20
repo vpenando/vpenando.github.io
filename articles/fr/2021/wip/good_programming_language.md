@@ -38,7 +38,6 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
   - Peut-il respecter la *const-correctness* ?
   - Est-il facile à (re)lire ?
-  - Qu'en est-il du *tooling* ?
 
 Ces questions abordent divers aspects de la programmation, qu'il s'agisse de sûreté (typage statique, fort, valeur nulle et gestion d'erreurs), performances (compilation), tout en abordant les domaines d'application et la maintenabilité.
 
@@ -71,5 +70,5 @@ Questions bonus :
 - Peut-il respecter la const-correctness ?
   - [x] Oui ! Contrairement à beaucoup (trop) de langages, JS propose le mot-clé `const`, qui peut par ailleurs s'appliquer à *n'importe quelle variable*, pas seulement aux constantes de compilation ! Ce qui, en y réfléchissant, est logique pour un langage non compilé.
 - Est-il facile à (re)lire ?
-  - [ ] a
-Qu'en est-il du tooling ?
+  - [x] Quoi que l'on puisse en dire, JS est, de par sa syntaxe très simple, facile à relire, ce qui en facilite la maintenabilité.
+
