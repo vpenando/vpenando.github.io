@@ -51,4 +51,5 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
   - JS s'applique aussi bien au développement front qu'au back par le biais de Node.js. Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
 - JS Supporte-t-il la programmation générique ?
   - Oui... mais non. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire.
-  - 
+- JS est-il statiquement ou dynamiquement typé ?
+  - JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement d'une mauvaise assignation à une mauvaise variable.
