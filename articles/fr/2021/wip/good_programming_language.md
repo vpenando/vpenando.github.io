@@ -25,8 +25,9 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Un langage statiquement typé sera beaucoup plus facile à déboguer ;
   - Un langage dynamiquement type demandera quant à lui davantage de rigueur.
 - Est-il fortement ou faiblement typé ?
-  - Un langage faiblement typé autorisera, par exemple, une comparaison entre les valeurs `1` et `"1"`.
-- Est-il compilé ou interprété ?
+  - À titre d'exemple, C est faiblement typé car il permet implicitement de convertir `void*` en `int*`.
+  - Un langage très faiblement typé autorisera, par exemple, une comparaison entre les valeurs `1` et `"1"`.
+- Est-il compilé (ou *transcompilé*) ou interprété ?
   - Certaines erreurs (notamment des erreurs de types) peuvent être détectées dès la compilation.
   - Un langage compilé proposera bien souvent des meilleures performances qu'un langage interprété.
   - Un langage compilé consommera généralement moins de mémoire qu'un langage interprété.
