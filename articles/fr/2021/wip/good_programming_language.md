@@ -50,7 +50,7 @@ Pour les besoins de cet article, j'ai choisi (presque au hasard) le langage Java
 Incontournable dans le domaine du web, JS s'est imposé en tant que langage par défaut pour le développement côté client.
 Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équivalent ~~presque~~ typé.
 
-À présent, tentons d'établir une balance "pour / contre" au travers des question vue précédemment :
+À présent, tentons d'établir une balance "pour / contre" au travers des question vues précédemments :
 - À quel(s) domaine(s) d'application s'applique JS ?
   - [x] : JS s'applique aussi bien au développement front qu'au back, par le biais de Node.js par exemple ! Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
 
