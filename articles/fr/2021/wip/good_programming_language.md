@@ -59,7 +59,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 - JS supporte-t-il la programmation générique ?
   - [x] Oui... ou presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire.
 - JS est-il statiquement ou dynamiquement typé ?
-  - [ ] JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement d'une mauvaise assignation à la mauvaise variable.
+  - [ ] JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement de l'assignation d'une valeur d'un type X à une variable originellement d'un type Y.
 - JS est-il fortement ou faiblement typé ?
   - [ ] JS est (très) faiblement typé : il est donc possible de comparer des choux et des carottes. Rajoutons à cela qu'il est dynamiquement et implicitement typé et vous obtenez approximativement le pire système de type possible. Certes, il existe l'opérateur `===`, mais cela n'enlève rien au fait que le langage *permet* de faire n'importe quoi.
 - JS est-il compilé ou interprété ?
