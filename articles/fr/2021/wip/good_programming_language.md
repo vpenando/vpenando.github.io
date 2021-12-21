@@ -69,7 +69,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 
 Questions bonus :
 - Est-il *null-safe* ? (présence ou absence d'une valeur `NULL`, `null`, `nil`, `undefined`, ...)
-  - [ ] JS ne propose pas une mais bien deux valeurs nulles ! Ce dernier permet même d'employer une variable non déclarée ; ce faisant, le risque d'employer à tort et sans le savoir une valeur nulle est accru !
+  - [ ] JS ne propose pas une mais bien deux valeurs nulles, et permet même d'employer une variable non déclarée ; ce faisant, le risque d'employer à tort et sans le savoir une valeur nulle est accru !
 - Peut-il respecter la const-correctness ?
   - [x] Oui ! Contrairement à beaucoup (trop) de langages, JS propose le mot-clé `const`, qui peut par ailleurs s'appliquer à *n'importe quelle variable*, pas seulement aux constantes de compilation ! Ce qui, en y réfléchissant, est logique pour un langage non compilé.
 - Est-il facile à (re)lire ?
