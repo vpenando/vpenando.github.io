@@ -28,7 +28,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - À titre d'exemple, C est faiblement typé car il permet des conversions implicites (`float` en `int`, `void*` en `int*`, ...). Elm est quant à lui très fortement typé car il est par exemple impossible d'additionner un `Int` et un `Float` sans conversion explicite.
   - Un langage très faiblement typé autorisera, par exemple, une comparaison entre les valeurs `1` et `"1"`.
 - Est-il compilé (ou *transcompilé*) ou interprété ?
-  - Certaines erreurs (notamment des erreurs de types) peuvent être détectées dès la compilation.
+  - Un langage compilé ou transcompilé mettra en évidence certaines erreurs (notamment des erreurs de types) dès la compilation.
   - Un langage compilé proposera bien souvent de meilleures performances qu'un langage interprété.
   - Un langage compilé consommera généralement moins de mémoire qu'un langage interprété.
 - Comment gère-t-il les erreurs ?
