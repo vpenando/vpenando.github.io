@@ -25,7 +25,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Un langage statiquement typé sera plus sûr et plus facile à déboguer ;
   - Un langage dynamiquement typé demandera quant à lui davantage de rigueur.
 - Est-il fortement ou faiblement typé ?
-  - À titre d'exemple, C est faiblement typé car il permet implicitement de convertir `void*` en `int*`.
+  - À titre d'exemple, C est faiblement typé car il permet des conversions implicites (`float` en `int`, `void*` en `int*`, ...). Elm est quant à lui très fortement typé car il est par exemple impossible d'additionner un `Int` et un `Float` sans conversion explicite.
   - Un langage très faiblement typé autorisera, par exemple, une comparaison entre les valeurs `1` et `"1"`.
 - Est-il compilé (ou *transcompilé*) ou interprété ?
   - Certaines erreurs (notamment des erreurs de types) peuvent être détectées dès la compilation.
