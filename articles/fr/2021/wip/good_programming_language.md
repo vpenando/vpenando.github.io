@@ -63,7 +63,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 - JS est-il compilé ou interprété ?
   - [ ] JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back (Node.js), la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère. Par ailleurs, l'utilisation d'une variable non déclarée lèvera une exception au *runtime*, là où elle serait détectée dès la compilation dans d'autres langages.
 - Comment JS gère-t-il les erreurs ?
-  - [ ] JS utilise un système d'exceptions (Oui c'est un point négatif à mes yeux). Par nature, ce système rompt le flux d'exécution du programme et donc susceptible de le faire arrêter net si l'exception n'est pas rattrapée. A contrario, les langages modernes passent pour la plupart par des valeurs de retour et des types adéquats (`error`, `Result<T, Error>`, ...). Ainsi, il est beaucoup moins probable que le programme plante suite à une erreur.
+  - [ ] JS utilise un système d'exceptions (oui, c'est un point négatif à mes yeux). Par nature, ce système rompt le flux d'exécution du programme et donc susceptible de le faire arrêter net si l'exception n'est pas rattrapée. A contrario, les langages modernes passent pour la plupart par des valeurs de retour et des types adéquats (`error`, `Result<T, Error>`, ...). Ainsi, il est beaucoup moins probable que le programme plante suite à une erreur.
 
 Questions bonus :
 - Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
