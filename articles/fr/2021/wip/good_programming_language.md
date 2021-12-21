@@ -16,6 +16,8 @@ Néanmoins, quelques questions peuvent nous donner une indication générale.
 Je tiens à préciser que ces questions sont en relation avec *mes* critères, purement personnels, qui ne concernent et n'engagent que moi.
 Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres !
 
+Ces questions étant génériques, elles n'abordent qu'en surface les différents langages.
+
 - À quel(s) domaine(s) d'application s'applique tel ou tel langage ?
   - Peut-on utiliser un même code dans deux applications différentes ?
   - Au contraire, est-il utile dans un et un seul cadre ? 
