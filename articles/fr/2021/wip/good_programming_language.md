@@ -35,7 +35,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
   - Passe-t-il par une valeur de retour, à la manière du type `error` en Go ou `Result<T, Error>` en Rust ?
   - Au contraire, doit-on prévoir de blinder le code de `try`/`catch` ?
 - En bonus :
-  - Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
+  - Est-il *null-safe* ? (présence ou absence d'une valeur `NULL`, `null`, `nil`, `undefined`, ...)
   - Peut-il respecter la *const-correctness* ?
   - Est-il facile à (re)lire ?
 
@@ -66,7 +66,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
   - [ ] JS utilise un système d'exceptions (oui, c'est un point négatif à mes yeux). Par nature, ce système rompt le flux d'exécution du programme et est donc susceptible de le faire arrêter net si l'exception n'est pas rattrapée. A contrario, les langages modernes passent pour la plupart par des valeurs de retour et des types adéquats (`error`, `Result<T, Error>`, ...). Ainsi, **la possibilité qu'une erreur survienne est mise en évidence dès l'appel d'une fonction/méthode** via son ou ses types de retour, et il est beaucoup moins probable que le programme plante suite à une erreur non rattrapée.
 
 Questions bonus :
-- Propose-t-il une valeur nulle ? (`NULL`, `null`, `nil`, `undefined`, ...)
+- Est-il *null-safe* ? (présence ou absence d'une valeur `NULL`, `null`, `nil`, `undefined`, ...)
   - [ ] JS ne propose pas une mais bien deux valeurs nulles ! Ce faisant, le risque d'employer à tort une valeur nulle est accru !
 - Peut-il respecter la const-correctness ?
   - [x] Oui ! Contrairement à beaucoup (trop) de langages, JS propose le mot-clé `const`, qui peut par ailleurs s'appliquer à *n'importe quelle variable*, pas seulement aux constantes de compilation ! Ce qui, en y réfléchissant, est logique pour un langage non compilé.
