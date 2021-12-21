@@ -22,7 +22,7 @@ Vous êtes donc libres d'ignorer certains d'entre eux ou d'en rajouter d'autres 
 - Supporte-t-il la programmation générique ?
   - Ou doit-on réécrire une version de chaque classe / fonction pour chaque type désiré ?
 - Est-il statiquement ou dynamiquement typé ?
-  - Un langage statiquement typé sera beaucoup plus facile à déboguer ;
+  - Un langage statiquement typé sera plus sûr et plus facile à déboguer ;
   - Un langage dynamiquement typé demandera quant à lui davantage de rigueur.
 - Est-il fortement ou faiblement typé ?
   - À titre d'exemple, C est faiblement typé car il permet implicitement de convertir `void*` en `int*`.
