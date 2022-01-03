@@ -57,7 +57,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
   - [x] : JS s'applique aussi bien au développement front qu'au back, par le biais de Node.js par exemple ! Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
 
 - JS supporte-t-il la programmation générique ?
-  - [x] Oui... ou presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire.
+  - [ ] : Presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire. Cela reste toutefois le fruit de l'exploitation d'une faiblesse du langage, et non une fonctionnalité ; il est donc possible de faire n'importe quoi. 
 - JS est-il statiquement ou dynamiquement typé ?
   - [ ] JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement de l'assignation d'une valeur d'un type X à une variable originellement d'un type Y.
 - JS est-il fortement ou faiblement typé ?
@@ -74,5 +74,5 @@ Questions bonus :
 - Peut-il respecter la const-correctness ?
   - [x] Oui ! Contrairement à beaucoup (trop) de langages, JS propose le mot-clé `const`, qui peut par ailleurs s'appliquer à *n'importe quelle variable*, pas seulement aux constantes de compilation ! Ce qui, en y réfléchissant, est logique pour un langage non compilé.
 - Est-il facile à (re)lire ?
-  - [x] Quoi que l'on puisse en dire, JS est, de par sa syntaxe très simple, facile à relire, ce qui en facilite la maintenabilité.
+  - [x] Quoi que l'on puisse en dire, JS est, de par sa syntaxe très simple, facile à relire, ce qui en facilite la maintenabilité. Notons cependant que l'absence de typage explicite ne facilite pas la relecture.
 
