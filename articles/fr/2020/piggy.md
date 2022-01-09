@@ -80,7 +80,7 @@ Comme brièvement évoqué plus haut, l'un des objectifs premiers de ce projet �
 
 Côté front, c'était en revanche un poil plus compliqué. Je suis essentiellement un dev orienté back et applicatif. La dernière fois où j'ai fait du front, c'est presque trop vieux pour que je m'en rappelle (aux alentours de 2012 ?). J'ai donc des notions très rudimentaires, tout juste niveau débutant.
 De plus, j'ai notamment pour contrainte de n'avoir aucune dépendance tierce à faire installer aux utilisateurs, problème qui ne se pose pas en Go, où l'exécutable compilé n'a *aucune* dépendance. En effet, je veux que le projet soit utilisable tel quel lorsqu'un utilisateur *-notamment un utilisateur sans aucune connaissance technique-* le télécharge. On télécharge l'application, on la lance et ça marche. Or, en Go, l'exécutable final embarque toutes ses dépendances ; ça fait des binaires plus lourds, mais ils n'ont besoin de rien pour fonctionner.
-Là où une application réellement orientée SaaS ne s'impose, par essence, pas de telles contrainte, je me dois de maintenir une certaine accessibilité auprès de chacun. Ainsi, je pars sur du JS natif avec quelques rustines persos histoire de me faciliter la tâche.
+Là où une application réellement orientée SaaS ne s'impose, par essence, pas de telles contraintes, je me dois de maintenir une certaine accessibilité auprès de chacun. Ainsi, je pars sur du JS natif avec quelques rustines persos histoire de me faciliter la tâche.
 
 ---
 
@@ -127,7 +127,7 @@ En parallèle, d'autres fonctionnalités, moindres, sont également en attente :
 * Mise en évidence et déplacement du bouton "Edition" pour éviter les "missclicks" ;
 * Mise à disposition d'un jeu d'icônes "toutes faites" lors de la création de nouvelles catégories.
 
-Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet. Toutefois, travaillant seul sur le projet et uniquement sur mon temps libre, il est probable que les nouvelles fonctionnalités mettent un certains temps avant de faire leur apparition.
+Ainsi, bien que le prototype soit (presque) pleinement fonctionnel, il reste encore un peu de travail pour arriver à un résultat final complet. Toutefois, travaillant seul sur le projet et uniquement sur mon temps libre, il est probable que les nouvelles fonctionnalités mettent un certain temps avant de faire leur apparition.
 
 ---
 
@@ -143,4 +143,6 @@ Il contient les dossiers suivants :
 * `test/` : les tests tiers du projet (stresstests, ...) ;
 * `views/` : les pages HTML (templates mux) du projet.
 
-**\*** L'intérêt d'en faire un package à part entière permet une meilleure réusabilité du coeur de l'appli pour des projets futurs. 
+**\*** L'intérêt d'en faire un package à part entière permet une meilleure réusabilité du cœur de l'appli pour des projets futurs. 
+
+**NOTE DU FUTUR (01/2022)** : L'architecture du projet a été remaniée afin d'être davantage "go compliant".
