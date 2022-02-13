@@ -18,6 +18,7 @@ Cela ne s'applique pas qu'à la POO, mais également à la programmation génér
 Exemple de non-respect du LSP, ici en C# :
 ```c#
 record Rectangle(float Width, float Height);
+
 record Square(float Side) : Rectangle(Side, Side);
 
 // Plus loin dans le code...
