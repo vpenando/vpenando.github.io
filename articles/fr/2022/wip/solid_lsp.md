@@ -6,13 +6,36 @@
 
 ### Introduction
 
+> Tout invariant inhérent à un type `T` doit être valide pour un type `U` si `U` veut se substituer à `T`. Cela induit que les préconditions propres à `T` ne peuvent pas être renforcées dans `U` et que les postconditions de `T` ne peuvent pas être affaiblies dans `U`.
+
+Cela ne s'applique pas qu'à la POO, mais également à la programmation générique.
+
+---
+
+### Exemple 
 
 
+Exemple de non-respect du LSP, ici en C# :
+```c#
+record struct Rectangle(float Width, float Height);
+record struct Square(float Side) : Rectangle(Side, Side);
+
+// Plus loin dans le code...
+
+Rectangle ResizeRectangleWidth(Rectangle rectangle, float newWidth)
+    => rectangle with { Width = newWidth };
+    
+Rectangle ResizeRectangleHeight(Rectangle rectangle, float newHeight)
+    => rectangle with { Height = newHeight };
+```
+
+Avant toute chose, il ne fait aucun sens qu'un carré possède une largeur et une hauteur, car tous ses côtés doivent avoir la même taille (précondition renforcée !).
+Lors de l'appel à `ResizeRectangleWidth` ou `ResizeRectangleHeight` en passant un objet de type `Square`, que se passe-t-il ? On casse l'essence même de notre type `Square` !
 
 
+---
 
+### Solutions possibles
 
-
-
-
-
+- `struct`
+- `sealed class`
