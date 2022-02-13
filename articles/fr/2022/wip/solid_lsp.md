@@ -30,7 +30,8 @@ Rectangle ResizeRectangleHeight(Rectangle rectangle, float newHeight)
 ```
 
 Avant toute chose, il ne fait aucun sens qu'un carré possède une largeur et une hauteur, car tous ses côtés doivent avoir la même taille (précondition renforcée !).
-Lors de l'appel à `ResizeRectangleWidth` ou `ResizeRectangleHeight` en passant un objet de type `Square`, que se passe-t-il ? On casse l'essence même de notre type `Square` !
+
+Ensuite, lors de l'appel à `ResizeRectangleWidth` ou `ResizeRectangleHeight` en passant un objet de type `Square`, que se passe-t-il ? On casse l'essence même de notre carré !
 
 
 ---
