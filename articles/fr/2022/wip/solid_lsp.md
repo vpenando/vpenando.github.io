@@ -45,5 +45,5 @@ Ensuite, lors de l'appel à `ResizeRectangleWidth` ou `ResizeRectangleHeight` en
 
 ### Solutions possibles
 
-- `struct`
+- `struct` (pour value objects, non héritables)
 - `sealed class`
