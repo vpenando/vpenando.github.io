@@ -27,6 +27,8 @@
 - inline namespace
 - records
 
+```xml
 <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
 </PropertyGroup>
+```
