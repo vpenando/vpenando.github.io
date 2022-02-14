@@ -6,8 +6,6 @@
 
 ### Tout commence par une bonne configuration
 
-- Warning lors de l'usage potentiel d'une valeur nulle
-
 ```xml
 <PropertyGroup>
     <Nullable>enable</Nullable>
@@ -15,6 +13,10 @@
     <WarningLevel>5</WarningLevel>
 </PropertyGroup>
 ```
+
+- `Nullable` : Warning lors de l'usage potentiel d'une valeur nulle
+- `TreatWarningsAsErrors` : Transforme tous les avertissements en erreurs
+- `WarningLevel` : Niveau d'avertissement (5 = maximum)
 
 ---
 
