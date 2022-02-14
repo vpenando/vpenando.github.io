@@ -6,7 +6,7 @@
 
 ### Introduction
 
-> Tout invariant inhérent à un type `T` doit être valide pour un type `U` si `U` veut se substituer à `T`. Cela induit que les préconditions propres à `T` ne peuvent pas être renforcées dans `U` et que les postconditions de `T` ne peuvent pas être affaiblies dans `U`.
+> Tout invariant inhérent à un type `T` doit être valide pour un type `U` si `U` veut se substituer à `T`. De plus, les préconditions propres à `T` ne peuvent pas être renforcées dans `U` et les postconditions de `T` ne peuvent pas être affaiblies dans `U`.
 
 Cela ne s'applique pas qu'à la POO, mais également à la programmation générique.
 
