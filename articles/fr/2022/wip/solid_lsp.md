@@ -12,7 +12,8 @@ Il peut être énoncé comme suit :
 
 > Tout invariant inhérent à un type `T` doit être valide pour un type `U` si `U` veut se substituer à `T`. De plus, les préconditions propres à `T` ne peuvent pas être renforcées dans `U` et les postconditions de `T` ne peuvent pas être affaiblies dans `U`.
 
-Cela ne s'applique pas qu'à la POO, mais également à la programmation générique.
+Pour faire simple, si une classe `Derived` hérite d'une classe `Parent`, alors toute instance de `Derived` peut être utilisée en tant que `Parent`, de la même manière et sans altérer son comportement.
+Toutefois, cela ne s'applique pas qu'à la POO, mais également à la programmation générique.
 
 ---
 
