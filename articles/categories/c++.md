@@ -1,4 +1,4 @@
-## [Welcome here!](index.md) | Articles | [Main projects](projects.md) | [About me](about.md)
+## [Welcome here!](/index.html) | Articles | [Main projects](/projects.html) | [About me](/about.html)
 
 ### All `c++` posts:
 
