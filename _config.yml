@@ -1,3 +1,4 @@
-
-theme: jekyll-theme-cayman
+title: Vincent P's dev blog
+description: Vincent P's dev blog
+theme: minima
 show_downloads: false
