@@ -1,6 +1,6 @@
 
 
-### [FR] Création d'un émulateur NES #1 - Comment est structuré un header de jeu NES ?
+#### [FR] Création d'un émulateur NES #1 - Comment est structuré un header de jeu NES ?
 
 ###### Note
 > Cet article est le premier d'une série visant à créer pas à pas un émulateur NES en C++.
