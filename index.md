@@ -1,4 +1,4 @@
-## Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
+#### Welcome here! | [Articles](articles.md) | [Main projects](projects.md) | [About me](about.md)
 
 ### Old dev blog:
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
