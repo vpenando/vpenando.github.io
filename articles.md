@@ -1,4 +1,4 @@
-## [Welcome here!](index.md) | Articles | [Main projects](projects.md) | [About me](about.md)
+#### [Welcome here!](index.md) | Articles | [Main projects](projects.md) | [About me](about.md)
 
 ### All posts:
 
