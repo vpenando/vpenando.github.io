@@ -3,6 +3,21 @@ Here are my main projects.
 
 ---
 
+### [Piggy](https://github.com/vpenando/piggy) [![Build Status](https://travis-ci.org/vpenando/piggy.svg)](https://travis-ci.org/vpenando/piggy) [![Go Report Card](https://goreportcard.com/badge/github.com/vpenando/piggy)](https://goreportcard.com/report/github.com/vpenando/piggy)
+
+`go` `gorm` `web`
+
+Piggy is a free, open source software designed to help you track and classify your spendings.
+
+It provides features such as:
+- Adding, editing, deleting, sorting & filtering expenses
+- Adding custom categories
+- Navigating between months by pressing the Page Up / Page Down keys
+- Generating Excel reports
+- And much more!
+
+---
+
 
 ### [SDL Wrapper](https://github.com/vpenando/sdl-cpp) [![Build Status](https://travis-ci.org/vpenando/sdl-cpp.svg)](https://travis-ci.org/vpenando/sdl-cpp)
 `c++` `c++14` `sdl`
