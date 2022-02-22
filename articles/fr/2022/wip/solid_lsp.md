@@ -17,30 +17,30 @@ Toutefois, cela ne s'applique pas qu'à la POO, mais également à la programmat
 
 ---
 
-### Exemple 
+### Exemple
 
-
-Exemple de non-respect du LSP, ici en C# :
+Voici un exemple de non-respect du LSP, ici en C#.
 ```c#
 // Un simple rectangle
 record Rectangle(float Width, float Height);
-
+```
+Spécialisons notre classe :
+```c#
 // Un carré n'est qu'un rectangle un peu particulier, n'est-ce pas ?
 record Square(float Side) : Rectangle(Side, Side);
-
-// Plus loin dans le code...
-
-Rectangle ResizeRectangleWidth(Rectangle rectangle, float newWidth)
-    => rectangle with { Width = newWidth };
-    
-Rectangle ResizeRectangleHeight(Rectangle rectangle, float newHeight)
-    => rectangle with { Height = newHeight };
 ```
 
 Avant toute chose, il ne fait aucun sens qu'un carré possède une largeur et une hauteur ; en effet, tous ses côtés doivent avoir la même taille (précondition renforcée !).
 
-Ensuite, lors de l'appel à `ResizeRectangleWidth` ou `ResizeRectangleHeight` en passant un objet de type `Square`, que se passe-t-il ? On casse l'essence même de notre carré !
-
+Puis, imaginons que l'on ajoute une méthode à notre type `Rectangle` :
+```c#
+// Toujours un simple rectangle
+record Rectangle(float Width, float Height) {
+    public Rectangle Resize(float w, float h)
+        => this with { Width = w, Height = h };
+}
+```
+Ensuite, lors de l'appel à `Resize`, si l'appelant est de type `Square`, que se passe-t-il ? On casse l'essence même de notre carré !
 
 ---
 
