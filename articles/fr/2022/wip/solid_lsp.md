@@ -54,5 +54,7 @@ Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangl
 
 ### Solutions possibles
 
+D'une manière générale, une classe à sémantique de valeur ne doit pas être héritée. En C#, il est courant de la marquer comme `sealed` ou d'utiliser une `struct`, qui est implicitement non-héritable (`record struct` si l'on veut utiliser un record).
+
 - `struct` (pour value objects, non héritables)
 - `sealed class`
