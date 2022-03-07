@@ -32,7 +32,7 @@ record Square(float Side) : Rectangle(Side, Side);
 
 Avant toute chose, il ne fait aucun sens qu'un carré possède une largeur et une hauteur ; en effet, tous ses côtés doivent avoir la même taille (précondition renforcée !).
 
-Puis, imaginons que l'on ajoute une méthode à notre type `Rectangle` :
+Puis, imaginons que l'on enrichisse un peu notre type `Rectangle` :
 ```c#
 // Toujours un simple rectangle
 record Rectangle(float Width, float Height) {
@@ -40,7 +40,9 @@ record Rectangle(float Width, float Height) {
         => this with { Width = w, Height = h };
 }
 ```
-Ensuite, lors de l'appel à `Resize`, si l'appelant est de type `Square`, que se passe-t-il ? On casse l'essence même de notre carré !
+Ensuite, lors de l'appel à `Resize`, si l'appelant est de type `Square`, que se passe-t-il ? On casse alors l'essence même de notre carré !
+
+Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangle, n'est-ce pas ? Il devient alors limpide que nos deux classes `Rectangle` et `Square` ne doivent pas avoir le moindre lien de parenté.
 
 ---
 
