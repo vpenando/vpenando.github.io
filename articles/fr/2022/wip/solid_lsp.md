@@ -13,13 +13,14 @@ Il peut être énoncé comme suit :
 > Tout invariant inhérent à un type `T` doit être valide pour un type `U` si `U` veut se substituer à `T`. De plus, les préconditions propres à `T` ne peuvent pas être renforcées dans `U` et les postconditions de `T` ne peuvent pas être affaiblies dans `U`.
 
 Pour faire simple, si une classe `Child` hérite d'une classe `Parent`, alors toute instance de `Child` peut être utilisée en tant que `Parent`, de la même manière et sans altérer son comportement.
+
 Notons par ailleurs que cela ne concerne pas que la POO, mais est également applicable à la programmation générique.
 
 ---
 
 ### Exemple
 
-Voici un exemple de non-respect du LSP, ici en C#.
+Voici un exemple de non-respect du LSP, volontairement simpliste, ici en C#.
 ```c#
 // Un simple rectangle
 record Rectangle(float Width, float Height);
@@ -40,9 +41,14 @@ record Rectangle(float Width, float Height) {
         => this with { Width = w, Height = h };
 }
 ```
-Ensuite, lors de l'appel à `Resize`, si l'appelant est de type `Square`, que se passe-t-il ? On casse alors l'essence même de notre carré !
+Ensuite, lors de l'appel à `Resize`, si l'appelant est de type `Square`, que se passe-t-il ?
+```c#
+Square square = new(10, 10);
+Square other = square.Resize(4, 2); // Un carré de 4 par 2 !?
+```
+On casse alors l'essence même de notre carré !
 
-Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangle, n'est-ce pas ? Il devient alors limpide que nos deux classes `Rectangle` et `Square` ne doivent pas avoir le moindre lien de parenté.
+Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangle ; ce faisant, il devient alors limpide que nos deux classes `Rectangle` et `Square` ne doivent pas avoir le moindre lien de parenté, car une méthode s'appliquant pour l'un de nos types doit pouvoir s'appliquer à l'autre.
 
 ---
 
