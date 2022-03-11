@@ -63,5 +63,23 @@ record struct Rectangle(float Width, float Height) {
 }
 ```
 
-- `struct` (pour value objects, non héritables)
-- `sealed class`
+Dans le cas d'une classe ayant vocation à rendre un service, il convient de penser en amont à la pertinence d'un héritage. Exemple :
+```c#
+interface ISerializer<T, TOutput> {
+    TOutput Serialize(T value);
+}
+
+sealed class JsonOutput { /* ... */ }
+sealed class JsonSerializer<T> : ISerializer<T, JsonOutput> {
+    public JsonOutput Serialize(T value) {
+        // ...
+    }
+}
+
+sealed class XmlOutput { /* ... */ }
+sealed class XmlSerializer<T> : ISerializer<T, XmlOutput> {
+    public XmlOutput Serialize(T value) {
+        // ...
+    }
+}
+```
