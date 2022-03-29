@@ -40,6 +40,7 @@ Ces questions étant génériques, elles n'abordent qu'en surface les différent
   - Est-il *null-safe* ? (présence ou absence d'une valeur `NULL`, `null`, `nil`, `undefined`, ...)
   - Peut-il respecter la *const-correctness* ?
   - Est-il facile à (re)lire ?
+  - Est-il trop verbeux, ou est-il au contraire concis ?
 
 Ces questions abordent divers aspects de la programmation, qu'il s'agisse de sûreté (typage statique, fort, valeur nulle et gestion d'erreurs), performances (compilation), tout en abordant les domaines d'application et la maintenabilité.
 
@@ -75,12 +76,14 @@ Questions bonus :
   - **✓** : Oui ! Contrairement à beaucoup (trop) de langages, JS propose le mot-clé `const`, qui peut par ailleurs s'appliquer à *n'importe quelle variable*, pas seulement aux constantes de compilation ! Ce qui, en y réfléchissant, est logique pour un langage non compilé.
 - Est-il facile à (re)lire ?
   - **✓** : Quoi que l'on puisse en dire, JS est, de par sa syntaxe très simple, facile à relire, ce qui en facilite la maintenabilité. Notons cependant que l'absence de typage explicite ne facilite pas la relecture.
+- Est-il trop verbeux, ou est-il au contraire concis ?
+  - **✓** : Je trouve JS plutôt concis, mais cela vient au dépens d'un système de type explicite. Néanmoins, force est de reconnaître qu'il contient assez peu de mots-clés et qu'il est par conséquent rapide d'écrire du code JS.
 
 ---
 
 ### Résumons : JS, comment en faire un "bon" langage ?
-Si l'on considère que la balance "pour / contre" ci-dessus sert à déterminer si un langage est "bon" ou non, JS serait un "mauvais" langage.
-En effet, celle-ci compte 3 "pour" et 6 "contre" !
+Si l'on considère que la balance "pour / contre" ci-dessus sert à déterminer si un langage est "bon" ou non, JS serait plutôt dans la catégorie des "mauvais" langages.
+En effet, celui-ci compte 4 points "pour" et 6 "contre" !
 
 Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 
@@ -88,16 +91,16 @@ Pour ce faire, je propose un petit exercice : transformer une fonction toute bê
 
 ```js
 function mapSeq(seq, mapper) {
-		if (!seq) {
-    		throw "Null seq!!";
+    if (!seq) {
+        throw "Null seq!!";
     }
     if (!mapper) {
-    		throw "Null mapper!!";
+        throw "Null mapper!!";
     }
     var result = [];
     for (var i = 0; i < seq.length; i++) {
-        const elem = seq[i];
-        const newElem = mapper(elem);
+        var elem = seq[i];
+        var newElem = mapper(elem);
         result.push(newElem);
     }
     return result;
@@ -106,7 +109,7 @@ function mapSeq(seq, mapper) {
 Sur le papier, elle marche super bien !
 ```js
 var a = [1, 2, 3];
-var b = map(a, i => i*2);
+var b = mapSeq(a, i => i*2);
 console.log("a = " + a); // [1, 2, 3]
 console.log("b = " + b); // [2, 4, 6]
 ```
@@ -118,16 +121,58 @@ b = 2,4,6
 Mais dans les faits, elle ne couvre absolument pas les cas un peu exotiques, car `a` peut contenir n'importe quoi :
 ```js
 var a = [1, true, "Hello, world!"];
-var b = map(a, i => i*2);
+var b = mapSeq(a, i => i*2);
 console.log("a = " + a); // a = 1,true,Hello, world!"
 console.log("b = " + b); // b = [2, 2, NaN]
 ```
 Output :
 ```
-var a = 1,true,Hello, world!
-var b = 2,2,NaN
+a = 1,true,Hello, world!
+b = 2,2,NaN
 ```
 En effet :
 - Cette fonction n'est pas générique ; elle profite du typage dynamique et faible pour fonctionner, acceptant *n'importe quoi* en entrée.
 - Par nature, elle accepte ~~une~~ deux valeurs nulles ; cela implique de les gérer en amont ; elle lèvera une erreur si un de ses arguments est nul.
 
+Pour être un peu plus sûre, il faudrait interdire l'utilisation de valeurs nulles, et avoir un typage statique, et si possible explicite *a minima* pour les arguments.
+Cela nous donnerait quelque chose proche de :
+```js
+function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
+    var result: []U = [];
+    for (var i = 0; i < seq.length; i++) {
+        var elem = seq[i];
+        var newElem = mapper(elem);
+        result.push(newElem);
+    }
+    return result;
+}
+```
+Ça commence à ressembler à du TypeScript, pas vrai ? (Bon, en même temps, c'est une surcouche de JS...)
+
+Toutefois, cela ne couvre toujours pas l'usage de valeur nulle.
+
+Mais on peut encore faire mieux ! Commençons par nettoyer notre fonction de toutes ses fioritures :
+```js
+function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
+    result: []U = []
+    for i = 0; i < seq.length; i++ {
+        elem = seq[i]
+        newElem = mapper(elem)
+        result.push(newElem)
+    }
+    return result;
+}
+```
+Modifions-la encore un peu afin d'avoir quelque chose de plus concis :
+```go
+func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
+    var result []U
+    for i := 0; i < len(seq); i++ {
+        elem := seq[i]
+        newElem := mapper(elem)
+        result = append(result, newElem)
+    }
+    return result
+}
+```
+Ah, là c'est mieux !
