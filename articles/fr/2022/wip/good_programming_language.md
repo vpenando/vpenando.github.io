@@ -87,7 +87,6 @@ Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus !
 
 ```js
-// Fonction d'origine :
 function map(seq, mapper) {
     var result = [];
     for (var i = 0; i < seq.length; i++) {
