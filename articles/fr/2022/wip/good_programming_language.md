@@ -87,13 +87,16 @@ Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus !
 
 ```js
-function map(seq, mapper) {
+function mapSeq(seq, mapper) {
+		if (!seq) {
+    		throw "Null seq!!";
+    }
+    if (!mapper) {
+    		throw "Null mapper!!";
+    }
     var result = [];
     for (var i = 0; i < seq.length; i++) {
         const elem = seq[i];
-        if (elem === null || elem === undefined) {
-            throw "Null element!!";
-        }
         const newElem = mapper(elem);
         result.push(newElem);
     }
@@ -124,3 +127,7 @@ Output :
 var a = 1,true,Hello, world!
 var b = 2,2,NaN
 ```
+En effet :
+- Cette fonction n'est pas générique ; elle profite du typage dynamique et faible pour fonctionner, acceptant *n'importe quoi* en entrée.
+- Par nature, elle accepte ~~une~~ deux valeurs nulles ; cela implique de les gérer en amont ; elle lèvera une erreur si un de ses arguments est nul.
+
