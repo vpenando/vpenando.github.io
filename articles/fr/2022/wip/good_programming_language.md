@@ -76,3 +76,52 @@ Questions bonus :
 - Est-il facile à (re)lire ?
   - **✓** : Quoi que l'on puisse en dire, JS est, de par sa syntaxe très simple, facile à relire, ce qui en facilite la maintenabilité. Notons cependant que l'absence de typage explicite ne facilite pas la relecture.
 
+---
+
+### Résumons : JS, comment en faire un "bon" langage ?
+Si l'on considère que la balance "pour / contre" ci-dessus sert à déterminer si un langage est "bon" ou non, JS serait un "mauvais" langage.
+En effet, celle-ci compte 3 "pour" et 6 "contre" !
+
+Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
+
+Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus !
+
+```js
+// Fonction d'origine :
+function map(seq, mapper) {
+    var result = [];
+    for (var i = 0; i < seq.length; i++) {
+        const elem = seq[i];
+        if (elem === null || elem === undefined) {
+            throw "Null element!!";
+        }
+        const newElem = mapper(elem);
+        result.push(newElem);
+    }
+    return result;
+}
+```
+Sur le papier, elle marche super bien !
+```js
+var a = [1, 2, 3];
+var b = map(a, i => i*2);
+console.log("a = " + a); // [1, 2, 3]
+console.log("b = " + b); // [2, 4, 6]
+```
+Output :
+```
+a = 1,2,3
+b = 2,4,6
+```
+Mais dans les faits, elle ne couvre absolument pas les cas un peu exotiques, car `a` peut contenir n'importe quoi :
+```js
+var a = [1, true, "Hello, world!"];
+var b = map(a, i => i*2);
+console.log("a = " + a); // a = 1,true,Hello, world!"
+console.log("b = " + b); // b = [2, 2, NaN]
+```
+Output :
+```
+var a = 1,true,Hello, world!
+var b = 2,2,NaN
+```
