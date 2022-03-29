@@ -91,12 +91,6 @@ Pour ce faire, je propose un petit exercice : transformer une fonction toute bê
 
 ```js
 function mapSeq(seq, mapper) {
-    if (!seq) {
-        throw "Null seq!!";
-    }
-    if (!mapper) {
-        throw "Null mapper!!";
-    }
     var result = [];
     for (var i = 0; i < seq.length; i++) {
         var elem = seq[i];
@@ -176,3 +170,43 @@ func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
 }
 ```
 Ah, là c'est mieux !
+
+Comment ça je triche ?
+...Bon, trève de plaisanterie, c'est du Go, mais ça marche !
+
+En plus, Go :
+- S'applique à plusieurs domaines d'applications : back, front (WebAssembly), embarqué, ...
+- Supporte la programmation générique ;
+- Est statiquement typé ;
+- Est fortement typé ;
+- Est compilé ;
+- Passe par un type `error` plutôt que des exceptions (et `panic` pour les cas extrêmes) ;
+- Est *presque* null-safe ;
+- Bon, OK, ne respecte pas la const-correctness ;
+- Est facile à relire ;
+- Est concis.
+
+***Note** - J'aurais pu (et même dû !) utiliser `const` plutôt que `var` côté JS, mais j'ai un peu triché pour la comparaison avec Go :D*
+
+Testons notre fonction :
+```go
+func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
+    var result []U
+    for i := 0; i < len(seq); i++ {
+        elem := seq[i]
+        newElem := mapper(elem)
+        result = append(result, newElem)
+    }
+    return result
+}
+
+func main() {
+    input1 := []int{1, 2, 3}
+    result1 := mapSeq(input1, func(i int) int { return i * 2 })
+    fmt.Println(result1) // [2 4 6]
+    
+    result2 := mapSeq(nil, func(i int) int { return i * 2 })
+    fmt.Println(result2) // []
+}
+```
+Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash ; il considère que sa longueur est de 0 et le programme s'exécute sans poser de problème.
