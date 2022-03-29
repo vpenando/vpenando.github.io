@@ -128,8 +128,8 @@ En effet :
 - Cette fonction n'est pas générique ; elle profite du typage dynamique et faible pour fonctionner, acceptant *n'importe quoi* en entrée.
 - Par nature, elle accepte ~~une~~ deux valeurs nulles ; cela implique de les gérer en amont ; elle lèvera une erreur si un de ses arguments est nul.
 
-Pour être un peu plus sûre, il faudrait interdire l'utilisation de valeurs nulles, et avoir un typage statique, et si possible explicite *a minima* pour les arguments.
-Cela nous donnerait quelque chose proche de :
+Pour remplir les critères énoncés dans la partie précédente, il faudrait déjà interdire l'utilisation de valeurs nulles, avoir un typage statique et si possible explicite, *a minima* pour les arguments.
+Syntaxiquement, cela nous donnerait quelque chose proche de :
 ```js
 function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
     var result: []U = [];
@@ -143,7 +143,7 @@ function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
 ```
 Ça commence à ressembler à du TypeScript, pas vrai ? (Bon, en même temps, c'est une surcouche de JS...)
 
-Toutefois, cela ne couvre toujours pas l'usage de valeur nulle.
+Toutefois, cela ne couvre toujours pas le problème de la valeur nulle.
 
 Mais on peut encore faire mieux ! Commençons par nettoyer notre fonction de toutes ses fioritures :
 ```js
@@ -154,10 +154,10 @@ function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
         newElem = mapper(elem)
         result.push(newElem)
     }
-    return result;
+    return result
 }
 ```
-Modifions-la encore un peu afin d'avoir quelque chose de plus concis :
+Modifions-la à nouveau un peu afin d'avoir quelque chose d'encore plus concis :
 ```go
 func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
     var result []U
@@ -172,7 +172,7 @@ func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
 Ah, là c'est mieux !
 
 Comment ça je triche ?
-...Bon, trève de plaisanterie, c'est du Go, mais ça marche !
+...Bon, d'accord, c'est du Go, mais ça marche !
 
 En plus, Go :
 - S'applique à plusieurs domaines d'applications : back, front (WebAssembly), embarqué, ...
