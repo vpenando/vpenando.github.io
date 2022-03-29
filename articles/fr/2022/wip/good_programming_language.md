@@ -149,7 +149,7 @@ Mais on peut encore faire mieux ! Commençons par nettoyer notre fonction de tou
 ```js
 function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
     result: []U = []
-    for i = 0; i < seq.length; i++ {
+    for (i = 0; i < seq.length; i++) {
         elem = seq[i]
         newElem = mapper(elem)
         result.push(newElem)
