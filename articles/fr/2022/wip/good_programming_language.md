@@ -209,4 +209,4 @@ func main() {
     fmt.Println(result2) // []
 }
 ```
-Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash ; il considère que sa longueur est de 0 et le programme s'exécute sans poser de problème.
+Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash ; il est considéré comme vide, donc ayant une longueur de 0, et le programme s'exécute sans poser de problème.
