@@ -181,7 +181,7 @@ En plus, Go :
 - **✓** Est compilé ;
 - **✓** Passe par un type `error` plutôt que des exceptions (et `panic` pour les cas extrêmes) ;
 - **✗** Est *presque* null-safe ;
-- **✗** Bon, OK, ne respecte pas la const-correctness ;
+- **✗** Limite `const` aux constantes de compilation ;
 - **✓** Est facile à relire ;
 - **✓** Est concis.
 
