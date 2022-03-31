@@ -87,8 +87,7 @@ En effet, celui-ci compte 4 points "pour" et 6 "contre" !
 
 Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 
-Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus !
-
+Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus :
 ```js
 function mapSeq(seq, mapper) {
     var result = [];
