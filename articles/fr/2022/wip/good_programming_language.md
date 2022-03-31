@@ -88,6 +88,7 @@ En effet, celui-ci compte 4 points "pour" et 6 "contre" !
 Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 
 Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus :
+##### Code - JS
 ```js
 function mapSeq(seq, mapper) {
     var result = [];
@@ -100,6 +101,7 @@ function mapSeq(seq, mapper) {
 }
 ```
 Sur le papier, elle marche super bien !
+##### Code - JS
 ```js
 var a = [1, 2, 3];
 var b = mapSeq(a, i => i*2);
