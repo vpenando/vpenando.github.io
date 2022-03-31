@@ -202,10 +202,15 @@ func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
 func main() {
     input1 := []int{1, 2, 3}
     result1 := mapSeq(input1, func(i int) int { return i * 2 })
-    fmt.Println(result1) // [2 4 6]
+    fmt.Println(result1)
     
     result2 := mapSeq(nil, func(i int) int { return i * 2 })
-    fmt.Println(result2) // []
+    fmt.Println(result2)
 }
+```
+Output :
+```
+[2 4 6]
+[]
 ```
 Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash, qui est considéré comme vide, donc ayant une longueur de 0, et le programme s'exécute sans poser de problème.
