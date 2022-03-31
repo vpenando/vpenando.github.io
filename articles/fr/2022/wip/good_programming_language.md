@@ -103,8 +103,8 @@ Sur le papier, elle marche super bien !
 ```js
 var a = [1, 2, 3];
 var b = mapSeq(a, i => i*2);
-console.log("a = " + a); // [1, 2, 3]
-console.log("b = " + b); // [2, 4, 6]
+console.log("a = " + a);
+console.log("b = " + b);
 ```
 Output :
 ```
@@ -115,8 +115,8 @@ Mais dans les faits, elle ne couvre absolument pas les cas un peu exotiques, car
 ```js
 var a = [1, true, "Hello, world!"];
 var b = mapSeq(a, i => i*2);
-console.log("a = " + a); // a = 1,true,Hello, world!"
-console.log("b = " + b); // b = [2, 2, NaN]
+console.log("a = " + a);
+console.log("b = " + b);
 ```
 Output :
 ```
