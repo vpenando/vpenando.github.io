@@ -55,19 +55,19 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 
 À présent, tentons d'établir une balance "pour / contre" au travers des questions vues précédemment :
 - À quel(s) domaine(s) d'application s'applique JS ?
-  - **✓** : JS s'applique aussi bien au développement front (son domaine d'application premier) qu'au back (par le biais de Node.js par exemple) ! Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
+  - **✓** : JS s'applique aussi bien au développement front (son domaine d'application premier) qu'au back (par le biais de Node.js par exemple) ! Il est donc possible de partager du code entre le front et le back, c'est un bon point !
 
 - JS supporte-t-il la programmation générique ?
   - **✗** : Presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire. Cela reste toutefois le fruit de l'exploitation d'une faiblesse du langage, et non une fonctionnalité ; il est donc possible de faire n'importe quoi. 
 - JS est-il statiquement ou dynamiquement typé ?
   - **✗** : JavaScript est malheureusement dynamiquement typé. Cela induit qu'il faut faire preuve d'une certaine rigueur, car le langage n'avertit aucunement de l'assignation d'une valeur d'un type X à une variable originellement d'un type Y.
 - JS est-il fortement ou faiblement typé ?
-  - **✗** : JS est (très) faiblement typé : il est donc possible de comparer des choux et des carottes. Rajoutons à cela qu'il est dynamiquement et implicitement typé et vous obtenez approximativement le pire système de type possible. Certes, il existe l'opérateur `===`, mais cela n'enlève rien au fait que le langage *permet* de faire n'importe quoi.
+  - **✗** : JS est (très) faiblement typé : il est donc possible de comparer des choux et des carottes. Rajoutons à cela qu'il est dynamiquement et implicitement typé et vous obtenez approximativement le pire système de type possible. Certes, il existe l'opérateur `===`, mais cela ne suffit pas à rattraper les points mentionnés précédemment.
 - JS est-il compilé ou interprété ?
-  - **✗** : JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back (Node.js), la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère. Par ailleurs, l'utilisation d'une variable non déclarée lèvera une exception au *runtime*, là où elle serait détectée dès la compilation dans d'autres langages.
+  - **✗** : JS est un langage interprété. Pour le développement front, ce n'est à mon sens pas une lacune. En revanche, côté back, la concurrence est rude. Go, par exemple, offre de bien meilleures performances pour écrire un serveur HTTP, tout en ayant une emprunte mémoire bien plus légère. Par ailleurs, l'utilisation d'une variable non déclarée lèvera une exception au *runtime*, là où elle serait détectée dès la compilation dans d'autres langages.
 - Comment JS gère-t-il les erreurs ?
   - **✗** : JS utilise un système d'exceptions (oui, c'est un point négatif à mes yeux). Une exception remontant chaque couche appelante jusqu'à être rattrapée, son origine peut être difficile à débusquer.
-A contrario, les langages modernes passent pour la plupart par des valeurs de retour et des types adéquats (`error`, `Result<T, Error>`, ...). Ainsi, **la possibilité qu'une erreur survienne est mise en évidence dès l'appel d'une fonction/méthode** via son ou ses types de retour, et cette dernière peut alors être rattrapée aussi tôt que possible.
+A contrario, les langages modernes passent pour la plupart par des valeurs de retour et des types adéquats (`error`, `Result<T, Error>`, ...). Ainsi, **la possibilité qu'une erreur survienne est mise en évidence dès l'appel d'une fonction/méthode** via son ou ses types de retour, et cette dernière peut alors être rattrapée et traitée aussi tôt que possible.
 
 Questions bonus :
 - Est-il *null-safe* ? (présence ou absence d'une valeur `NULL`, `null`, `nil`, `undefined`, ...)
