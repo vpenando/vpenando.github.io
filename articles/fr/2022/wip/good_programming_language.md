@@ -88,7 +88,7 @@ En effet, celui-ci compte 4 points "pour" et 6 "contre" !
 Je propose donc que nous voyions ensemble comment pallier à ces lacunes !
 
 Pour ce faire, je propose un petit exercice : transformer une fonction toute bête alliant la plupart des "mauvais" points ci-dessus :
-###### Code - JS
+##### Code - JS
 ```js
 function mapSeq(seq, mapper) {
     var result = [];
@@ -101,7 +101,7 @@ function mapSeq(seq, mapper) {
 }
 ```
 Sur le papier, elle marche super bien !
-###### Code - JS
+##### Code - JS
 ```js
 var a = [1, 2, 3];
 var b = mapSeq(a, i => i*2);
@@ -114,6 +114,7 @@ a = 1,2,3
 b = 2,4,6
 ```
 Mais dans les faits, elle ne couvre absolument pas les cas un peu exotiques, car `a` peut contenir n'importe quoi :
+##### Code - JS
 ```js
 var a = [1, true, "Hello, world!"];
 var b = mapSeq(a, i => i*2);
@@ -131,6 +132,7 @@ En effet :
 
 Pour remplir les critères énoncés dans la partie précédente, il faudrait déjà interdire ou gérer l'utilisation de valeurs nulles, avoir un typage statique et si possible explicite, *a minima* pour les arguments.
 Syntaxiquement, cela nous donnerait quelque chose proche de :
+##### Code - Pseudo-code
 ```js
 function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
     var result: []U = [];
@@ -147,6 +149,7 @@ function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
 Toutefois, cela ne couvre toujours pas le problème de la valeur nulle.
 
 Mais on peut encore faire mieux ! Commençons par nettoyer notre fonction de toutes ses fioritures :
+##### Code - Pseudo-code
 ```js
 function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
     result: []U = []
@@ -159,6 +162,7 @@ function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
 }
 ```
 Modifions-la à nouveau un peu afin d'avoir quelque chose d'encore plus concis :
+##### Code - Go
 ```go
 func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
     var result []U
@@ -190,6 +194,7 @@ En plus, Go :
 ***Note** - J'aurais pu (et même dû !) utiliser `const` plutôt que `var` côté JS, mais j'ai un peu triché pour la comparaison avec Go :D*
 
 Testons notre fonction :
+##### Code - Go
 ```go
 func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
     var result []U
