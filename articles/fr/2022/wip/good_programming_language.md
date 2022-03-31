@@ -175,16 +175,16 @@ Comment ça je triche ?
 ...Bon, d'accord, c'est du Go, mais ça marche !
 
 En plus, Go :
-- S'applique à plusieurs domaines d'applications : back, front (WebAssembly), embarqué, ...
-- Supporte la programmation générique ;
-- Est statiquement typé ;
-- Est fortement typé ;
-- Est compilé ;
-- Passe par un type `error` plutôt que des exceptions (et `panic` pour les cas extrêmes) ;
-- Est *presque* null-safe ;
-- Bon, OK, ne respecte pas la const-correctness ;
-- Est facile à relire ;
-- Est concis.
+- ✓ S'applique à plusieurs domaines d'applications : back, front (WebAssembly), embarqué, ...
+- ✓ Supporte la programmation générique ;
+- ✓ Est statiquement typé ;
+- ✓ Est fortement typé ;
+- ✓ Est compilé ;
+- ✓ Passe par un type `error` plutôt que des exceptions (et `panic` pour les cas extrêmes) ;
+- ✗ Est *presque* null-safe ;
+- ✗ Bon, OK, ne respecte pas la const-correctness ;
+- ✓ Est facile à relire ;
+- ✓ Est concis.
 
 ***Note** - J'aurais pu (et même dû !) utiliser `const` plutôt que `var` côté JS, mais j'ai un peu triché pour la comparaison avec Go :D*
 
