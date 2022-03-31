@@ -213,4 +213,4 @@ Output :
 [2 4 6]
 []
 ```
-Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash, qui est considéré comme vide, donc ayant une longueur de 0, et le programme s'exécute sans poser de problème.
+Vous l'aurez noté, l'usage de `nil` en lieu et place de `seq` ne provoque pas de crash ! Notre variable est considérée comme vide, donc ayant une longueur de 0, et le programme s'exécute sans poser de problème.
