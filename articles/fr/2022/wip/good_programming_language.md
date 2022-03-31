@@ -55,7 +55,7 @@ Il a ensuite été décliné en plusieurs variantes, comme TypeScript, son équi
 
 À présent, tentons d'établir une balance "pour / contre" au travers des questions vues précédemment :
 - À quel(s) domaine(s) d'application s'applique JS ?
-  - **✓** : JS s'applique aussi bien au développement front qu'au back, par le biais de Node.js par exemple ! Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
+  - **✓** : JS s'applique aussi bien au développement front (son domaine d'application premier) qu'au back (par le biais de Node.js par exemple) ! Il est par ailleurs possible de partager du code entre le front et le back, c'est un bon point !
 
 - JS supporte-t-il la programmation générique ?
   - **✗** : Presque. JS ne supporte théoriquement pas la programmation générique, mais il est possible de profiter de son système de type très faible pour simuler un comportement similaire. Cela reste toutefois le fruit de l'exploitation d'une faiblesse du langage, et non une fonctionnalité ; il est donc possible de faire n'importe quoi. 
