@@ -127,7 +127,7 @@ En effet :
 - Cette fonction n'est pas générique ; elle profite du typage dynamique et faible pour fonctionner, acceptant *n'importe quoi* en entrée.
 - Par nature, elle accepte ~~une~~ deux valeurs nulles ; cela implique de les gérer en amont ; elle lèvera une erreur si un de ses arguments est nul.
 
-Pour remplir les critères énoncés dans la partie précédente, il faudrait déjà interdire l'utilisation de valeurs nulles, avoir un typage statique et si possible explicite, *a minima* pour les arguments.
+Pour remplir les critères énoncés dans la partie précédente, il faudrait déjà interdire ou gérer l'utilisation de valeurs nulles, avoir un typage statique et si possible explicite, *a minima* pour les arguments.
 Syntaxiquement, cela nous donnerait quelque chose proche de :
 ```js
 function mapSeq<T, U>(seq: []T, mapper: function(T): U) {
