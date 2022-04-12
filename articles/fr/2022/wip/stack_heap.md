@@ -12,7 +12,7 @@
 Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
 #### a. La pile, c'est quoi ?
 La pile est un segment contigu de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut).
-Elle a une taille relativement limitée (généralement 1Mo) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
+Elle a une taille relativement limitée (généralement quelques MOs sur un ordinateur récent) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
 
 RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
 
@@ -72,7 +72,7 @@ Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un éta
 ```asm
 |   Adresses   |   Valeurs    |
 +--------------+--------------+
-|  0x00001125  |              | <- RSP (stack pointer)
+|  0x0000fed5  |              | <- RSP (stack pointer)
 |              |              |
 |     ....     |     ....     |
 |     ....     |  255 octets  |
@@ -132,8 +132,8 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 ```
 
 #### a. Cas d'utilisation du tas
-Par exemple, lorsque vous allouez de la mémoire via `malloc` :
+Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
 ```
-Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (généralement 8 octets) étant connue à la compilation.
+Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (4 octets en x32 et 8 et x64) étant connue à la compilation.
