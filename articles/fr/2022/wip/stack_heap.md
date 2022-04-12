@@ -31,10 +31,10 @@ BAS DE LA PILE (adresses hautes)
 ```
 Une allocation sur la pile consiste juste à effectuer une soustraction sur le "stack pointer".
 
-Lorsque vous déclarez, par exemple, deux variables de type `uint64_t` en C, comme ceci :
+Lorsque vous déclarez, par exemple, deux variables de type `int64_t` en C, comme ceci :
 ```c
-uint64_t a = 42;
-uint64_t b = 12;
+int64_t a = 42;
+int64_t b = 12;
 ```
 Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
 ```asm
