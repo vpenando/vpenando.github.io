@@ -94,7 +94,7 @@ MOV  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
 SUB  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
 ```
 Le segment ainsi alloué correspond au "stack frame" de la fonction `foo`.
-Ces opérations sont effectuées au début de la plupart des fonctions, et constituent le **prologue** d'une fonction.
+Ces opérations sont effectuées au début de la plupart des fonctions afin de mettre en place leur contexte d'exécution, et constituent le **prologue** d'une fonction.
 
 ***Note -** En fonction du niveau d'optimisation, de l'OS et du compilateur, le segment alloué sur la pile peut être plus ou moins grand, parfois équivalant au double de l'espace demandé !*
 
