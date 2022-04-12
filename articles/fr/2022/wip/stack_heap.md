@@ -113,7 +113,7 @@ Plus spécifiquement, **où sont stockées les variables allouées manuellement 
 
 Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d'un très grand espace mémoire (d'une capacité virtuellement équivalente à la RAM disponible) où sont disposées "en vrac" la plupart des variables qui ne sont pas sur la pile.
 
-Le tas se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
+Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 ```asm
 |   Adresses   |
 +--------------+
@@ -131,6 +131,7 @@ Le tas se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 +--------------+
 ```
 
+#### a. Cas d'utilisation du tas
 Par exemple, lorsque vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
