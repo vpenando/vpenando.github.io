@@ -11,8 +11,8 @@
 ## La pile
 Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
 #### a. La pile, c'est quoi ?
-La pile est un segment contigu de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
-Elle a une taille relativement limitée (généralement 1Mo) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
+La pile est un segment contigu de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut).
+Elle a une taille relativement limitée (généralement 1Mo) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
 
 RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
 
@@ -20,16 +20,18 @@ Au niveau de la mémoire, la pile est structurée comme suit :
 ```asm
 HAUT DE LA PILE (adresses basses)
 +--------------+
-|  0x00001234  |  <- RSP (stack pointer)
+|  0x0000fbff  |
 |              |
 |     ....     |
 |              |
 |  0x0000ffef  |
 |  0x0000fff7  |
-|  0x0000ffff  | <- RBP (base pointer)
+|  0x0000ffff  |
 +--------------+
 BAS DE LA PILE (adresses hautes)
 ```
+***Note -** Les adresses mémoire sont juste là à titre illustratif et ne correspondent pas nécessairement à la réalité.*
+
 Une allocation sur la pile consiste juste à effectuer une soustraction sur le "stack pointer".
 
 Lorsque vous déclarez, par exemple, deux variables de type `int64_t` en C, comme ceci :
@@ -41,9 +43,9 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 ```asm
 |   Adresses   |   Valeurs    |
 +--------------+--------------+
-|  0x00001224  |    42 (a)    | <- RSP (stack pointer)
-|  0x0000122c  |    12 (b)    |
-|  0x00001234  |              | <- Ancienne valeur de RSP
+|  0x0000ffd4  |    42 (a)    | <- RSP (stack pointer)
+|  0x0000ffdc  |    12 (b)    |
+|  0x0000ffe4  |              | <- Ancienne valeur de RSP
 |              |              |
 |     ....     |     ....     |
 |              |              |
@@ -76,9 +78,9 @@ Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un éta
 |     ....     |  255 octets  |
 |     ....     |     ....     |
 |              |              |
-|  0x00001224  |      12      | <- RBP, et ancienne valeur de RSP
-|  0x0000122c  |      42      |
-|  0x00001234  |              |
+|  0x0000ffd4  |      42      | <- RBP, et ancienne valeur de RSP
+|  0x0000ffdc  |      12      |
+|  0x0000ffe4  |              |
 |              |              |
 |     ....     |     ....     |
 |              |              |
