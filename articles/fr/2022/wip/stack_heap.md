@@ -131,9 +131,15 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 +--------------+   --+
 ```
 
-#### a. Cas d'utilisation du tas
+#### b. Cas d'utilisation du tas
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
 ```c
-int *array = malloc(size * sizeof(int));
+void foo(size_t size) {
+    int *array = malloc(size * sizeof(int));
+}
 ```
 Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (4 octets en x32 et 8 et x64) étant connue à la compilation.
+
+Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...).
+
+
