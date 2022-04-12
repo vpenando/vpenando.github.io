@@ -29,24 +29,19 @@ HAUT DE LA PILE (adresses basses)
 +--------------+
 BAS DE LA PILE (adresses hautes)
 ```
-
 Une allocation sur la pile consiste juste à effectuer une soustraction sur le "stack pointer".
 
-Par exemple :
-```asm
-PUSH 42
-PUSH 12
+Lorsque vous déclarez, par exemple, deux variables de type `uint64_t` en C, comme ceci :
+```c
+uint64_t a = 42;
+uint64_t b = 12;
 ```
-Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile :
-```asm
-SUB rsp, 16
-```
-Ce qui équivaut à modifier la pile de la sorte :
+Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
 ```asm
 |   Adresses   |   Valeurs    |
 +--------------+--------------+
-|  0x00001224  |      12      | <- RSP (stack pointer)
-|  0x0000122c  |      42      |
+|  0x00001224  |    42 (a)    | <- RSP (stack pointer)
+|  0x0000122c  |    12 (b)    |
 |  0x00001234  |              | <- Ancienne valeur de RSP
 |              |              |
 |     ....     |     ....     |
@@ -54,6 +49,7 @@ Ce qui équivaut à modifier la pile de la sorte :
 |  0x0000ffff  |              | <- RBP (base pointer)
 +--------------+--------------+
 ```
+***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration.*
 
 #### b. Pile & "stack frame"
 Chaque fonction a son propre segment de la pile :
