@@ -9,9 +9,10 @@
 ---
 
 ## La pile
+Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
 #### a. La pile, c'est quoi ?
 La pile est un segment contigu de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
-Elle fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
+Elle a une taille relativement limitée (généralement 1Mo) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
 
 RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
 
@@ -100,12 +101,38 @@ Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via le
 ADD rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
 POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
 ```
-Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant.
+Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la fonction suivante réécrira par-dessus celui de `foo`, qui n'est plus utile.
 
 ---
 
 ## Le tas
-aaa
+Le tas, ou "heap", est l'endroit où sont les blocs de mémoire alloués via des fonctions telles que `malloc` en C, ou lors de l'appel à `new` dans des langages tels que C++ ou Go (le cas de C#, par exemple, est un peu plus complexe).
 #### a. Le tas, c'est quoi ?
-Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction. Ce faisant, où sont alors stockées les autres variables ?
+Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction et le "stack frame" associé est automatiquement libéré. Ce faisant, où sont alors stockées les autres variables ?
+Plus spécifiquement, **où sont stockées les variables allouées manuellement ou dont la taille n'est pas connue à la compilation** ?
 
+Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d'un très grand espace mémoire (d'une capacité virtuellement équivalente à la RAM disponible) où sont disposées "en vrac" la plupart des variables qui ne sont pas sur la pile.
+
+Le tas se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
+```asm
+|      Adresses      |
++--------------------+
+|  0x00001224 (RSP)  |   --+
+|                    |     |
+|  ..........        |     +-- PILE
+|                    |     |  
+|  0x0000ffff (RBP)  |   --+
++--------------------+
+|  0x00010000        |   --+
+|                    |     |
+|  ..........        |     +-- TAS
+|                    |     |  
+|  0xffffffff        |   --+
++--------------------+
+```
+
+Par exemple, lorsque vous allouez de la mémoire via `malloc` :
+```c
+int *array = malloc(size * sizeof(int));
+```
+Le bloc mémoire pointé par `array` est stocké 
