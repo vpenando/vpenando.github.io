@@ -135,4 +135,4 @@ Par exemple, lorsque vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
 ```
-Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile.
+Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (généralement 8 octets) étant connue à la compilation.
