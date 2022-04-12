@@ -162,7 +162,7 @@ function mapSeq<T, U>(seq: []T, mapper: function(T) U) {
 }
 ```
 Modifions-la à nouveau un peu afin d'avoir quelque chose d'encore plus concis :
-##### Code - Go
+##### Code - ???
 ```go
 func mapSeq[T, U any](seq []T, mapper func(T) U) []U {
     var result []U
