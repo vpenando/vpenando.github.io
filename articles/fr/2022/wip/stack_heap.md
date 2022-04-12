@@ -4,11 +4,11 @@
 
 ---
 
-### Introduction
+## Introduction
 
 ---
 
-### La pile
+## La pile
 
 La pile est un segment de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
 Elle fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
@@ -52,6 +52,9 @@ Ce qui équivaut à modifier la pile de la sorte :
 |  0x0000ffff  |              | <- RBP (base pointer)
 +--------------+--------------+
 ```
+
+
+#### Pile & "stack frame"
 
 Chaque fonction a son propre segment de la pile :
 ```c
