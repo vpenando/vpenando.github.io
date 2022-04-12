@@ -93,6 +93,8 @@ SUB  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
 Le segment ainsi alloué correspond au "stack frame" de la fonction `foo`.
 Ces opérations sont effectuées au début de la plupart des fonctions, et constituent le **prologue** d'une fonction.
 
+***Note -** En fonction du niveau d'optimisation, de l'OS et du compilateur, le segment alloué sur la pile peut être plus ou moins grand, parfois équivalant au double de l'espace demandé !*
+
 Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via les opérations suivantes :
 ```asm
 ADD rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
