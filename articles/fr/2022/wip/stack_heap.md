@@ -9,10 +9,11 @@
 ---
 
 ## La pile
-
-#### La pile, c'est quoi ?
+#### a. La pile, c'est quoi ?
 La pile est un segment de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
 Elle fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
+
+RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
 
 Au niveau de la mémoire, la pile est structurée comme suit :
 ```asm
@@ -23,7 +24,7 @@ HAUT DE LA PILE (adresses basses)
 |     ....     |
 |              |
 |  0x0000ffef  |
-|  0x0000ffe7  |
+|  0x0000fff7  |
 |  0x0000ffff  | <- RBP (base pointer)
 +--------------+
 BAS DE LA PILE (adresses hautes)
@@ -54,9 +55,7 @@ Ce qui équivaut à modifier la pile de la sorte :
 +--------------+--------------+
 ```
 
-
-#### Pile & "stack frame"
-
+#### b. Pile & "stack frame"
 Chaque fonction a son propre segment de la pile :
 ```c
 void foo() {
