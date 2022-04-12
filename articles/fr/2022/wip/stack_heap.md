@@ -105,6 +105,7 @@ Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaur
 ---
 
 ## Le tas
+aaa
 #### a. Le tas, c'est quoi ?
 Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction. Ce faisant, où sont alors stockées les autres variables ?
 
