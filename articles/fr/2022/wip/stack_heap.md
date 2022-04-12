@@ -115,24 +115,24 @@ Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d
 
 Le tas se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 ```asm
-|      Adresses      |
-+--------------------+
-|  0x00001224 (RSP)  |   --+
-|                    |     |
-|  ..........        |     +-- PILE
-|                    |     |  
-|  0x0000ffff (RBP)  |   --+
-+--------------------+
-|  0x00010000        |   --+
-|                    |     |
-|  ..........        |     +-- TAS
-|                    |     |  
-|  0xffffffff        |   --+
-+--------------------+
+|   Adresses   |
++--------------+
+|  0x00000000  |   --+
+|              |     |
+|  ..........  |     +-- PILE
+|              |     |  
+|  0x0000ffff  |   --+
++--------------+
+|  0x00010000  |   --+
+|              |     |
+|  ..........  |     +-- TAS
+|              |     |  
+|  0xffffffff  |   --+
++--------------+
 ```
 
 Par exemple, lorsque vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
 ```
-Le bloc mémoire pointé par `array` est stocké 
+Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` est stocké sur la pile.
