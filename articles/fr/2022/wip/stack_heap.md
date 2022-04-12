@@ -116,19 +116,17 @@ Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d
 Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 ```asm
 |   Adresses   |
-+--------------+
-|  0x00000000  |   --+
-|              |     |
-|  ..........  |     +-- PILE
++--------------+   --+
 |              |     |  
+|  ..........  |     +-- PILE
+|              |     |
 |  0x0000ffff  |   --+
 +--------------+
 |  0x00010000  |   --+
 |              |     |
 |  ..........  |     +-- TAS
-|              |     |  
-|  0xffffffff  |   --+
-+--------------+
+|              |     |
++--------------+   --+
 ```
 
 #### a. Cas d'utilisation du tas
