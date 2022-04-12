@@ -142,4 +142,3 @@ Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le poin
 
 Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...).
 
-
