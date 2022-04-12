@@ -23,7 +23,11 @@ Par exemple :
 PUSH 42
 PUSH 12
 ```
-Equivaut à modifier la pile de la sorte :
+Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile :
+```asm
+SUB rsp, 16
+```
+Ce qui équivaut à modifier la pile de la sorte :
 ```
 |   Adresses   |   Valeurs    |
 +--------------+--------------+
