@@ -10,7 +10,7 @@
 
 ## La pile
 #### a. La pile, c'est quoi ?
-La pile est un segment de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
+La pile est un segment contigu de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
 Elle fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
 
 RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
@@ -52,7 +52,7 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
 
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
-Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié.
+Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié. Ainsi, **pour qu'une variable soit allouée automatiquement sur la pile, sa taille doit être connue à la compilation** !
 
 #### b. Pile & "stack frame"
 D'une manière générale, chaque fonction a son propre segment de la pile.
@@ -101,3 +101,10 @@ ADD rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
 POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
 ```
 Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant.
+
+---
+
+## Le tas
+#### a. Le tas, c'est quoi ?
+Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction. Ce faisant, où sont alors stockées les autres variables ?
+
