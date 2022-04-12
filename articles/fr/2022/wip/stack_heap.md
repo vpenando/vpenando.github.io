@@ -10,6 +10,7 @@
 
 ## La pile
 
+#### La pile, c'est quoi ?
 La pile est un segment de la mémoire de type LIFO (**L**ast **I**n, **F**irst **O**ut).
 Elle fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer), et les instruction `PUSH` et `POP`.
 
