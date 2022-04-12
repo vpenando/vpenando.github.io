@@ -49,10 +49,14 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 |  0x0000ffff  |              | <- RBP (base pointer)
 +--------------+--------------+
 ```
-***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration.*
+***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
+
+Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
+Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié.
 
 #### b. Pile & "stack frame"
-Chaque fonction a son propre segment de la pile :
+D'une manière générale, chaque fonction a son propre segment de la pile.
+Prenons en exemple la fonction suivante :
 ```c
 void foo() {
     char array[0xff];
@@ -61,12 +65,14 @@ void foo() {
 }
 ```
 En entrant dans la fonction `foo`, un segment de la pile est alloué, correspondant à l'espace requis pour stocker ses variables locales (arguments compris).
-Si l'on repgrend l'exemple ci-dessus, la pile aurait donc un état proche de :
+Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un état proche de :
 ```asm
 |   Adresses   |   Valeurs    |
 +--------------+--------------+
 |  0x00001125  |              | <- RSP (stack pointer)
 |              |              |
+|     ....     |     ....     |
+|     ....     |  255 octets  |
 |     ....     |     ....     |
 |              |              |
 |  0x00001224  |      12      | <- RBP, et ancienne valeur de RSP
@@ -78,11 +84,18 @@ Si l'on repgrend l'exemple ci-dessus, la pile aurait donc un état proche de :
 |  0x0000ffff  |              | <- RBP (base pointer)
 +--------------+--------------+
 ```
-Ce qui, niveau machine correspond à l'opération suivante :
+Ce qui, niveau machine, correspond aux instructions suivantes :
 ```asm
 PUSH rbp       ; On sauvegarde le bas de pile
 MOV  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
-SUB  rsp, 0xff ; On alloue 255 octets
+SUB  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
 ```
 Le segment ainsi alloué correspond au "stack frame" de la fonction `foo`.
-Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré. 
+Ces opérations sont effectuées au début de la plupart des fonctions, et constituent le **prologue** d'une fonction.
+
+Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via les opérations suivantes :
+```asm
+ADD rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
+POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
+```
+Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant.
