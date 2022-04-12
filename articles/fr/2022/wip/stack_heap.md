@@ -61,6 +61,7 @@ Chaque fonction a son propre segment de la pile :
 void foo() {
     char array[0xff];
     // Plein de trucs avec 'array'...
+    // ...
 }
 ```
 En entrant dans la fonction `foo`, un segment de la pile est alloué, correspondant à l'espace requis pour stocker ses variables locales (arguments compris).
