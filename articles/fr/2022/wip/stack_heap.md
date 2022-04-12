@@ -1,6 +1,6 @@
 #### [Welcome here!](https://vpenando.github.io) | [Articles](https://vpenando.github.io/articles.html) | [Main projects](https://vpenando.github.io/projects.html) | [About me](https://vpenando.github.io/about.html)
 
-## (FR) Un *bon* langage de programmation, c'est quoi ?
+## (FR) Pile et tas, comment ça marche ?
 
 ---
 
@@ -78,10 +78,11 @@ Si l'on repgrend l'exemple ci-dessus, la pile aurait donc un état proche de :
 |  0x0000ffff  |              | <- RBP (base pointer)
 +--------------+--------------+
 ```
-
 Ce qui, niveau machine correspond à l'opération suivante :
 ```asm
 PUSH rbp       ; On sauvegarde le bas de pile
 MOV  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
 SUB  rsp, 0xff ; On alloue 255 octets
 ```
+Le segment ainsi alloué correspond au "stack frame" de la fonction `foo`.
+Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré. 
