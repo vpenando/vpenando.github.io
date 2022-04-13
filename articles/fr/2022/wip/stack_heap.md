@@ -154,5 +154,5 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 | A une taille très limitée | Virtuellement égal à la RAM dispo. |
 | Stocke des variables de taille connue | Peut stocker n'importe quoi |
 | On y alloue via un simple `SUB rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
-| Est généralement plus rapide d'accès, cas souvent en cache | Est généralement plus lent d'accès |
+| Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 | Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
