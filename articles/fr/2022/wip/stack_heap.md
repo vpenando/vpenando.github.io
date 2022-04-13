@@ -105,6 +105,8 @@ POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
 ```
 Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la fonction suivante réécrira par-dessus celui de `foo`, qui n'est plus utile.
 
+Enfin, chaque fonction ayant son propre "stack frame", l'accès à la pile est thread safe.
+
 ---
 
 ## Le tas
@@ -130,6 +132,7 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 |              |     |
 +--------------+   --+
 ```
+Le tas est partagé au sein de tout le programme, ce qui est heureusement nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
 
 #### b. Cas d'utilisation du tas
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
@@ -142,3 +145,14 @@ Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le poin
 
 Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...).
 
+---
+
+## En résumé
+
+| La pile | Le tas |
+|---------|--------|
+| A une taille très limitée | Virtuellement égal à la RAM dispo. |
+| Stocke des variables de taille connue | Peut stocker n'importe quoi |
+| On y alloue via une instruction assembleur | Nécessite un appel à `malloc` ou autre, coûteux |
+| Est généralement plus rapide d'accès, cas souvent en cache | Est généralement plus lent d'accès |
+| Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
