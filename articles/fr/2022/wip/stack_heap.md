@@ -107,7 +107,7 @@ Ces opérations sont effectuées au début de la plupart des fonctions afin de m
 Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via les opérations suivantes :
 ```asm
 add rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
-pop rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
+pop rbp       ; On restaure la valeur de RBP "pushée" dans le prologue
 ```
 Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la fonction suivante réécrira par-dessus celui de `foo`, qui n'est plus utile.
 
