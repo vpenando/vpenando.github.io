@@ -92,10 +92,13 @@ Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un éta
 ```
 Ce qui, niveau machine, correspond aux instructions suivantes :
 ```asm
-PUSH rbp       ; On sauvegarde le bas de pile
+PUSH rbp       ; On "PUSH" le bas de pile afin de garder sa valeur de côté
 MOV  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
 SUB  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
 ```
+Pour faire simple, on fait pointer RBP sur le haut de la pile, et on décrémente RSP de la valeur nécessaire, ici 255.
+Cela constitue un espace mémoire suffisant pour stocker notre variable `array`.
+
 Le segment ainsi alloué correspond au "stack frame" de la fonction `foo`.
 Ces opérations sont effectuées au début de la plupart des fonctions afin de mettre en place leur contexte d'exécution, et constituent le **prologue** d'une fonction.
 
@@ -108,12 +111,13 @@ POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
 ```
 Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la fonction suivante réécrira par-dessus celui de `foo`, qui n'est plus utile.
 
-Enfin, chaque fonction ayant son propre "stack frame", l'accès à la pile est thread safe.
+Enfin, chaque fonction ayant son propre "stack frame", l'accès à la pile est, par nature, thread safe.
 
 ---
 
 ## Le tas
 Le tas, ou "heap", est l'endroit où sont les blocs de mémoire alloués via des fonctions telles que `malloc` en C, ou lors de l'appel à `new` dans des langages tels que C++ ou Go (le cas de C#, par exemple, est un peu plus complexe).
+
 #### a. Le tas, c'est quoi ?
 Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction et le "stack frame" associé est automatiquement libéré. Ce faisant, où sont alors stockées les autres variables ?
 Plus spécifiquement, **où sont stockées les variables allouées manuellement ou dont la taille n'est pas connue à la compilation** ?
@@ -135,7 +139,7 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 |              |     |
 +--------------+   --+
 ```
-Le tas est partagé au sein de tout le programme, ce qui est heureusement nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
+Le tas est partagé au sein de tout le programme, ce qui est nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
 
 #### b. Cas d'utilisation du tas
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
@@ -152,6 +156,8 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 
 ## En résumé
 
+Pour résumer, voici les principales différences entre la pile et le tas :
+
 | La pile | Le tas |
 |---------|--------|
 | A une taille très limitée | Virtuellement égal à la RAM dispo. |
@@ -159,3 +165,5 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 | On y alloue via un simple `SUB rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
 | Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 | Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
+
+Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
