@@ -60,7 +60,8 @@ Dans la plupart des langages de programmation, les variables locales sont stock�
 Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié. Ainsi, **pour qu'une variable soit allouée automatiquement sur la pile, sa taille doit être connue à la compilation** !
 
 #### b. Pile & "stack frame"
-D'une manière générale, chaque fonction a son propre segment de la pile.
+D'une manière générale, chaque fonction a son propre segment de la pile ; RSP est décalé de l'espace nécessaire pour y stocker les variables éligibles, puis revient à son état initial à la fin de la fonction.
+
 Prenons en exemple la fonction suivante :
 ```c
 void foo() {
