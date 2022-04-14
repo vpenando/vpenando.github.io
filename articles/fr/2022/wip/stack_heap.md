@@ -91,7 +91,7 @@ Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un éta
 +--------------+--------------+
 ```
 Ce qui, niveau machine, correspond aux instructions suivantes :
-```asm
+```s
 push rbp       ; On "PUSH" le bas de pile afin de garder sa valeur de côté
 mov  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
 sub  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
