@@ -92,9 +92,9 @@ Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un éta
 ```
 Ce qui, niveau machine, correspond aux instructions suivantes :
 ```asm
-PUSH rbp       ; On "PUSH" le bas de pile afin de garder sa valeur de côté
-MOV  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
-SUB  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
+push rbp       ; On "PUSH" le bas de pile afin de garder sa valeur de côté
+mov  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
+sub  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
 ```
 Pour faire simple, on fait pointer RBP sur le haut de la pile, et on décrémente RSP de la valeur nécessaire, ici 255.
 Cela constitue un espace mémoire suffisant pour stocker notre variable `array`.
@@ -106,8 +106,8 @@ Ces opérations sont effectuées au début de la plupart des fonctions afin de m
 
 Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via les opérations suivantes :
 ```asm
-ADD rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
-POP rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
+add rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
+pop rbp       ; On restaure la valeur de RBP "PUSHée" dans le prologue
 ```
 Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la fonction suivante réécrira par-dessus celui de `foo`, qui n'est plus utile.
 
