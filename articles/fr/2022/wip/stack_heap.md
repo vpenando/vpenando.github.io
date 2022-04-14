@@ -14,7 +14,7 @@ Dans cette partie, nous aborderons la pile, également connue sous le nom de "st
 La pile est un segment contigu de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut).
 Elle a une taille relativement limitée (généralement quelques MOs sur un ordinateur récent) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
 
-RSP, le "stack pointer", pointe sur le haut de la pile. Quant à RBP, le "base pointer", il correspond au bas de la pile.
+RSP, le "stack pointer", pointe sur le haut de la pile, c'est-à-dire l'adresse de la dernière valeur utilisée. Quant à RBP, le "base pointer", il correspond au bas de la pile.
 
 Au niveau de la mémoire, la pile est structurée comme suit :
 ```asm
@@ -53,6 +53,8 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 +--------------+--------------+
 ```
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
+
+RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour placer nos variables.
 
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
 Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié. Ainsi, **pour qu'une variable soit allouée automatiquement sur la pile, sa taille doit être connue à la compilation** !
