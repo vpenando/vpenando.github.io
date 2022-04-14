@@ -144,9 +144,7 @@ Le tas est partagé au sein de tout le programme, ce qui est nécessaire afin de
 #### b. Cas d'utilisation du tas
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
 ```c
-void foo(size_t size) {
-    int *array = malloc(size * sizeof(int));
-}
+int *array = malloc(size * sizeof(int));
 ```
 Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (4 octets en x32 et 8 et x64) étant connue à la compilation.
 
