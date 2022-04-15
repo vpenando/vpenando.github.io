@@ -160,6 +160,7 @@ Pour résumer, voici les principales différences entre la pile et le tas :
 |---------|--------|
 | A une taille très limitée | Virtuellement égal à la RAM dispo. |
 | Stocke des variables de taille connue | Peut stocker n'importe quoi |
+| Les données sont stockées de manière contigüe | Les données sont stockées "en vrac" |
 | On y alloue via un simple `SUB rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
 | Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 | Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
