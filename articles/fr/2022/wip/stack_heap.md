@@ -62,7 +62,9 @@ void foo() {
 ```
 En entrant dans la fonction `foo`, un segment de la pile est alloué, correspondant à l'espace requis pour stocker ses variables locales (arguments compris).
 Si l'on reprend l'exemple de la partie précédente, la pile aurait donc un état proche de :
-<p style="text-align:center;font-style: italic;"><img src="stack_2.png" /><br /><i>Illustration de la pile après allocation de 255 octets.</i></p>
+<p style="text-align:center;font-style: italic;"><img src="stack_plus_255.png" /><br /><i>Illustration de la pile après allocation de 255 octets.</i></p>
+
+***Note -** Vous aurez remarqué que l'on a "pushé" la  valeur de RBP sur la pile. En effet, c'est nécessaire pour pouvoir la restaurer en sortant de `foo` !*
 
 Ce qui, niveau machine, correspond aux instructions suivantes :
 ```asm
