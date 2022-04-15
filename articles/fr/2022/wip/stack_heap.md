@@ -40,7 +40,8 @@ int64_t a = 42;
 int64_t b = 12;
 ```
 Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
-<p style="text-align:center;font-style: italic;"><img src="stack_1.png" /><br />Screen de l'application, mi décembre.</p>
+<p style="text-align:center;font-style: italic;"><img src="stack_1.png" /><br /><i>Illustration de la pile.</i></p>
+
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
 
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour placer nos variables.
