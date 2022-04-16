@@ -142,4 +142,3 @@ Pour résumer, voici les principales différences entre la pile et le tas :
 | Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
 
 Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
-Utilisés conjointement, 
