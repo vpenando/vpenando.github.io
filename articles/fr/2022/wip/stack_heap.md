@@ -44,7 +44,7 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
 
-RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour placer nos variables.
+RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`.
 
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
 Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié. Ainsi, **pour qu'une variable soit allouée automatiquement sur la pile, sa taille doit être connue à la compilation** !
