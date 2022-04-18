@@ -47,7 +47,9 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`.
 
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
-Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié. Ainsi, **pour qu'une variable soit allouée automatiquement sur la pile, sa taille doit être connue à la compilation** !
+Une allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié, où les variables éligibles seront placées.
+
+La taille de ce "stack frame" étant déterminée à la compilation, **sa taille doit être connue à la compilation pour qu'une variable soit allouée automatiquement sur la pile** ! Ainsi, le bloc mémoire stocké par un `std::vector` ou un `std::string` en C++ *-dont la taille est variable et déterminée au runtime-* ne peut pas être alloué sur la pile.
 
 #### b. Pile & "stack frame"
 D'une manière générale, chaque fonction a son propre segment de la pile ; RSP est décalé de l'espace nécessaire pour y stocker les variables éligibles, puis revient à son état initial à la fin de la fonction.
