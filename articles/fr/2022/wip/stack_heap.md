@@ -110,18 +110,17 @@ Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d
 
 Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 ```asm
-|   Adresses    |
-+---------------+   --+
-|               |     |  
-|      ...      |     +-- PILE
-|               |     |
-|               |   --+
+|  Adr. basses  |
++---------------+
+|               |
+|      PILE     |
+|               |
 +- bas de pile -+
-|               |   --+
-|               |     |
-|      ...      |     +-- TAS
-|               |     |
-+---------------+   --+
+|               |
+|      TAS      |
+|               |
++---------------+
+|  Adr. hautes  |
 ```
 Le tas est partagé au sein de tout le programme, ce qui est nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
 
@@ -132,7 +131,7 @@ int *array = malloc(size * sizeof(int));
 ```
 Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le pointeur `array` en lui-même est stocké sur la pile, sa taille (4 octets en x32 et 8 et x64) étant connue à la compilation.
 
-Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...).
+Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...) ou si vous utilisez une capsule RAII-conform telle que `std::unique_ptr` en C++.
 
 ---
 
@@ -142,7 +141,7 @@ Pour résumer, voici les principales différences entre la pile et le tas :
 
 | La pile | Le tas |
 |---------|--------|
-| A une taille très limitée | Virtuellement égal à la RAM dispo. |
+| A une taille très limitée | Taille virtuellement égale à la RAM dispo. |
 | Stocke des variables de taille connue | Peut stocker n'importe quoi |
 | Les données sont stockées de manière contigüe | Les données sont stockées "en vrac" |
 | On y alloue via un simple `SUB rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
