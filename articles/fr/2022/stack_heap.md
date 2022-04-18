@@ -38,12 +38,7 @@ BAS DE LA PILE (adresses hautes)
 
 Une allocation sur la pile consiste juste à effectuer une soustraction sur le "stack pointer".
 
-Lorsque vous déclarez, par exemple, deux variables de type `int64_t` en C, comme ceci :
-```c
-int64_t a = 42; // 8 octets
-int64_t b = 12; // 8 octets
-```
-Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
+Lorsque vous déclarez, par exemple, deux variables, `a` et `b`, de type `int64_t` en C, cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
 <p style="text-align:center;font-style: italic;"><img src="assets/stack_1.png" /><br /><i>Illustration de la pile après y avoir placé nos variables.</i></p>
 
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`. Pour y accéder, le code machine utilisera généralement ce même registre RSP et un offset, soit un code proche de :
