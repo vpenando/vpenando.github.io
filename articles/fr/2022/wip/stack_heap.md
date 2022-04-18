@@ -133,6 +133,8 @@ Le bloc mémoire pointé par `array` est stocké dans le tas, tandis que le poin
 
 Si toute variable automatiquement allouée sur la pile est nécessairement libérée via l'épilogue de la fonction courante (voir section précédente), ce n'est absolument pas le cas d'une variable allouée sur le tas ! Il vous incombe de la libérer manuellement, excepté si le langage que vous employez utilise un GC (C#, Go, ...) ou si vous utilisez une capsule RAII-conform telle que `std::unique_ptr` en C++.
 
+Une variable manuellement allouée mais non libérée provoque une *fuite mémoire*, faisant gonfler l'espace mémoire consommé par votre programme.
+
 ---
 
 ## En résumé
@@ -142,10 +144,13 @@ Pour résumer, voici les principales différences entre la pile et le tas :
 | La pile | Le tas |
 |---------|--------|
 | A une taille très limitée | Taille virtuellement égale à la RAM dispo. |
-| Stocke des variables de taille connue | Peut stocker n'importe quoi |
+| Stocke des variables de taille connue, hors GC | Peut stocker n'importe quoi |
 | Les données sont stockées de manière contigüe | Les données sont stockées "en vrac" |
-| On y alloue via un simple `SUB rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
+| On y alloue via un simple `sub rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux ([implémentation](https://github.com/lattera/glibc/blob/master/malloc/malloc.c#L3010)) |
+| Est automatiquement libérée | Doit être libéré manuellement |
 | Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 | Est thread safe | N'est par définition pas thread safe, car accessible depuis tout le programme |
 
 Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
+
+Vous êtes donc désormais à même de comprendre ce qu'implique une 
