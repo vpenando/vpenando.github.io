@@ -48,14 +48,19 @@ Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pou
 
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
 
-RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`.
+RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`. Pour y accéder, le code machine utilisera généralement ce même registre RSP et un offset, soit un code proche de :
+```asm
+mov [rsp], 0    ; a = 0
+mov [rsp+8], 10 ; b = 10
+```
+`a` étant en haut de la pile, RSP pointe déjà sur son adresse ! Quant à `b`, il se trouve à cette adresse + 8 octets, d'où `[rsp+8]` ! Cela peut sembler compliqué au premier abord, mais c'est en définitive très simple.
 
+#### b. Pile & "stack frame"
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
 Une grosse allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié, où les variables éligibles seront placées.
 
 La taille de ce "stack frame" étant déterminée à la compilation, **sa taille doit être connue à la compilation pour qu'une variable soit allouée automatiquement sur la pile** ! Ainsi, le bloc mémoire stocké par un `std::vector` ou un `std::string` en C++ *-dont la taille est variable et déterminée au runtime-* ne peut pas être alloué sur la pile.
 
-#### b. Pile & "stack frame"
 D'une manière générale, chaque fonction a son propre segment de la pile ; RSP est décalé de l'espace nécessaire pour y stocker les variables éligibles, puis revient à son état initial à la fin de la fonction.
 
 Prenons en exemple la fonction suivante :
