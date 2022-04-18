@@ -153,4 +153,4 @@ Pour résumer, voici les principales différences entre la pile et le tas :
 Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
 
 Vous êtes donc désormais à même de comprendre ce qu'implique une allocation dans l'un ou l'autre de ces segments, ainsi que de déterminer où sont stockées les variables que vous utilisez.
-Notez néanmoins que ces usages peuvent changer si vous utilisez un langage interprété ou un garbage collector.
+Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, etc...).
