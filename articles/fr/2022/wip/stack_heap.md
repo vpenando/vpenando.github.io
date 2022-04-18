@@ -87,7 +87,13 @@ Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via le
 add rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
 pop rbp       ; On restaure la valeur de RBP "pushée" dans le prologue
 ```
-Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la prochaine fonction appelée réécrira par-dessus celui de `foo`, qui n'est plus utile.
+Ces opérations constituent l'**épilogue** d'une fonction, et visent à restaurer l'état de la pile tel qu'il était auparavant. Ainsi, le "stack frame" de la prochaine fonction appelée réécrira par-dessus celui de `foo`, qui n'est plus utile, c'est pourquoi le code suivant cause un "undefined behaviour" :
+```c
+int* undefined_behaviour() {
+    int local = 42; // 'local' étant alloué sur la pile,
+    return &local;  // le programme va réécrire par-dessus !
+}
+```
 
 Enfin, chaque fonction ayant son propre "stack frame", l'accès à la pile est, par nature, thread safe.
 
