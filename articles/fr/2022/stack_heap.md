@@ -46,14 +46,12 @@ int64_t b = 12; // 8 octets
 Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
 <p style="text-align:center;font-style: italic;"><img src="assets/stack_1.png" /><br /><i>Illustration de la pile après y avoir placé nos variables.</i></p>
 
-***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
-
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`. Pour y accéder, le code machine utilisera généralement ce même registre RSP et un offset, soit un code proche de :
 ```asm
 mov [rsp], 0    ; a = 0
 mov [rsp+8], 10 ; b = 10
 ```
-`a` étant en haut de la pile, RSP pointe déjà sur son adresse ! Quant à `b`, il se trouve à cette adresse + 8 octets, d'où `[rsp+8]` ! Cela peut sembler compliqué au premier abord, mais c'est en définitive très simple.
+Si `a` est en haut de la pile, RSP pointe alors déjà sur son adresse ! Quant à `b`, il se trouve à cette adresse + 8 octets, d'où `[rsp+8]` ! Cela peut sembler compliqué au premier abord, mais c'est en définitive très simple.
 
 #### b. Pile & "stack frame"
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
