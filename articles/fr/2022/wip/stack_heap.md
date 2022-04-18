@@ -102,8 +102,6 @@ int* undefined_behaviour() {
 }
 ```
 
-Enfin, chaque fonction ayant son propre "stack frame", l'accès à la pile est, par nature, thread safe.
-
 ---
 
 ## Le tas
