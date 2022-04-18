@@ -11,10 +11,10 @@
 ## La pile
 Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
 #### a. La pile, c'est quoi ?
-La pile est un segment contigu de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut).
+La pile est un segment de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut), où sont stockées des données de manière contigüe.
 Elle a une taille relativement limitée (généralement quelques MOs sur un ordinateur récent) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
 
-RSP, le "stack pointer", pointe sur le haut de la pile, c'est-à-dire l'adresse de la dernière valeur utilisée. Quant à RBP, le "base pointer", il correspond au bas de la pile.
+RSP, le "stack pointer", pointe sur le haut de la pile, c'est-à-dire l'adresse mémoire de la dernière valeur utilisée. Quant à RBP, le "base pointer", il correspond au bas de la pile, notion que nous détaillerons plus bas.
 
 Au niveau de la mémoire, la pile est structurée comme suit :
 ```asm
@@ -40,7 +40,7 @@ int64_t a = 42;
 int64_t b = 12;
 ```
 Cela revient à effectuer une soustraction de deux fois 8 octets sur la pile pour y placer ces valeurs :
-<p style="text-align:center;font-style: italic;"><img src="stack_1.png" /><br /><i>Illustration de la pile.</i></p>
+<p style="text-align:center;font-style: italic;"><img src="stack_1.png" /><br /><i>Illustration de la pile après y avoir placé nos variables.</i></p>
 
 ***Note -** Les variables sont généralement empilées dans l'ordre inverse de leur déclaration, expliquant l'ordre du schéma ci-dessus.*
 
