@@ -4,7 +4,21 @@
 
 ---
 
-## Introduction
+### Sommaire
+* [Introduction](#introduction)
+* [La pile](#pile)
+  - [a. La pile, c'est quoi ?](#pile-a)
+  - [b. Pile & "stack frame"](#pile-b)
+  - [c. La pile, pour résumer](#pile-c)
+* [Le tas](#tas)
+  - [a. Le tas, c'est quoi ?](#tas-a)
+  - [b. Cas d'utilisation du tas](#tas-b)
+  - [c. Le tas, pour résumer](#tas-c)
+* [Conclusion](#conclusion)
+
+---
+
+## <a name="introduction">Introduction</a>
 En programmation, on entend souvent parler de la pile et du tas, sans pour autant nécessairement connaître leurs différences et cas d'usage.
 Alors, à quoi correspondent ces deux notions ?
 C'est précisément la question à laquelle nous allons tenter de répondre dans cet article !
@@ -14,9 +28,10 @@ Pour aborder sereinement cet article, il est préférable (mais aucunement néce
 
 ---
 
-## La pile
+## <a name="pile">La pile</a>
 Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
-#### a. La pile, c'est quoi ?
+
+#### <a name="pile-a">a. La pile, c'est quoi ?</a>
 La pile est un segment de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut), où sont stockées des données de manière contigüe.
 Elle a une taille relativement limitée (généralement quelques MOs sur un ordinateur récent) et fonctionne via les registres RSP (**R**egister: **S**tack **P**ointer) et RBP (**R**egister: **B**ase **P**ointer).
 
@@ -50,7 +65,7 @@ mov [rsp+8], 10 ; b = 10
 ```
 Si `a` est en haut de la pile, RSP pointe alors déjà sur son adresse ! Quant à `b`, il se trouve à cette adresse + 8 octets, d'où `[rsp+8]` ! Cela peut sembler compliqué au premier abord, mais c'est en définitive très simple.
 
-#### b. Pile & "stack frame"
+#### <a name="pile-b">b. Pile & "stack frame"</a>
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
 Une grosse allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié, où les variables éligibles seront placées.
 
@@ -102,12 +117,14 @@ int* undefined_behaviour() {
 }
 ```
 
+#### <a name="pile-c">c. La pile, pour résumer</b>
+
 ---
 
-## Le tas
+## <a name="tas">Le tas</a>
 Le tas, ou "heap", est l'endroit où sont les blocs de mémoire alloués via des fonctions telles que `malloc` en C, ou lors de l'appel à `new` dans des langages tels que C++ ou Go (le cas de C#, par exemple, est un peu plus complexe).
 
-#### a. Le tas, c'est quoi ?
+#### <<a name="tas-a">a. Le tas, c'est quoi ?</a>
 Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction et le "stack frame" associé est automatiquement libéré. Ce faisant, où sont alors stockées les autres variables ?
 Plus spécifiquement, **où sont stockées les variables allouées manuellement ou dont la taille n'est pas connue à la compilation** ?
 
@@ -129,7 +146,7 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 ```
 Le tas est partagé au sein de tout le programme, ce qui est nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
 
-#### b. Cas d'utilisation du tas
+#### <a name="tas-b">b. Cas d'utilisation du tas</b>
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
@@ -140,9 +157,11 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 
 Une variable manuellement allouée mais non libérée provoque une *fuite mémoire*, faisant gonfler l'espace mémoire consommé par votre programme.
 
+#### <a name="tas-c">c. Le tas, pour résumer</b>
+
 ---
 
-## En résumé
+## <a name="conclusion">Conclusion</a>
 
 Pour résumer, voici les principales différences entre la pile et le tas :
 
