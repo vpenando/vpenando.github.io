@@ -146,7 +146,7 @@ Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire haute
 ```
 Le tas est partagé au sein de tout le programme, ce qui est nécessaire afin de renvoyer des pointeurs sur des blocs mémoire !
 
-#### <a name="tas-b">b. Cas d'utilisation du tas</b>
+#### <a name="tas-b">b. Cas d'utilisation du tas</a>
 Le tas est utilisé lorsque, par exemple, vous allouez de la mémoire via `malloc` :
 ```c
 int *array = malloc(size * sizeof(int));
