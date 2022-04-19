@@ -117,7 +117,7 @@ int* undefined_behaviour() {
 }
 ```
 
-#### <a name="pile-c">c. La pile, pour résumer</b>
+#### <a name="pile-c">c. La pile, pour résumer</a>
 
 ---
 
