@@ -52,7 +52,7 @@ Si `a` est en haut de la pile, RSP pointe alors déjà sur son adresse ! Quant �
 Dans la plupart des langages de programmation, les variables locales sont stockées sur la pile.
 Une grosse allocation a lieu sur la pile au début de chaque fonction, afin de créer le "stack frame" approprié, où les variables éligibles seront placées.
 
-La taille de ce "stack frame" étant déterminée à la compilation, **la taille d'une variable doit être connue à la compilation pour qu'elle puisse être allouée automatiquement sur la pile** ! Ainsi, le bloc mémoire stocké par un `std::vector` ou un `std::string` en C++ *-dont la taille est variable et déterminée au runtime-* ne peut pas être alloué sur la pile.
+La taille de ce "stack frame" étant déterminée à la compilation, **la taille d'une variable doit également être connue à la compilation pour qu'elle puisse être allouée automatiquement sur la pile** ! Ainsi, le bloc mémoire stocké par un `std::vector` ou un `std::string` en C++ *-dont la taille est variable et déterminée au runtime-* ne peut pas être alloué sur la pile.
 
 D'une manière générale, chaque fonction a son propre segment de la pile ; RSP est décalé de l'espace nécessaire pour y stocker les variables éligibles, puis revient à son état initial à la fin de la fonction.
 
