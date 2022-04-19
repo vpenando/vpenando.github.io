@@ -192,3 +192,5 @@ Pour conclure, voici un petit comparatif de la pile et du tas :
 
 Vous êtes désormais à même de comprendre les différences entre ces deux espaces mémoire, ainsi que les différents cas d'usage de chacun d'eux.
 Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, type valeur/référence en C#, ...).
+
+J'espère que ce petit article vous aura éclairés quant à la structure de la mémoire et le fonctionnement interne d'une allocation.
