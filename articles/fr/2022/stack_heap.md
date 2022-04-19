@@ -30,6 +30,7 @@ Pour aborder sereinement cet article, il est préférable (mais aucunement néce
 
 ## <a name="pile">La pile</a>
 Dans cette partie, nous aborderons la pile, également connue sous le nom de "stack". Nous présenterons son mode de fonctionnement et son cadre d'utilisation général.
+Je n'aborderai pas ici l'allocation manuelle sur la pile via `stackalloc` en C#, par exemple.
 
 #### <a name="pile-a">a. La pile, c'est quoi ?</a>
 La pile est un segment de la mémoire, de type LIFO (**L**ast **I**n, **F**irst **O**ut), où sont stockées des données de manière contigüe.
