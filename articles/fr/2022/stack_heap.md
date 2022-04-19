@@ -168,7 +168,7 @@ Une variable manuellement allouée mais non libérée provoque une *fuite mémoi
 #### <a name="tas-c">c. Le tas, pour résumer</a>
 Lorsque vous allouez de la mémoire dynamiquement, via `malloc` en C, `new` en C++, et dans beaucoup de langages de script, vous ne passez pas par la pile, mais par le tas. Il s'agit d'un espace mémoire bien plus grand que la pile, où les données sont disposées sans ordre particulier.
 
-Contrairement à une allocation sur la pile, une allocation sur le tas est très coûteuse et, par conséquent, plus longue qu'une allocation sur la pile. Notez toutefois que le pointeur vers la mémoire ainsi allouée est, lui, stocké sur la pile.
+Contrairement à une allocation sur la pile, une allocation sur le tas est très coûteuse et, par conséquent, plus longue. Notez toutefois que le pointeur vers la mémoire ainsi allouée est, lui, stocké sur la pile.
 
 Par ailleurs, il vous faut allouer unitairement chaque bloc mémoire dont vous avez besoin ; il n'existe pas d'équivalent du prologue pour le tas.
 De même, il n'existe pas non plus d'épilogue et il vous faudra, en l'absence de garbage collector, libérer la mémoire vous-même, via `free`, `delete` ou autre.
@@ -181,14 +181,16 @@ Pour faire simple, voici un petit comparatif de la pile et du tas :
 
 | La pile | Le tas |
 |---------|--------|
-| A une taille très limitée | Taille virtuellement égale à la RAM dispo. |
+| A une taille très limitée | Taille potentiellement égale à la RAM dispo. |
 | Stocke des variables de taille connue, hors GC | Peut stocker n'importe quoi |
 | Les données sont stockées de manière contigüe | Les données sont stockées "en vrac" |
-| On y alloue via un simple `sub rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux ([implémentation](https://github.com/lattera/glibc/blob/master/malloc/malloc.c#L3010)) |
+| On y alloue via un simple `sub rsp, X` | Nécessite un appel à `malloc` ou autre, coûteux |
 | Est automatiquement libérée | Doit être libéré manuellement |
 | Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 
 Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
+
+
 
 Vous êtes donc désormais à même de comprendre ce qu'implique une allocation dans l'un ou l'autre de ces segments, ainsi que de déterminer où sont stockées les variables que vous utilisez.
 Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, etc...).
