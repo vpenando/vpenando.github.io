@@ -166,12 +166,18 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 Une variable manuellement allouée mais non libérée provoque une *fuite mémoire*, faisant gonfler l'espace mémoire consommé par votre programme.
 
 #### <a name="tas-c">c. Le tas, pour résumer</a>
+Lorsque vous allouez de la mémoire dynamiquement, via `malloc` en C, `new` en C++, et dans beaucoup de langages de script, vous ne passez pas par la pile, mais par le tas. Il s'agit d'un espace mémoire bien plus grand que la pile, où les données sont disposées sans ordre particulier.
+
+Contrairement à une allocation sur la pile, une allocation sur le tas est très coûteuse et, par conséquent, plus longue qu'une allocation sur la pile. Notez toutefois que le pointeur vers la mémoire ainsi allouée est, lui, stocké sur la pile.
+
+Par ailleurs, il vous faut allouer unitairement chaque bloc mémoire dont vous avez besoin ; il n'existe pas d'équivalent du prologue pour le tas.
+De même, il n'existe pas non plus d'épilogue et il vous faudra, en l'absence de garbage collector, libérer la mémoire vous-même, via `free`, `delete` ou autre.
 
 ---
 
 ## <a name="conclusion">Conclusion</a>
 
-Pour résumer, voici les principales différences entre la pile et le tas :
+Pour faire simple, voici un petit comparatif de la pile et du tas :
 
 | La pile | Le tas |
 |---------|--------|
