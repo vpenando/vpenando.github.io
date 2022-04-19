@@ -173,11 +173,13 @@ Contrairement à une allocation sur la pile, une allocation sur le tas est très
 Par ailleurs, il vous faut allouer unitairement chaque bloc mémoire dont vous avez besoin ; il n'existe pas d'équivalent du prologue pour le tas.
 De même, il n'existe pas non plus d'épilogue et il vous faudra, en l'absence de garbage collector, libérer la mémoire vous-même, via `free`, `delete` ou autre.
 
+Il est donc préférable, lorsque c'est possible, de privilégier une allocation sur la pile afin de gagner en performances.
+
 ---
 
 ## <a name="conclusion">Conclusion</a>
 
-Pour faire simple, voici un petit comparatif de la pile et du tas :
+Pour conclure, voici un petit comparatif de la pile et du tas :
 
 | La pile | Le tas |
 |---------|--------|
@@ -188,9 +190,5 @@ Pour faire simple, voici un petit comparatif de la pile et du tas :
 | Est automatiquement libérée | Doit être libéré manuellement |
 | Est généralement plus rapide d'accès, car souvent en cache | Est généralement plus lent d'accès |
 
-Ces deux espaces mémoire sont radicalement différents et servent des usages eux aussi différents, mais sont essentiels au bon fonctionnement d'un programme.
-
-
-
-Vous êtes donc désormais à même de comprendre ce qu'implique une allocation dans l'un ou l'autre de ces segments, ainsi que de déterminer où sont stockées les variables que vous utilisez.
-Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, etc...).
+Vous êtes désormais à même de comprendre les différences entre ces deux espaces mémoire, ainsi que les différents cas d'usage de chacun d'eux.
+Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, type valeur/référence en C#, ...).
