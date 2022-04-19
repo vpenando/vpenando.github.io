@@ -157,7 +157,7 @@ Si toute variable automatiquement allouée sur la pile est nécessairement libé
 
 Une variable manuellement allouée mais non libérée provoque une *fuite mémoire*, faisant gonfler l'espace mémoire consommé par votre programme.
 
-#### <a name="tas-c">c. Le tas, pour résumer</b>
+#### <a name="tas-c">c. Le tas, pour résumer</a>
 
 ---
 
