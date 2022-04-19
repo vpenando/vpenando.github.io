@@ -174,7 +174,7 @@ Contrairement à une allocation sur la pile, une allocation sur le tas est très
 Par ailleurs, il vous faut allouer unitairement chaque bloc mémoire dont vous avez besoin ; il n'existe pas d'équivalent du prologue pour le tas.
 De même, il n'existe pas non plus d'épilogue et il vous faudra, en l'absence de garbage collector, libérer la mémoire vous-même, via `free`, `delete` ou autre.
 
-Il est donc préférable, lorsque c'est possible, de privilégier une allocation sur la pile afin de gagner en performances.
+Il est donc préférable, lorsque c'est possible, de privilégier une allocation sur la pile afin de gagner en performances. À titre indicatif, [voici ce à quoi ressemble l'implémentation de `malloc` en C](https://github.com/lattera/glibc/blob/master/malloc/malloc.c#L3010).
 
 ---
 
