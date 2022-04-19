@@ -121,7 +121,7 @@ int* undefined_behaviour() {
 Pour résumer, toute variable locale à une fonction dont la taille est connue à la compilation est éligible à une allocation sur la pile.
 À titre d'exemples, tous les types primitifs (`int`, `float`, `bool`, `char`, ...) et énumérations sont d'office éligibles.
 
-Une allocation sur la pile est pratiquement sans coût. À la compilation, la taille du "stack frame" de chaque fonction est calculée, et une grosse allocation a lieu au début de chaque fonction, via le **prologue** de la fonction.
+Une allocation sur la pile est pratiquement sans coût. À la compilation, la taille du "stack frame" de chaque fonction est calculée, et une grosse allocation a lieu au début de chaque fonction, via le **prologue** de cette dernière.
 
 Parallèlement, le coût de la libération de l'espace ainsi alloué est également presque nul. Le "stack frame" d'une fonction est automatiquement libéré via l'**épilogue** de celle-ci.
 
