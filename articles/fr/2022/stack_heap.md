@@ -60,8 +60,8 @@ Lorsque vous déclarez, par exemple, deux variables, `a` et `b`, de type `int64_
 
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`. Pour y accéder, le code machine utilisera généralement un index, basé sur RBP ou RSP et un offset, soit un code proche de :
 ```asm
-mov [rsp], 0    ; a = 0
-mov [rsp+8], 10 ; b = 10
+mov [rsp], 42   ; a = 42
+mov [rsp+8], 12 ; b = 12
 ```
 Si `a` est en haut de la pile, RSP pointe alors déjà sur son adresse ! Quant à `b`, il se trouve à cette adresse + 8 octets, d'où `[rsp+8]` ! Cela peut sembler compliqué au premier abord, mais c'est en définitive très simple.
 
