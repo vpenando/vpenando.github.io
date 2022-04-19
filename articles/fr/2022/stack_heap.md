@@ -136,7 +136,7 @@ Le tas, ou "heap", est l'endroit où sont les blocs de mémoire alloués via des
 Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction et le "stack frame" associé est automatiquement libéré. Ce faisant, où sont alors stockées les autres variables ?
 Plus spécifiquement, **où sont stockées les variables allouées manuellement ou dont la taille n'est pas connue à la compilation** ?
 
-Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d'un très grand espace mémoire (d'une capacité virtuellement équivalente à la RAM disponible) où sont disposées "en vrac" la plupart des variables qui ne sont pas sur la pile.
+Ces variables sont stockées dans un espace mémoire appelé le tas. Il s'agit d'un très grand espace mémoire où sont disposées "en vrac" la plupart des variables qui ne sont pas sur la pile.
 
 Ce dernier se situe au-delà du bas de la pile, dans les adresses mémoire hautes :
 ```asm
