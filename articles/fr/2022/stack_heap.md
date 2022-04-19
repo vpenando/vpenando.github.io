@@ -195,4 +195,4 @@ Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage
 
 Nous n'avons pas abordé des concepts un peu plus avancés, tels que les segments `.bss`, `.data`, `.rdata`, etc... qui feront certainement l'objet d'un article futur.
 
-J'espère que ce petit article vous aura éclairés quant à la structure de la mémoire et le fonctionnement interne d'une allocation.
+Enfin, j'espère que ce petit article vous aura éclairés quant à la structure de la mémoire et le fonctionnement interne d'une allocation.
