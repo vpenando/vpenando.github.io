@@ -124,7 +124,7 @@ int* undefined_behaviour() {
 ## <a name="tas">Le tas</a>
 Le tas, ou "heap", est l'endroit où sont les blocs de mémoire alloués via des fonctions telles que `malloc` en C, ou lors de l'appel à `new` dans des langages tels que C++ ou Go (le cas de C#, par exemple, est un peu plus complexe).
 
-#### <<a name="tas-a">a. Le tas, c'est quoi ?</a>
+#### <a name="tas-a">a. Le tas, c'est quoi ?</a>
 Comme évoqué précédemment, la pile contient la plupart des variables locales d'une fonction et le "stack frame" associé est automatiquement libéré. Ce faisant, où sont alors stockées les autres variables ?
 Plus spécifiquement, **où sont stockées les variables allouées manuellement ou dont la taille n'est pas connue à la compilation** ?
 
