@@ -6,9 +6,11 @@
 
 ## Introduction
 En programmation, on entend souvent parler de la pile et du tas, sans pour autant nécessairement connaître leurs différences et cas d'usage.
-Dans cet article, nous aborderons le fonctionnement de ces deux espaces mémoire ainsi que le coût d'une allocation dans l'un ou l'autre.
+Alors, à quoi correspondent ces deux notions ?
+C'est précisément la question à laquelle nous allons tenter de répondre dans cet article !
+Nous aborderons donc le fonctionnement de ces deux espaces mémoire ainsi que le coût d'une allocation dans l'un ou l'autre.
 
-Pour aborder sereinement cet article, il est préférable (mais pas nécessaire !) d'avoir des notions rudimentaires en C et en assembleur.
+Pour aborder sereinement cet article, il est préférable (mais aucunement nécessaire !) d'avoir des notions rudimentaires en C et en assembleur.
 
 ---
 
