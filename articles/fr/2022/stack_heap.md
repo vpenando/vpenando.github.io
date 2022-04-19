@@ -193,6 +193,6 @@ Pour conclure, voici un petit comparatif de la pile et du tas :
 Vous êtes désormais à même de comprendre les différences entre ces deux espaces mémoire, ainsi que les différents cas d'usage de chacun d'eux.
 Notez néanmoins que ces usages peuvent changer d'un langage à l'autre (langage interprété ou compilé, garbage collector, type valeur/référence en C#, ...).
 
-Nous n'avons pas abordé les concepts un peu plus avancés, tels que les segments `.bss`, `.data`, `.rdata`, etc... qui feront certainement l'objet d'un article futur.
+Nous n'avons pas abordé des concepts un peu plus avancés, tels que les segments `.bss`, `.data`, `.rdata`, etc... qui feront certainement l'objet d'un article futur.
 
 J'espère que ce petit article vous aura éclairés quant à la structure de la mémoire et le fonctionnement interne d'une allocation.
