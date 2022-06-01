@@ -60,7 +60,7 @@ Lorsque vous déclarez, par exemple, deux variables, `a` et `b`, de type `int64_
 <p style="text-align:center;font-style: italic;"><img src="assets/stack_1.png" /><br /><i>Illustration de la pile après y avoir placé nos variables.</i></p>
 
 RSP se retrouve donc décalé de 16 octets, soit l'espace nécessaire pour stocker nos variables `a` et `b`. Pour y accéder, le code machine utilisera généralement un index, basé sur RBP ou RSP et un offset, soit un code proche de :
-```asm
+```nasm
 mov [rsp], 42   ; a = 42
 mov [rsp+8], 12 ; b = 12
 ```
@@ -89,7 +89,7 @@ Ainsi, la pile aurait donc un état proche de :
 ***Note -** Vous aurez remarqué que l'on a "pushé" la  valeur de RBP sur la pile. En effet, c'est nécessaire pour pouvoir la restaurer en sortant de `foo` et ainsi rétablir l'état de la pile tel qu'il était auparavant !*
 
 Ce qui, niveau machine, correspond aux instructions suivantes :
-```asm
+```nasm
 push rbp       ; On "push" le bas de pile afin de garder sa valeur de côté
 mov  rbp, rsp  ; On démarre un nouveau segment à partir du haut de la pile
 sub  rsp, 0xff ; On y alloue 255 octets en décalant le haut de la pile d'autant
@@ -103,7 +103,7 @@ Ces opérations sont effectuées au début de la plupart des fonctions afin de m
 ***Note -** En fonction du niveau d'optimisation, de l'OS et du compilateur, le segment alloué sur la pile peut être plus ou moins grand, parfois équivalant au double de l'espace demandé !*
 
 Lorsque l'on sort de cette fonction, l'ancien "stack frame" est restauré via les opérations suivantes :
-```asm
+```nasm
 add rsp, 0xff ; On décale le haut de la pile de 255 octets vers le bas
 pop rbp       ; On restaure la valeur de RBP "pushée" dans le prologue
 ```
