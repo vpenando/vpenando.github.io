@@ -25,7 +25,7 @@ Voici un exemple de non-respect du LSP, volontairement simpliste, ici en C#.
 // Un simple rectangle
 record Rectangle(float Width, float Height);
 ```
-Spécialisons notre classe :
+Spécialisons notre type :
 ```c#
 // Un carré n'est qu'un rectangle un peu particulier, n'est-ce pas ?
 record Square(float Side) : Rectangle(Side, Side);
