@@ -48,7 +48,7 @@ Square other = square.Resize(4, 2); // Un carré de 4 par 2 !?
 ```
 On casse alors l'essence même de notre carré !
 
-Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangle ; ce faisant, il devient alors limpide que nos deux classes `Rectangle` et `Square` ne doivent pas avoir le moindre lien de parenté, car une méthode s'appliquant à l'un de nos types doit pouvoir s'appliquer à l'autre.
+Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangle ; ce faisant, il devient alors limpide que nos deux types `Rectangle` et `Square` ne doivent pas avoir le moindre lien de parenté, car une méthode s'appliquant à l'un de nos types doit pouvoir s'appliquer à l'autre.
 
 ---
 
