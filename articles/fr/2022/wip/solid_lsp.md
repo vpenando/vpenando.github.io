@@ -55,7 +55,7 @@ Il est toutefois parfaitement sensé de pouvoir appeler `Resize` sur un rectangl
 ### Solutions possibles
 
 D'une manière générale, une classe à sémantique de valeur ne doit pas être héritée. En C#, il est courant de la marquer comme `sealed` ou d'utiliser une `struct`, qui est implicitement non-héritable (`record struct` si l'on veut utiliser un record).
-En l'occurrence, notre type `Rectangle` n'étant qu'un simple aggrégat sans notion d'identité, il correspond tout à fait et pourrait donc être déclaré ainsi :
+En l'occurrence, notre type `Rectangle` n'étant qu'un simple aggrégat, il correspond tout à fait et pourrait donc être déclaré ainsi :
 ```c#
 record struct Rectangle(float Width, float Height) {
     public Rectangle Resize(float w, float h)
@@ -69,14 +69,14 @@ interface ISerializer<T, TOutput> {
     TOutput Serialize(T value);
 }
 
-sealed class JsonOutput { /* ... */ }
+record struct JsonOutput { /* ... */ }
 sealed class JsonSerializer<T> : ISerializer<T, JsonOutput> {
     public JsonOutput Serialize(T value) {
         // ...
     }
 }
 
-sealed class XmlOutput { /* ... */ }
+record struct XmlOutput { /* ... */ }
 sealed class XmlSerializer<T> : ISerializer<T, XmlOutput> {
     public XmlOutput Serialize(T value) {
         // ...
