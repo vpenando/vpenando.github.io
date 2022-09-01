@@ -3,3 +3,14 @@
 ## (FR) Go vs C# - Comparatif des deux langages
 
 ---
+
+* Pourquoi comparer ces langages ?
+* Points communs
+  - Typage statique
+  - Langages compilés
+  - ...
+* Différences
+  - Compilé en natif / CIL
+  - Perfs / conso mémoire
+  - "God object" vs procédural
+* 
