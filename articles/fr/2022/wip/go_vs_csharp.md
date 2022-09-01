@@ -8,6 +8,7 @@
 * Points communs
   - Typage statique
   - Langages compilés
+  - Domaines d'application
   - ...
 * Différences
   - Compilé en natif / CIL
