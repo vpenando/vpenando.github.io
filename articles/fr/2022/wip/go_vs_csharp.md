@@ -11,6 +11,7 @@
   - Domaines d'application (CLI, front, back, IoT)
   - ...
 * Différences
+  - Syntaxe
   - Compilé en natif / CIL
   - Perfs / conso mémoire
   - Full POO (+ "God object") vs procédural
