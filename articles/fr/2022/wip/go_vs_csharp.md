@@ -13,4 +13,5 @@
   - Compilé en natif / CIL
   - Perfs / conso mémoire
   - "God object" vs procédural
+  - ...
 * 
