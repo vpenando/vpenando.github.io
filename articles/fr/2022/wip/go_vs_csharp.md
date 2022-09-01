@@ -14,5 +14,6 @@
   - Perfs / conso mémoire
   - "God object" vs procédural
   - Abstractions de .NET vs Go plus bas niveau
+  - Gestion de l'asynchrone avec `async` / `await` vs goroutines
   - ...
 * 
