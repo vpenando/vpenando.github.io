@@ -8,7 +8,7 @@
 * Points communs
   - Typage statique
   - Langages compilés
-  - Domaines d'application
+  - Domaines d'application (CLI, front, back, IoT)
   - ...
 * Différences
   - Compilé en natif / CIL
