@@ -26,6 +26,8 @@ Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
 
+***Note -** Le code complet des types présentés est disponible **ici**.*
+
 --- 
 
 #### `Result`
@@ -139,3 +141,6 @@ public static class Result
 }
 ```
 Ce faisant, il nous suffit d'utiliser `using static Result;` afin d'avoir accès à `Ok` et `Err` !
+Mieux encore, on peut l'utiliser via un `global using` !
+
+***Note -** Notre `Result<T, E>` est encore assez sommaire, sa version complète (lien dans l'introduction) dispose des méthodes `Map`, `MapErr`, `ValueOr` et `ErrorOr` !*
