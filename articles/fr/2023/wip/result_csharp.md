@@ -16,15 +16,15 @@ Dans cet article, je vous propose une implémentation de ces deux types en C#, a
 
 --- 
 
-#### Syntaxe
+#### `Result`
 
-```c#
-record Error(/* ... */);
+Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
+Par ailleurs, il s'agit d'un type à sémantique de valeur, donc il ne doit pas être héritable.
+Enfin, il ne doit pas être modifiable car voué à représenter une valeur fixe.
 
-Result<int, Error> SomethingThatMayFail() {
-    if (/* ...*/) {
-        return Err(new Error(/* ... */));
-    }
-    return Ok(42);
+```cs
+readonly record struct Result<T, E>
+{
+    // ...
 }
 ```
