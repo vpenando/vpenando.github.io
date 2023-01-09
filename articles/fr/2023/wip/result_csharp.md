@@ -28,3 +28,22 @@ readonly record struct Result<T, E>
     // ...
 }
 ```
+
+Il doit être manipulable comme suit :
+
+```cs
+struct MyValueType {}
+struct MyErrorType {}
+
+public Result<MyValueType, MyErrorType> DoSomething() {
+    HttpResponseMessage response = SendHttpRequest();
+    // Note - L'implémentation de 'SendHttpRequest' ne nous intéresse pas ici
+    if (!reponse.IsSuccessStatusCode) {
+        return Err(/* ... */);
+    }
+    
+    // On traite la réponse ici
+    // ...
+    
+    return Ok(/* ... */);
+}
