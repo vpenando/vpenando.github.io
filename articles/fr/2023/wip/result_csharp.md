@@ -36,6 +36,7 @@ Le type `Result` est un type générique, qui peut représenter une valeur *ou* 
 Par ailleurs, il s'agit d'un type à sémantique de valeur, donc il ne doit pas être héritable.
 Enfin, il ne doit pas être modifiable car voué à représenter une valeur fixe.
 
+Ainsi, il serait proche de :
 ```cs
 readonly record struct Result<T, E>
 {
