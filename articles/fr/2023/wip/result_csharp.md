@@ -37,8 +37,8 @@ struct MyErrorType {}
 
 public Result<MyValueType, MyErrorType> DoSomething() {
     HttpResponseMessage response = SendHttpRequest();
-    // Note - L'implémentation de 'SendHttpRequest' ne nous intéresse pas ici
-    if (!reponse.IsSuccessStatusCode) {
+    // L'implémentation de 'SendHttpRequest' ne nous intéresse pas ici
+    if (!response.IsSuccessStatusCode) {
         return Err(/* ... */);
     }
     
@@ -47,3 +47,5 @@ public Result<MyValueType, MyErrorType> DoSomething() {
     
     return Ok(/* ... */);
 }
+```
+
