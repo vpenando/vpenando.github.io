@@ -31,6 +31,8 @@ Dans cet article, je vous propose une implémentation de ces deux types en C#, a
 #### `Result`
 
 Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
+À cet effet, il expose deux variants : `Ok(T)` et `Err(E)`, représentant respectivement le résultat d'une opération et un cas d'erreur.
+
 Par ailleurs, il s'agit d'un type à sémantique de valeur, donc il ne doit pas être héritable.
 Enfin, il ne doit pas être modifiable car voué à représenter une valeur fixe.
 
