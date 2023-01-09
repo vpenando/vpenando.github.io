@@ -44,23 +44,14 @@ readonly record struct Result<T, E>
 }
 ```
 
-Il doit être manipulable comme suit :
+Il doit être instanciable comme suit :
 
 ```cs
-struct MyValueType {}
-struct MyErrorType {}
-
-public Result<MyValueType, MyErrorType> DoSomething() {
-    HttpResponseMessage response = SendHttpRequest();
-    // L'implémentation de 'SendHttpRequest' ne nous intéresse pas ici
-    
-    if (!response.IsSuccessStatusCode) {
-        return Err(/* ... */);
-    }
-    
-    // ...
-    
-    return Ok(/* ... */);
-}
+Result<T, E> okResult = Ok(value);
+Result<T, E> errResult = Err(err);
 ```
-
+Se pose alors un problème : que se passe-t-il si on utilise l'inférence de type ?
+```cs
+var okResult = Ok(value); // Comment inférer le type E ici ?
+var errResult = Err(err); // Comment inférer le type T ici ?
+```
