@@ -19,10 +19,10 @@ Par ailleurs, une exception inattendue peut se retrouver `catch`ée dans une cou
 
 Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifiquement en [Elm](https://elm-lang.org/)), je me suis surpris à apprécier la façon dont sont gérées les erreurs, à savoir non pas par des exceptions, mais plutôt par l'intermédiaire de types dédiés. En Rust (pour ne citer que lui), il existe les types [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html) et [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html).
 
-Les avantages sont multiples :
-- Le flux de notre programme n'est pas interrompu ;
-- On sait quelles fonctions / méthodes sont susceptibles d'échouer ;
-- Le développeur est incité à traîter l'erreur là où elle se produit, donc dans la couche logicielle concernée.
+Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
+- Le flux de notre programme n'est pas interrompu lorsqu'une erreur est rencontrée ;
+- On sait quelles fonctions / méthodes sont susceptibles d'échouer à la lecture de leur signature ;
+- Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment de le faire.
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
 
@@ -55,3 +55,87 @@ Se pose alors un problème : que se passe-t-il si on utilise l'inférence de typ
 var okResult = Ok(value); // Comment inférer le type E ici ?
 var errResult = Err(err); // Comment inférer le type T ici ?
 ```
+La solution semble évidente : il faut simplement utiliser un type intermédiaire, à partir duquel on instanciera notre `Result<T, E>` !
+Voici la version "Ok" :
+```cs
+public readonly record struct Ok<T>
+{
+    public readonly T Value { get; }
+
+    public Ok(T value)
+    {
+        this.Value = value;
+    }
+}
+```
+Et son équivalent pour "Err" :
+```cs
+
+public readonly record struct Err<E>
+{
+    public readonly E Error { get; }
+
+    public Err(E error)
+    {
+        this.Error = error;
+    }
+}
+```
+Mais ce n'est pas tout, il nous faut ensuite modifier le type `Result`, dont voici une proposition d'implémentation :
+```cs
+
+public readonly record struct Result<T, E>
+{
+    private readonly T value = default!;
+    private readonly E error = default!;
+    private readonly ResultType type;
+
+    public T Value
+        => this.IsOk() ? this.value : throw new InvalidOperationException();
+
+    public E Error
+        => this.IsErr() ? this.error : throw new InvalidOperationException();
+
+    private Result(Ok<T> ok)
+    {
+        this.value = ok.Value;
+        this.type = ResultType.Ok;
+    }
+
+    private Result(Err<E> err)
+    {
+        this.error = err.Error;
+        this.type = ResultType.Err;
+    }
+
+    public static implicit operator Result<T, E>(Ok<T> ok)
+        => new(ok);
+
+    public static implicit operator Result<T, E>(Err<E> err)
+        => new(err);
+
+    public bool IsOk()
+        => this.type == ResultType.Ok;
+
+    public bool IsErr()
+        => this.type == ResultType.Err;
+
+    private enum ResultType
+    {
+        Ok,
+        Err
+    }
+}
+```
+Enfin, il reste une dernière chose pour pouvoir utiliser `Ok` et `Err` comme présenté plus haut :
+```cs
+public static class Result
+{
+    public static Ok<T> Ok<T>(T value)
+        => new(value);
+
+    public static Err<E> Err<E>(E error)
+        => new(error);
+}
+```
+Ce faisant, il nous suffit d'utiliser `using static Result;` afin d'avoir accès à `Ok` et `Err` !
