@@ -2,6 +2,7 @@
 
 ### (FR) Comment rendre votre code C# plus sûr
 ##### (Ou comment se passer d'une valeur `null` et des exceptions)
+
 ---
 
 #### Introduction
@@ -13,7 +14,9 @@ Faisant un peu programmation fonctionnelle à côté (plus spécifiquement en [E
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
 
-### Syntaxe
+--- 
+
+#### Syntaxe
 
 ```c#
 record Error(/* ... */);
