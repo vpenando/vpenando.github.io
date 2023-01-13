@@ -176,6 +176,9 @@ using static Result;
 
 var ok = Ok(42);
 var err = Err("Error :(");
+
+Result<int, string> DoSomething(bool ok)
+   => ok ? Ok(42) : Err("Error :(");
 ```
 Mieux encore, on peut l'utiliser via un [`global using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier) !
 
