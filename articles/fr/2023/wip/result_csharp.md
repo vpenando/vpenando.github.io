@@ -22,7 +22,7 @@ Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifique
 Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 - Le flux de notre programme n'est pas interrompu lorsqu'une erreur est rencontrée ;
 - On sait quelles fonctions / méthodes sont susceptibles d'échouer à la lecture de leur signature ;
-- Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment de le faire.
+- Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment pour le faire.
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
 
@@ -35,8 +35,18 @@ Dans cet article, je vous propose une implémentation de ces deux types en C#, a
 Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
 À cet effet, il expose deux variants : `Ok(T)` et `Err(E)`, représentant respectivement le résultat d'une opération et un cas d'erreur.
 
-Par ailleurs, il s'agit d'un type à sémantique de valeur, donc il ne doit pas être héritable.
-Enfin, il ne doit pas être modifiable car voué à représenter une valeur fixe.
+Voici son implémentation en Rust :
+```rs
+enum Result<T, E> {
+   Ok(T),
+   Err(E),
+}
+```
+
+Penchons-nous à présent sur sa possible implémentation en C#.
+
+Il s'agit d'un type à sémantique de valeur, donc il ne doit pas être héritable.
+De plus, il ne doit pas être modifiable car voué à représenter une valeur fixe.
 
 Ainsi, il serait proche de :
 ```cs
@@ -57,7 +67,7 @@ Se pose alors un problème : que se passe-t-il si on utilise l'inférence de typ
 var okResult = Ok(value); // Comment inférer le type E ici ?
 var errResult = Err(err); // Comment inférer le type T ici ?
 ```
-La solution semble évidente : il faut simplement utiliser un type intermédiaire, à partir duquel on instanciera notre `Result<T, E>` !
+La solution semble évidente : il faut simplement utiliser un type intermédiaire, à partir duquel on instanciera notre `Result<T, E>`.
 Voici la version "Ok" :
 ```cs
 public readonly record struct Ok<T>
@@ -83,9 +93,29 @@ public readonly record struct Err<E>
     }
 }
 ```
-Mais ce n'est pas tout, il nous faut ensuite modifier le type `Result`, dont voici une proposition d'implémentation :
+Mais ce n'est pas tout, il nous faut ensuite modifier le type `Result`, afin de pouvoir l'instancier implicitement à partir d'un `Ok<T>` ou d'un `Err<E>` :
 ```cs
+public readonly record struct Result<T, E>
+{
+    private Result(Ok<T> ok)
+    {
+        // ...
+    }
 
+    private Result(Err<E> err)
+    {
+        // ...
+    }
+
+    public static implicit operator Result<T, E>(Ok<T> ok)
+        => new(ok);
+
+    public static implicit operator Result<T, E>(Err<E> err)
+        => new(err);
+}
+```
+L'implémentation complète pourrait donc être proche de :
+```cs
 public readonly record struct Result<T, E>
 {
     private readonly T value = default!;
@@ -140,7 +170,13 @@ public static class Result
         => new(error);
 }
 ```
-Ce faisant, il nous suffit d'utiliser `using static Result;` afin d'avoir accès à `Ok` et `Err` !
-Mieux encore, on peut l'utiliser via un `global using` !
+Ce faisant, il nous suffit d'utiliser `using static Result;` afin d'avoir accès à `Ok` et `Err` :
+```cs
+using static Result;
+
+var ok = Ok(42);
+var err = Err("Error :(");
+```
+Mieux encore, on peut l'utiliser via un [`global using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier) !
 
 ***Note -** Notre `Result<T, E>` est encore assez sommaire, sa version complète (lien dans l'introduction) dispose des méthodes `Map`, `MapErr`, `ValueOr` et `ErrorOr` !*
