@@ -188,4 +188,5 @@ Result<int, string> DoSomething(bool ok)
 ```
 Mieux encore, on peut l'utiliser via un [`global using`](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using-directive#global-modifier) !
 
-***Note -** Notre `Result<T, E>` est encore assez sommaire, sa version complète (lien dans l'introduction) dispose des méthodes `Map`, `MapErr`, `ValueOr` et `ErrorOr` !*
+***Note -** Le code complet du type `Result` est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
+
