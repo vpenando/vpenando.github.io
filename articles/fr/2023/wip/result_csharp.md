@@ -194,3 +194,4 @@ Mieux encore, on peut l'utiliser via un [`global using`](https://learn.microsoft
 
 ***Note -** Le code complet du type `Result` est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
+L'implémentation complète ajoute les méthodes `Map`, `MapErr`, `Match`, `ValueOr` et `ErrorOr`.
