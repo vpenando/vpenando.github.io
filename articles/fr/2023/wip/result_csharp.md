@@ -28,10 +28,9 @@ Dans cet article, je vous propose une implémentation de ces deux types en C#, a
 
 ***Note -** Le code complet des types présentés est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
---- 
+## `Result`
 
-#### `Result`
-
+#### Présentation
 Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
 À cet effet, il expose deux variants : `Ok(T)` et `Err(E)`, représentant respectivement le résultat d'une opération et un cas d'erreur.
 
@@ -48,6 +47,8 @@ Et à l'usage :
    let err = Err("error");
 */
 ```
+
+#### Implémentation
 
 Penchons-nous à présent sur sa possible implémentation en C#.
 
@@ -176,6 +177,9 @@ public static class ResultModule
         => new(error);
 }
 ```
+
+#### À l'usage
+
 Ce faisant, il nous suffit d'utiliser `using static ResultModule;` afin d'avoir accès à `Ok` et `Err` :
 ```cs
 using static Result;
