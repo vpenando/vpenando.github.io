@@ -26,7 +26,7 @@ Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
 
-***Note -** Le code complet des types présentés est disponible **ici**.*
+***Note -** Le code complet des types présentés est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
 --- 
 
@@ -167,7 +167,7 @@ public readonly record struct Result<T, E>
 ```
 Enfin, il reste une dernière chose pour pouvoir utiliser `Ok` et `Err` comme présenté plus haut :
 ```cs
-public static class Result
+public static class ResultModule
 {
     public static Ok<T> Ok<T>(T value)
         => new(value);
@@ -176,7 +176,7 @@ public static class Result
         => new(error);
 }
 ```
-Ce faisant, il nous suffit d'utiliser `using static Result;` afin d'avoir accès à `Ok` et `Err` :
+Ce faisant, il nous suffit d'utiliser `using static ResultModule;` afin d'avoir accès à `Ok` et `Err` :
 ```cs
 using static Result;
 
