@@ -182,7 +182,7 @@ public static class ResultModule
 
 Ce faisant, il nous suffit d'utiliser `using static ResultModule;` afin d'avoir accès à `Ok` et `Err` :
 ```cs
-using static Result;
+using static ResultModule;
 
 var ok = Ok(42);
 var err = Err("Error :(");
