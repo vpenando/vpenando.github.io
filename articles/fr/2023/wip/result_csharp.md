@@ -129,10 +129,10 @@ public readonly record struct Result<T, E>
     private readonly ResultType type;
 
     public T Value
-        => this.IsOk() ? this.value : throw new InvalidOperationException();
+        => this.IsOk() ? this.value : throw new InvalidOperationException($"No value in result '{this}'");
 
     public E Error
-        => this.IsErr() ? this.error : throw new InvalidOperationException();
+        => this.IsErr() ? this.error : throw new InvalidOperationException($"No error in result '{this}'");
 
     private Result(Ok<T> ok)
     {
