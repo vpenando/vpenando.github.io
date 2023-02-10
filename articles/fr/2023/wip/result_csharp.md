@@ -41,6 +41,12 @@ enum Result<T, E> {
    Ok(T),
    Err(E),
 }
+
+/*
+Et à l'usage :
+   let ok = Ok(42);
+   let err = Err("error");
+*/
 ```
 
 Penchons-nous à présent sur sa possible implémentation en C#.
