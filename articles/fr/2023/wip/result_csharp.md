@@ -17,7 +17,24 @@ Lever une exception interrompt le flux d'exécution de notre programme, il ne fa
 
 Par ailleurs, une exception inattendue peut se retrouver `catch`ée dans une couche logicielle où elle n'a plus aucun sens, rendant la phase de debug d'autant plus complexe.
 
-Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifiquement en [Elm](https://elm-lang.org/)), je me suis surpris à apprécier la façon dont sont gérées les erreurs, à savoir non pas par des exceptions, mais plutôt par l'intermédiaire de types dédiés. En Rust (pour ne citer que lui), il existe les types [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html) et [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html).
+Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifiquement en [Elm](https://elm-lang.org/)), je me suis surpris à apprécier la façon dont sont gérées les erreurs, à savoir non pas par des exceptions, mais plutôt par l'intermédiaire de types dédiés. En Rust (pour ne citer que lui), il existe les types [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html) et [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html) :
+
+```rs
+enum SampleError {
+    // ...
+}
+
+fn try_something() -> Result<i32, SampleError> {
+    // ...
+}
+
+// Et à l'usage :
+let result = try_something();
+match result {
+    Ok(i) => /* ... */,
+    Err(e) => /* ... */,
+}
+```
 
 Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 - Le flux de notre programme n'est pas interrompu lorsqu'une erreur est rencontrée ;
