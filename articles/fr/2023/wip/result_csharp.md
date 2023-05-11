@@ -45,7 +45,7 @@ Dans cet article, je vous propose une implémentation de ces deux types en C#, a
 
 ***Note -** Le code complet des types présentés est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
-## `Result`
+## Le type `Result`
 
 #### Présentation
 Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
