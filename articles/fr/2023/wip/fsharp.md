@@ -5,3 +5,19 @@
 ---
 
 #### Introduction
+
+
+```fs
+let inferred = "I'm a string!"
+
+let explicit: string = "I'm also a string!"
+```
+
+```fs
+let inferredFunc param1 param2 =
+    // ...
+
+
+let explicitFunc (param1: string) (param2: string): string =
+    // ...
+```
