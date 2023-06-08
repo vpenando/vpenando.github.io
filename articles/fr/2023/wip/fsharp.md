@@ -78,7 +78,7 @@ On peut chaîner des fonctions grâce à l'opérateur `|>` :
 let square x = x * x
 [1..100] |> List.map square |> printfn "%A"
 ```
-Ainsi, la liste `[1..100]` est passée en dernier argument à la fonction `List.map`, et le résultat de l'appel de cetteère à `printfn`.
+Ainsi, la liste `[1..100]` est passée en dernier argument à la fonction `List.map`, et le résultat de l'appel de cette dernière à `printfn`.
 Cela revient à faire successivement :
 ```ocaml
 let inputList = [1..100]
