@@ -71,4 +71,19 @@ type Switch =
 
 ##### Application partielle
 
+#### Chaînage de fonctions
+
+On peut chaîner des fonctions grâce à l'opérateur `|>` :
+```ocaml
+let square x = x * x
+[1..100] |> List.map square |> printfn "%A"
+```
+Ainsi, la liste `[1..100]` est passée en dernier argument à la fonction `List.map`, et le résultat de l'appel de cetteère à `printfn`.
+Cela revient à faire successivement :
+```ocaml
+let list = [1..100]
+let squareList = List.map square list
+printfn "%A" squareList
+```
+
 ##### Pattern matching
