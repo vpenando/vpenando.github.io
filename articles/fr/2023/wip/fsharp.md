@@ -21,7 +21,7 @@ let inferred = "I'm a string!"
 let explicit: string = "I'm also a string!"
 ```
 Par défaut, toute variable est constante !
-Le mot-clé `mutable` existe cependant, afin de contourner cette restriction, mais il est de préférence à éviter, car l'immuabilité apporte plus d'avantages que d'inconvénients.
+Le mot-clé [`mutable`](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/values/#mutable-variables) existe cependant, afin de contourner cette restriction, mais il est de préférence à éviter, car l'immuabilité apporte plus d'avantages que d'inconvénients.
 
 ##### Déclaration et appel de fonction
 
