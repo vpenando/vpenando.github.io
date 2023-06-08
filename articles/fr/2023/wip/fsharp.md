@@ -81,8 +81,8 @@ let square x = x * x
 Ainsi, la liste `[1..100]` est passée en dernier argument à la fonction `List.map`, et le résultat de l'appel de cetteère à `printfn`.
 Cela revient à faire successivement :
 ```ocaml
-let list = [1..100]
-let squareList = List.map square list
+let inputList = [1..100]
+let squareList = List.map square inputList
 printfn "%A" squareList
 ```
 
