@@ -13,6 +13,8 @@
 
 
 ##### Déclaration d'une variable
+
+En F#, toute variable est typée statiquement, et le type peut bien souvent être déduit par le compilateur :
 ```ocaml
 let inferred = "I'm a string!"
 
@@ -22,10 +24,11 @@ Par défaut, toute variable est constante !
 Le mot-clé `mutable` existe cependant, afin de contourner cette restriction, mais il est de préférence à éviter, car l'immuabilité apporte plus d'avantages que d'inconvénients.
 
 ##### Déclaration et appel de fonction
+
+Toute comme les variables, le type d'une fonction et de ses paramètres peut être inféré ou explicité :
 ```ocaml
 let inferredFunc param1 param2 =
     // ...
-
 
 let explicitFunc (param1: string) (param2: string): string =
     // ...
