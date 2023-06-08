@@ -13,7 +13,7 @@
 
 
 ##### Déclaration d'une variable
-```caml
+```ocaml
 let inferred = "I'm a string!"
 
 let explicit: string = "I'm also a string!"
