@@ -34,9 +34,17 @@ let explicitFunc (param1: string) (param2: string): string =
     // ...
 ```
 
+Le corps d'une fonction s'écrit juste après le signe `=`, sans besoin d'un `return`.
+En effet, une fonction renvoyant toujours quelque chose, ce mot-clé est inutile.
 ```ocaml
-let add x y = x + y // Déclaration d'une fonction 'add'
-let five = add 2 3  // Appel de la fonction
+let add x y = x + y
+let five = add 2 3
+```
+Pour déclarer une variable locale à une fonction, on utilise la même syntaxe que précédemment :
+```ocaml
+let add x y =
+    let sum = x + y
+    sum
 ```
 
 ##### Créer de nouveaux types
