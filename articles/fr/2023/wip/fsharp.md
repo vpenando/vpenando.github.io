@@ -18,7 +18,8 @@ let inferred = "I'm a string!"
 
 let explicit: string = "I'm also a string!"
 ```
-Toute variable est constante !
+Par défaut, toute variable est constante !
+Le mot-clé `mutable` existe cependant, afin de contourner cette restriction, mais il est par défaut à éviter, car l'immuabilité apporte plus d'avantages que d'inconvénients.
 
 ##### Déclaration et appel de fonction
 ```ocaml
