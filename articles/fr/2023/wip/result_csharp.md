@@ -17,8 +17,25 @@ Lever une exception interrompt le flux d'exécution de notre programme, il ne fa
 
 Par ailleurs, une exception inattendue peut se retrouver `catch`ée dans une couche logicielle où elle n'a plus aucun sens, rendant la phase de debug d'autant plus complexe.
 
-Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifiquement en [Elm](https://elm-lang.org/)), je me suis surpris à apprécier la façon dont sont gérées les erreurs, à savoir non pas par des exceptions, mais plutôt par l'intermédiaire de types dédiés. En Rust (pour ne citer que lui), il existe les types [`Option`](https://doc.rust-lang.org/std/option/enum.Option.html) et [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html) :
+Faisant un peu programmation fonctionnelle sur mon temps libre (plus spécifiquement en [Elm](https://elm-lang.org/)), je me suis surpris à apprécier la façon dont sont gérées les erreurs, à savoir non pas par des exceptions, mais plutôt par l'intermédiaire de types dédiés, notamment le type `Result` :
+```elm
+type Result error value
+    = Ok value
+    | Err error
+```
+([Source](https://package.elm-lang.org/packages/elm/core/latest/Result))
 
+Pour la suite de cet article, nous allons implémenter ce type au plus proche de la façon dont il est défini en Rust, à savoir :
+```rs
+enum Result<T, E> {
+   Ok(T),
+   Err(E),
+}
+```
+([Source](https://doc.rust-lang.org/std/result/))
+
+Notons que, contrairement à son équivalent en Elm, la version Rust prend en premier argument de type le résultat et non l'erreur.
+Et à l'usage :
 ```rs
 enum SampleError {
     // ...
