@@ -41,15 +41,13 @@ Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 - On sait quelles fonctions / méthodes sont susceptibles d'échouer à la simple lecture de leur signature ;
 - Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment pour le faire.
 
-Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
+Dans cet article, je vous propose une implémentation du type `Result<T, E>`, ainsi que différents cas d'usage.
 
 ***Note -** Le code complet des types présentés est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
 ---
 
-## Le type Result
-
-### Présentation
+## Présentation du type Result
 Le type `Result` est un type générique, qui peut représenter une valeur *ou* une erreur.
 À cet effet, il expose deux variants : `Ok(T)` et `Err(E)`, représentant respectivement le résultat d'une opération et un cas d'erreur.
 
@@ -67,7 +65,7 @@ Et à l'usage :
 */
 ```
 
-### Implémentation
+## Implémentation
 
 Penchons-nous à présent sur sa possible implémentation en C#.
 
@@ -197,7 +195,7 @@ public static class ResultModule
 }
 ```
 
-### À l'usage
+## À l'usage
 
 Ce faisant, il nous suffit d'utiliser `using static ResultModule;` afin d'avoir accès à `Ok` et `Err` :
 ```cs
