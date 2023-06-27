@@ -56,7 +56,7 @@ Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 - On sait quelles fonctions / méthodes sont susceptibles d'échouer à la simple lecture de leur signature ;
 - Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment pour le faire.
 
-Dans cet article, je vous propose une implémentation du type `Result<T, E>`, ainsi que différents cas d'usage.
+Dans cet article, je vous propose une implémentation du type `Result`, ainsi que différents cas d'usage.
 
 ***Note -** Le code complet des types présentés est disponible [**ici**](https://gist.github.com/vpenando/ac3a2909c0327a5b5030ee82a0de1664).*
 
