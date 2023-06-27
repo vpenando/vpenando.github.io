@@ -37,8 +37,8 @@ match result {
 ```
 
 Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
-- Le flux de notre programme n'est pas interrompu lorsqu'une erreur est rencontrée ;
-- On sait quelles fonctions / méthodes sont susceptibles d'échouer à la lecture de leur signature ;
+- Le flux de notre programme n'est pas nécessairement interrompu lorsqu'une erreur est rencontrée ;
+- On sait quelles fonctions / méthodes sont susceptibles d'échouer à la simple lecture de leur signature ;
 - Nous sommes incités à traîter l'erreur quand elle se produit, car c'est le seul moment pour le faire.
 
 Dans cet article, je vous propose une implémentation de ces deux types en C#, ainsi que différents cas d'usage.
