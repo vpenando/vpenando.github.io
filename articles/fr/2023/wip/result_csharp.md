@@ -31,12 +31,8 @@ enum Result<T, E> {
    Ok(T),
    Err(E),
 }
-```
-([Source](https://doc.rust-lang.org/std/result/))
 
-Notons que, contrairement à son équivalent en Elm, la version Rust prend en premier argument de type le résultat et non l'erreur.
-Et à l'usage :
-```rs
+// À l'usage :
 enum SampleError {
     // ...
 }
@@ -45,13 +41,15 @@ fn try_something() -> Result<i32, SampleError> {
     // ...
 }
 
-// Et à l'usage :
 let result = try_something();
 match result {
     Ok(i) => /* ... */,
     Err(e) => /* ... */,
 }
 ```
+([Source](https://doc.rust-lang.org/std/result/))
+
+Notons que, contrairement à son équivalent en Elm, la version Rust prend en premier argument de type le résultat et non l'erreur.
 
 Utiliser ces types plutôt que des exceptions apporte des avantages multiples :
 - Le flux de notre programme n'est pas nécessairement interrompu lorsqu'une erreur est rencontrée ;
