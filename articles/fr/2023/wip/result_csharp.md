@@ -12,7 +12,7 @@ Parmi tous les langages que j'utilise, C# est sans aucun doute le langage qui ut
 ```cs
 var newString = oldString.Replace("", "blah");
 ```
-Cette instruction, bien que n'ayant aucun sens, ne devrait a priori juste... rien faire.
+Cette instruction, bien que n'ayant aucun sens, devrait a priori juste... ne rien faire.
 Lever une exception interrompt le flux d'exécution de notre programme, il ne faut donc *-à mon sens-* les utiliser uniquement lorsque l'on n'a pas d'autre choix.
 
 Par ailleurs, une exception inattendue peut se retrouver `catch`ée dans une couche logicielle où elle n'a plus aucun sens, rendant la phase de debug d'autant plus complexe.
