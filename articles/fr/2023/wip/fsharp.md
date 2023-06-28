@@ -53,6 +53,7 @@ let add x y =
 
 #### Créer de nouveaux types
 
+Il est bien évidemment possible de créer de nouveaux types :
 ```ocaml
 type Point =
     { X: int
@@ -60,13 +61,27 @@ type Point =
     }
     
 let p: Point = { X = 1; Y = 0 }
+```
+***Note -* Le type `Point` ci-dessus est un `record`, ce qui n'est pas sans vous rappeler quelque chose si vous êtes adepte du C#.*
+
+Puisque toute variable est immuable, il est impossible de modifier la variable `p`.
+À la place, nous créons un nouveau `Point` comportant les modifications voulues via le mot-clé `with` :
+```ocaml
 let p2 = { p with X = 42 }
 ```
 
+F# n'expose pas à proprement parler d'`enum`s, mais utilise à la place des "discriminated unions", qui sont comparables aux `enum`s :
 ```ocaml
 type Switch =
     | On
     | Off
+```
+L'intérêt des "discriminated unions" est que l'on peut associer une ou plusieurs valeurs aux différentes options :
+```ocaml
+type Shape =
+    | Square of float
+    | Rectangle of float * float
+    | Circle of float
 ```
 
 #### Gestion des erreurs
