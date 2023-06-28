@@ -97,7 +97,7 @@ printfn "%A" squareList
 
 #### Pattern matching
 
-Aujourd'hui courant, le pattern matching existe en F# depuis de nombreuses années maintenant.
+Aujourd'hui disponible dans beaucoup de langages de programmation, le pattern matching existe en F# depuis de nombreuses années.
 On l'utilise via les mots-clés `match` / `with` :
 ```ocaml
 type Switch =
