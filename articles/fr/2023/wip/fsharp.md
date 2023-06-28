@@ -71,9 +71,18 @@ type Switch =
 
 #### Application partielle
 
+F# permet l'appel d'une fonction avec une partie seulement des arguments attendus.
+En résulte une nouvelle fonction, qui attend les autres :
+```ocaml
+let add x y = x + y
+let add2 = add 2
+let five = add2 3
+```
+
 #### Chaînage de fonctions
 
-On peut chaîner des fonctions grâce à l'opérateur `|>` :
+Il est également possible de chaîner des fonctions, c'est à dire passer le résultat d'une fonction en paramètre à une autre fonction.
+Cette opération est possible grâce à l'opérateur `|>`, qui passe son premier argument en dernier du second :
 ```ocaml
 let square x = x * x
 [1..100] |> List.map square |> printfn "%A"
