@@ -62,7 +62,7 @@ type Point =
     
 let p: Point = { X = 1; Y = 0 }
 ```
-***Note -* Le type `Point` ci-dessus est un `record`, ce qui n'est pas sans vous rappeler quelque chose si vous êtes adepte du C#.*
+***Note -** Le type `Point` ci-dessus est un `record`, ce qui n'est pas sans vous rappeler quelque chose si vous êtes adepte du C#.*
 
 Puisque toute variable est immuable, il est impossible de modifier la variable `p`.
 À la place, nous créons un nouveau `Point` comportant les modifications voulues via le mot-clé `with` :
