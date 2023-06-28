@@ -75,6 +75,8 @@ F# n'expose pas à proprement parler d'`enum`s, mais utilise à la place des "di
 type Switch =
     | On
     | Off
+
+let switchOn = On
 ```
 L'intérêt des "discriminated unions" est que l'on peut associer une ou plusieurs valeurs aux différentes options :
 ```ocaml
@@ -82,6 +84,8 @@ type Shape =
     | Square of float
     | Rectangle of float * float
     | Circle of float
+
+let rectangle = Rectangle(10, 12)
 ```
 
 #### Gestion des erreurs
