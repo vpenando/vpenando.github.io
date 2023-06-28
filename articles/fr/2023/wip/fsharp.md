@@ -29,7 +29,7 @@ Le mot-clé [`mutable`](https://learn.microsoft.com/en-us/dotnet/fsharp/language
 
 #### Déclaration et appel de fonction
 
-Tout comme les variables, le type d'une fonction (et de ses paramètres !) peut être inféré ou explicité :
+Comme pour toute autre variable, le type d'une fonction (et de ses paramètres !) peut être inféré ou explicité :
 ```ocaml
 let inferredFunc param1 param2 =
     // ...
