@@ -69,6 +69,10 @@ type Switch =
     | Off
 ```
 
+#### Gestion des erreurs
+
+Pour la gestion des erreurs, F# utilise les types `Option` et `Result`.
+
 ---
 
 ### Fonctionnalités spécifiques
