@@ -103,7 +103,7 @@ Il est bien entendu entendu possible d'en faire une fonction à part entière :
 let squareThenPrint inputList =
     inputList |> List.map square |> printfn "%A"
 ```
-Ou plus simplement =
+Ou plus simplement :
 ```ocaml
 let squareThenPrint =
     List.map square >> printfn "%A"
