@@ -98,6 +98,16 @@ let inputList = [1..100]
 let squareList = List.map square inputList
 printfn "%A" squareList
 ```
+Il est bien entendu entendu possible d'en faire une fonction à part entière :
+```ocaml
+let squareThenPrint inputList =
+    inputList |> List.map square |> printfn "%A"
+```
+Ou plus simplement =
+```ocaml
+let squareThenPrint =
+    List.map square >> printfn "%A"
+```
 
 #### Pattern matching
 
