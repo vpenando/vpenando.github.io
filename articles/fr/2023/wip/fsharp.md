@@ -6,6 +6,10 @@
 
 ### Introduction
 
+Je discute avec beaucoup de développeurs, et beaucoup aimeraient s'essayer à des langages moins "mainstream" que les habituels C# et autres JavaScript.
+Parmi eux, beaucoup *-notamment dans l'écosystème .NET-* aimeraient mener de petits projets en F#.
+
+Ainsi, cet article se veut être une base pour appréhender la syntaxe du langage, sans pour autant aborder des sujets trop avancés.
 
 ---
 
