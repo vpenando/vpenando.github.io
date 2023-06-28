@@ -96,3 +96,27 @@ printfn "%A" squareList
 ```
 
 #### Pattern matching
+
+Aujourd'hui courant, le pattern matching existe en F# depuis de nombreuses années maintenant.
+On l'utilise via les mots-clés `match` / `with` :
+```ocaml
+type Switch =
+    | On
+    | Off
+
+let switchToString switch =
+    match switch with
+    | On -> "On"
+    | Off -> "Off"
+```
+Une version plus simple consiste à utiliser le mot-clé `function`, qui rend implicite l'argument attendu et le `match` / `with` :
+```ocaml
+type Switch =
+    | On
+    | Off
+
+let switchToString = function
+    | On -> "On"
+    | Off -> "Off"
+```
+Cette version, bien que plus légère, est plus difficile à appréhender pour un débutant.
