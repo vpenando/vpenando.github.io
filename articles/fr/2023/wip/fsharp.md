@@ -174,5 +174,5 @@ let rec _takeFirstNItems output n = function (* Le mot-clé 'rec' est nécessair
     | _ -> output                            (* Dans tous les autres cas (liste liste vide ou n == 0), on renvoie 'output' *)
 
 
-let takeFirstNItems = _takeFirstNItems [] (* Application partielle ici ! *)
+let takeFirstNItems = _takeFirstNItems []    (* Application partielle ici ! *)
 ```
