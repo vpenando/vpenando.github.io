@@ -132,6 +132,7 @@ Ou plus simplement :
 let squareThenPrint =
     List.map square >> printfn "%A"
 ```
+En effet, l'opérateur `>>` rend implicite l'argument `inputList`.
 
 #### Pattern matching
 
