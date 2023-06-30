@@ -161,7 +161,7 @@ let switchToString = function
 ```
 Cette version, bien que plus légère, est plus difficile à appréhender pour un débutant.
 
-Le pattern matching en F# est extrêmement puissant, et permet des usages plus complexes, tels que :
+Le pattern matching en F# est extrêmement puissant, et permet des usages plus complexes que ci-dessus, tels que :
 ```ocaml
 (*
     Cet exemple crée une fonction qui sélectionne les premiers N éléments d'une liste.
