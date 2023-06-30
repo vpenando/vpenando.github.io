@@ -165,9 +165,9 @@ Le pattern matching en F# est extrêmement puissant, et permet des usages tels q
 ```ocaml
 // Cet exemple crée une fonction qui sélectionne les premiers N éléments d'une liste.
 
-let rec _takeFirstNItems output n = function // Le mot-clé 'rec' est nécessaire si la fonction est récursive
-    | x::xs when n > 0 ->                    // 'x::xs' décompose une liste en 'x', son premier élément, et 'xs', le reste.
-        let newOutput = output @ [x]         // L'opérateur @ concatène deux listes
+let rec _takeFirstNItems output n = function (* Le mot-clé 'rec' est nécessaire si la fonction est récursive *)
+    | x::xs when n > 0 ->                    (* 'x::xs' décompose une liste en 'x', son premier élément, et 'xs', le reste *)
+        let newOutput = output @ [x]         (* L'opérateur @ concatène deux listes *)
         _takeFirstNItems newOutput (n-1) xs
     | _ -> output
 
