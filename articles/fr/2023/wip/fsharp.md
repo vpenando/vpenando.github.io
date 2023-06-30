@@ -161,7 +161,7 @@ let switchToString = function
 ```
 Cette version, bien que plus légère, est plus difficile à appréhender pour un débutant.
 
-Le pattern matching en F# est extrêmement puissant, et permet des usages tels que :
+Le pattern matching en F# est extrêmement puissant, et permet des usages plus complexes, tels que :
 ```ocaml
 (*
     Cet exemple crée une fonction qui sélectionne les premiers N éléments d'une liste.
@@ -171,7 +171,7 @@ let rec _takeFirstNItems output n = function (* Le mot-clé 'rec' est nécessair
         let newOutput = output @ [x]         (* L'opérateur @ concatène deux listes *)
         _takeFirstNItems newOutput (n-1) xs  (* On rappelle la fonction avec les éléments restants et n-1 *)
 
-    | _ -> output                            (* Dans tous les autres cas, on renvoie 'output' *)
+    | _ -> output                            (* Dans tous les autres cas (liste liste vide ou n == 0), on renvoie 'output' *)
 
 let takeFirstNItems = _takeFirstNItems [] // Application partielle ici !
 ```
