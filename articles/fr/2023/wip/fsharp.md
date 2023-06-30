@@ -15,7 +15,6 @@ Ainsi, cet article se veut être une base pour appréhender la syntaxe du langag
 
 ### Présentation & syntaxe
 
-
 #### Déclaration d'une variable
 
 En F#, toute variable est typée statiquement, et le type peut bien souvent être déduit par le compilateur :
@@ -40,6 +39,7 @@ let explicitFunc (param1: string) (param2: string): string =
 
 Le corps d'une fonction s'écrit juste après le signe `=`, sans besoin d'un `return`.
 En effet, une fonction renvoyant toujours quelque chose, ce mot-clé est inutile.
+Par ailleurs, il n'est nul besoin d'utiliser des parenthèses lorsque l'on passe des arguments à une fonction.
 ```ocaml
 let add x y = x + y
 let five = add 2 3
@@ -69,6 +69,7 @@ Puisque toute variable est immuable, il est impossible de modifier la variable `
 ```ocaml
 let p2 = { p with X = 42 }
 ```
+Il est également possible de [créer des classes](https://learn.microsoft.com/en-us/dotnet/fsharp/language-reference/classes).
 
 F# n'expose pas à proprement parler d'`enum`s, mais utilise à la place des "discriminated unions", qui sont comparables aux `enum`s :
 ```ocaml
