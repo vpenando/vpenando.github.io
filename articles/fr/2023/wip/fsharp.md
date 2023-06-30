@@ -170,6 +170,7 @@ let rec _takeFirstNItems output n = function (* Le mot-clé 'rec' est nécessair
     | x::xs when n > 0 ->                    (* 'x::xs' décompose une liste en 'x', son premier élément, et 'xs', le reste *)
         let newOutput = output @ [x]         (* L'opérateur @ concatène deux listes *)
         _takeFirstNItems newOutput (n-1) xs  (* On rappelle la fonction avec les éléments restants et n-1 *)
+
     | _ -> output                            (* Dans tous les autres cas (liste liste vide ou n == 0), on renvoie 'output' *)
 
 
