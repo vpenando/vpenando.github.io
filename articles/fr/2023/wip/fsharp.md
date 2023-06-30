@@ -9,6 +9,7 @@
 Je discute avec beaucoup de développeurs, et beaucoup aimeraient s'essayer à des langages moins "mainstream" que les habituels C# et autres JavaScript.
 Parmi eux, beaucoup *-notamment dans l'écosystème .NET-* aimeraient mener de petits projets en F#.
 
+Bien qu'amateur du langage depuis plusieurs années, je suis loin d'être expert en F#.
 Ainsi, cet article se veut être une base pour appréhender la syntaxe du langage, sans pour autant aborder des sujets trop avancés.
 
 ---
@@ -159,3 +160,16 @@ let switchToString = function
     | Off -> "Off"
 ```
 Cette version, bien que plus légère, est plus difficile à appréhender pour un débutant.
+
+Le pattern matching en F# est extrêmement puissant, et permet des usages tels que :
+```ocaml
+// Cet exemple crée une fonction qui sélectionne les premiers N éléments d'une liste.
+
+let rec _takeFirstNItems output n = function // Le mot-clé 'rec' est nécessaire si la fonction est récursive
+    | x::xs when n > 0 ->                    // La syntaxe 'x::xs' décompose une liste en 'x', son premier élément, et 'xs', le reste.
+        let newOutput = output @ [x]         // L'opérateur @ concatène deux listes
+        _takeFirstNItems newOutput (n-1) xs
+    | _ -> output
+
+let takeFirstNItems = _takeFirstNItems [] // Application partielle ici !
+```
