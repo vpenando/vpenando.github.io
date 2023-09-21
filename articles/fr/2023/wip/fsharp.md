@@ -32,15 +32,19 @@ Le mot-clé [`mutable`](https://learn.microsoft.com/en-us/dotnet/fsharp/language
 Comme pour toute autre variable, le type d'une fonction (et de ses paramètres !) peut être inféré ou explicité :
 ```ocaml
 let inferredFunc param1 param2 =
-    // ...
+    (* ... *)
 
 let explicitFunc (param1: string) (param2: string): string =
-    // ...
+    (* ... *)
+```
+Par ailleurs, il n'est nul besoin d'utiliser des parenthèses lorsque l'on passe des arguments à une fonction :
+```ocaml
+let output = someFunc param1 param2
 ```
 
 Le corps d'une fonction s'écrit juste après le signe `=`, sans besoin d'un `return`.
-En effet, une fonction renvoyant toujours quelque chose, ce mot-clé est inutile.
-Par ailleurs, il n'est nul besoin d'utiliser des parenthèses lorsque l'on passe des arguments à une fonction.
+En effet, une fonction renvoyant toujours quelque chose en F#, ce mot-clé est inutile.
+
 ```ocaml
 let add x y = x + y
 let five = add 2 3
