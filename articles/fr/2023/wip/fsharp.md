@@ -49,7 +49,7 @@ En effet, une fonction renvoyant toujours quelque chose en F#, ce mot-clé est i
 let add x y = x + y
 let five = add 2 3
 ```
-Pour déclarer une variable locale à une fonction, on utilise la même syntaxe que précédemment :
+Pour déclarer une variable locale à une fonction, on utilise la même syntaxe que précédemment, via le mot-clé `let` :
 ```ocaml
 let add x y =
     let sum = x + y
