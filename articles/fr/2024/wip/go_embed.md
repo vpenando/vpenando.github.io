@@ -24,8 +24,9 @@ Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un 
 
 ## <a name="embed-go">Et `embed`, c'est quoi ?</a>
 
-Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de lire un ou plusieurs fichiers de configuration.
-Il s'agit d'une directive permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
+Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente.
+
+En Go, `embed` est une directive permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
 Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme ; mieux encore, il n'y a aucune trace sur le disque du fichier contenant des informations possiblement critiques.
 
 Tout est directement *embarqué* dans une chaîne de caractère ou via le type dédié, `embed.FS`.
