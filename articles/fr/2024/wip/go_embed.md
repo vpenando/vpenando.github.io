@@ -42,32 +42,32 @@ La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante
 package main
 
 import (
-	_ "embed"
-	"encoding/json"
-	"fmt"
+    _ "embed"
+    "encoding/json"
+    "fmt"
 )
 
 var (
-	//go:embed config.json
-	configJson string
+    //go:embed config.json
+    configJson string
 
-	conf config
+    conf config
 )
 
 // La fonction init() est automatiquement appelée, avant main()
 func init() {
-	if err := json.Unmarshal([]byte(configJson), &conf); err != nil {
-		panic(fmt.Sprintf("failed to read config: %s", err))
-	}
+    if err := json.Unmarshal([]byte(configJson), &conf); err != nil {
+        panic(fmt.Sprintf("failed to read config: %s", err))
+    }
 }
 
 type config struct {
-	ApiKey    string `json:"api_key"`
-	ServerUrl string `json:"server_url"`
+    ApiKey    string `json:"api_key"`
+    ServerUrl string `json:"server_url"`
 }
 
 func main() {
-	fmt.Println("conf.ServerUrl =", conf.ServerUrl)
+    fmt.Println("conf.ServerUrl =", conf.ServerUrl)
 }
 ```
 
