@@ -132,10 +132,12 @@ type config struct {
 const (
     environment = "debug"
     //environment = "release"
+
+    configFileName = "config." + environment + ".json"
 )
 
 func init() {
-    file, err := configJson.ReadFile("config." + environment + ".json")
+    file, err := configJson.ReadFile(configFileName)
     if err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
     }
