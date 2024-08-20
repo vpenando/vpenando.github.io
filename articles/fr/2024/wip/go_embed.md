@@ -135,7 +135,10 @@ const (
 )
 
 func init() {
-    f, _ := configJson.ReadFile("config." + environment + ".json")
+    file, err := configJson.ReadFile("config." + environment + ".json")
+    if err != nil {
+        panic(fmt.Sprintf("failed to read config: %s", err))
+    }
     if err := json.Unmarshal(f, &conf); err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
     }
