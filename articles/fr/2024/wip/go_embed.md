@@ -139,7 +139,7 @@ func init() {
     if err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
     }
-    if err := json.Unmarshal(f, &conf); err != nil {
+    if err := json.Unmarshal(file, &conf); err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
     }
 }
