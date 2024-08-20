@@ -105,6 +105,46 @@ Dans le cas d'un fichier JSON, c'est même plus pertinent car cela nous évite d
 
 Enfin, il est également possible de lire plusieurs fichiers d'un coup grâce au type `embed.FS` !
 Imaginez que vous avez plusieurs fichiers de configuration, un pour le mode "debug" et un pour le mode "release", et vous souhaitez pouvoir lire l'un ou l'autre selon l'environnement d'exécution de votre programme.
+Pour cela, la syntaxe est quasiment la même que l'exemple précédent :
+```go
+package main
+
+import (
+    "embed"
+    "encoding/json"
+    "fmt"
+)
+
+var (
+    //go:embed config.debug.json config.release.json
+    configJson embed.FS
+
+    conf config
+)
+
+type config struct {
+    ApiKey    string `json:"api_key"`
+    ServerUrl string `json:"server_url"`
+}
+
+// Commenter ou décommenter selon les besoins
+const (
+    environment = "debug"
+    //environment = "release"
+)
+
+func init() {
+    f, _ := configJson.ReadFile("config." + environment + ".json")
+    if err := json.Unmarshal(f, &conf); err != nil {
+        panic(fmt.Sprintf("failed to read config: %s", err))
+    }
+}
+
+func main() {
+    fmt.Println("conf.ServerUrl =", conf.ServerUrl)
+    fmt.Println("conf.ApiKey =", conf.ApiKey)
+}
+```
 
 ## <a name="contraintes">Contraintes</a>
 
