@@ -6,7 +6,6 @@
 
 ### Sommaire
 * [Introduction](#introduction)
-* [Les directives en Go](#directives-go)
 * [Et `embed`, ça sert à quoi ?](#embed-go)
 * [Syntaxe](#syntaxe)
 * [Contraintes](#contraintes)
@@ -16,9 +15,10 @@
 
 ## <a name="introduction">Introduction</a>
 
-## <a name="directives-go">Les directives en Go</a>
+Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les possibilités qu'ils offre en dépit de celle-ci.
+En effet, en dépit d'une syntaxe très épurée et [d'un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi.
 
-## <a name="embed-go">Et `embed`, ça sert à quoi ?</a>
+## <a name="embed-go">Et `embed`, c'est quoi ?</a>
 
 ## <a name="syntaxe">Syntaxe</a>
 
