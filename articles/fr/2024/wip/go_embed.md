@@ -42,29 +42,32 @@ La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante
 package main
 
 import (
-    _ "embed"
-    "encoding/json"
-    "fmt"
+	_ "embed"
+	"encoding/json"
+	"fmt"
 )
 
-//go:embed config.json
-var configJson string
+var (
+	//go:embed config.json
+	configJson string
 
-var config Config
+	conf config
+)
 
 // La fonction init() est automatiquement appelée, avant main()
 func init() {
-    if err := json.Unmarshal([]byte(configJson), &config); err != nil {
-        panic(fmt.Sprintf("failed to read config: %s", err))
-    }
+	if err := json.Unmarshal([]byte(configJson), &conf); err != nil {
+		panic(fmt.Sprintf("failed to read config: %s", err))
+	}
 }
 
-type Config struct {
-    ServerUrl string `json:"server_url"`
+type config struct {
+	ApiKey    string `json:"api_key"`
+	ServerUrl string `json:"server_url"`
 }
 
 func main() {
-    fmt.Println("config.ServerUrl =", config.ServerUrl)
+	fmt.Println("conf.ServerUrl =", conf.ServerUrl)
 }
 ```
 
@@ -73,9 +76,11 @@ Comme le mentionne [la doc officielle](https://go.dev/ref/spec#Import_declaratio
 > To import a package solely for its side-effects (initialization), use the blank identifier as explicit package name [..]
 
 Ensuite, nous créons la variable destinée à stocker le texte contenu dans le fichier, ici `configJson`.
-Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire, `//go:embed config.json`, n'est-ce pas ?
+Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire précédant la déclaration de notre variable, n'est-ce pas ?
 Sachez que c'est grâce à celui-ci que la magie opère !
 En effet, il va indiquer au compilateur de chercher un fichier nommé `config.json` dans le dossier courant, et de stocker son contenu dans la variable déclarée juste après !
+
+Le reste est assez
 
 ## <a name="contraintes">Contraintes</a>
 
