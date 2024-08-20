@@ -19,12 +19,14 @@ Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais
 En effet, malgré une syntaxe très épurée et [d'un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à de l'embarqué, en passant entre autres à des services web.
 
 En parlant de services web, il est très courant d'avoir un fichier de configuration *-souvent en JSON-* à côté de notre application.
-Je pense notamment au fichier `appsettings.json` que les développeurs C# connait.
+Je pense notamment au fichier `appsettings.json` que les développeurs C# connaissent.
 Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un service distant, identifiants de connexion, et j'en passe.
 
 ## <a name="embed-go">Et `embed`, c'est quoi ?</a>
 
 Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de lire un ou plusieurs fichiers de configuration.
+Il s'agit d'une directive permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
+Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme ; mieux encore, il n'y a aucune trace sur le disque du fichier contenant des informations possiblement critiques.
 
 ## <a name="syntaxe">Syntaxe</a>
 
