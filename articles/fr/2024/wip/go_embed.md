@@ -72,6 +72,9 @@ Tout d'abord, il nous faut inclure le package `embed`. Comme nous ne l'utilisons
 Comme le mentionne [la doc officielle](https://go.dev/ref/spec#Import_declarations) :
 > To import a package solely for its side-effects (initialization), use the blank identifier as explicit package name [..]
 
+Ensuite, nous créons la variable destinée à stocker le texte contenu dans le fichier, ici `configJson`.
+Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire, `//go:embed config.json`, n'est-ce pas ?
+
 ## <a name="contraintes">Contraintes</a>
 
 ## <a name="conclusion">Conclusion</a>
