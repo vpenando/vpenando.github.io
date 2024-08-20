@@ -27,11 +27,14 @@ Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un 
 Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente.
 
 En Go, `embed` est une directive permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
-Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme ; mieux encore, il n'y a aucune trace sur le disque du fichier contenant des informations possiblement critiques.
+Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme.
+Mieux encore, une fois notre application compilée, il n'y a aucune trace sur le disque d'un quelconque fichier contenant des informations possiblement critiques.
 
 Tout est directement *embarqué* dans une chaîne de caractère ou via le type dédié, `embed.FS`.
 
 ## <a name="syntaxe">Syntaxe</a>
+
+**Note -** Pour lire la suite de cet article, que considère que vous connaissez les rudiments du langage.
 
 La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante, aussi je vous mets à disposition un exemple de code complet que nous allons analyser ensemble.
 
@@ -49,7 +52,7 @@ var configJson string
 
 var config Config
 
-// La fonction init() est automatiquement appelée
+// La fonction init() est automatiquement appelée, avant main()
 func init() {
     if err := json.Unmarshal([]byte(configJson), &config); err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
@@ -64,6 +67,10 @@ func main() {
     fmt.Println("config.ServerUrl =", config.ServerUrl)
 }
 ```
+
+Tout d'abord, il nous faut inclure le package `embed`. Comme nous ne l'utilisons pas directement, il sera préfixé d'un `_` pour éviter toute erreur de compilation.
+En effet, Go ne nous laisse pas importer un package que nous n'utilisons pas, à moins de l'importer sous la forme `_ "package_name"`.
+Je n'entrerai pas dans les détails sur ce point, car cela n'est pas l'objet de cet article.
 
 ## <a name="contraintes">Contraintes</a>
 
