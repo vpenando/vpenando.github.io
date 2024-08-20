@@ -16,7 +16,7 @@
 ## <a name="introduction">Introduction</a>
 
 Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les possibilités qu'ils offre en dépit de celle-ci.
-En effet, en dépit d'une syntaxe très épurée et [d'un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi.
+En effet, en dépit d'une syntaxe très épurée et [d'un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à un service web, ou encore par exemple des applications embarquées.
 
 ## <a name="embed-go">Et `embed`, c'est quoi ?</a>
 
