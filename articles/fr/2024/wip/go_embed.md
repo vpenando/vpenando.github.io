@@ -105,6 +105,7 @@ Dans le cas d'un fichier JSON, c'est même plus pertinent car cela nous évite d
 
 Enfin, il est également possible de lire plusieurs fichiers d'un coup grâce au type `embed.FS` !
 Imaginez que vous avez plusieurs fichiers de configuration, un pour le mode "debug" et un pour le mode "release", et vous souhaitez pouvoir lire l'un ou l'autre selon l'environnement d'exécution de votre programme.
+
 Pour cela, la syntaxe est quasiment la même que l'exemple précédent :
 ```go
 package main
