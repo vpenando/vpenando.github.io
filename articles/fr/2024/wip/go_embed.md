@@ -68,6 +68,7 @@ type config struct {
 
 func main() {
     fmt.Println("conf.ServerUrl =", conf.ServerUrl)
+    fmt.Println("conf.ApiKey =", conf.ApiKey)
 }
 ```
 
@@ -80,7 +81,7 @@ Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire p
 Sachez que c'est grâce à celui-ci que la magie opère !
 En effet, il va indiquer au compilateur de chercher un fichier nommé `config.json` dans le dossier courant, et de stocker son contenu dans la variable déclarée juste après !
 
-Le reste est assez
+Le reste est assez trivial : nous lisons le contenu du fichier au démarrage du programme via la fonction `init()` et affichons les informations lues dans la console.
 
 ## <a name="contraintes">Contraintes</a>
 
