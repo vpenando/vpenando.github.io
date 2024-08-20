@@ -74,6 +74,8 @@ Comme le mentionne [la doc officielle](https://go.dev/ref/spec#Import_declaratio
 
 Ensuite, nous créons la variable destinée à stocker le texte contenu dans le fichier, ici `configJson`.
 Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire, `//go:embed config.json`, n'est-ce pas ?
+Sachez que c'est grâce à celui-ci que la magie opère !
+En effet, il va indiquer au compilateur de chercher un fichier nommé `config.json` dans le dossier courant, et de stocker son contenu dans la variable déclarée juste après !
 
 ## <a name="contraintes">Contraintes</a>
 
