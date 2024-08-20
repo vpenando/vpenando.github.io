@@ -69,8 +69,8 @@ func main() {
 ```
 
 Tout d'abord, il nous faut inclure le package `embed`. Comme nous ne l'utilisons pas directement, il sera préfixé d'un `_` pour éviter toute erreur de compilation.
-En effet, Go ne nous laisse pas importer un package que nous n'utilisons pas, à moins de l'importer sous la forme `_ "package_name"`.
-Je n'entrerai pas dans les détails sur ce point, car cela n'est pas l'objet de cet article.
+Comme le mentionne [la doc officielle](https://go.dev/ref/spec#Import_declarations) :
+> To import a package solely for its side-effects (initialization), use the blank identifier as explicit package name [..]
 
 ## <a name="contraintes">Contraintes</a>
 
