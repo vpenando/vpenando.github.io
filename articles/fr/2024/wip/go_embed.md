@@ -68,6 +68,7 @@ func init() {
 
 func main() {
     fmt.Println("conf.ServerUrl =", conf.ServerUrl)
+    fmt.Println("conf.ApiKey =", conf.ApiKey)
 }
 ```
 
@@ -81,6 +82,26 @@ Sachez que c'est grâce à celui-ci que la magie opère !
 En effet, il va indiquer au compilateur de chercher un fichier nommé `config.json` dans le dossier courant, et de stocker son contenu dans la variable déclarée juste après !
 
 Le reste est assez trivial : nous lisons le contenu du fichier au démarrage du programme via la fonction `init()` et affichons les informations lues dans la console.
+
+Notez néanmoins la présence d'un *cast* dans l'appel à `json.Unmarshal`, car cette fonction attend un `[]byte`.
+Cela est dû à une simplification de ma part, qui ai déclaré `configJson` comme étant de type `string`, mais sachez que l'on aurait aussi bien pu la déclarer comme `[]byte` :
+```go
+var (
+    //go:embed config.json
+    configJson []byte
+
+    conf config
+)
+
+// ...
+
+func init() {
+    if err := json.Unmarshal(configJson, &conf); err != nil {
+        panic(fmt.Sprintf("failed to read config: %s", err))
+    }
+}
+```
+Dans le cas d'un fichier JSON, c'est même plus pertinent car cela nous évite d'avoir à explicitement faire une conversion.
 
 ## <a name="contraintes">Contraintes</a>
 
