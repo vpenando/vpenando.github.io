@@ -16,7 +16,7 @@
 ## <a name="introduction">Introduction</a>
 
 Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les possibilités qu'ils offre en dépit de celle-ci.
-En effet, malgré une syntaxe très épurée et [d'un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à de l'embarqué, en passant entre autres à des services web.
+En effet, malgré une syntaxe très épurée et [un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à de l'embarqué, en passant entre autres à des services web.
 
 En parlant de services web, il est très courant d'avoir un fichier de configuration *-souvent en JSON-* à côté de notre application.
 Je pense notamment au fichier `appsettings.json` que les développeurs C# connaissent.
@@ -80,6 +80,7 @@ Ensuite, nous créons la variable destinée à stocker le texte contenu dans le 
 Vous aurez sans aucun doute remarqué la présence de cet étrange commentaire précédant la déclaration de notre variable, n'est-ce pas ?
 Sachez que c'est grâce à celui-ci que la magie opère !
 En effet, il va indiquer au compilateur de chercher un fichier nommé `config.json` dans le dossier courant, et de stocker son contenu dans la variable déclarée juste après !
+Ce genre de commentaires est assez courant en Go ; peut-être avez-vous déjà rencontré `//go:build` ou encore `//go:noinline`.
 
 Le reste est assez trivial : nous lisons le contenu du fichier au démarrage du programme via la fonction `init()` et affichons les informations lues dans la console.
 
