@@ -163,7 +163,7 @@ Il vous faut donc créer tous les fichiers spécifiés.
 ## <a name="conclusion">Conclusion</a>
 
 En somme, le *package* `embed` vous permet d'inclure dans le binaire compilé un ou plusieurs fichiers présents sur le disque.
-Cela permet de ne pas avoir un fichier de config en clair sur la machine où s'exécute votre application.
+Cela permet notamment de ne pas avoir un fichier de config en clair sur la machine où s'exécute votre application.
 
 De plus, c'est une optimisation possible plutôt intéressante qui permet d'éviter d'ouvrir, lire puis refermer un fichier au runtime (je pense notamment à [`html/template`](https://pkg.go.dev/html/template), où il nous faudra simplement appeler la fonction [`Parse`](https://pkg.go.dev/html/template#Template.Parse)), tout en ayant l'assurance que la ressource demandée existera puisque compilée avec le binaire.
 
