@@ -152,7 +152,7 @@ func main() {
 }
 ```
 
-Dans cet exemple, nous ajoutons le contenu des fichiers `config.debug.json` et `config.release.json` dans notre application grâce au type `embed.FS`.
+Dans cet exemple, nous ajoutons le contenu des fichiers `config.debug.json` et `config.release.json` à notre application.
 Puis, selon la valeur de `environment`, nous pouvons lire l'un ou l'autre grâce à la méthode `ReadFile` de la variable `configFiles`.
 
 Attention cependant : si au moins un fichier n'existe pas, alors le code entier ne compilera pas !
