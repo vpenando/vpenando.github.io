@@ -17,7 +17,7 @@
 Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les vastes possibilités qu'il offre.
 En effet, malgré une syntaxe très épurée et [un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à de l'embarqué, en passant entre autres par des services web.
 
-En parlant de services web, il est très courant d'avoir un fichier de configuration *-souvent en JSON-* à côté de notre application.
+En parlant de services web, il est très courant d'avoir un fichier de configuration à côté de notre application.
 Je pense notamment au fichier `appsettings.json` que les développeurs C# connaissent.
 Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un service distant, identifiants de connexion, et j'en passe.
 
