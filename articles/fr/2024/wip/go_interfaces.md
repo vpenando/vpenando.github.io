@@ -4,6 +4,8 @@
 
 ---
 
+`go build -gcflags="-m -m" main.go`
+
 ```go
 package main
 
