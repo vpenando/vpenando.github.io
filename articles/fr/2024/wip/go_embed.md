@@ -15,7 +15,7 @@
 
 ## <a name="introduction">Introduction</a>
 
-Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les possibilités qu'ils offre en dépit de celle-ci.
+Go est un langage que j'apprécie beaucoup, à la fois pour sa simplicité, mais également pour les vastes possibilités qu'il offre.
 En effet, malgré une syntaxe très épurée et [un nombre de mots-clés très faible](https://go.dev/ref/spec#Keywords), il permet de faire à peu près n'importe quoi, d'une simple application CLI à de l'embarqué, en passant entre autres à des services web.
 
 En parlant de services web, il est très courant d'avoir un fichier de configuration *-souvent en JSON-* à côté de notre application.
