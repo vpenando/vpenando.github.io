@@ -2,6 +2,11 @@
 
 ### All posts:
 
+#### 2024
+- `2024/08/21`: [(FR) Go : Le package embed](articles/fr/2024/go_embed.md) - `go` `golang`
+
+---
+
 #### 2022
 - `2022/04/18`: [(FR) Pile et tas, comment ça marche ?](articles/fr/2022/stack_heap.md) - `c` `asm` `low-level`
 
