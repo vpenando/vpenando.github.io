@@ -28,7 +28,7 @@ Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* 
 
 En Go, `embed` est une directive permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
 Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme.
-Mieux encore, une fois notre application compilée, il n'y a aucune trace sur le disque d'un quelconque fichier contenant des informations possiblement critiques.
+Mieux encore, une fois notre application compilée (et livrée !), il n'y a aucune trace sur le disque d'un quelconque fichier contenant des informations possiblement critiques.
 
 Tout est directement *embarqué* dans une chaîne de caractère ou via le type dédié, `embed.FS`.
 
