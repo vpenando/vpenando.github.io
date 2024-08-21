@@ -21,6 +21,8 @@ En parlant de services web, il est très courant d'avoir un fichier de configura
 Je pense notamment au fichier `appsettings.json` que les développeurs C# connaissent.
 Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un service distant, identifiants de connexion, et j'en passe.
 
+---
+
 ## <a name="embed-go">Et `embed`, c'est quoi ?</a>
 
 Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente, à savoir lire des informations depuis un fichier de configuration.
@@ -30,6 +32,8 @@ Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme
 Mieux encore, une fois notre application compilée (et livrée !), il n'y a aucune trace sur le disque d'un quelconque fichier contenant des informations possiblement critiques.
 
 Tout est directement *embarqué* dans l'application.
+
+---
 
 ## <a name="syntaxe">Syntaxe</a>
 
@@ -159,6 +163,8 @@ Puis, selon la valeur de `environment`, nous pouvons lire l'un ou l'autre grâce
 
 Attention cependant : si au moins un fichier n'existe pas, alors le code entier ne compilera pas !
 Il vous faut donc créer tous les fichiers spécifiés.
+
+---
 
 ## <a name="conclusion">Conclusion</a>
 
