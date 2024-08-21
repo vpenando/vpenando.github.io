@@ -118,12 +118,10 @@ import (
     "fmt"
 )
 
-var (
-    //go:embed config.debug.json config.release.json
-    configFiles embed.FS
+//go:embed config.debug.json config.release.json
+var configFiles embed.FS
 
-    conf config
-)
+var conf config
 
 type config struct {
     ApiKey    string `json:"api_key"`
