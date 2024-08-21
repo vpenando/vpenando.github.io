@@ -164,3 +164,9 @@ Cela permet de ne pas avoir un fichier de config en clair sur la machine où s'e
 
 De plus, c'est une optimisation possible plutôt intéressante qui permet d'éviter d'ouvrir, lire puis refermer un fichier au runtime (je pense notamment à [`html/template`](https://pkg.go.dev/html/template#Template.Parse)).
 
+Par ailleurs, nous avons abordé les trois façons possibles de stocker le contenu d'un ou plusieurs fichiers :
+- Dans une variable de type `string`, qui suffit pour une grande partie des cas ;
+- Dans une variable de type `[]byte`, particulièrement intéressant pour les fichiers JSON ;
+- Dans une variable de type `embed.FS`, qui permet de lire plusieurs fichiers d'un seul coup.
+
+Enfin, il est à noter que si au moins un fichier manque à l'appel, votre application ne compilera pas.
