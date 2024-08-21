@@ -30,7 +30,7 @@ En Go, `embed` est un *package* permettant d'inclure le contenu d'un ou plusieur
 Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme.
 Mieux encore, une fois notre application compilée (et livrée !), il n'y a aucune trace sur le disque d'un quelconque fichier contenant des informations possiblement critiques.
 
-Tout est directement *embarqué* dans une chaîne de caractère ou via le type dédié, `embed.FS`.
+Tout est directement *embarqué* dans l'application.
 
 ## <a name="syntaxe">Syntaxe</a>
 
