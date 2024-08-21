@@ -130,8 +130,8 @@ type config struct {
     ServerUrl string `json:"server_url"`
 }
 
-// Commenter ou décommenter selon les besoins
 const (
+    // À commenter ou décommenter selon les besoins
     environment = "debug"
     //environment = "release"
 
