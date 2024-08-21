@@ -19,13 +19,13 @@ En effet, malgré une syntaxe très épurée et [un nombre de mots-clés très f
 
 En parlant de services web, il est très courant d'avoir un fichier de configuration à côté de notre application.
 Je pense notamment au fichier `appsettings.json` que les développeurs C# connaissent.
-Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un service distant, identifiants de connexion, et j'en passe.
+Celui-ci peut contenir diverses informations plus ou moins sensibles.
 
 ---
 
 ## <a name="embed-go">Du coup, embed, c'est quoi ?</a>
 
-Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente, à savoir lire des informations depuis un fichier de configuration.
+Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente, à savoir lire des informations depuis un fichier de configuration : URL d'un service distant, identifiants de connexion à une base de données, et j'en passe.
 
 En Go, `embed` est un *package* permettant d'inclure le contenu d'un ou plusieurs fichiers directement dans le binaire compilé.
 Ce faisant, ce ou ces fichiers peuvent être lus dès le démarrage du programme.
