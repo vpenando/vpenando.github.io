@@ -6,7 +6,7 @@
 
 ### Sommaire
 * [Introduction](#introduction)
-* [Et `embed`, ça sert à quoi ?](#embed-go)
+* [`embed`, c'est quoi ?](#embed-go)
 * [Syntaxe](#syntaxe)
 * [Conclusion](#conclusion)
 
@@ -23,7 +23,7 @@ Celui-ci peut contenir diverses informations plus ou moins sensibles : URL d'un 
 
 ---
 
-## <a name="embed-go">Et `embed`, c'est quoi ?</a>
+## <a name="embed-go">`embed`, c'est quoi ?</a>
 
 Go ne serait pas si bien adapté au web s'il ne permettait pas *-élégamment-* de répondre à la problématique évoquée dans la section précédente, à savoir lire des informations depuis un fichier de configuration.
 
