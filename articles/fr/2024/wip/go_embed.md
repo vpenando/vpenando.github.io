@@ -8,7 +8,6 @@
 * [Introduction](#introduction)
 * [Et `embed`, ça sert à quoi ?](#embed-go)
 * [Syntaxe](#syntaxe)
-* [Contraintes](#contraintes)
 * [Conclusion](#conclusion)
 
 ---
