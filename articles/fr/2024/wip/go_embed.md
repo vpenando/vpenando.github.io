@@ -50,12 +50,10 @@ import (
     "fmt"
 )
 
-var (
-    //go:embed config.json
-    configJson string
+//go:embed config.json
+var configJson string
 
-    conf config
-)
+var conf config
 
 type config struct {
     ApiKey    string `json:"api_key"`
@@ -92,12 +90,10 @@ Le reste est assez trivial : nous lisons le contenu du fichier au démarrage du 
 Notez néanmoins la présence d'un *cast* dans l'appel à `json.Unmarshal`, car cette fonction attend un `[]byte`.
 Cela est dû à une simplification de ma part, qui ai déclaré `configJson` comme étant de type `string`, mais sachez que l'on aurait aussi bien pu la déclarer comme `[]byte` :
 ```go
-var (
-    //go:embed config.json
-    configJson []byte
+//go:embed config.json
+var configJson []byte
 
-    conf config
-)
+var conf config
 
 // ...
 
