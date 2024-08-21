@@ -121,7 +121,7 @@ import (
 
 var (
     //go:embed config.debug.json config.release.json
-    configJson embed.FS
+    configFiles embed.FS
 
     conf config
 )
@@ -140,7 +140,7 @@ const (
 )
 
 func init() {
-    file, err := configJson.ReadFile(configFileName)
+    file, err := configFiles.ReadFile(configFileName)
     if err != nil {
         panic(fmt.Sprintf("failed to read config: %s", err))
     }
@@ -154,6 +154,9 @@ func main() {
     fmt.Println("conf.ApiKey =", conf.ApiKey)
 }
 ```
+
+Dans cet exemple, nous ajoutons le contenus des fichiers `config.debug.json` et `config.release.json` dans notre application grâce au type `embed.FS`.
+Puis, selon la valeur de `environment`, nous pouvons lire l'un ou l'autre grâce à la méthode `ReadFile` de la variable `configFiles`.
 
 Attention cependant : si au moins un fichier n'existe pas, alors le code entier ne compilera pas !
 Il vous faut donc créer tous les fichiers spécifiés.
