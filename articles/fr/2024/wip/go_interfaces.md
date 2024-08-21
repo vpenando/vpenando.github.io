@@ -14,17 +14,17 @@ type test struct {
 
 //go:noinline
 func (t test) String() string {
-	return "test"
+    return "test"
 }
 
 func main() {
-	var t test
-	print(t)
+    var t test
+    print(t)
 }
 
 //go:noinline
 func print(val fmt.Stringer) {
-	fmt.Println(val.String())
+    fmt.Println(val.String())
 }
 
 //go:noinline
