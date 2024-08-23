@@ -38,6 +38,8 @@ Tout est directement *embarqué* dans l'application.
 
 ***Note -** Pour lire la suite de cet article, je considère que vous connaissez les rudiments du langage.*
 
+La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante, aussi je vous mets à disposition un exemple de code complet que nous allons analyser ensemble.
+
 Soit le fichier `config.json` suivant :
 ```json
 {
@@ -46,7 +48,7 @@ Soit le fichier `config.json` suivant :
 }
 ```
 
-La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante, aussi je vous mets à disposition un exemple de code complet que nous allons analyser ensemble.
+Voici un exemple de code permettant d'intégrer le conteu de ce fichier à l'application :
 
 ```go
 package main
