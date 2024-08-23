@@ -4,7 +4,7 @@
 [Here](http://vincentp-dev.blogspot.fr/) is my old dev blog (FR only).
 
 ### Latest posts:
-- `2024/08/21`: [(FR) Go : Le package embed](articles/fr/2024/go_embed.md) - `go` `golang`
+- `2024/08/21`: [(FR) Go : La directive embed](articles/fr/2024/go_embed.md) - `go` `golang`
 - `2022/04/18`: [(FR) Pile et tas, comment ça marche ?](articles/fr/2022/stack_heap.md) - `c` `asm` `low-level`
 - `2021/08/03`: [(FR) SOLID 2/5 - L'OCP](articles/fr/2021/solid_ocp.md) - `good-practices`
 - `2021/06/14`: [(FR) SOLID 1/5 - Le SRP](articles/fr/2021/solid_srp.md) - `good-practices`
