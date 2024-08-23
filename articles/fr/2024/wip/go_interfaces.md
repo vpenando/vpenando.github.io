@@ -35,3 +35,31 @@ func print(val fmt.Stringer) {
 // }
 
 ```
+
+Equivalent à :
+```rust
+trait Abstract {
+    fn test(&self);
+}
+
+struct Test {}
+
+impl Test {
+    fn new() -> Self {
+        Self {}
+    }
+}
+
+impl Abstract for Test {
+    fn test(&self) {
+    }
+}
+
+fn test(_: &dyn Abstract) {
+}
+
+fn main() {
+    let t = Test::new();
+    test(&t);
+}
+```
