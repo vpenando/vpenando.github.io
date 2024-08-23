@@ -51,16 +51,23 @@ impl Concrete {
 }
 
 impl Abstract for Concrete {
-    fn test(&self) {}
+    fn test(&self) {
+        println!("test")
+    }
 }
 
-fn example_with_dyn(_: &dyn Abstract) {}
+fn example_with_dyn(input: &dyn Abstract) {
+    input.test();
+}
 
-fn example_with_generic<T: Abstract>(_: &T) {}
+fn example_with_generic<T: Abstract>(input: &T) {
+    input.test();
+}
 
 fn main() {
     let t = Concrete::new();
     example_with_dyn(&t);
     example_with_generic(&t);
 }
+
 ```
