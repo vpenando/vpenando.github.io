@@ -42,24 +42,25 @@ trait Abstract {
     fn test(&self);
 }
 
-struct Test {}
+struct Concrete {}
 
-impl Test {
+impl Concrete {
     fn new() -> Self {
         Self {}
     }
 }
 
-impl Abstract for Test {
-    fn test(&self) {
-    }
+impl Abstract for Concrete {
+    fn test(&self) {}
 }
 
-fn test(_: &dyn Abstract) {
-}
+fn example_with_dyn(_: &dyn Abstract) {}
+
+fn example_with_generic<T: Abstract>(_: &T) {}
 
 fn main() {
-    let t = Test::new();
-    test(&t);
+    let t = Concrete::new();
+    example_with_dyn(&t);
+    example_with_generic(&t);
 }
 ```
