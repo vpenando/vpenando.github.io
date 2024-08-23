@@ -3,7 +3,7 @@
 ### All posts:
 
 #### 2024
-- `2024/08/21`: [(FR) Go : Le package embed](articles/fr/2024/go_embed.md) - `go` `golang`
+- `2024/08/21`: [(FR) Go : La directive embed](articles/fr/2024/go_embed.md) - `go` `golang`
 
 ---
 
