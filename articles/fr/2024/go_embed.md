@@ -161,12 +161,9 @@ func main() {
 }
 ```
 
-Notez l'utilisation du caractère `*` afin d'inclure tous les fichiers correspondant au pattern `config.xxx.json` !
+Notez l'utilisation du *wildcard* afin d'inclure directement tous les fichiers correspondant au pattern `config.[n'importe quoi ici].json` !
 Ainsi donc, nous ajoutons le contenu des fichiers `config.debug.json` et `config.release.json` à notre application.
 Puis, selon la valeur de `environment`, nous pouvons lire l'un ou l'autre grâce à la méthode `ReadFile` de la variable `configFiles`.
-
-Attention cependant : si au moins un fichier n'existe pas, alors le code entier ne compilera pas !
-Il vous faut donc créer tous les fichiers spécifiés.
 
 ---
 
