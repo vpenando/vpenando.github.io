@@ -9,31 +9,33 @@
 ```go
 package main
 
-import "fmt"
+import (
+    "fmt"
+)
 
-type test struct {
+type abstract interface {
+    test()
 }
 
-//go:noinline
-func (t test) String() string {
-    return "test"
+type concrete struct {
+}
+
+func (c concrete) test() {
+    fmt.Println("test")
 }
 
 func main() {
-    var t test
-    print(t)
+    var c concrete
+    print(c)
 }
 
-//go:noinline
-func print(val fmt.Stringer) {
-    fmt.Println(val.String())
+func print(input abstract) {
+    input.test()
 }
 
-//go:noinline
-// func print[T fmt.Stringer](s T) {
-// 	fmt.Println(s.String())
+// func print[T abstract](input T) {
+//    input.test()
 // }
-
 ```
 
 Equivalent à :
