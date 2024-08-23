@@ -39,6 +39,14 @@ Tout est directement *embarqué* dans l'application.
 
 ***Note -** Pour lire la suite de cet article, je considère que vous connaissez les rudiments du langage.*
 
+Soit le fichier `config.json` suivant :
+```json
+{
+    "server_url": "http://localhost:8080/",
+    "api_key": "blah"
+}
+```
+
 La syntaxe pour *embarquer* le contenu d'un fichier texte est un peu déroutante, aussi je vous mets à disposition un exemple de code complet que nous allons analyser ensemble.
 
 ```go
@@ -56,8 +64,8 @@ var configJson string
 var conf config
 
 type config struct {
-    ApiKey    string `json:"api_key"`
     ServerUrl string `json:"server_url"`
+    ApiKey    string `json:"api_key"`
 }
 
 // La fonction init() est automatiquement appelée, avant main()
@@ -124,8 +132,8 @@ var configFiles embed.FS
 var conf config
 
 type config struct {
-    ApiKey    string `json:"api_key"`
     ServerUrl string `json:"server_url"`
+    ApiKey    string `json:"api_key"`
 }
 
 const (
