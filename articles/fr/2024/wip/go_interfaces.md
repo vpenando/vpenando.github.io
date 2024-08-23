@@ -24,11 +24,6 @@ func (c concrete) test() {
     fmt.Println("test")
 }
 
-func main() {
-    var c concrete
-    print(c)
-}
-
 func print(input abstract) {
     input.test()
 }
@@ -36,6 +31,11 @@ func print(input abstract) {
 // func print[T abstract](input T) {
 //    input.test()
 // }
+
+func main() {
+    var c concrete
+    print(c)
+}
 ```
 
 Equivalent à :
