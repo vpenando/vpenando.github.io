@@ -8,6 +8,7 @@
 * [Introduction](#introduction)
 * [D'accord, mais comment on fait en Go ?](#visibility-go)
 * ["internal", kézako ?](#internal)
+* [En résumé](#conclusion)
 
 ---
 
@@ -117,3 +118,8 @@ Plus exactement, pour citer [le papier de 2014 sur le sujet](https://docs.google
 > An import of a path containing the element “internal” is disallowed if the importing code is outside the tree rooted at the parent of the “internal” directory.
 
 Ainsi, le contenu de notre dossier `internal` créé plus haut est accessible depuis tout le module, ce dernier étant créé à la racine.
+
+---
+
+## <a name="conclusion">En résumé</a>
+
