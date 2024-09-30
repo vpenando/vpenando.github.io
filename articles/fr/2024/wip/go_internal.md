@@ -68,7 +68,7 @@ Il est possible de reproduire en Go un comportement similaire à celui proposé 
 Pour ce faire, il suffit de créer un dossier, nommé... `internal`.
 Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniquement dans le module courant.
 
-J'ai créé un repo GitHub vous permettant de tester ce comportement : [LIEN](https://github.com/vpenando/visibility)
+J'ai créé un repo GitHub vous permettant de tester ce comportement, [accessible à cette URL](https://github.com/vpenando/visibility).
 
 Si vous voulez essayer, créez un projet Go et exécutez la commande ci-après :
 ```
