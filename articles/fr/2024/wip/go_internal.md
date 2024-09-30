@@ -124,4 +124,4 @@ Ainsi, le contenu de notre dossier `internal` créé plus haut est accessible de
 
 En dépit de son faible système de visibilité, Go propose une alternative offrant davantage de finesse dans la gestion de l'interface publique d'un module.
 
-En effet, tout élément créé dans un dossier `internal` (ou l'un de ses sous-dossiers) sera au mieux visible dans le module courant, et tenter de l'importer depuis *-par exemple-* un projet tiers résultera en une erreur de compilation.
+En effet, tout élément créé dans un dossier `internal` (ou l'un de ses sous-dossiers) sera au mieux visible dans le dossier parent, et tenter de l'importer depuis *-par exemple-* un projet tiers résultera en une erreur de compilation.
