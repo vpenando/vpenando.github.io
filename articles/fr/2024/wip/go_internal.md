@@ -22,7 +22,9 @@ Ainsi, les détails d'implémentation restent bien au chaud, inaccessibles en de
 
 ## D'accord, mais quel rapport avec Go ?
 
-En Go, il n'existe que deux types de visibilité : exporté (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du dossier courant), et privé (dont le nom commence par une minuscule) :
+En C#, nous avons des tas mots-clés concernant la visibilité : `public`, `private`, `protected`, `internal`, et depuis peu `file`.
+
+Néanmoins, en Go, il n'existe que deux types de visibilité : exporté (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du dossier courant), et privé (dont le nom commence par une minuscule) :
 
 Exemple :
 ```go
