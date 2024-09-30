@@ -99,4 +99,7 @@ func main() {
     w.DoWork()
 }
 ```
-Si vous compilez, vous aurez alors l'erreur suivante :
+Dès la compilation, nous aurons alors l'erreur suivante :
+```
+main.go:4:2: use of internal package github.com/vpenando/visibility/internal/worker not allowed
+```
