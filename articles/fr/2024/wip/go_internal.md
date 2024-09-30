@@ -52,7 +52,7 @@ func NewWorker() Worker {
 }
 ```
 
-Et c'est là qu'intervient le dossier `internal` en Go.
+Et c'est là qu'intervient un dossier particulier, le fameux dossier `internal`.
 
 ---
 
