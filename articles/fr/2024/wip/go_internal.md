@@ -12,19 +12,19 @@
 
 ## <a name="introduction">Introduction</a>
 
-Lorsque l'on développe un package Go, il est évident que l'on souhaite exposer certains types et certaines fonctions ; autrement, notre package n'a pas grand intérêt, vous en conviendrez.
+Lorsque l'on développe un module Go, il est évident que l'on souhaite exposer certains types et certaines fonctions ; autrement, notre module n'a pas grand intérêt, vous en conviendrez.
 
-Toutefois, certains éléments doivent rester internes, tout en étant accessibles à notre code.
+Toutefois, certains éléments doivent rester internes, tout en étant accessibles au code de notre module.
 Typiquement, en C#, il existe mot-clé `internal`, qui rend un type / méthode / property / field (rayer les mentions inutiles) uniquement visible depuis l'assembly courante.
 Ainsi, les détails d'implémentation restent bien au chaud, inaccessibles en dehors de leur assembly.
 
 ---
 
-## D'accord, mais quel rapport avec Go ?
+## D'accord, mais comment on fait en Go ?
 
 En C#, nous avons des tas mots-clés concernant la visibilité : `public`, `private`, `protected`, `internal`, et depuis peu `file`.
 
-Néanmoins, en Go, il n'existe que deux types de visibilité : exporté (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du dossier courant), et privé (dont le nom commence par une minuscule) :
+Néanmoins, en Go, il n'existe que deux types de visibilité : public (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du dossier courant), et privé (dont le nom commence par une minuscule) :
 
 Exemple :
 ```go
@@ -54,9 +54,44 @@ func NewWorker() Worker {
 }
 ```
 
-Et c'est là qu'intervient un dossier particulier, le fameux dossier `internal`.
-
 ---
 
-## <a name="internal">`internal`, kézako ?</a>
+## <a name="internal">"internal", kézako ?</a>
 
+Il est possible de reproduire un comportement similaire au mot-clé `internal` en C#.
+
+Pour ce faire, il suffit de créer un dossier, nommé... `internal`.
+Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniquement dans le module courant.
+
+J'ai créé un module vous permettant de tester ce comportement : https://github.com/vpenando/visibility
+
+Si vous voulez essayez, créez un projet Go vide et exécutez la command `go get -u github.com/vpenando/visibility`.
+Créez un fichier `main.go` et collez-y le code suivant :
+```go
+package main
+
+import (
+    "github.com/vpenando/visibility"
+)
+
+func main() {
+    w := visibility.NewWorker()
+    w.DoWork()
+}
+```
+Vous vous en doutez, ce code compilera et affichera le texte `doing some stuff...`.
+Rien d'exceptionnel jusque là.
+
+À présent, remplacez le contenu de `main.go` par le code suivant :
+```go
+package main
+
+import (
+    "github.com/vpenando/visibility/internal/worker"
+)
+
+func main() {
+    w := worker.WorkerImplementation{}
+    w.DoWork()
+}
+```
