@@ -6,7 +6,8 @@
 
 ### Sommaire
 * [Introduction](#introduction)
-* [`internal`, kézako ?](#internal)
+* [D'accord, mais comment on fait en Go ?](#visibility-go)
+* ["internal", kézako ?](#internal)
 
 ---
 
@@ -21,7 +22,7 @@ Ainsi, les détails d'implémentation restent bien au chaud, inaccessibles en de
 
 ---
 
-## D'accord, mais comment on fait en Go ?
+## <a name="visibility-go">D'accord, mais comment on fait en Go ?</a>
 
 En C#, nous avons des tas mots-clés concernant la visibilité : `public`, `private`, `protected`, `internal`, et depuis peu `file`.
 
