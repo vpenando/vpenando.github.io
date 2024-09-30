@@ -3,6 +3,7 @@
 ### All posts:
 
 #### 2024
+- `2024/09/30`: [(FR) Go : Un point sur le dossier "internal"](articles/fr/2024/go_internal.md) - `go` `golang`
 - `2024/08/21`: [(FR) Go : La directive embed](articles/fr/2024/go_embed.md) - `go` `golang`
 
 ---
