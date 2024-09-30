@@ -113,6 +113,5 @@ main.go:4:2: use of internal package github.com/vpenando/visibility/internal/wor
 ```
 C'est exactement le comportement attendu : le package interne `github.com/vpenando/visibility/internal/worker` est visible depuis les autres fichiers !
 Plus exactement, pour citer [le papier de 2014 sur le sujet](https://docs.google.com/document/d/1e8kOo3r51b2BWtTs_1uADIA5djfXhPT36s6eHVRIvaU/edit) :
-```
-An import of a path containing the element “internal” is disallowed if the importing code is outside the tree rooted at the parent of the “internal” directory.
-```
+
+> An import of a path containing the element “internal” is disallowed if the importing code is outside the tree rooted at the parent of the “internal” directory.
