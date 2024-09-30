@@ -55,6 +55,9 @@ func NewWorker() Worker {
     return wi
 }
 ```
+Dans le code ci-dessus, nous avons un exemple de code où l'on veut rendre une interface publique mais son implémentation privée.
+
+Mais alors, comment faire cela à l'échelle d'un module, où l'implémentation est dans un dossier distinct ?
 
 ---
 
