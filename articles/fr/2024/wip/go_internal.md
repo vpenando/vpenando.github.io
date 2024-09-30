@@ -63,12 +63,12 @@ Mais alors, comment faire cela à l'échelle d'un module, où l'implémentation 
 
 ## <a name="internal">"internal", kézako ?</a>
 
-Il est possible de reproduire un comportement similaire au mot-clé `internal` en C#.
+Il est possible de reproduire en Go un comportement similaire à celui proposé par le mot-clé `internal` en C#.
 
 Pour ce faire, il suffit de créer un dossier, nommé... `internal`.
 Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniquement dans le module courant.
 
-J'ai créé un module vous permettant de tester ce comportement : https://github.com/vpenando/visibility
+J'ai créé un repo GitHub vous permettant de tester ce comportement : [LIEN](https://github.com/vpenando/visibility)
 
 Si vous voulez essayez, créez un projet Go vide et exécutez la command `go get -u github.com/vpenando/visibility`.
 
