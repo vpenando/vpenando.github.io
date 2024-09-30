@@ -66,6 +66,7 @@ Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniq
 J'ai créé un module vous permettant de tester ce comportement : https://github.com/vpenando/visibility
 
 Si vous voulez essayez, créez un projet Go vide et exécutez la command `go get -u github.com/vpenando/visibility`.
+
 Créez un fichier `main.go` et collez-y le code suivant :
 ```go
 package main
@@ -82,7 +83,10 @@ func main() {
 Vous vous en doutez, ce code compilera et affichera le texte `doing some stuff...`.
 Rien d'exceptionnel jusque là.
 
-À présent, remplacez le contenu de `main.go` par le code suivant :
+Si nous jetons un oeil au fichier `worker.go`, nous constatons qu'il expose une interface `Worker` et une fonction `NewWorker`.
+Mais surtout, il fait référence à `github.com/vpenando/visibility/internal/worker` !
+
+Essayons donc de remplacer le contenu de `main.go` par le code suivant :
 ```go
 package main
 
@@ -95,3 +99,4 @@ func main() {
     w.DoWork()
 }
 ```
+Si vous compilez, vous aurez alors l'erreur suivante :
