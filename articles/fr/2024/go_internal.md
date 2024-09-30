@@ -67,7 +67,7 @@ Mais alors, comment faire cela à l'échelle d'un module, où l'implémentation 
 Il est possible de reproduire en Go un comportement similaire à celui proposé par le mot-clé `internal` en C#.
 
 Pour ce faire, il suffit de créer un dossier, nommé... `internal`.
-Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniquement dans le module courant.
+Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniquement dans l'arborescence partant du dossier parent.
 
 J'ai créé un repo GitHub vous permettant de tester ce comportement, [accessible à cette URL](https://github.com/vpenando/visibility).
 
