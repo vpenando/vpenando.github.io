@@ -5,7 +5,7 @@
 ---
 
 ### Sommaire
-* [Introduction](#introduction)
+* [Introduction : un problème de visibilité](#introduction)
 * [D'accord, mais comment on fait en Go ?](#visibility-go)
 * ["internal", kézako ?](#internal)
 * [En résumé](#conclusion)
