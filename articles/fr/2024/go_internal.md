@@ -12,7 +12,7 @@
 
 ---
 
-## <a name="introduction">Introduction</a>
+## <a name="introduction">Introduction : un problème de visibilité</a>
 
 Lorsque l'on développe un module Go, il est évident que l'on souhaite exposer certains types et certaines fonctions ; autrement, notre module n'a pas grand intérêt, vous en conviendrez.
 
