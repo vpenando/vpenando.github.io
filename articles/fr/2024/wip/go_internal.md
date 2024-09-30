@@ -27,7 +27,7 @@ Ainsi, les détails d'implémentation restent bien au chaud, inaccessibles en de
 
 En C#, nous avons des tas mots-clés concernant la visibilité : `public`, `private`, `protected`, `internal`, et depuis peu `file`.
 
-Néanmoins, en Go, il n'existe que deux types de visibilité : public (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du dossier courant), et privé (dont le nom commence par une minuscule) :
+Néanmoins, en Go, il n'existe que deux types de visibilité : public (toute fonction / type / variable dont le nom commence par une majuscule est visible en dehors du package courant), et privé (invisible hors du package courant si le nom commence par une minuscule) :
 
 Exemple :
 ```go
@@ -123,3 +123,6 @@ Ainsi, le contenu de notre dossier `internal` créé plus haut est accessible de
 
 ## <a name="conclusion">En résumé</a>
 
+En dépit de son faible système de visibilité, Go propose une alternative offrant davantage de finesse dans la gestion de l'interface publique d'un module.
+
+En effet, tout élément créé dans un dossier `internal` (ou l'un de ses sous-dossiers) sera au mieux visible dans le module courant, et tenter de l'importer depuis *-par exemple-* un projet tiers résultera en une erreur de compilation.
