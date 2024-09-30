@@ -18,7 +18,7 @@ Lorsque l'on développe un module Go, il est évident que l'on souhaite exposer 
 
 Toutefois, certains éléments doivent rester internes, tout en étant accessibles au code de notre module.
 
-Typiquement, en C#, il existe mot-clé `internal`, qui rend un type / méthode / property / field (rayer les mentions inutiles) uniquement visible depuis l'assembly courante.
+Typiquement, en C#, il existe le mot-clé `internal`, qui rend un type / méthode / property / field (rayer les mentions inutiles) uniquement visible depuis l'assembly courante.
 Ainsi, les détails d'implémentation restent bien au chaud, inaccessibles en dehors de leur assembly.
 
 ---
