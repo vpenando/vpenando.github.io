@@ -70,7 +70,10 @@ Tout code présent dans ce dossier ou l'un de ses sous-dossiers est visible uniq
 
 J'ai créé un repo GitHub vous permettant de tester ce comportement : [LIEN](https://github.com/vpenando/visibility)
 
-Si vous voulez essayez, créez un projet Go vide et exécutez la command `go get -u github.com/vpenando/visibility`.
+Si vous voulez essayez, créez un projet Go vide et exécutez la commande ci-après :
+```
+go get -u github.com/vpenando/visibility
+```
 
 Créez un fichier `main.go` et collez-y le code suivant :
 ```go
