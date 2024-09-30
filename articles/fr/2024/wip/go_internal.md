@@ -88,7 +88,7 @@ func main() {
     w.DoWork()
 }
 ```
-Vous vous en doutez, ce code compilera et affichera le texte `doing some stuff...`.
+Vous vous en doutez, ce code compilera sans soucis, et affichera même le texte `doing some stuff...`.
 Rien d'exceptionnel jusque là.
 
 Si nous jetons un oeil au fichier `worker.go`, nous constatons qu'il expose une interface `Worker` et une fonction `NewWorker`.
