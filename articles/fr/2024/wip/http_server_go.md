@@ -6,9 +6,6 @@
 
 ### Sommaire
 * [Introduction](#introduction)
-* [Du coup, `embed`, c'est quoi ?](#embed-go)
-* [Syntaxe](#syntaxe)
-* [Conclusion](#conclusion)
 
 ---
 
@@ -17,3 +14,5 @@
 `go mod init github.com/vpenando/http_server`
 
 `go get -u github.com/gin-gonic/gin`
+
+`go get github.com/google/uuid`
