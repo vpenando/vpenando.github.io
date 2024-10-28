@@ -11,6 +11,10 @@
 
 ## <a name="introduction">Introduction</a>
 
+Go est à mon sens un excellent langage, notamment pour les performances qu'il offre, ainsi que sa syntaxe épurée, permettant de se concentrer sur l'essentiel avant tout.
+
+Au cours de cet article, je vais détailler pas à pas la création d'un serveur HTTP en Go.
+
 `go mod init github.com/vpenando/http_server`
 
 `go get -u github.com/gin-gonic/gin`
