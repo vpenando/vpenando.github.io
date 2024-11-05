@@ -19,7 +19,10 @@ Au cours de cet article, je vais détailler pas à pas la création d'un serveur
 
 #### Installation des dépendances
 
-- `go get -u github.com/gin-gonic/gin`
-- `go get -u github.com/google/uuid`
+
+```
+go get -u github.com/gin-gonic/gin
+go get -u github.com/google/uuid
+```
 
 ***Note -** Le flag `-u` (pour "update") permet de mettre à jour le package s'il est déjà installé.*
