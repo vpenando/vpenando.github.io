@@ -6,6 +6,8 @@
 
 ### Sommaire
 * [Introduction](#introduction)
+* [Création du projet et installation des dépendances](#create-project)
+* [Structure de notre project](#project-architecture)
 
 ---
 
@@ -18,7 +20,9 @@ Au cours de cet article, je vais détailler pas à pas la création d'un serveur
 
 `go mod init github.com/vpenando/http_server`
 
-#### Création du projet et installation des dépendances
+---
+
+## <a name="create-project">Création du projet et installation des dépendances</a>
 
 Pour la suite de cet article, je considère que vous avez déjà Go installé sur votre poste.
 
@@ -35,6 +39,9 @@ go get -u github.com/gin-gonic/gin github.com/google/uuid
 
 ***Note -** Le flag `-u` (pour "update") permet de mettre à jour le package s'il est déjà installé.*
 
+---
+
+## <a name="project-architecture">Structure de notre project</a>
 
 ```
 go get -u github.com/stretchr/testify/assert
