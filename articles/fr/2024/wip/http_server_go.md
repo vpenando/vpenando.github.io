@@ -48,16 +48,16 @@ go get -u github.com/gin-gonic/gin github.com/google/uuid
 ```
 http_server/
   cmd/
-    http_server/
-      - main.go
-  internal/
-    routing/
-      - ...
-    services/
-      - ...
-  pkg/
-    api/
-      - ...  
+      http_server/
+          - main.go
+    internal/
+        routing/
+            - ...
+      services/
+          - ...
+    pkg/
+        api/
+            - ...  
 ```
 
 ```
