@@ -27,9 +27,11 @@ Au cours de cet article, je vais détailler pas à pas la création d'un serveur
 Pour la suite de cet article, je considère que vous avez déjà Go installé sur votre poste.
 
 Afin de créer un nouveau projet, il suffit d'initialiser un nouveau module via la commande `go mod init <NOM_DU_PROJET>`.
-Ainsi donc, vous pouvez créer un projet (appelons-le `http_server`) en en créant un dossier dédié et en y exécutant la commande `go mod init http_server`.
+Ainsi donc, vous pouvez créer un projet (appelons-le `http_server`) en créant un dossier dédié et en y exécutant la commande `go mod init http_server`.
 
-Mais ce n'est pas tout ! Il vous faut à présent installer les dépendances donc vous aurez besoin.
+***Note -** Il est souvent d'usage de créer un repo pour un projet, et de l'ajouter dans le nom de ce dernier (exemple : `go mod init github.com/vpenando/http_server`). Dans le cas d'un projet de démo, je suis allé au plus simple.*
+
+À présent, il vous faut à présent installer les dépendances donc vous aurez besoin.
 Pour cela, rien de plus simple : il suffit de taper la commande `go get <PACKAGES>` (plus d'informations [ici](https://pkg.go.dev/cmd/go#hdr-Add_dependencies_to_current_module_and_install_them)).
 
 Dans notre cas, nous allons pour le moment installer Gin (mentionné plus haut), et [`uuid`](https://github.com/google/uuid) :
@@ -42,6 +44,21 @@ go get -u github.com/gin-gonic/gin github.com/google/uuid
 ---
 
 ## <a name="project-architecture">Structure de notre project</a>
+
+```
+http_server/
+  cmd/
+    http_server/
+      - main.go
+  internal/
+    routing/
+      - ...
+    services/
+      - ...
+  pkg/
+    api/
+      - ...  
+```
 
 ```
 go get -u github.com/stretchr/testify/assert
