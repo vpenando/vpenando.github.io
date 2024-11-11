@@ -50,9 +50,9 @@ http_server/
   cmd/
       http_server/
           - main.go
-    internal/
-        routing/
-            - ...
+      internal/
+          routing/
+              - ...
       services/
           - ...
     pkg/
