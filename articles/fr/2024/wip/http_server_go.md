@@ -158,7 +158,21 @@ type Repository interface {
 }
 ```
 Vous reconnaissez les trois *usecases* évoqués plus haut, n'est-ce pas ?
-
+Pour implémenter cette interface (ou devrais-je dire *satisfaire* cette interface), je vous propose de créer un dossier `repositories/` dans internal.
+À ce stade, notre projet doit avoir la structure suivante :
+```
+http_server/
+    cmd/http_server/
+        - main.go
+    internal/
+        entities/
+            - user.go
+            - user_repository.go
+        repositories/
+            - ...
+    pkg/
+```
+        
 
 
 ```
