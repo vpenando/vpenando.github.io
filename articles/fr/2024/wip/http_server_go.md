@@ -179,7 +179,7 @@ Créons l'implémentation de notre `user.Repository` : pour ce faire, créons un
 Pour rester le plus simple possible et ne pas avoir à gérer une base de données (le but de cet article est de créer un serveur HTTP, je le rappelle), notre repo travaillera avec une collection statique.
 
 En voici l'implémentation complète :
-```
+```go
 package repositories
 
 import (
