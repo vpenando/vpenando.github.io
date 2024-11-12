@@ -112,37 +112,54 @@ Pour commencer, créons un sous-dossier `entities/user/` dans `internal`, et ajo
 package user
 
 import (
-	"github.com/google/uuid"
+    "github.com/google/uuid"
 )
 
 type UserID uuid.UUID
 
 type User struct {
-	id   UserID
-	firstName string
-	lastName  string
+    id        UserID
+    firstName string
+    lastName  string
 }
 
 func New(id UserID, name string) *User {
-	u := User{
-		id:   id,
-		name: name,
-	}
-	return &u
+    u := User{
+        id:   id,
+        name: name,
+    }
+    return &u
 }
 
 func (u User) ID() UserID {
-	return u.id
+    return u.id
 }
 
 func (u User) FirstName() string {
-	return u.firstName
+    return u.firstName
 }
 
 func (u User) LastName() string {
-	return u.lastName
+    return u.lastName
 }
 ```
+Voilà pour la partie utilisateur : un ID, un prénom, et un nom. Simple, basique. Vous avez les bases.
+
+À présent, créons le repository associé ; toujours dans le dossier `user`, créez le fichier `user_repository` et collez-y le code suivant :
+```go
+package user
+
+// "user" est déjà le nom du package,
+// donc inutile de le répéter dans le nom !
+type Repository interface {
+    ListUsers(skip, limit uint) ([]User, error)
+    SearchUser(input string) ([]User, error)
+    GetUserByID(userID UserID) (*User, error)
+}
+```
+Vous reconnaissez les trois *usecases* évoqués plus haut, n'est-ce pas ?
+
+
 
 ```
 http_server/
