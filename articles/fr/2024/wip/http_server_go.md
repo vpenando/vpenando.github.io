@@ -115,23 +115,26 @@ import (
     "github.com/google/uuid"
 )
 
-type UserID uuid.UUID
+// Convention Go : "user" est déjà le nom du package,
+// donc inutile de le répéter dans le nom du type !
+type ID uuid.UUID
 
 type User struct {
-    id        UserID
+    id        ID
     firstName string
     lastName  string
 }
 
-func New(id UserID, name string) *User {
+func New(id ID, firstName string, lastName string) User {
     u := User{
-        id:   id,
-        name: name,
+        id:        id,
+        firstName: firstName,
+        lastName:  lastName,
     }
-    return &u
+    return u
 }
 
-func (u User) ID() UserID {
+func (u User) ID() ID {
     return u.id
 }
 
@@ -149,16 +152,17 @@ Voilà pour la partie utilisateur : un ID, un prénom, et un nom. Simple, basiqu
 ```go
 package user
 
-// "user" est déjà le nom du package,
-// donc inutile de le répéter dans le nom !
+// Convention Go : "user" est déjà le nom du package,
+// donc inutile de le répéter dans le nom du repo !
 type Repository interface {
     ListUsers(skip, limit uint) ([]User, error)
     SearchUser(input string) ([]User, error)
-    GetUserByID(userID UserID) (*User, error)
+    GetUserByID(userID ID) (*User, error)
 }
 ```
 Vous reconnaissez les trois *usecases* évoqués plus haut, n'est-ce pas ?
 Pour implémenter cette interface (ou devrais-je dire *satisfaire* cette interface), je vous propose de créer un dossier `repositories/` dans internal.
+
 À ce stade, notre projet doit avoir la structure suivante :
 ```
 http_server/
@@ -169,10 +173,76 @@ http_server/
             - user.go
             - user_repository.go
         repositories/
-            - ...
     pkg/
 ```
-        
+Créons l'implémentation de notre `user.Repository` : pour ce faire, créons un fichier `user_repository.go` dans `internal/repositories`.
+Pour rester le plus simple possible et ne pas avoir à gérer une base de données (le but de cet article est de créer un serveur HTTP, je le rappelle), notre repo travaillera avec une collection statique.
+
+En voici l'implémentation complète :
+```
+package repositories
+
+import (
+    "errors"
+    "strings"
+
+    "github.com/google/uuid"
+    "github.com/vpenando/http_server/internal/entities/user"
+)
+
+type userRepository struct {
+}
+
+func NewUserRepository() user.Repository {
+    repo := userRepository{}
+    return repo
+}
+
+func (r userRepository) ListUsers(skip, limit uint) ([]user.User, error) {
+    if skip < uint(len(allUsers)) {
+        return nil, errors.New("invalid value for 'skip'")
+    }
+    if skip+limit > uint(len(allUsers)) {
+        return nil, errors.New("requested too many elements")
+    }
+    users := allUsers[skip : skip+limit]
+    return users, nil
+}
+
+func (r userRepository) SearchUser(input string) ([]user.User, error) {
+    users := make([]user.User, 0, len(allUsers))
+    for _, u := range allUsers {
+        if containsIgnoreCase(u.FirstName(), input) || containsIgnoreCase(u.LastName(), input) {
+            users = append(users, u)
+        }
+    }
+    return users, nil
+}
+
+func (r userRepository) GetUserByID(userID user.ID) (*user.User, error) {
+    for _, u := range allUsers {
+        if u.ID() == userID {
+            return &u, nil
+        }
+    }
+    return nil, errors.New("user not found")
+}
+
+var allUsers = []user.User{
+    user.New(parseUserID(""), "John", "Doe"),
+}
+
+func parseUserID(id string) user.ID {
+    return user.ID(uuid.MustParse(id))
+}
+
+func containsIgnoreCase(s, substr string) bool {
+    return strings.Contains(
+        strings.ToLower(s),
+        strings.ToLower(substr),
+    )
+}
+```
 
 
 ```
