@@ -9,6 +9,7 @@
 * [Création du projet et installation des dépendances](#create-project)
 * [Structure (basique) de notre project](#project-architecture)
 * [Première implémentation : le fameux "Hello, world!"](#first-implementation)
+* [Deuxième implémentation : un saut dans le grand bain](#second-implementation)
 
 ---
 
@@ -85,9 +86,63 @@ func main() {
 	r.Run()
 }
 ```
-À présent, si vous exécutez la commande `go run cmd/http_server/main.go` et que vous vous rendez sur `http://localhost:8080/`, vous verrez un magnifique texte s'afficher à l'écran !
+À présent, si vous exécutez la commande `go run cmd/http_server/main.go` et que vous vous rendez sur `http://localhost:8080/`, vous verrez un (magnifique) texte s'afficher à l'écran.
 
+Et voilà, vous savez faire un "Hello, world!" avec Gin !
+Bon, c'est bien beau, mais cela ne nous avance cependant pas encore à grand chose.
 
+---
+
+## <a name="second-implementation">Deuxième implémentation : un saut dans le grand bain</a>
+
+Je vous propose une implémentation un peu plus conséquente, et surtout un peu plus réaliste.
+Pour l'exemple, imaginons que nous voulons créer une web API en charge de renvoyer un ou plusieurs utilisateurs depuis, par exemple, une base de données.
+
+Nous aurions alors les cas d'usage suivants :
+* Lister tous les utilisateurs
+* Rechercher un utilisateur par nom et/ou prénom
+* Récupérer un utilisateur à partir de son ID
+
+Attelons-nous à créer une structure adaptée !
+
+***Note -** Je vais volontairement adopter une architecture très simple ; pas d'Hexagonal ou de Clean Architecture, qui auront chacune droit à un ou plusieurs articles dédiés.*
+
+Pour commencer, créons un sous-dossier `entities/user/` dans `internal`, et ajoutons-y un fichier `user.go` :
+```go
+package user
+
+import (
+	"github.com/google/uuid"
+)
+
+type UserID uuid.UUID
+
+type User struct {
+	id   UserID
+	firstName string
+	lastName  string
+}
+
+func New(id UserID, name string) *User {
+	u := User{
+		id:   id,
+		name: name,
+	}
+	return &u
+}
+
+func (u User) ID() UserID {
+	return u.id
+}
+
+func (u User) FirstName() string {
+	return u.firstName
+}
+
+func (u User) LastName() string {
+	return u.lastName
+}
+```
 
 ```
 http_server/
