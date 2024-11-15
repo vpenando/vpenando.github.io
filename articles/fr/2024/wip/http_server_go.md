@@ -7,8 +7,8 @@
 ### Sommaire
 * [Introduction](#introduction)
 * [Création du projet et installation des dépendances](#create-project)
-* [Structure (basique) de notre project](#project-architecture)
 * [Premier exemple : le fameux "Hello, world!"](#first-implementation)
+* [Structure (basique) de notre project](#project-architecture)
 * [Un saut dans le grand bain](#second-implementation)
 
 ---
@@ -43,29 +43,6 @@ go get -u github.com/gin-gonic/gin github.com/google/uuid
 
 ---
 
-## <a name="project-architecture">Structure (basique) de notre project</a>
-
-Afin d'être "Go-compliant", nous allons utiliser une structure conventionnelle.
-Pour davantage d'informations, je vous renvoie à [cet article](https://github.com/golang-standards/project-layout/blob/master/README_fr.md#les-r%C3%A9pertoires-go).
-
-Dans notre cas, le projet sera structuré comme suit :
-```
-http_server/
-    cmd/http_server/
-        - main.go
-    internal/
-         - ...
-    pkg/
-        - ...
-```
-* Le dossier `cmd` contient différents dossiers, chacun correspondant à une application. Dans notre cas, il ne contiendra que `http_server`, lui-même contenant le point d'entrée du programme, `main.go`.
-* Le dossier `internal` contient tout le code utilisé par notre programme, mais qui ne doit pas être exposé en dehors de celui-ci. J'ai d'ailleurs déjà [rédigé un article sur ce sujet](https://vpenando.github.io/articles/fr/2024/go_internal.html).
-* Le dossier `pkg`, par opposition au dossier `internal`, contient tout le code destiné à être exposé en dehors du projet ; typiquement, les DTOs renvoyés par notre serveur.
-
-Quant au contenu de ces dossiers, nous nous y intéresserons dans un second temps.
-
----
-
 ## <a name="first-implementation">Premier exemple : le fameux "Hello, world!"</a>
 
 Ouvrez le fichier `cmd/http_server/main.go` et collez-y le code suivant :
@@ -90,6 +67,29 @@ func main() {
 
 Et voilà, vous savez faire un "Hello, world!" avec Gin !
 Bon, c'est bien beau, mais cela ne nous avance cependant pas encore à grand chose.
+
+---
+
+## <a name="project-architecture">Structure (basique) de notre project</a>
+
+Afin d'être "Go-compliant", nous allons utiliser une structure conventionnelle.
+Pour davantage d'informations, je vous renvoie à [cet article](https://github.com/golang-standards/project-layout/blob/master/README_fr.md#les-r%C3%A9pertoires-go).
+
+Dans notre cas, le projet sera structuré comme suit :
+```
+http_server/
+    cmd/http_server/
+        - main.go
+    internal/
+         - ...
+    pkg/
+        - ...
+```
+* Le dossier `cmd` contient différents dossiers, chacun correspondant à une application. Dans notre cas, il ne contiendra que `http_server`, lui-même contenant le point d'entrée du programme, `main.go`.
+* Le dossier `internal` contient tout le code utilisé par notre programme, mais qui ne doit pas être exposé en dehors de celui-ci. J'ai d'ailleurs déjà [rédigé un article sur ce sujet](https://vpenando.github.io/articles/fr/2024/go_internal.html).
+* Le dossier `pkg`, par opposition au dossier `internal`, contient tout le code destiné à être exposé en dehors du projet ; typiquement, les DTOs renvoyés par notre serveur.
+
+Quant au contenu de ces dossiers, nous nous y intéresserons dans un second temps.
 
 ---
 
