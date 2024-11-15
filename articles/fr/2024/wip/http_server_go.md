@@ -15,10 +15,10 @@
 
 ## <a name="introduction">Introduction</a>
 
-Go est à mon sens un excellent langage, notamment pour les performances qu'il offre, ainsi que sa syntaxe épurée, permettant de se concentrer sur l'essentiel avant tout.
+Go est à mon sens un excellent langage, notamment pour les performances qu'il offre, mais aussi pour sa syntaxe épurée, permettant de se concentrer sur l'essentiel.
 Bien qu'initialement présenté comme langage système, il est aujourd'hui largement utilisé pour écrire des services web.
 
-Au cours de cet article, je vais détailler pas à pas la création d'un serveur HTTP en Go, en utilisant [Gin](https://github.com/gin-gonic/gin).
+Et c'est précisément dans ce contexte que j'écris cet article, au cours duquel je vais détailler pas à pas la création d'un serveur HTTP en Go, en utilisant [Gin](https://github.com/gin-gonic/gin).
 
 ---
 
