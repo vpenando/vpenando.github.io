@@ -93,7 +93,7 @@ Bon, c'est bien beau, mais cela ne nous avance cependant pas encore à grand cho
 
 ---
 
-## <a name="second-implementation">Deuxième implémentation : un saut dans le grand bain</a>
+## <a name="second-implementation">Un saut dans le grand bain</a>
 
 Je vous propose une implémentation un peu plus conséquente, et surtout un peu plus réaliste.
 Pour l'exemple, imaginons que nous voulons créer une web API en charge de renvoyer un ou plusieurs utilisateurs depuis, par exemple, une base de données.
