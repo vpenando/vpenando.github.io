@@ -8,8 +8,8 @@
 * [Introduction](#introduction)
 * [Création du projet et installation des dépendances](#create-project)
 * [Structure (basique) de notre project](#project-architecture)
-* [Première implémentation : le fameux "Hello, world!"](#first-implementation)
-* [Deuxième implémentation : un saut dans le grand bain](#second-implementation)
+* [Premier exemple : le fameux "Hello, world!"](#first-implementation)
+* [Un saut dans le grand bain](#second-implementation)
 
 ---
 
@@ -66,7 +66,7 @@ Quant au contenu de ces dossiers, nous nous y intéresserons dans un second temp
 
 ---
 
-## <a name="first-implementation">Première implémentation : le fameux "Hello, world!"</a>
+## <a name="first-implementation">Premier exemple : le fameux "Hello, world!"</a>
 
 Ouvrez le fichier `cmd/http_server/main.go` et collez-y le code suivant :
 ```go
