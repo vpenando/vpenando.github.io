@@ -60,7 +60,7 @@ http_server/
 ```
 * Le dossier `cmd` contient différents dossiers, chacun correspondant à une application. Dans notre cas, il ne contiendra que `http_server`, lui-même contenant le point d'entrée du programme, `main.go`.
 * Le dossier `internal` contient tout le code utilisé par notre programme, mais qui ne doit pas être exposé en dehors de celui-ci. J'ai d'ailleurs déjà [rédigé un article sur ce sujet](https://vpenando.github.io/articles/fr/2024/go_internal.html).
-* Le dossier `pkg`, par opposition au dossier `internal`, contient tout le code destiné à être exposé en dehors du projet ; typiquement, les DTOs renvoyés par notre serveur.
+* Le dossier `pkg`, par opposition au dossier `internal`, contient tout le code destiné à être exposé en dehors du projet ; typiquement, les DTOs renvoyés par notre serveur HTTP.
 
 Quant au contenu de ces dossiers, nous nous y intéresserons dans un second temps.
 
@@ -157,11 +157,11 @@ package user
 type Repository interface {
     ListUsers(skip, limit uint) ([]User, error)
     SearchUser(input string) ([]User, error)
-    GetUserByID(userID ID) (*User, error)
+    GetUserByID(userID ID) (User, error)
 }
 ```
 Vous reconnaissez les trois *usecases* évoqués plus haut, n'est-ce pas ?
-Pour implémenter cette interface (ou devrais-je dire *satisfaire* cette interface), je vous propose de créer un dossier `repositories/` dans internal.
+Pour implémenter cette interface (ou devrais-je dire *satisfaire* cette interface), je vous propose de créer un dossier `repositories/` dans `internal/`.
 
 À ce stade, notre projet doit avoir la structure suivante :
 ```
@@ -183,65 +183,64 @@ En voici l'implémentation complète :
 package repositories
 
 import (
-    "errors"
-    "strings"
+	"errors"
+	"strings"
 
-    "github.com/google/uuid"
-    "github.com/vpenando/http_server/internal/entities/user"
+	"github.com/google/uuid"
+	"github.com/vpenando/http_server/internal/entities/user"
 )
 
+// Le type concret n'est pas exposé
 type userRepository struct {
 }
 
 func NewUserRepository() user.Repository {
-    repo := userRepository{}
-    return repo
+	repo := userRepository{}
+	return repo
 }
 
 func (r userRepository) ListUsers(skip, limit uint) ([]user.User, error) {
-    if skip < uint(len(allUsers)) {
-        return nil, errors.New("invalid value for 'skip'")
-    }
-    if skip+limit > uint(len(allUsers)) {
-        return nil, errors.New("requested too many elements")
-    }
-    users := allUsers[skip : skip+limit]
-    return users, nil
+	skip = min(skip, uint(len(allUsers)))
+	limit = min(limit, uint(len(allUsers)))
+	users := allUsers[skip:limit]
+	return users, nil
 }
 
 func (r userRepository) SearchUser(input string) ([]user.User, error) {
-    users := make([]user.User, 0, len(allUsers))
-    for _, u := range allUsers {
-        if containsIgnoreCase(u.FirstName(), input) || containsIgnoreCase(u.LastName(), input) {
-            users = append(users, u)
-        }
-    }
-    return users, nil
+	users := make([]user.User, 0, len(allUsers))
+	for _, u := range allUsers {
+		if containsIgnoreCase(u.FirstName(), input) || containsIgnoreCase(u.LastName(), input) {
+			users = append(users, u)
+		}
+	}
+	return users, nil
 }
 
-func (r userRepository) GetUserByID(userID user.ID) (*user.User, error) {
-    for _, u := range allUsers {
-        if u.ID() == userID {
-            return &u, nil
-        }
-    }
-    return nil, errors.New("user not found")
+func (r userRepository) GetUserByID(userID user.ID) (user.User, error) {
+	for _, u := range allUsers {
+		if u.ID() == userID {
+			return user.User{}, nil
+		}
+	}
+	return user.User{}, errors.New("user not found")
 }
 
 var allUsers = []user.User{
-    user.New(parseUserID(""), "John", "Doe"),
+	user.New(parseUserID("161966ed-9111-4956-af80-b4bb6bdb5466"), "John", "Doe"),
+	user.New(parseUserID("7b551512-138c-49c3-a7f9-a532c4d2dafe"), "John", "Doe"),
 }
 
 func parseUserID(id string) user.ID {
-    return user.ID(uuid.MustParse(id))
+	return user.ID(uuid.MustParse(id))
 }
 
 func containsIgnoreCase(s, substr string) bool {
-    return strings.Contains(
-        strings.ToLower(s),
-        strings.ToLower(substr),
-    )
+	return strings.Contains(
+		strings.ToLower(s),
+		strings.ToLower(substr),
+	)
 }
+
 ```
 
 
