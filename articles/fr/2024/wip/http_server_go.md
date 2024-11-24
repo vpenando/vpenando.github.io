@@ -241,6 +241,7 @@ func containsIgnoreCase(s, substr string) bool {
     )
 }
 ```
+Reste à implémenter les usecases et les endpoints HTTP !
 
 
 ```
