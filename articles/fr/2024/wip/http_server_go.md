@@ -73,17 +73,17 @@ Ouvrez le fichier `cmd/http_server/main.go` et collez-y le code suivant :
 package main
 
 import (
-	"net/http"
+    "net/http"
 
-	"github.com/gin-gonic/gin"
+    "github.com/gin-gonic/gin"
 )
 
 func main() {
-	r := gin.Default()
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Hello, world!")
-	})
-	r.Run()
+    r := gin.Default()
+    r.GET("/", func(c *gin.Context) {
+        c.String(http.StatusOK, "Hello, world!")
+    })
+    r.Run()
 }
 ```
 À présent, si vous exécutez la commande `go run cmd/http_server/main.go` et que vous vous rendez sur `http://localhost:8080/`, vous verrez un (magnifique) texte s'afficher à l'écran.
