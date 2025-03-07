@@ -6,6 +6,8 @@
 
 ### Sommaire
 * [Introduction](#introduction)
+* [Une syntaxe simple](#syntax)
+* [Un système de dépendances puissant](#dependencies)
 * [Des tas d'applications](#applications)
 * [Un langage statiquement typé](#typed-lang)
 * [Un langage compilé](#compiled-lang)
@@ -17,7 +19,15 @@
 
 ---
 
-## <a name="introduction">Des tas d'applications</a>
+## <a name="syntax">Une syntaxe simple</a>
+
+---
+
+## <a name="dependencies">Un système de dépendances puissant</a>
+
+---
+
+## <a name="applications">Des tas d'applications</a>
 
 - CLI
 - Web API
