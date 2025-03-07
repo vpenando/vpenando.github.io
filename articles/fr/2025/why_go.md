@@ -6,6 +6,7 @@
 
 ### Sommaire
 * [Introduction](#introduction)
+* [Des tas d'applications](#applications)
 * [Un langage statiquement typé](#typed-lang)
 * [Un langage compilé](#compiled-lang)
 * [Conclusion](#conclusion)
@@ -13,6 +14,14 @@
 ---
 
 ## <a name="introduction">Introduction</a>
+
+---
+
+## <a name="introduction">Des tas d'applications</a>
+
+- CLI
+- Web API
+- Embedded
 
 ---
 
