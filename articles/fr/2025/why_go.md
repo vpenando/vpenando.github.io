@@ -45,3 +45,7 @@
 - Zéro dépendance
 - Compilation très rapide
 - Compilation cross-archi
+
+---
+
+## <a name="conclusion">Conclusion</a>
