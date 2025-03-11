@@ -60,6 +60,19 @@ Enfin, qui dit compilation dit vérifications (notamment des types) au *compile 
 
 ### <a name="typed-lang">Un langage statiquement typé</a>
 
+Go est *-si l'on oublie `any`-* statiquement et fortement typé : cela signifie qu'une variable n'a qu'un et un seul type, et que des conversions implicites ne sont pas permises.
+
+Par exemple, le code suivant :
+```go
+var x int = 42
+var y float64 = 10
+y = x
+```
+provoquera l'erreur suivante :
+```cmd
+cannot use x (variable of type int) as float64 value in assignment
+```
+
 ---
 
 ### <a name="dependencies">Un système de dépendances puissant</a>
