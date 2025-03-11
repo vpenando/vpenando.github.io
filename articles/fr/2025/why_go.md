@@ -33,6 +33,7 @@ Sa syntaxe volontairement simpliste permet une transition et une montée en comp
 Il est ainsi très facile de comprendre une codebase existante, et de vite devenir productif sur un projet !
 
 Par ailleurs, [le nombre de mots-clés du langage](https://go.dev/ref/spec#Keywords) contribue à une prise en main très rapide, car ils existent pour la plupart déjà dans les langages les plus courants.
+Quant à la visibilité des types, variables et fonctions, [elle est simplement déterminée par le premier caractère](https://go.dev/doc/effective_go#names).
 
 ---
 
