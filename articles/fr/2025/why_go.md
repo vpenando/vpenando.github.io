@@ -17,9 +17,16 @@
 
 ## <a name="introduction">Introduction</a>
 
+Parmi les différents langages de programmation existant, certains se démarquent d'une manière ou d'une autre : élégance, performances, tooling... il y aura toujours un langage adapté à vos besoins (et à vos goûts).
+L'un de ces langages combine selon moi tous ces avantages, et comme vous l'avez lu dans le titre, je veux bien évidemment parler de Go.
+
+Cet article ne se veut pas être un tutoriel sur le Go, mais plutôt une liste non exhaustive et non ordonnée des intérêts qu'il présente.
+
 ---
 
 ## <a name="syntax">Une syntaxe simple</a>
+
+
 
 ---
 
