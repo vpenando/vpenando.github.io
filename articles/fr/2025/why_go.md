@@ -66,7 +66,7 @@ Go est *-si l'on oublie `any`-* statiquement et fortement typé : cela signifie 
 Par exemple, le code suivant :
 ```go
 var x int = 42
-var y float64 = 10
+var y float64 = 12.3
 y = x
 ```
 provoquera l'erreur de compilation suivante :
