@@ -21,7 +21,7 @@ Parmi les différents langages de programmation existant, certains se démarquen
 
 L'un de ces langages combine selon moi tous ces avantages, et comme vous l'avez lu dans le titre, je veux bien évidemment parler de Go.
 
-Cet article ne se veut pas être un tutoriel sur le Go, mais plutôt une liste non exhaustive et non ordonnée des intérêts qu'il présente.
+Cet article ne se veut pas être un tutoriel, mais plutôt une liste non exhaustive et non ordonnée des intérêts qu'il présente.
 
 ---
 
