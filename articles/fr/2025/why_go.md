@@ -26,7 +26,19 @@ Cet article ne se veut pas être un tutoriel sur le Go, mais plutôt une liste n
 
 ## <a name="syntax">Une syntaxe simple</a>
 
+Go se veut être un langage sur lequel *n'importe qui* peut monter en compétence rapidement.
+Il est très facile de comprendre une codebase existante, ainsi on devient vite productif sur un projet.
 
+Sa syntaxe somme toute simpliste et proche de JS permet une transition et une montée en compétences très rapide.
+
+---
+
+## <a name="compiled-lang">Un langage compilé</a>
+
+- Compilé en natif
+- Zéro dépendance
+- Compilation très rapide
+- Compilation cross-archi
 
 ---
 
@@ -43,15 +55,6 @@ Cet article ne se veut pas être un tutoriel sur le Go, mais plutôt une liste n
 ---
 
 ## <a name="typed-lang">Un langage statiquement typé</a>
-
----
-
-## <a name="compiled-lang">Un langage compilé</a>
-
-- Compilé en natif
-- Zéro dépendance
-- Compilation très rapide
-- Compilation cross-archi
 
 ---
 
