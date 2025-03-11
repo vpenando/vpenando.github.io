@@ -40,7 +40,7 @@ Quant à la visibilité des types, variables et fonctions, [elle est simplement 
 ### <a name="compiled-lang">Un langage compilé</a>
 
 En effet, Go a beau ressembler à un langage de script, il est compilé !
-Pas d'interpréteur, de JVM ou autre diablerie, le code est compilé et, cerise sur le gâteau, **en natif** !
+Pas d'interpréteur, de VM (JVM, .NET...) ou autre diablerie, le code est compilé et, cerise sur le gâteau, **en natif** !
 En résultent de hautes performances, presque comparables à du C++, mais sans le bruit et la complexité.
 
 Et surtout, contrairement à C, C++ ou encore Rust, la compilation d'un code Go est **presque instantanée**.
