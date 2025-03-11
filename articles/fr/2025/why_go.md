@@ -34,14 +34,19 @@ Il est en effet très facile de comprendre une codebase existante, et ainsi de v
 
 Par ailleurs, [le nombre de mots-clés du langage](https://go.dev/ref/spec#Keywords) contribue à une prise en main très rapide, car ils existent pour la plupart déjà dans les langages les plus courants.
 
-
-
 ---
 
 ## <a name="compiled-lang">Un langage compilé</a>
 
-En effet, Go a beau ressembler à un langage de script, il est compilé, et en natif s'il vous plait !
-Par ailleurs *-sauf cas particuliers-* tout code Go compilé embarque toutes les dépendances dont il a besoin ; ce qui signifie que le binaire compilé n'a besoin d'aucune DLL pour fonctionner !
+En effet, Go a beau ressembler à un langage de script, il est compilé !
+Pas d'interpréteur, de JVM ou autre diablerie, le code est compilé et, cerise sur le gâteau, **en natif** !
+En résultent de hautes performances, presque comparable à du C++, sans le bruit et la complexité du langage.
+
+Et surtout, contrairement à C, C++ ou encore Rust, la compilation d'un code Go est **presque instantanée**.
+Cela est notamment dû à sa syntaxe, que nous avons évoquée plus haut.
+
+
+Par ailleurs *-sauf cas particuliers-* tout programme écrit en Go embarque toutes les dépendances dont il a besoin ; ce qui signifie que le binaire compilé n'a besoin d'aucune DLL pour fonctionner !
 
 
 
