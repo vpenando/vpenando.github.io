@@ -82,7 +82,7 @@ type UserID uuid.UUID
 
 type BankAccountID uuid.UUID
 ```
-Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables car sont bel et bien des types différents.
+Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables entre eux car sont bel et bien des types différents.
 
 ---
 
