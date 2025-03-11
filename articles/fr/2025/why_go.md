@@ -73,6 +73,7 @@ provoquera l'erreur de compilation suivante :
 ```
 cannot use x (variable of type int) as float64 value in assignment
 ```
+Ainsi, pas de risque de conversions implicites involontaires !
 
 Et il est possible de profiter de cette force pour créer des **alias fortement typés**, comme par exemple des "strongly-typed IDs" :
 ```go
