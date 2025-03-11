@@ -74,6 +74,16 @@ provoquera l'erreur de compilation suivante :
 cannot use x (variable of type int) as float64 value in assignment
 ```
 
+Et il est possible de profiter de cette force pour créer des **alias fortement typés**, par exemple des strongly-typed IDs :
+```go
+import "github.com/google/uuid"
+
+type UserID uuid.UUID
+
+type BankAccountID uuid.UUID
+```
+Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables car sont bel et bien des types différents.
+
 ---
 
 ### <a name="dependencies">Un système de dépendances puissant</a>
