@@ -47,16 +47,14 @@ Cela est notamment dû à sa syntaxe, que nous avons évoquée plus haut.
 
 Par ailleurs *-sauf cas particuliers-* tout programme écrit en Go embarque toutes les dépendances dont il a besoin ; ce qui signifie que le binaire compilé n'a besoin d'aucune DLL pour fonctionner !
 
-Enfin, il est possible de **compiler pour une architecture différente que celle de la machine courante** : par exemple, vous pouvez aisément depuis Windows créer un exécutable à destination d'une machine tournant sur Linux, par exemple !
-Le tout tient en une seule ligne :
+Enfin, il est possible de **compiler pour une architecture différente de celle de la machine courante** : par exemple, vous pouvez aisément depuis Windows créer un exécutable à destination d'une machine tournant sur Linux, par exemple !
+
+Et en plus, le tout tient en une seule ligne de commande :
 ```cmd
 env GOOS=linux GOARCH=arm64 go build
 ```
 
-- Compilé en natif
-- Zéro dépendance
-- Compilation très rapide
-- Compilation cross-archi
+Enfin, qui dit compilation dit vérifications (notamment des types) au *compile time*, et donc un traitement en moins au moment de l'exécution.
 
 ---
 
