@@ -74,7 +74,7 @@ provoquera l'erreur de compilation suivante :
 cannot use x (variable of type int) as float64 value in assignment
 ```
 
-Et il est possible de profiter de cette force pour créer des **alias fortement typés**, par exemple des strongly-typed IDs :
+Et il est possible de profiter de cette force pour créer des **alias fortement typés**, comme par exemple des "strongly-typed IDs" :
 ```go
 import "github.com/google/uuid"
 
