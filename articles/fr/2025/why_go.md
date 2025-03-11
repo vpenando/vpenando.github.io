@@ -68,8 +68,8 @@ var x int = 42
 var y float64 = 10
 y = x
 ```
-provoquera l'erreur suivante :
-```cmd
+provoquera l'erreur de compilation suivante :
+```
 cannot use x (variable of type int) as float64 value in assignment
 ```
 
