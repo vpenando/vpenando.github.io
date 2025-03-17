@@ -17,11 +17,11 @@
 
 ### <a name="introduction">Introduction</a>
 
-Parmi les différents langages de programmation existant, certains se démarquent d'une manière ou d'une autre : élégance, performances, tooling... il y aura toujours un langage adapté à vos besoins (et à vos goûts).
+Parmi les différents langages de programmation existant, certains se démarquent d'une manière ou d'une autre : élégance, performances, tooling... il y aura toujours un langage adapté à vos besoins et à vos goûts.
 
 L'un de ces langages combine selon moi tous ces avantages, et comme vous l'avez lu dans le titre, je veux bien évidemment parler de Go.
 
-Cet article ne se veut pas être un tutoriel, mais plutôt une liste non exhaustive et non ordonnée des intérêts qu'il présente.
+Cet article ne se veut pas être un tutoriel, mais plutôt une liste non exhaustive et non ordonnée des intérêts qu'il présente, et de pourquoi ce langage peut vous intéresser vous aussi.
 
 ---
 
