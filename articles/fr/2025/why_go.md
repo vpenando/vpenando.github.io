@@ -84,11 +84,16 @@ type UserID uuid.UUID
 
 type BankAccountID uuid.UUID
 ```
-Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables entre eux car ce sont bel et bien des types différents.
+Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables entre eux car ce sont bel et bien des types *différents*.
 
 ---
 
 ### <a name="dependencies">Un système de dépendances puissant</a>
+
+Dans tout programme d'un minimum d'envergure, il est nécessaire d'avoir des dépendances tierces ; que ce soit des [UUID](github.com/google/uuid), [un système de tests expressifs](github.com/stretchr/testify/assert) ou autre, installer des dépendances est on ne peut plus simple via la commande [`go get`](https://pkg.go.dev/cmd/go#hdr-Add_dependencies_to_current_module_and_install_them) :
+```
+go get <dépendance-1> <dépendance-2>
+```
 
 ---
 
