@@ -93,8 +93,8 @@ Ici, les deux types sont des alias de `uuid.UUID`, mais ne sont pas comparables 
 Dans tout programme d'un minimum d'envergure, il est nécessaire d'avoir des dépendances tierces.
 Or, dans certains langages (coucou aux amateurs de C++), installer des dépendances est juste horrible quand on n'a pas l'habitude.
 Qu'il s'agisse d'[UUID](https://github.com/google/uuid), [un système de tests expressifs](https://github.com/stretchr/testify/assert) ou autre, installer des dépendances en Go est on ne peut plus simple via la commande [`go get`](https://pkg.go.dev/cmd/go#hdr-Add_dependencies_to_current_module_and_install_them) :
-```
-go get <dépendance-1> <dépendance-2>
+```cmd
+go get github.com/google/uuid
 ```
 Par ailleurs, toute dépendance installée en Go est sous forme de code source, et non d'un fichier compilé opaque ; or, c'est un avantage non négligeable de pouvoir examiner le code source d'un package quand celui-ci n'est pas suffisamment documenté, et je parle en connaissance de cause !
 Et, comme dit plus haut, la syntaxe très sobre de Go fait qu'il n'y a aucune difficulté à se plonger dans une codebase tierce.
