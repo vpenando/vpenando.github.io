@@ -45,7 +45,7 @@ En résultent de hautes performances, presque comparables à du C++, mais sans l
 
 Et surtout, contrairement à C, C++ ou encore Rust, la compilation d'un code Go est **presque instantanée**.
 Cela est notamment dû à sa syntaxe, que nous avons évoquée plus haut.
-Sa compilation est tellement rapide que certains l'utilisent comme langage de script, via la commande `go run`.
+Sa compilation est tellement rapide que certains l'utilisent comme langage de script, via la commande [`go run`](https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program).
 
 Par ailleurs *-sauf cas particuliers-* tout programme écrit en Go embarque toutes les dépendances dont il a besoin ; ce qui signifie que le binaire compilé n'a besoin d'aucune DLL pour fonctionner !
 
