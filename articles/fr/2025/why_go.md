@@ -96,7 +96,7 @@ Qu'il s'agisse d'[UUID](https://github.com/google/uuid), [un système de tests e
 ```
 go get <dépendance-1> <dépendance-2>
 ```
-Par ailleurs, toute dépendance installée en Go est sous forme de code source, et non d'un fichier compilé opaque ; or, c'est un avantage non négligeable de pouvoir examiner le code source d'un package tiers quand celui-ci n'est pas suffisamment documenté, et je parle en connaissance de cause !
+Par ailleurs, toute dépendance installée en Go est sous forme de code source, et non d'un fichier compilé opaque ; or, c'est un avantage non négligeable de pouvoir examiner le code source d'un package quand celui-ci n'est pas suffisamment documenté, et je parle en connaissance de cause !
 Et, comme dit plus haut, la syntaxe très sobre de Go fait qu'il n'y a aucune difficulté à se plonger dans une codebase tierce.
 
 ---
